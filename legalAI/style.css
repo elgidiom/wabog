@@ -51,6 +51,8 @@ body {
 
 .hero-content img {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-content img:hover {
@@ -58,7 +60,7 @@ body {
   box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
 }
 
-.hero-content::after {
+.hero-content img::after {
   content: "";
   position: absolute;
   top: 50%;
