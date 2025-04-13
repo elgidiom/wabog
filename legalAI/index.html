@@ -4,39 +4,91 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>LegalAI - Soluciones de AI para abogados</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <!-- Incluir Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Incluir Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-      header {
-        background: url('background.jpg') no-repeat center center;
-        background-size: cover;
+      body {
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(135deg, #0d6efd, #6610f2);
+        color: #fff;
+      }
+      .navbar {
+        background: transparent !important;
+      }
+      .hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 0;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+      .btn-whatsapp {
+        background-color: #25D366;
+        border: none;
+        transition: transform 0.3s, background-color 0.3s;
+      }
+      .btn-whatsapp:hover {
+        transform: scale(1.1);
+        background-color: #1da851;
+      }
+      footer {
+        background: rgba(0, 0, 0, 0.3);
       }
     </style>
   </head>
   <body>
-    <nav class="navbar navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="#">LegalAI</a>
+        <a class="navbar-brand fw-bold" href="#">LegalAI</a>
       </div>
     </nav>
 
-    <header class="text-white text-center py-5">
-      <div class="container">
-        <h1 class="display-4">Bienvenido a LegalAI</h1>
-        <p class="lead">Innovación y tecnología al servicio del derecho</p>
-        <a href="https://wa.me/1234567890" target="_blank" class="btn btn-success btn-lg">
-          Contacta vía WhatsApp
-        </a>
-      </div>
-    </header>
-
-    <section class="py-5">
-      <div class="container">
-        <h2>¿Por qué LegalAI?</h2>
-        <p>Ofrecemos soluciones de Inteligencia Artificial para optimizar procesos legales, análisis de documentos y gestión de casos.</p>
+    <section class="hero">
+      <div class="hero-content container">
+        <h1 class="display-3 fw-bold">LegalAI</h1>
+        <p class="lead mb-4">La inteligencia artificial que transforma la práctica legal</p>
+        <a href="https://wa.me/1234567890" target="_blank" class="btn btn-whatsapp btn-lg">Contacta vía WhatsApp</a>
       </div>
     </section>
 
-    <footer class="bg-light text-center py-3">
+    <section class="py-5">
+      <div class="container">
+        <div class="row text-center">
+          <div class="col-md-4 mb-4">
+            <h3 class="fw-bold">Innovación</h3>
+            <p>Implementamos tecnologías de vanguardia en IA para revolucionar el ámbito legal.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h3 class="fw-bold">Eficiencia</h3>
+            <p>Optimiza tus procesos y reduce tiempos en la administración de casos.</p>
+          </div>
+          <div class="col-md-4 mb-4">
+            <h3 class="fw-bold">Confianza</h3>
+            <p>Asesoría respaldada por tecnología moderna y segura para profesionales del derecho.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="text-center py-3">
       <div class="container">
         <p>&copy; 2025 LegalAI. Todos los derechos reservados.</p>
       </div>
