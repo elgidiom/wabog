@@ -1,11 +1,12 @@
 /* CSS externalizado desde index.html */
 body {
   font-family: 'Roboto', sans-serif;
-  background: #0d0d0d;
+  background: linear-gradient(135deg, #34abdb, #4280c7, #2a3a9f, #6d47b7);
+  animation: gradientAnimation 15s ease infinite;
   color: #e0e0e0;
   margin: 0;
   padding: 0;
-  background-size: cover;
+  background-size: 400% 400%;
 }
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
