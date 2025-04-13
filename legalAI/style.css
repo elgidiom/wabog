@@ -1,0 +1,67 @@
+/* CSS externalizado desde index.html */
+body {
+  font-family: 'Roboto', sans-serif;
+  background: linear-gradient(135deg, #34abdb, #4280c7, #2a3a9f, #6d47b7);
+  animation: gradientAnimation 15s ease infinite;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  background-size: 400% 400%;
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.navbar {
+  background: rgba(0, 0, 0, 0.5) !important;
+  padding: 1rem;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+  animation: fadeInMove 5s ease-out;
+}
+@keyframes fadeInMove {
+  from { opacity: 0; transform: scale(1.2); }
+  to { opacity: 1; transform: scale(1); }
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+.btn-whatsapp {
+  background-color: #34abdb;
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.btn-whatsapp:hover {
+  transform: scale(1.05);
+  background-color: #4280c7;
+}
+section {
+  padding: 4rem 0;
+}
+footer {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 1rem 0;
+}
