@@ -73,6 +73,18 @@ body {
   z-index: -1;
   animation: pulse 2s infinite;
 }
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(0, 255, 204, 0.3), transparent);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  animation: pulse 2s infinite;
+}
 
 @keyframes pulse {
   0%, 100% {
