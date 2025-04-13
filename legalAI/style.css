@@ -79,6 +79,31 @@ body {
 section {
   padding: 4rem 0;
 }
+
+.contact input, .contact textarea {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid #00ffcc;
+  color: #e0e0e0;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.contact input::placeholder, .contact textarea::placeholder {
+  color: #b0b0b0;
+}
+
+.contact button {
+  background-color: #00ffcc;
+  border: none;
+  color: #0d0d0d;
+  transition: background-color 0.3s ease;
+}
+
+.contact button:hover {
+  background-color: #34abdb;
+}
 .card.bg-dark {
   background-color: rgba(20, 20, 20, 0.9);
   color: #e0e0e0;
