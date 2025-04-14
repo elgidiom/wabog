@@ -62,6 +62,8 @@ body {
 /* Servicios */
 .services {
   padding: 80px 0;
+  max-width: 1020px;
+  margin: 0 auto;
 }
 
 .card {
