@@ -83,6 +83,7 @@ body {
 
 .card-title {
   color: #ffffff;
+  margin-bottom: 10px; /* Espacio entre el título y el contenido */
 }
 
 .card-text {
