@@ -78,6 +78,7 @@ body {
 }
 section {
   padding: 4rem 0;
+  background: linear-gradient(135deg, #34abdb, #5aa0e0, #3a4abf, #7d57d7);
 }
 
 .contact input, .contact textarea {
@@ -105,8 +106,8 @@ section {
   background-color: #34abdb;
 }
 .card.bg-dark {
-  background-color: rgba(20, 20, 20, 0.9);
-  color: #e0e0e0;
+  background-color: rgba(40, 40, 60, 0.8);
+  color: #d0d0d0;
   border-radius: 20px;
   padding: 30px;
   transition: transform 0.4s, box-shadow 0.4s;
@@ -114,7 +115,7 @@ section {
   max-width: 80%;
   margin: 0 auto 20px;
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
+  box-shadow: 0 0 15px rgba(0, 150, 200, 0.5);
 }
 .card.bg-dark:hover {
   transform: translateY(-10px);
