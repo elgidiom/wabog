@@ -6,7 +6,7 @@ body {
   color: #e0e0e0;
   margin: 0;
   padding: 0;
-  background-size: 400% 400%;
+  background-size: 200% 200%;
 }
 @keyframes gradientAnimation {
   0% { background-position: 0% 50%; }
