@@ -1,143 +1,132 @@
-/* Estilo base */
+/* Fondo animado oscuro y moderno */
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #0a0f2c, #1f294d, #2e3e5c);
-  background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite;
-  color: #e0e0e0;
+  background: linear-gradient(135deg, #0a0f1c, #1e293b, #0f172a, #334155);
+  background-size: 400% 400%;
+  animation: gradientBG 20s ease infinite;
+  color: #ffffff;
   margin: 0;
   padding: 0;
 }
 
-@keyframes gradientAnimation {
+@keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
+/* Navbar */
 .navbar {
-  background: rgba(0, 0, 0, 0.5) !important;
-  padding: 1rem;
+  background-color: rgba(10, 15, 28, 0.9);
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.15);
 }
 
 .navbar-brand {
-  color: #fff !important;
+  font-size: 1.8rem;
+  color: #00ffcc !important;
 }
 
+/* Hero */
 .hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  text-align: center;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 0;
-  animation: fadeInMove 5s ease-out;
-}
-
-@keyframes fadeInMove {
-  from { opacity: 0; transform: scale(1.2); }
-  to { opacity: 1; transform: scale(1); }
+  min-height: 100vh;
+  padding: 60px 0;
+  background: transparent;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 1;
+  text-align: center;
 }
 
-.hero-content img {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  z-index: 1;
+.hero p.lead {
+  color: #cbd5e1;
+  font-size: 1.25rem;
 }
 
-.hero-content img:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
-}
-
-/* Botones con brillo suavizado */
+/* Botón WhatsApp con efecto neon */
 .btn-whatsapp {
-  background-color: #009688;
-  color: #fff;
+  background-color: #00ffcc;
+  color: #000;
   border: none;
   border-radius: 50px;
   padding: 12px 24px;
   font-weight: bold;
-  box-shadow: 0 0 6px #009688, 0 0 12px #009688;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
   transition: all 0.3s ease-in-out;
 }
 
 .btn-whatsapp:hover {
-  background-color: #00796b;
-  box-shadow: 0 0 10px #00796b, 0 0 20px #00796b;
+  background-color: #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+/* Servicios */
+.services {
+  padding: 80px 0;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
+}
+
+.card-title {
+  color: #ffffff;
+}
+
+.card-text {
+  color: #cbd5e1;
+}
+
+/* Formulario de contacto */
+.contact {
+  padding: 80px 0;
+}
+
+.contact h2 {
+  color: #00ffcc;
+}
+
+form .form-control {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  border-radius: 10px;
+}
+
+form .form-control:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px #00ffcc;
+  background-color: rgba(255, 255, 255, 0.07);
 }
 
 .btn-primary {
-  background-color: #009688;
+  background-color: #00ffcc;
   border: none;
-  color: #fff;
+  color: #000;
   border-radius: 30px;
   font-weight: bold;
   padding: 10px 30px;
-  box-shadow: 0 0 6px #009688, 0 0 12px #009688;
-  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
 .btn-primary:hover {
-  background-color: #00796b;
-  box-shadow: 0 0 10px #00796b, 0 0 20px #00796b;
+  background-color: #0ff;
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
 }
 
-/* Secciones */
-section {
-  padding: 4rem 0;
-  background: transparent;
-}
-
-/* Contacto */
-.contact input, .contact textarea {
-  background-color: rgba(255, 255, 255, 0.07);
-  border: 1px solid #00d6b2;
-  color: #ffffff;
-  border-radius: 6px;
-  padding: 12px 16px;
-  margin-bottom: 15px;
-  width: 100%;
-  backdrop-filter: blur(4px);
-}
-
-.contact input::placeholder, .contact textarea::placeholder {
-  color: #cccccc;
-  font-weight: 300;
-}
-
-/* Cards de servicios */
-.card.bg-dark {
-  background-color: rgba(25, 30, 60, 0.85);
-  color: #d0d0d0;
-  border-radius: 20px;
-  padding: 30px;
-  transition: transform 0.4s, box-shadow 0.4s;
-  min-height: 250px;
-  max-width: 80%;
-  margin: 0 auto 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px rgba(0, 150, 200, 0.3);
-}
-
-.card.bg-dark:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+/* Footer */
+footer {
+  padding: 20px 0;
+  text-align: center;
+  color: #94a3b8;
+  background-color: rgba(0, 0, 0, 0.3);
 }
