@@ -111,6 +111,8 @@ section {
   padding: 30px;
   transition: transform 0.4s, box-shadow 0.4s;
   min-height: 250px;
+  max-width: 80%;
+  margin: 0 auto 20px;
   backdrop-filter: blur(10px);
   box-shadow: 0 0 15px rgba(0, 255, 204, 0.5);
 }
