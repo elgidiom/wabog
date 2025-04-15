@@ -29,17 +29,17 @@ body.light-mode .hero p.lead {
 }
 
 body.light-mode .card {
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f8f9fa; /* Fondo claro y suave */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 body.light-mode .card-title {
-  color: #000000;
+  color: #212529; /* Color de texto más oscuro para mejor legibilidad */
 }
 
 body.light-mode .card-text {
-  color: #333333;
+  color: #495057; /* Color de texto más suave */
 }
 
 body.light-mode .contact h2 {
