@@ -29,8 +29,8 @@ body.light-mode .navbar {
   box-shadow: none;
 }
 
-body.light-mode .navbar-brand {
-  color: #000000 !important;
+body.light-mode .navbar-brand, body.light-mode .nav-link {
+  color: #212529 !important; /* Color oscuro para el texto en modo claro */
 }
 
 body.light-mode .hero p.lead {
@@ -90,7 +90,7 @@ body.light-mode footer {
 
 .navbar-brand, .nav-link {
   font-size: 1.8rem;
-  color: #00ffcc !important;
+  color: #ffffff !important; /* Color blanco para el texto en modo oscuro */
 }
 
 /* Hero */
