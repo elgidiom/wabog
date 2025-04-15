@@ -88,7 +88,7 @@ body.light-mode footer {
   z-index: 1000;
 }
 
-.navbar-brand {
+.navbar-brand, .nav-link {
   font-size: 1.8rem;
   color: #00ffcc !important;
 }
