@@ -70,8 +70,8 @@ body.light-mode footer {
 
 /* Navbar */
 .navbar {
-  background-color: rgba(10, 15, 28, 0.9);
-  box-shadow: 0 0 10px rgba(0, 255, 204, 0.15);
+  background-color: transparent; /* Mismo color de fondo que el resto */
+  box-shadow: none;
 }
 
 .navbar-brand {
