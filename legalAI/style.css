@@ -20,7 +20,7 @@ body {
 
 /* Modo claro */
 body.light-mode {
-  background: linear-gradient(135deg, #ffffff, #f0f0f0, #e0e0e0, #d0d0d0);
+  background: #f8f9fa; /* Fondo uniforme y claro */
   color: #000000;
 }
 
@@ -37,9 +37,9 @@ body.light-mode .hero p.lead {
   color: #333333;
 }
 body.light-mode .card {
-  background: #f8f9fa; /* fondo gris claro, no blanco puro */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  background: #f8f9fa; /* Mismo color que el fondo */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil hacia abajo */
+  border: none; /* Sin borde para un look más limpio */
 }
 
 body.light-mode .card-title {
