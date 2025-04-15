@@ -82,7 +82,7 @@ body.light-mode footer {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: rgba(10, 15, 28, 0.6); /* Ajustar opacidad para mejor mezcla */
+  /* background-color: rgba(10, 15, 28, 0.6); /\* Ajustar opacidad para mejor mezcla *\/ */
   backdrop-filter: blur(10px);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
   z-index: 1000;
