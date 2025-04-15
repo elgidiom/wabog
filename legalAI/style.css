@@ -89,7 +89,7 @@ body.light-mode footer {
 }
 
 .navbar-brand, .nav-link {
-  font-size: 1.8rem;
+  font-size: 1.2rem; /* Reducir el tamaño de la fuente para un diseño más limpio */
   color: #ffffff !important; /* Color blanco para el texto en modo oscuro */
 }
 
