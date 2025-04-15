@@ -14,7 +14,7 @@ body {
 }
 
 .feature-icon {
-  width: 100px;
+  width: 80px; /* Reducir el tamaño del icono */
   height: auto;
 }
 
