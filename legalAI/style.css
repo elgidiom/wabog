@@ -9,6 +9,15 @@ body {
   padding: 0;
 }
 
+.icon-container {
+  text-align: center;
+}
+
+.feature-icon {
+  width: 100px;
+  height: auto;
+}
+
 /* Modo claro */
 body.light-mode {
   background: linear-gradient(135deg, #ffffff, #f0f0f0, #e0e0e0, #d0d0d0);
