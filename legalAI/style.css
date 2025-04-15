@@ -16,8 +16,8 @@ body.light-mode {
 }
 
 body.light-mode .navbar {
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  background-color: transparent; /* Mismo color de fondo que el resto */
+  box-shadow: none;
 }
 
 body.light-mode .navbar-brand {
