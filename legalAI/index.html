@@ -25,7 +25,7 @@
       <div class="container">
         <a class="navbar-brand fw-bold" href="#">LegalAI</a>
         <button id="theme-toggle" class="btn btn-outline-light ms-auto">
-          <span id="theme-icon" class="bi bi-brightness-high"></span>
+          <span id="theme-icon" class="bi bi-sun"></span>
         </button>
       </div>
     </nav>
@@ -107,9 +107,9 @@
       themeToggle.addEventListener('click', () => {
         body.classList.toggle('light-mode');
         if (body.classList.contains('light-mode')) {
-          themeIcon.classList.replace('bi-brightness-high', 'bi-moon');
+          themeIcon.classList.replace('bi-sun', 'bi-moon');
         } else {
-          themeIcon.classList.replace('bi-moon', 'bi-brightness-high');
+          themeIcon.classList.replace('bi-moon', 'bi-sun');
         }
       });
     </script>
