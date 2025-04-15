@@ -9,6 +9,60 @@ body {
   padding: 0;
 }
 
+/* Modo claro */
+body.light-mode {
+  background: linear-gradient(135deg, #ffffff, #f0f0f0, #e0e0e0, #d0d0d0);
+  color: #000000;
+}
+
+body.light-mode .navbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .navbar-brand {
+  color: #000000 !important;
+}
+
+body.light-mode .hero p.lead {
+  color: #333333;
+}
+
+body.light-mode .card {
+  background: rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .card-title {
+  color: #000000;
+}
+
+body.light-mode .card-text {
+  color: #333333;
+}
+
+body.light-mode .contact h2 {
+  color: #000000;
+}
+
+body.light-mode form .form-control {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+body.light-mode form .form-control:focus {
+  border-color: #00897b;
+  box-shadow: 0 0 5px #00897b;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+body.light-mode footer {
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
