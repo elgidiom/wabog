@@ -43,7 +43,7 @@ body.light-mode .card {
 }
 
 body.light-mode .card-title {
-  color: #212529; /* gris oscuro, mejora el contraste */
+  color: #343a40; /* Color más suave para los iconos */
 }
 
 body.light-mode .card-text {
