@@ -27,19 +27,18 @@ body.light-mode .navbar-brand {
 body.light-mode .hero p.lead {
   color: #333333;
 }
-
 body.light-mode .card {
-  background: #ffffff; /* Fondo blanco para mayor claridad */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  background: #f8f9fa; /* fondo gris claro, no blanco puro */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 body.light-mode .card-title {
-  color: #333333; /* Color de texto más oscuro para mejor contraste */
+  color: #212529; /* gris oscuro, mejora el contraste */
 }
 
 body.light-mode .card-text {
-  color: #666666; /* Color de texto más suave para armonía */
+  color: #495057; /* gris medio, más legible que #666 */
 }
 
 body.light-mode .contact h2 {
