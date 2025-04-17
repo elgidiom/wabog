@@ -1,4 +1,6 @@
-/* Fondo animado oscuro y moderno */
+/* -------------------------------------
+   FUENTE Y FONDO GENERAL
+------------------------------------- */
 body {
   font-family: 'Roboto', sans-serif;
   background: #000;
@@ -9,96 +11,51 @@ body {
   padding: 0;
 }
 
-.icon-container {
-  text-align: center;
-}
-
-.feature-icon {
-  width: 80px; /* Reducir el tamaño del icono */
-  height: auto;
-}
-
-/* Modo claro */
 body.light-mode {
-  background: #f8f9fa; /* Fondo uniforme y claro */
+  background: #f8f9fa;
   color: #000000;
 }
 
-body.light-mode .navbar {
-  background-color: transparent; /* Mismo color de fondo que el resto */
-  box-shadow: none;
-}
-
-body.light-mode .navbar-brand, body.light-mode .nav-link {
-  color: #212529 !important; /* Color oscuro para el texto en modo claro */
-}
-
-body.light-mode .hero p.lead {
-  color: #333333;
-}
-body.light-mode .services {
-  background: #ffffff;
-  color: #000000;
-}
-
-body.light-mode .card {
-  background: #f8f9fa; /* Mismo color que el fondo */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil hacia abajo */
-  border: none; /* Sin borde para un look más limpio */
-}
-
-body.light-mode .card-title {
-  color: #343a40; /* Color más suave para los iconos */
-}
-
-body.light-mode .card-text {
-  color: #495057; /* gris medio, más legible que #666 */
-}
-
-body.light-mode .contact h2 {
-  color: #000000;
-}
-
-body.light-mode form .form-control {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000000;
-}
-
-body.light-mode form .form-control:focus {
-  border-color: #00897b;
-  box-shadow: 0 0 5px #00897b;
-  background-color: rgba(0, 0, 0, 0.07);
-}
-
-body.light-mode footer {
-  color: #333333;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
+/* -------------------------------------
+   ANIMACIÓN DE FONDO
+------------------------------------- */
 @keyframes gradientBG {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-/* Navbar */
+/* -------------------------------------
+   NAVBAR
+------------------------------------- */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  /* background-color: rgba(10, 15, 28, 0.6); /\* Ajustar opacidad para mejor mezcla *\/ */
   backdrop-filter: blur(10px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* Sombra más pequeña */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 }
 
-.navbar-brand, .nav-link {
-  font-size: 1.2rem; /* Reducir el tamaño de la fuente para un diseño más limpio */
-  color: #ffffff !important; /* Color blanco para el texto en modo oscuro */
+.navbar-brand,
+.nav-link {
+  font-size: 1.2rem;
+  color: #ffffff !important;
 }
 
-/* Hero */
+body.light-mode .navbar {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+body.light-mode .navbar-brand,
+body.light-mode .nav-link {
+  color: #212529 !important;
+}
+
+/* -------------------------------------
+   SECCIÓN HERO
+------------------------------------- */
 .hero {
   min-height: 100vh;
   padding: 60px 0;
@@ -114,7 +71,13 @@ body.light-mode footer {
   font-size: 1.25rem;
 }
 
-/* Botón WhatsApp con efecto neon */
+body.light-mode .hero p.lead {
+  color: #333333;
+}
+
+/* -------------------------------------
+   BOTÓN WHATSAPP
+------------------------------------- */
 .btn-whatsapp {
   background-color: #00897b;
   color: #fff;
@@ -131,15 +94,24 @@ body.light-mode footer {
   box-shadow: 0 0 20px #00695c, 0 0 40px #00695c;
 }
 
-/* Servicios */
-.services {
-  padding: 80px 0;
-  max-width: 1020px;
+/* -------------------------------------
+   SECCIÓN SERVICIOS
+------------------------------------- */
+.services,
+.modern-services {
+  padding: 100px 0;
+  /* max-width: 1020px; */
   margin: 0 auto;
-  background: rgba(255, 255, 255, 0.1);
+  /* background: rgba(255, 255, 255, 0.1); */
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  color: #e0e0e0; /* Ajuste de color para mejor contraste */
+  color: #e0e0e0;
+}
+
+body.light-mode .services,
+body.light-mode .modern-services {
+  background: transparent;
+  color: #1f2937;
 }
 
 .card {
@@ -158,21 +130,80 @@ body.light-mode footer {
 }
 
 .card-title {
-  color: #00ffcc; /* Color más brillante para mejor visibilidad */
-  margin-bottom: 20px; /* Aumentar el espacio entre el título y el contenido */
+  color: #00ffcc;
+  margin-bottom: 20px;
 }
 
 .card-text {
-  color: #d1d5db; /* Ajuste de color para mejor legibilidad */
+  color: #d1d5db;
 }
 
-/* Formulario de contacto */
+body.light-mode .card {
+  background: #f8f9fa;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+body.light-mode .card-title {
+  color: #343a40;
+}
+
+body.light-mode .card-text {
+  color: #495057;
+}
+
+/* Títulos y textos dentro de la sección */
+.modern-services h2 {
+  font-weight: bold;
+}
+
+body.light-mode .modern-services h2 {
+  color: #1e293b;
+}
+
+.modern-services p.lead {
+  color: #94a3b8;
+}
+
+body.light-mode .modern-services p.lead {
+  color: #374151;
+}
+
+body.light-mode .modern-services ul li {
+  color: #1f2937;
+}
+
+/* -------------------------------------
+   ICONOS EN DIAGRAMA
+------------------------------------- */
+.circle-icon {
+  font-size: 2rem;
+  color: #00ffcc; /* Modo oscuro */
+}
+
+body.light-mode .circle-icon {
+  color: #00897b; /* Modo claro */
+}
+
+.diagram-box {
+  padding: 30px;
+  background: transparent;
+  border-radius: 15px;
+}
+
+/* -------------------------------------
+   FORMULARIO DE CONTACTO
+------------------------------------- */
 .contact {
   padding: 80px 0;
 }
 
 .contact h2 {
   color: #00ffcc;
+}
+
+body.light-mode .contact h2 {
+  color: #000000;
 }
 
 form .form-control {
@@ -188,6 +219,21 @@ form .form-control:focus {
   background-color: rgba(255, 255, 255, 0.07);
 }
 
+body.light-mode form .form-control {
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: #000000;
+}
+
+body.light-mode form .form-control:focus {
+  border-color: #00897b;
+  box-shadow: 0 0 5px #00897b;
+  background-color: rgba(0, 0, 0, 0.07);
+}
+
+/* -------------------------------------
+   BOTÓN PRIMARY
+------------------------------------- */
 .btn-primary {
   background-color: #00897b;
   border: none;
@@ -203,7 +249,9 @@ form .form-control:focus {
   box-shadow: 0 0 20px #00695c, 0 0 40px #00695c;
 }
 
-/* Footer */
+/* -------------------------------------
+   FOOTER
+------------------------------------- */
 footer {
   padding: 20px 0;
   text-align: center;
@@ -211,27 +259,19 @@ footer {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-/* Modo claro: Ajustes de texto para visibilidad */
-body.light-mode .modern-services .diagram-box {
-  color: #1e293b; /* Texto oscuro para fondo claro */
+body.light-mode footer {
+  color: #333333;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
-body.light-mode .circle-icon {
-  color: #0f172a; /* Ícono oscuro para fondo claro */
+/* -------------------------------------
+   ICONOS / CONTENEDORES
+------------------------------------- */
+.icon-container {
+  text-align: center;
 }
 
-body.light-mode .list-unstyled li {
-  color: #1e293b; /* Texto de lista oscuro */
-}
-
-body.light-mode .list-unstyled i.bi-check2-circle {
-  color: #16a34a; /* Verde visible en fondo claro */
-}
-
-/* Modo oscuro: ya están bien definidos */
-.modern-services .diagram-box,
-.list-unstyled li,
-.circle-icon,
-.list-unstyled i.bi-check2-circle {
-  color: #e0e0e0;
+.feature-icon {
+  width: 80px;
+  height: auto;
 }
