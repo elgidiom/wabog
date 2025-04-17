@@ -1,7 +1,7 @@
 /* Fondo animado oscuro y moderno */
 body {
   font-family: 'Roboto', sans-serif;
-  background: linear-gradient(135deg, #0a0f1c, #1e293b, #0f172a, #1c2833);
+  background: #000;
   background-size: 400% 400%;
   animation: gradientBG 20s ease infinite;
   color: #e0e0e0;
