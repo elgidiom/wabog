@@ -176,13 +176,23 @@ body.light-mode .modern-services ul li {
 /* -------------------------------------
    ICONOS EN DIAGRAMA
 ------------------------------------- */
+/* Color por defecto (modo oscuro) */
 .circle-icon {
-  font-size: 2rem;
-  color: #00ffcc; /* Modo oscuro */
+  /* background-color: #1e293b; */
+  border-radius: 50%;
+  color: #ffffff; /* Blanco en modo oscuro */
+  font-size: 24px;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
 }
 
+/* Color en modo claro */
 body.light-mode .circle-icon {
-  color: #00897b; /* Modo claro */
+  color: #4b5563; /* Gris oscuro para modo claro */
 }
 
 .diagram-box {
@@ -274,4 +284,88 @@ body.light-mode footer {
 .feature-icon {
   width: 80px;
   height: auto;
+}
+
+/* =========================================================
+   LÍNEA DE FLUJO CON DESTELLO ANIMADO
+===========================================================*/
+.flow-line{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  padding:40px 0;
+
+  /* Margen lateral usado también
+     por los pseudo‑elementos       */
+  --gap:30px;
+}
+
+/* ---------- Línea base estática ---------- */
+.flow-line::before{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:var(--gap);
+  right:var(--gap);
+  height:2px;
+  background:#1e293b;
+  transform:translateY(-50%);
+  z-index:0;           /* debajo de todo lo demás */
+}
+
+body.light-mode .flow-line::before{
+  background:#cbd5e1;
+}
+
+/* ---------- Destello que recorre la línea ---------- */
+.flow-line::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  left:var(--gap);               /* punto de partida           */
+  width:120px;                   /* ancho del pulso            */
+  height:2px;
+  background:linear-gradient(90deg,
+             transparent,
+             #00ffcc 40%,
+             #ff00cc 60%,
+             transparent);
+  transform:translateY(-50%);
+  animation:energyPulse 2s linear infinite;
+  z-index:1;                     /* sobre la línea, bajo iconos */
+}
+
+/* Recorre TODA la línea: de 30 px a
+   (100 % − 30 px − 120 px)          */
+@keyframes energyPulse{
+  0%   { left:var(--gap);                     opacity:0; }
+  5%   {                 /* empieza a verse */opacity:1; }
+  30%  { left:calc(100% - var(--gap) - 120px);opacity:1; }
+  35%  {                                  opacity:0; }
+  100% { left:calc(100% - var(--gap) - 120px);opacity:0; }
+}
+/* =========================================================
+   ICONOS CIRCULARES (con “tapa” para cortar la línea)
+===========================================================*/
+.circle-icon{
+  position:relative;  /* referencia para su pseudo‑elem. */
+  z-index:2;          /* sobre el destello               */
+}
+
+/* Pseudo‑elemento que “cubre” la línea
+   dentro del círculo, del mismo color
+   que el fondo                               */
+.circle-icon::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  border-radius:50%;
+  background:#000;               /* fondo modo oscuro          */
+  box-shadow:inset 0 0 8px rgba(255,255,255,.06);
+  z-index:-1;                    /* debajo del icono           */
+}
+
+body.light-mode .circle-icon::before{
+  background:#f8f9fa;            /* fondo modo claro           */
 }
