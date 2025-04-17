@@ -139,7 +139,7 @@ body.light-mode footer {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
   backdrop-filter: blur(10px);
-  color: #ffffff;
+  color: #e0e0e0; /* Ajuste de color para mejor contraste */
 }
 
 .card {
@@ -158,12 +158,12 @@ body.light-mode footer {
 }
 
 .card-title {
-  color: #ffffff;
+  color: #00ffcc; /* Color más brillante para mejor visibilidad */
   margin-bottom: 20px; /* Aumentar el espacio entre el título y el contenido */
 }
 
 .card-text {
-  color: #cbd5e1;
+  color: #d1d5db; /* Ajuste de color para mejor legibilidad */
 }
 
 /* Formulario de contacto */
@@ -212,7 +212,7 @@ footer {
 }
 
 .modern-services .diagram-box {
-  background: #0f172a;
+  background: #1e293b; /* Ajuste de color para mejor contraste */
   border: 1px solid #334155;
   box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
 }
