@@ -36,6 +36,11 @@ body.light-mode .navbar-brand, body.light-mode .nav-link {
 body.light-mode .hero p.lead {
   color: #333333;
 }
+body.light-mode .services {
+  background: #ffffff;
+  color: #000000;
+}
+
 body.light-mode .card {
   background: #f8f9fa; /* Mismo color que el fondo */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil hacia abajo */
@@ -131,6 +136,10 @@ body.light-mode footer {
   padding: 80px 0;
   max-width: 1020px;
   margin: 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  color: #ffffff;
 }
 
 .card {
