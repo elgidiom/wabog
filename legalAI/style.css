@@ -211,25 +211,27 @@ footer {
   background-color: rgba(0, 0, 0, 0.3);
 }
 
-.modern-services .diagram-box {
-  background: #1e293b; /* Ajuste de color para mejor contraste */
-  border: 1px solid #334155;
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
+/* Modo claro: Ajustes de texto para visibilidad */
+body.light-mode .modern-services .diagram-box {
+  color: #1e293b; /* Texto oscuro para fondo claro */
 }
 
-.circle-icon {
-  background-color: #1e293b;
-  border-radius: 50%;
-  color: white;
-  font-size: 24px;
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 8px rgba(255,255,255,0.1);
+body.light-mode .circle-icon {
+  color: #0f172a; /* Ícono oscuro para fondo claro */
 }
 
+body.light-mode .list-unstyled li {
+  color: #1e293b; /* Texto de lista oscuro */
+}
+
+body.light-mode .list-unstyled i.bi-check2-circle {
+  color: #16a34a; /* Verde visible en fondo claro */
+}
+
+/* Modo oscuro: ya están bien definidos */
+.modern-services .diagram-box,
+.list-unstyled li,
+.circle-icon,
 .list-unstyled i.bi-check2-circle {
-  font-size: 1.2rem;
+  color: #e0e0e0;
 }
