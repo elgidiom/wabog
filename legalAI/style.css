@@ -84,8 +84,8 @@ body.light-mode .hero p.lead {
     /* border: 2px solid #ffffff;        /\* ← 2º borde (liso)          *\/ */
     border-radius: 20px;
     overflow: hidden;                 /* el degradado no desborda   */
-    width: auto;
-    margin-top: 80px;
+    width: 85%;
+    margin-top: 50px;
     margin-left: 0;
 }
 
@@ -461,4 +461,11 @@ body.light-mode .pricing-card::before{
    (por si 100vh resulta poco alto para móviles muy bajos)   */
 @media (max-height:600px){
   #services.modern-services{ min-height:auto; }
+}
+
+
+@media (min-width: 1400px) {
+  .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1020px;
+  }
 }
