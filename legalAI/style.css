@@ -74,16 +74,37 @@ body.light-mode .nav-link {
 body.light-mode .hero p.lead {
   color: #333333;
 }
-
-.btn-gradient {
-    background-color: transparent;
-    color: white;
+/* ============ BOTÓN CON DOBLE BORDE ============ */
+.btn-gradient{
+    position: relative;               /* para posicionar ::before   */
+    z-index: 0;                       /* que quede detrás del texto */
+    padding: .75rem 1.5rem;
+    color: #fff;
+    background: transparent;
+    /* border: 2px solid #ffffff;        /\* ← 2º borde (liso)          *\/ */
     border-radius: 20px;
-    border: 2px solid transparent;
-    border-image: linear-gradient(45deg, #34abdb, #4280c7, #2a3a9f, #6d47b7) 1;
-    border-image-slice: 1;
-    width: 80%;
-    max-width: 400px;
+    overflow: hidden;                 /* el degradado no desborda   */
+}
+
+/* 1er borde (degradado) */
+.btn-gradient::before{
+    content:'';
+    position:absolute;
+    inset:0;                          /* cubre todo el botón        */
+    padding:2px;                      /* grosor del borde degradado */
+    border-radius:inherit;            /* mismas esquinas            */
+    background:linear-gradient(45deg,
+               #34abdb, #4280c7,
+               #2a3a9f, #6d47b7);
+    /* “Recortamos” el centro para que
+       sólo se vea el borde degradado  */
+    -webkit-mask:
+       linear-gradient(#000 0 0) content-box,
+       linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;       /* Safari                     */
+            mask-composite:exclude;
+    pointer-events:none;              /* clics sólo al botón        */
+    z-index:-1;
 }
 
 /* -------------------------------------
