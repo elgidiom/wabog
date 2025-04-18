@@ -86,6 +86,10 @@ body.light-mode .hero p.lead {
     overflow: hidden;                 /* el degradado no desborda   */
 }
 
+body.light-mode .btn-gradient {
+    color: #000;
+}
+
 /* 1er borde (degradado) */
 .btn-gradient::before{
     content:'';
