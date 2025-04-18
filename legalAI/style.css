@@ -79,8 +79,9 @@ body.light-mode .hero p.lead {
     background-color: transparent;
     color: white;
     border-radius: 20px;
-    border: 2px solid;
+    border: 2px solid transparent;
     border-image: linear-gradient(45deg, #34abdb, #4280c7, #2a3a9f, #6d47b7) 1;
+    border-image-slice: 1;
     width: 80%;
     max-width: 400px;
 }
