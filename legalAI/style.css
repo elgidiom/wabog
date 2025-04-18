@@ -84,8 +84,9 @@ body.light-mode .hero p.lead {
     /* border: 2px solid #ffffff;        /\* ← 2º borde (liso)          *\/ */
     border-radius: 20px;
     overflow: hidden;                 /* el degradado no desborda   */
-    width: 80%;
-    margin-top:80px ;
+    width: auto;
+    margin-top: 80px;
+    margin-left: 0;
 }
 
 body.light-mode .btn-gradient {
