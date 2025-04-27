@@ -109,8 +109,7 @@ body.light-mode .btn-gradient {
     padding:2px;                      /* grosor del borde degradado */
     border-radius:inherit;            /* mismas esquinas            */
     background:linear-gradient(45deg,
-               #34abdb, #4280c7,
-               #2a3a9f, #6d47b7);
+               #34abdb, #1454fa, #00ffff);
     /* “Recortamos” el centro para que
        sólo se vea el borde degradado  */
     -webkit-mask:
@@ -426,7 +425,7 @@ body.light-mode .circle-icon::before{
   inset:0;
   padding:1px;                            /* grosor del borde */
   border-radius:inherit;
-  background:linear-gradient(135deg,#ff00cc 0%,#00ffcc 100%);
+  background:linear-gradient(135deg,#34abdb, #1454fa, #00ffff);
   -webkit-mask:
      linear-gradient(#fff 0 0) content-box,
      linear-gradient(#fff 0 0);
