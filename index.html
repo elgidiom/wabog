@@ -38,7 +38,7 @@
   <nav class="navbar navbar-expand-lg">
     <div class="container">
       <a class="navbar-brand fw-bold" href="#">
-        <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2">
+        <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2" id="navbar-logo">
       </a>
 
       <div class="navbar-nav mx-auto d-none d-lg-flex">
@@ -178,11 +178,22 @@
        }
    };
 
+   const updateLogo = () => {
+       const logo = document.getElementById('navbar-logo');
+       if (body.classList.contains('light-mode')){
+           logo.src = 'assets/wabog_name_logo_light.webp';
+       } else {
+           logo.src = 'assets/wabog_name_logo.webp';
+       }
+   };
+
    updateThemeIcon();    // al cargar
+   updateLogo();         // al cargar
 
    themeToggle.addEventListener('click',()=>{
        body.classList.toggle('light-mode');
        updateThemeIcon();
+       updateLogo();
    });
   </script>
 </body>
