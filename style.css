@@ -444,7 +444,7 @@ body.light-mode .circle-icon::before{
 
 /* íconos de check – violeta en oscuro, verde en claro */
 .pricing-card .bi-check2-circle{
-  color:#9146ff;
+  color:#00ffff;
 }
 body.light-mode .pricing-card .bi-check2-circle{
   color:#00897b;
