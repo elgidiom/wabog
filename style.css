@@ -64,6 +64,8 @@ body.light-mode .nav-link {
   min-height: 100vh;
   padding: 60px 0;
   background: transparent;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .hero-content {
@@ -127,7 +129,7 @@ body.light-mode .btn-gradient {
 .services,
 .modern-services {
   padding: 100px 0;
-  /* max-width: 1020px; */
+  max-width: 1200px;
   margin: 0 auto;
   /* background: rgba(255, 255, 255, 0.1); */
   border-radius: 20px;
@@ -401,10 +403,15 @@ body.light-mode .circle-icon::before{
 /* ---------------------------------------------------------
    PRICING – contenedor principal
 --------------------------------------------------------- */
-.pricing-section .text-gradient{
-  background:linear-gradient(90deg,#ff00cc 0%,#00ffcc 100%);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+.pricing-section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricing-section .text-gradient {
+  background: linear-gradient(90deg, #ff00cc 0%, #00ffcc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* ---------------------------------------------------------
