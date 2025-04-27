@@ -71,6 +71,7 @@ body.light-mode .nav-link {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 
 .hero p.lead {
