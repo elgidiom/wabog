@@ -357,8 +357,9 @@ body.light-mode .flow-line::before{
   height:2px;
   background:linear-gradient(90deg,
              transparent,
-             #00ffcc 40%,
-             #ff00cc 60%,
+             #34abdb 40%,
+             #1454fa 50%,
+             #00ffff 60%,
              transparent);
   transform:translateY(-50%);
   animation:energyPulse 2s linear infinite;
