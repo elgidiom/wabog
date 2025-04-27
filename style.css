@@ -484,3 +484,7 @@ body.light-mode .pricing-card::before{
     max-width: 1020px;
   }
 }
+
+.lead{
+  text-align: left;
+}
