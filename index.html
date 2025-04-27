@@ -57,7 +57,7 @@
     <div class="hero-content container">
       <div class="d-flex flex-column flex-md-row align-items-center justify-content-center text-center">
         <div>
-          <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="img-fluid mb-3 animate__animated animate__fadeInDown" style="max-width:300px;height:auto;">
+          <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="img-fluid mb-3 animate__animated animate__fadeInDown" style="max-width:300px;height:auto;" id="hero-logo">
           <p class="lead mb-4 animate__animated animate__fadeInUp" style="max-width:500px;">WABOG: Automatización de procesos legales con eficiencia y precisión</p>
           <a href="https://wa.me/1234567890" target="_blank" class="btn btn-lg btn-gradient animate__animated animate__zoomIn">
             <i class="bi bi-whatsapp me-2"></i>
@@ -179,11 +179,14 @@
    };
 
    const updateLogo = () => {
-       const logo = document.getElementById('navbar-logo');
+       const navbarLogo = document.getElementById('navbar-logo');
+       const heroLogo = document.getElementById('hero-logo');
        if (body.classList.contains('light-mode')){
-           logo.src = 'assets/wabog_name_logo_light.webp';
+           navbarLogo.src = 'assets/wabog_name_logo_light.webp';
+           heroLogo.src = 'assets/wabog_name_logo_light.webp';
        } else {
-           logo.src = 'assets/wabog_name_logo.webp';
+           navbarLogo.src = 'assets/wabog_name_logo.webp';
+           heroLogo.src = 'assets/wabog_name_logo.webp';
        }
    };
 
