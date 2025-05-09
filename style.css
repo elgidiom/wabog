@@ -46,7 +46,7 @@ body.light-mode {
 }
 
 .nav-link {
-  font-size: 1.3rem; /* Aumentado tamaño de fuente */
+  font-size: 1.4rem; /* Aumentado tamaño de fuente de los enlaces de la navbar */
   color: #ffffff !important;
 }
 
@@ -65,7 +65,7 @@ body.light-mode .nav-link {
 ------------------------------------- */
 .hero {
   min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-  padding-top: 80px; /* Espacio para la navbar fija */
+  padding-top: 90px; /* Ajustado espacio para la navbar fija más grande */
   padding-bottom: 40px; /* Mantenemos un padding inferior */
   padding-left: 0;
   padding-right: 0;
@@ -495,8 +495,8 @@ body.light-mode .pricing-card::before{
 
 /* Para que el ancla #services no quede oculta tras la navbar
    al hacer clic desde el menú */
-#services{ scroll-margin-top:80px; }
-#pricing{ scroll-margin-top:80px; } /* Añadido para la sección de pricing */
+#services{ scroll-margin-top:90px; } /* Ajustado para navbar más grande */
+#pricing{ scroll-margin-top:90px; } /* Ajustado para navbar más grande */
 
 /* En pantallas pequeñas dejamos que crezca según contenido
    (por si 100vh resulta poco alto para móviles muy bajos)   */
