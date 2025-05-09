@@ -30,6 +30,8 @@ body.light-mode {
    NAVBAR
 ------------------------------------- */
 .navbar {
+  /* La altura de la navbar es relevante para el padding-top de la primera sección.
+     Asumiremos unos 80px basados en el scroll-margin-top existente. */
   position: fixed;
   top: 0;
   width: 100%;
@@ -62,19 +64,26 @@ body.light-mode .nav-link {
    SECCIÓN HERO
 ------------------------------------- */
 .hero {
-  min-height: auto; /* Reducido para que el contenido dicte la altura */
-  padding: 40px 0; /* Reducido el padding vertical */
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  padding-top: 80px; /* Espacio para la navbar fija */
+  padding-bottom: 40px; /* Mantenemos un padding inferior */
+  padding-left: 0;
+  padding-right: 0;
   background: transparent;
   max-width: 1200px;
   margin: 0 auto;
+  display: flex; /* Para centrar el contenido */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
 }
 
 .hero-content {
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  /* display: flex; Ya no es necesario aquí si .hero es flex */
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  width: 100%; /* Para que ocupe el ancho disponible en .hero */
 }
 
 .hero p.lead {
@@ -129,7 +138,7 @@ body.light-mode .btn-gradient {
 ------------------------------------- */
 .services,
 .modern-services {
-  padding: 50px 0; /* Reducido el padding vertical */
+  padding: 50px 0; /* Mantenemos padding vertical para el contenido interno */
   max-width: 1200px;
   margin: 0 auto;
   /* background: rgba(255, 255, 255, 0.1); */
@@ -408,6 +417,12 @@ body.light-mode .circle-icon::before{
 .pricing-section {
   max-width: 1200px;
   margin: 0 auto;
+  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centra el contenido verticalmente */
+  padding-top: 80px; /* Espacio por si se navega directamente y hay navbar */
+  padding-bottom: 40px;
 }
 
 .pricing-section .text-gradient {
@@ -466,12 +481,15 @@ body.light-mode .pricing-card::before{
    QUE #services OCUPE UNA PANTALLA COMPLETA
 --------------------------------------------------------- */
 #services.modern-services{
-  min-height:auto;                 /* Ajustado para que el contenido dicte la altura */
+  min-height:100vh;                 /* Ocupa toda la altura de la pantalla */
+  display: flex; /* Para centrar el contenido */
+  align-items: center; /* Centrado vertical */
 }
 
 /* Para que el ancla #services no quede oculta tras la navbar
    al hacer clic desde el menú */
 #services{ scroll-margin-top:80px; }
+#pricing{ scroll-margin-top:80px; } /* Añadido para la sección de pricing */
 
 /* En pantallas pequeñas dejamos que crezca según contenido
    (por si 100vh resulta poco alto para móviles muy bajos)   */
