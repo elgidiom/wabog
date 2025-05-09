@@ -9,6 +9,7 @@ body {
   color: #e0e0e0;
   margin: 0;
   padding: 0;
+  font-size: 1.05rem; /* Aumentado ligeramente el tamaño de fuente base */
 }
 
 body.light-mode {
@@ -61,8 +62,8 @@ body.light-mode .nav-link {
    SECCIÓN HERO
 ------------------------------------- */
 .hero {
-  min-height: 100vh;
-  padding: 60px 0;
+  min-height: auto; /* Reducido para que el contenido dicte la altura */
+  padding: 40px 0; /* Reducido el padding vertical */
   background: transparent;
   max-width: 1200px;
   margin: 0 auto;
@@ -128,7 +129,7 @@ body.light-mode .btn-gradient {
 ------------------------------------- */
 .services,
 .modern-services {
-  padding: 100px 0;
+  padding: 50px 0; /* Reducido el padding vertical */
   max-width: 1200px;
   margin: 0 auto;
   /* background: rgba(255, 255, 255, 0.1); */
@@ -234,7 +235,7 @@ body.light-mode .circle-icon {
    FORMULARIO DE CONTACTO
 ------------------------------------- */
 .contact {
-  padding: 80px 0;
+  padding: 50px 0; /* Reducido el padding vertical */
 }
 
 .contact h2 {
@@ -465,7 +466,7 @@ body.light-mode .pricing-card::before{
    QUE #services OCUPE UNA PANTALLA COMPLETA
 --------------------------------------------------------- */
 #services.modern-services{
-  min-height:100vh;                 /* alto = viewport        */
+  min-height:auto;                 /* Ajustado para que el contenido dicte la altura */
 }
 
 /* Para que el ancla #services no quede oculta tras la navbar
@@ -481,7 +482,7 @@ body.light-mode .pricing-card::before{
 
 @media (min-width: 1400px) {
   .container, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
-    max-width: 1020px;
+    max-width: 1320px; /* Aumentado para que el contenido ocupe más espacio */
   }
 }
 
