@@ -9,7 +9,7 @@ body {
   color: #e0e0e0;
   margin: 0;
   padding: 0;
-  font-size: 1.05rem; /* Aumentado ligeramente el tamaño de fuente base */
+  font-size: 1.15rem; /* Aumentado tamaño de fuente base para contenido más grande */
 }
 
 body.light-mode {
@@ -46,7 +46,7 @@ body.light-mode {
 }
 
 .nav-link {
-  font-size: 1.2rem;
+  font-size: 1.3rem; /* Aumentado tamaño de fuente */
   color: #ffffff !important;
 }
 
@@ -70,7 +70,7 @@ body.light-mode .nav-link {
   padding-left: 0;
   padding-right: 0;
   background: transparent;
-  max-width: 1200px;
+  /* max-width: 1200px; quitado para usar el ancho del .container interno */
   margin: 0 auto;
   display: flex; /* Para centrar el contenido */
   align-items: center; /* Centrado vertical */
@@ -88,7 +88,7 @@ body.light-mode .nav-link {
 
 .hero p.lead {
   color: #cbd5e1;
-  font-size: 1.25rem;
+  font-size: 1.45rem; /* Aumentado tamaño de fuente */
 }
 
 body.light-mode .hero p.lead {
@@ -98,15 +98,16 @@ body.light-mode .hero p.lead {
 .btn-gradient{
     position: relative;               /* para posicionar ::before   */
     z-index: 0;                       /* que quede detrás del texto */
-    padding: .75rem 1.5rem;
+    padding: 0.9rem 1.8rem; /* Aumentado padding */
     color: #fff;
     background: transparent;
     /* border: 2px solid #ffffff;        /\* ← 2º borde (liso)          *\/ */
     border-radius: 20px;
     overflow: hidden;                 /* el degradado no desborda   */
     width: 85%;
-    margin-top: 50px;
+    margin-top: 3rem; /* Ajustado margin-top a rem */
     margin-left: 0;
+    font-size: 1.15rem; /* Aumentado tamaño de fuente del botón */
 }
 
 body.light-mode .btn-gradient {
@@ -139,7 +140,7 @@ body.light-mode .btn-gradient {
 .services,
 .modern-services {
   padding: 50px 0; /* Mantenemos padding vertical para el contenido interno */
-  max-width: 1200px;
+  /* max-width: 1200px; quitado para usar el ancho del .container interno */
   margin: 0 auto;
   /* background: rgba(255, 255, 255, 0.1); */
   border-radius: 20px;
@@ -194,6 +195,7 @@ body.light-mode .card-text {
 /* Títulos y textos dentro de la sección */
 .modern-services h2 {
   font-weight: bold;
+  font-size: 2.8rem; /* Aumentado tamaño de fuente */
 }
 
 body.light-mode .modern-services h2 {
@@ -202,6 +204,7 @@ body.light-mode .modern-services h2 {
 
 .modern-services p.lead {
   color: #94a3b8;
+  font-size: 1.45rem; /* Aumentado tamaño de fuente */
 }
 
 body.light-mode .modern-services p.lead {
@@ -212,6 +215,10 @@ body.light-mode .modern-services ul li {
   color: #1f2937;
 }
 
+.modern-services ul li {
+  font-size: 1.2rem; /* Aumentado tamaño de fuente para items de lista */
+}
+
 /* -------------------------------------
    ICONOS EN DIAGRAMA
 ------------------------------------- */
@@ -220,9 +227,9 @@ body.light-mode .modern-services ul li {
   /* background-color: #1e293b; */
   border-radius: 50%;
   color: #ffffff; /* Blanco en modo oscuro */
-  font-size: 24px;
-  width: 60px;
-  height: 60px;
+  font-size: 30px; /* Aumentado tamaño de icono */
+  width: 75px; /* Aumentado tamaño de contenedor */
+  height: 75px; /* Aumentado tamaño de contenedor */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -337,7 +344,7 @@ body.light-mode footer {
 
   /* Margen lateral usado también
      por los pseudo‑elementos       */
-  --gap:30px;
+  --gap:40px; /* Aumentado para acomodar iconos más grandes */
 }
 
 /* ---------- Línea base estática ---------- */
@@ -415,7 +422,7 @@ body.light-mode .circle-icon::before{
    PRICING – contenedor principal
 --------------------------------------------------------- */
 .pricing-section {
-  max-width: 1200px;
+  /* max-width: 1200px; quitado para usar el ancho del .container interno */
   margin: 0 auto;
   min-height: 100vh; /* Ocupa toda la altura de la pantalla */
   display: flex;
