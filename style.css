@@ -468,9 +468,10 @@ body.light-mode .circle-icon::before{
 /* íconos de check – violeta en oscuro, verde en claro */
 .pricing-card .bi-check2-circle{
   color:#00ffff;
+  margin-right: 8px;
 }
 body.light-mode .pricing-card .bi-check2-circle{
-  color:#00897b;
+  color:#1454fa; /* Azul oscuro para mejor contraste en modo claro */
 }
 
 /* ---------------------------------------------------------
@@ -491,6 +492,16 @@ body.light-mode .pricing-card::before{
   min-height:100vh;                 /* Ocupa toda la altura de la pantalla */
   display: flex; /* Para centrar el contenido */
   align-items: center; /* Centrado vertical */
+}
+
+/* Estilos para los iconos de check en la sección de servicios */
+#services .bi-check2-circle {
+  color: #00ffff; /* Color por defecto para modo oscuro */
+  margin-right: 8px;
+}
+
+body.light-mode #services .bi-check2-circle {
+  color: #1454fa; /* Azul oscuro para mejor contraste en modo claro */
 }
 
 /* Para que el ancla #services no quede oculta tras la navbar
