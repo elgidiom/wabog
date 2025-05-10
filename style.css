@@ -97,6 +97,7 @@ body.light-mode .hero p.lead {
 
 #wapp-preview-img { /* Estilos para la imagen de previsualización de WhatsApp en escritorio */
   width: 400px; /* Tamaño deseado en escritorio */
+  max-width: 400px; /* Asegura que no exceda los 400px de ancho */
   height: auto;
 }
 
