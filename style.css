@@ -551,4 +551,15 @@ body.light-mode #services .bi-check2-circle {
     padding-left: 15px;
     padding-right: 15px;
   }
+
+  /* Reducir tamaño del subtítulo en la sección de precios para móvil */
+  .pricing-section p.lead { /* Asumiendo que el subtítulo tiene la clase 'lead' */
+    font-size: 1.1rem; /* Ajusta este valor según sea necesario */
+  }
+
+  /* Reducir tamaño del logo en la navbar para móvil */
+  .navbar-brand img {
+    max-width: 120px; /* Ajusta este valor según sea necesario */
+    height: auto;
+  }
 }
