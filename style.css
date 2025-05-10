@@ -533,7 +533,7 @@ body.light-mode #services .bi-check2-circle {
   }
 
   .hero-content img { /* Selector para la imagen del logo en la sección hero */
-    max-width: 150px; /* Reducido aún más el tamaño máximo de la imagen del logo */
+    max-width: 120px; /* Reducido aún más el tamaño máximo de la imagen del logo */
     height: auto;     /* Mantiene la proporción de la imagen */
   }
 
@@ -557,9 +557,14 @@ body.light-mode #services .bi-check2-circle {
     font-size: 1.1rem; /* Ajusta este valor según sea necesario */
   }
 
+  /* Reducir tamaño del título H1 en la sección de precios para móvil */
+  .pricing-section h1 {
+    font-size: 2.2rem !important; /* Ajusta este valor y usa !important para sobreescribir inline style */
+  }
+
   /* Reducir tamaño del logo en la navbar para móvil */
   .navbar-brand img {
-    max-width: 120px; /* Ajusta este valor según sea necesario */
+    max-width: 100px; /* Reducido para asegurar que sea más pequeño */
     height: auto;
   }
 }
