@@ -533,6 +533,15 @@ body.light-mode #services .bi-check2-circle {
   text-align: left;
 }
 
+
+
+
+  #hero-logo { /* Selector específico para la imagen del logo en la sección hero */
+    max-width: 400px; /* Aumentado el tamaño máximo de la imagen del logo */
+    height: auto;     /* Mantiene la proporción de la imagen */
+  }
+
+
 @media (max-width: 767px) {
   .hero {
     padding-left: 20px; /* Aumenta el margen lateral del contenido del hero */
