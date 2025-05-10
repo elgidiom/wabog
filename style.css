@@ -96,9 +96,9 @@ body.light-mode .hero p.lead {
 }
 
 #wapp-preview-img { /* Estilos para la imagen de previsualización de WhatsApp en escritorio */
-  width: 400px; /* Tamaño deseado en escritorio */
+  /* width: 400px; /* Se comenta para permitir que img-fluid controle el ancho responsive */
   max-width: 400px; /* Asegura que no exceda los 400px de ancho */
-  height: auto;
+  height: auto;     /* img-fluid también establece height: auto, se mantiene por claridad */
 }
 
 /* ============ BOTÓN CON DOBLE BORDE ============ */
