@@ -539,7 +539,7 @@ body.light-mode #services .bi-check2-circle {
   }
 
   #hero-logo { /* Selector específico para la imagen del logo en la sección hero */
-    max-width: 160px; /* Aumentado el tamaño máximo de la imagen del logo */
+    max-width: 250px; /* Aumentado el tamaño máximo de la imagen del logo */
     height: auto;     /* Mantiene la proporción de la imagen */
   }
 
