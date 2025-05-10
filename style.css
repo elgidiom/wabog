@@ -94,6 +94,12 @@ body.light-mode .nav-link {
 body.light-mode .hero p.lead {
   color: #333333;
 }
+
+#wapp-preview-img { /* Estilos para la imagen de previsualización de WhatsApp en escritorio */
+  width: 400px; /* Tamaño deseado en escritorio */
+  height: auto;
+}
+
 /* ============ BOTÓN CON DOBLE BORDE ============ */
 .btn-gradient{
     position: relative;               /* para posicionar ::before   */
@@ -532,8 +538,8 @@ body.light-mode #services .bi-check2-circle {
     padding-right: 20px; /* Aumenta el margen lateral del contenido del hero */
   }
 
-  .hero-content img { /* Selector para la imagen del logo en la sección hero */
-    max-width: 120px; /* Reducido aún más el tamaño máximo de la imagen del logo */
+  #hero-logo { /* Selector específico para la imagen del logo en la sección hero */
+    max-width: 160px; /* Aumentado el tamaño máximo de la imagen del logo */
     height: auto;     /* Mantiene la proporción de la imagen */
   }
 
@@ -566,5 +572,14 @@ body.light-mode #services .bi-check2-circle {
   .navbar-brand img {
     max-width: 100px; /* Reducido para asegurar que sea más pequeño */
     height: auto;
+  }
+
+  #wapp-preview-img { /* Estilos para la imagen de previsualización de WhatsApp en móvil */
+    width: 80%;       /* Hacerla más ancha, relativa al contenedor */
+    max-width: 320px; /* Límite para que no sea excesivamente grande pero más grande que antes */
+    height: auto;
+    margin-top: 25px; /* Espacio superior respecto al texto/botón */
+    margin-left: auto; /* Centrar la imagen */
+    margin-right: auto;/* Centrar la imagen */
   }
 }
