@@ -525,3 +525,15 @@ body.light-mode #services .bi-check2-circle {
 .lead{
   text-align: left;
 }
+
+@media (max-width: 767px) {
+  .hero {
+    padding-left: 20px; /* Aumenta el margen lateral del contenido del hero */
+    padding-right: 20px; /* Aumenta el margen lateral del contenido del hero */
+  }
+
+  .hero-content img { /* Selector para la imagen del logo en la sección hero */
+    max-width: 200px; /* Reduce el tamaño máximo de la imagen del logo, ajusta si es necesario */
+    height: auto;     /* Mantiene la proporción de la imagen */
+  }
+}
