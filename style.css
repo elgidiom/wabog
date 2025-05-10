@@ -533,7 +533,22 @@ body.light-mode #services .bi-check2-circle {
   }
 
   .hero-content img { /* Selector para la imagen del logo en la sección hero */
-    max-width: 200px; /* Reduce el tamaño máximo de la imagen del logo, ajusta si es necesario */
+    max-width: 150px; /* Reducido aún más el tamaño máximo de la imagen del logo */
     height: auto;     /* Mantiene la proporción de la imagen */
+  }
+
+  /* Reducir tamaño de títulos de sección en móvil */
+  .modern-services h2,
+  .pricing-section h2, /* Asumiendo que los títulos de pricing son h2 */
+  .contact h2 { /* Incluimos contact por consistencia */
+    font-size: 2rem; /* Ajusta este valor según sea necesario */
+  }
+
+  /* Añadir márgenes laterales a secciones en móvil */
+  .services,
+  .modern-services,
+  .pricing-section {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 }
