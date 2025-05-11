@@ -200,21 +200,25 @@ body.light-mode .card-text {
 }
 
 /* Títulos y textos dentro de la sección */
-.modern-services h2 {
+.modern-services h2,
+.pricing-section h2 {
   font-weight: bold;
   font-size: 2.8rem; /* Aumentado tamaño de fuente */
 }
 
-body.light-mode .modern-services h2 {
+body.light-mode .modern-services h2,
+body.light-mode .pricing-section h2 {
   color: #1e293b;
 }
 
-.modern-services p.lead {
+.modern-services p.lead,
+.pricing-section p.lead {
   color: #94a3b8;
-  font-size: 1.45rem; /* Aumentado tamaño de fuente */
+  font-size: 1.45rem; /* Aumentado tamaño de fuente y aplicado a ambas secciones */
 }
 
-body.light-mode .modern-services p.lead {
+body.light-mode .modern-services p.lead,
+body.light-mode .pricing-section p.lead {
   color: #374151;
 }
 
@@ -573,10 +577,8 @@ body.light-mode #services .bi-check2-circle {
     font-size: 1.1rem; /* Ajusta este valor según sea necesario */
   }
 
-  /* Reducir tamaño del título H1 en la sección de precios para móvil */
-  .pricing-section h1 {
-    font-size: 2.2rem !important; /* Ajusta este valor y usa !important para sobreescribir inline style */
-  }
+  /* El estilo para .pricing-section h1 en móvil fue eliminado, ahora es h2 y se maneja por la regla:
+     .modern-services h2, .pricing-section h2, .contact h2 { font-size: 2rem; } */
 
   /* Reducir tamaño del logo en la navbar para móvil */
   .navbar-brand img {
