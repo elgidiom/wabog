@@ -59,7 +59,7 @@
         <div>
           <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="img-fluid mb-3 animate__animated animate__fadeInDown" style="height:auto;" id="hero-logo"> <!-- max-width eliminado para control por CSS -->
           <p class="lead mb-4 animate__animated animate__fadeInUp" style="max-width:500px;">Sincroniza tus procesos con la rama. Recibe alertas en tiempo real. Genera documentos legales al instante. ⚖️</p>
-          <a href="https://wa.me/1234567890" target="_blank" class="btn btn-lg btn-gradient animate__animated animate__zoomIn">
+          <a href="#" class="btn btn-lg btn-gradient animate__animated animate__zoomIn" id="open-form">
             <i class="bi bi-whatsapp me-2"></i>
             Pruébalo gratis
           </a>
@@ -199,5 +199,42 @@
        updateLogo();
    });
   </script>
+<!-- Formulario flotante -->
+<div id="contact-form" class="contact-form d-none">
+  <div class="form-container">
+    <h3>Contáctanos</h3>
+    <form>
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre</label>
+        <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+      </div>
+      <div class="mb-3">
+        <label for="phone" class="form-label">Número de Teléfono</label>
+        <input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono">
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">Correo</label>
+        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+      </div>
+      <button type="submit" class="btn btn-primary">Enviar</button>
+      <button type="button" class="btn btn-secondary" id="close-form">Cerrar</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const openFormButton = document.getElementById('open-form');
+  const closeFormButton = document.getElementById('close-form');
+  const contactForm = document.getElementById('contact-form');
+
+  openFormButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    contactForm.classList.remove('d-none');
+  });
+
+  closeFormButton.addEventListener('click', () => {
+    contactForm.classList.add('d-none');
+  });
+</script>
 </body>
 </html>
