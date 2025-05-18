@@ -179,6 +179,7 @@ body.light-mode .nav-link {
 
 .hero-home>h1{
   font-weight: bold;
+  font-size: 2.8rem;
 }
 
 .hero p.lead {
@@ -672,6 +673,11 @@ body.light-mode #services .bi-check2-circle {
     text-align: center;
   }
 
+  .hero-home>h1{
+    font-size: 2rem;
+  }
+
+
   #hero-logo { /* Selector específico para la imagen del logo en la sección hero */
     max-width: 250px; /* Aumentado el tamaño máximo de la imagen del logo */
     height: auto;     /* Mantiene la proporción de la imagen */
@@ -718,6 +724,7 @@ body.light-mode #services .bi-check2-circle {
   /* Reducir tamaño del párrafo del hero en móvil para que quede más pequeño que el título */
   .hero p.lead {
     font-size: 1.1rem;
+    text-align: center;
   }
 
   /* Reducir tamaño del párrafo de servicios en móvil para que coincida con otros */
