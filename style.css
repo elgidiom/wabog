@@ -391,6 +391,11 @@ form .form-control:focus {
   color: rgba(255,255,255,0.7);
 }
 
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-control:not(:placeholder-shown) ~ label {
+  background-color: transparent;
+}
+
 body.light-mode .contact-form form .form-control {
   background: var(--input-bg);
   border: 1px solid var(--input-border);
