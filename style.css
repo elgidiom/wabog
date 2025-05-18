@@ -714,4 +714,9 @@ body.light-mode #services .bi-check2-circle {
     margin-left: auto; /* Centrar la imagen */
     margin-right: auto;/* Centrar la imagen */
   }
+
+  /* Reducir tamaño del párrafo del hero en móvil para que quede más pequeño que el título */
+  .hero p.lead {
+    font-size: 1rem;
+  }
 }
