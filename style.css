@@ -173,6 +173,14 @@ body.light-mode .nav-link {
   width: 100%; /* Para que ocupe el ancho disponible en .hero */
 }
 
+.hero-home {
+  text-align: left;
+}
+
+.hero-home>h1{
+  font-weight: bold;
+}
+
 .hero p.lead {
   color: #cbd5e1;
   font-size: 1.45rem; /* Aumentado tamaño de fuente */
