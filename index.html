@@ -186,10 +186,10 @@ para compartir en segundos.</p>
        const heroLogo = document.getElementById('hero-logo');
        if (body.classList.contains('light-mode')){
            navbarLogo.src = 'assets/wabog_name_logo_light.webp';
-           heroLogo.src = 'assets/wabog_name_logo_light.webp';
+           if (heroLogo) heroLogo.src = 'assets/wabog_name_logo_light.webp';
        } else {
            navbarLogo.src = 'assets/wabog_name_logo.webp';
-           heroLogo.src = 'assets/wabog_name_logo.webp';
+           if (heroLogo) heroLogo.src = 'assets/wabog_name_logo.webp';
        }
    };
 
