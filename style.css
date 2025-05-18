@@ -719,4 +719,9 @@ body.light-mode #services .bi-check2-circle {
   .hero p.lead {
     font-size: 1.1rem;
   }
+
+  /* Reducir tamaño del párrafo de servicios en móvil para que coincida con otros */
+  .modern-services p.lead {
+    font-size: 1.1rem;
+  }
 }
