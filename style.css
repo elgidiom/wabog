@@ -717,6 +717,6 @@ body.light-mode #services .bi-check2-circle {
 
   /* Reducir tamaño del párrafo del hero en móvil para que quede más pequeño que el título */
   .hero p.lead {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
