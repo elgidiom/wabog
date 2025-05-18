@@ -183,7 +183,7 @@ body.light-mode .nav-link {
 
 .hero p.lead {
   color: #94a3b8; /* Gris consistente con otras secciones */
-  font-size: 1.1rem; /* Tamaño ajustado bajo título */
+  font-size: 1.45rem; /* Tamaño de fuente para versión PC */
 }
 
 body.light-mode .hero p.lead {
