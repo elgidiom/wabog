@@ -200,21 +200,21 @@
    });
   </script>
 <!-- Formulario flotante -->
-<div id="contact-form" class="contact-form d-none">
+<div id="contact-form" class="contact-form">
   <div class="form-container">
     <h3>Contáctanos</h3>
     <form>
-      <div class="mb-3">
-        <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name" placeholder="Tu nombre">
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" placeholder="Nombre">
+        <label for="name">Nombre</label>
       </div>
-      <div class="mb-3">
-        <label for="phone" class="form-label">Número de Teléfono</label>
-        <input type="tel" class="form-control" id="phone" placeholder="Tu número de teléfono">
+      <div class="form-floating mb-3">
+        <input type="tel" class="form-control" id="phone" placeholder="Número de Teléfono">
+        <label for="phone">Número de Teléfono</label>
       </div>
-      <div class="mb-3">
-        <label for="email" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="email" placeholder="Tu correo electrónico">
+      <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="email" placeholder="Correo">
+        <label for="email">Correo</label>
       </div>
       <button type="submit" class="btn btn-primary">Enviar</button>
       <button type="button" class="btn btn-secondary" id="close-form">Cerrar</button>
@@ -229,11 +229,11 @@
 
   openFormButton.addEventListener('click', (e) => {
     e.preventDefault();
-    contactForm.classList.remove('d-none');
+    contactForm.classList.add('open');
   });
 
   closeFormButton.addEventListener('click', () => {
-    contactForm.classList.add('d-none');
+    contactForm.classList.remove('open');
   });
 </script>
 </body>

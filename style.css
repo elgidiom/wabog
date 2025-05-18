@@ -1,6 +1,15 @@
 /* -------------------------------------
    FUENTE Y FONDO GENERAL
 ------------------------------------- */
+:root {
+  --form-bg: #ffffff;
+  --form-text: #000000;
+  --input-bg: #f8f9fa;
+  --input-border: #ddd;
+  --button-bg: #00897b;
+  --button-hover: #00695c;
+  --transition: 0.3s ease;
+}
 body {
   font-family: 'Roboto', sans-serif;
   background: #000;
@@ -15,12 +24,25 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%) scale(0.9);
+  width: 90vw;
+  max-width: 380px;
+  background: var(--form-bg);
+  color: var(--form-text);
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(8px);
   z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
+}
+
+.contact-form.open {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .form-container {
@@ -302,29 +324,21 @@ body.light-mode .contact h2 {
   color: #000000;
 }
 
+/* -------------------------------------
+   FORMULARIO DE CONTACTO
+------------------------------------- */
 form .form-control {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #ffffff;
-  border-radius: 10px;
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--form-text);
+  border-radius: 0.5rem;
+  transition: border-color var(--transition), box-shadow var(--transition);
 }
 
 form .form-control:focus {
-  border-color: #00bfa5;
-  box-shadow: 0 0 5px #00bfa5;
-  background-color: rgba(255, 255, 255, 0.07);
-}
-
-body.light-mode form .form-control {
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  color: #000000;
-}
-
-body.light-mode form .form-control:focus {
-  border-color: #00897b;
-  box-shadow: 0 0 5px #00897b;
-  background-color: rgba(0, 0, 0, 0.07);
+  border-color: var(--button-bg);
+  box-shadow: 0 0 5px var(--button-bg);
+  background: var(--input-bg);
 }
 
 /* -------------------------------------
