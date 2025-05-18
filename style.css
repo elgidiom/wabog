@@ -52,6 +52,24 @@ body {
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
 }
+.contact-form {
+  position: fixed;
+  /* ... */
+  /* dejamos position fixed, pero vemos que ya existe */
+}
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: var(--form-text);
+  cursor: pointer;
+}
+body.light-mode .close-btn {
+  color: var(--form-text);
+}
 
 body.light-mode .contact-form {
   background: var(--waitlist-bg-light);
@@ -66,7 +84,10 @@ body.light-mode .contact-form {
 
 .contact-form h3 {
   margin-bottom: 20px;
-  color: #333;
+  color: var(--primary);
+}
+body.light-mode .contact-form h3 {
+  color: var(--tertiary);
 }
 
 .contact-form .form-control {
@@ -190,19 +211,19 @@ body.light-mode .btn-gradient {
 .btn-gradient::before{
     content:'';
     position:absolute;
-    inset:0;                          /* cubre todo el botón        */
-    padding:2px;                      /* grosor del borde degradado */
-    border-radius:inherit;            /* mismas esquinas            */
+    inset:0;                        /* cubre todo el botón        */
+    padding:2px;                    /* grosor del borde degradado */
+    border-radius:inherit;          /* mismas esquinas            */
     background:linear-gradient(45deg,
-               #34abdb, #1454fa, #00ffff);
+               #34ABDB, #2A3A9F, #4280C7, #6D47B7);
     /* “Recortamos” el centro para que
        sólo se vea el borde degradado  */
     -webkit-mask:
        linear-gradient(#000 0 0) content-box,
        linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;       /* Safari                     */
+    -webkit-mask-composite:xor;     /* Safari                     */
             mask-composite:exclude;
-    pointer-events:none;              /* clics sólo al botón        */
+    pointer-events:none;            /* clics sólo al botón        */
     z-index:-1;
 }
 
