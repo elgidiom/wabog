@@ -1,0 +1,5 @@
+* Paleta de colores
+- #34ABDB
+- #2A3A9F 
+- #4280C7
+- #6D47B7
