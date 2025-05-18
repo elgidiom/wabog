@@ -379,13 +379,16 @@ form .form-control {
 form .form-control:focus {
   border-color: var(--button-bg);
   box-shadow: 0 0 5px var(--button-bg);
-  background: var(--input-bg);
 }
 
 .contact-form form .form-control {
   background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
+}
+
+.contact-form form .form-control::placeholder {
+  color: rgba(255,255,255,0.7);
 }
 
 body.light-mode .contact-form form .form-control {
