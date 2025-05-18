@@ -38,7 +38,6 @@ body {
   color: var(--form-text);
   padding: 1.5rem;
   border-radius: 0.75rem;
-  border-left: 4px solid var(--primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(8px);
   z-index: 2000;
@@ -64,11 +63,11 @@ body {
   background: transparent;
   border: none;
   font-size: 1.2rem;
-  color: var(--form-text);
+  color: #fff;
   cursor: pointer;
 }
 body.light-mode .close-btn {
-  color: var(--form-text);
+  color: #000;
 }
 
 body.light-mode .contact-form {
@@ -84,10 +83,12 @@ body.light-mode .contact-form {
 
 .contact-form h3 {
   margin-bottom: 20px;
-  color: var(--primary);
+  color: #fff;
+  text-align: center;
 }
 body.light-mode .contact-form h3 {
-  color: var(--tertiary);
+  color: #000;
+  text-align: center;
 }
 
 .contact-form .form-control {
@@ -201,6 +202,11 @@ body.light-mode .hero p.lead {
     margin-top: 3rem; /* Ajustado margin-top a rem */
     margin-left: 0;
     font-size: 1.15rem; /* Aumentado tamaño de fuente del botón */
+}
+.contact-form .btn-gradient {
+  display: block;
+  margin: 2rem auto 0 auto;
+  width: auto;
 }
 
 body.light-mode .btn-gradient {
@@ -374,6 +380,18 @@ form .form-control:focus {
   border-color: var(--button-bg);
   box-shadow: 0 0 5px var(--button-bg);
   background: var(--input-bg);
+}
+
+.contact-form form .form-control {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+body.light-mode .contact-form form .form-control {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  color: var(--form-text);
 }
 
 /* -------------------------------------
