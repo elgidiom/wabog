@@ -702,7 +702,7 @@ body.light-mode #services .bi-check2-circle {
 
   /* Reducir tamaño del logo en la navbar para móvil */
   .navbar-brand img {
-    max-width: 100px; /* Reducido para asegurar que sea más pequeño */
+    max-width: 125px; /* Reducido para asegurar que sea más pequeño */
     height: auto;
   }
 
