@@ -59,7 +59,7 @@
         <div>
           <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="img-fluid mb-3 animate__animated animate__fadeInDown" style="height:auto;" id="hero-logo"> <!-- max-width eliminado para control por CSS -->
           <p class="lead mb-4 animate__animated animate__fadeInUp" style="max-width:500px;">Sincroniza tus procesos con la rama. Recibe alertas en tiempo real. Genera documentos legales al instante. ⚖️</p>
-          <a href="#" class="btn btn-lg btn-gradient animate__animated animate__zoomIn" id="open-form">
+          <a href="#" class="btn btn-lg btn-gradient animate__animated animate__zoomIn open-form">
             <i class="bi bi-whatsapp me-2"></i>
             Únete a la lista de espera
           </a>
@@ -83,7 +83,7 @@
 
             Recibe notificaciones al instante y genera documentos listos para compartir en segundos.
           </p>
-          <a href="#" class="btn btn-lg btn-gradient animate__animated animate__zoomIn" id="open-form">
+          <a href="#" class="btn btn-lg btn-gradient animate__animated animate__zoomIn open-form">
             <i class="bi bi-whatsapp me-2"></i>
             Únete a la lista de espera
           </a>
@@ -224,13 +224,15 @@
 </div>
 
 <script>
-  const openFormButton = document.getElementById('open-form');
+  const openFormButtons = document.querySelectorAll('.open-form');
   const closeFormButton = document.getElementById('close-form');
   const contactForm = document.getElementById('contact-form');
 
-  openFormButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    contactForm.classList.add('open');
+  openFormButtons.forEach(button => {
+    button.addEventListener('click', (e) => {
+      e.preventDefault();
+      contactForm.classList.add('open');
+    });
   });
 
   closeFormButton.addEventListener('click', () => {
