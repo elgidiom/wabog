@@ -296,6 +296,7 @@ body.light-mode .card-text {
 .pricing-section h2 {
   font-weight: bold;
   font-size: 2.8rem; /* Aumentado tamaño de fuente */
+  color: #ffffff;
 }
 
 body.light-mode .modern-services h2,
