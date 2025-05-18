@@ -183,7 +183,7 @@ body.light-mode .nav-link {
 
 .hero p.lead {
   color: #94a3b8; /* Gris consistente con otras secciones */
-  font-size: 1.45rem; /* Aumentado tamaño de fuente */
+  font-size: 1.1rem; /* Tamaño ajustado bajo título */
 }
 
 body.light-mode .hero p.lead {
@@ -315,7 +315,7 @@ body.light-mode .pricing-section h2 {
 .modern-services p.lead,
 .pricing-section p.lead {
   color: #94a3b8;
-  font-size: 1.45rem; /* Aumentado tamaño de fuente y aplicado a ambas secciones */
+  font-size: 1.1rem; /* Tamaño ajustado bajo título en secciones */
 }
 
 body.light-mode .modern-services p.lead,
