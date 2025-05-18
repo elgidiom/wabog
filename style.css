@@ -6,8 +6,8 @@
   --form-text: #000000;
   --input-bg: #f8f9fa;
   --input-border: #ddd;
-  --button-bg: #00897b;
-  --button-hover: #00695c;
+  --button-bg: #1454fa;
+  --button-hover: #34abdb;
   --transition: 0.3s ease;
   --primary: #34ABDB;
   --secondary: #2A3A9F;
@@ -221,7 +221,7 @@ body.light-mode .btn-gradient {
     padding:2px;                    /* grosor del borde degradado */
     border-radius:inherit;          /* mismas esquinas            */
     background:linear-gradient(45deg,
-               #34ABDB, #2A3A9F, #4280C7, #6D47B7);
+               #1454fa, #34abdb);
     /* “Recortamos” el centro para que
        sólo se vea el borde degradado  */
     -webkit-mask:
@@ -398,18 +398,18 @@ body.light-mode .contact-form form .form-control {
    BOTÓN PRIMARY
 ------------------------------------- */
 .btn-primary {
-  background-color: #00897b;
+  background-color: #1454fa;
   border: none;
   color: #fff;
   border-radius: 30px;
   font-weight: bold;
   padding: 10px 30px;
-  box-shadow: 0 0 10px #00897b, 0 0 20px #00897b;
+  box-shadow: 0 0 10px #1454fa, 0 0 20px #34abdb;
 }
 
 .btn-primary:hover {
-  background-color: #00695c;
-  box-shadow: 0 0 20px #00695c, 0 0 40px #00695c;
+  background-color: #34abdb;
+  box-shadow: 0 0 20px #1454fa, 0 0 40px #34abdb;
 }
 
 /* -------------------------------------
