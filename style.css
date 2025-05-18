@@ -9,6 +9,12 @@
   --button-bg: #00897b;
   --button-hover: #00695c;
   --transition: 0.3s ease;
+  --primary: #34ABDB;
+  --secondary: #2A3A9F;
+  --tertiary: #4280C7;
+  --quaternary: #6D47B7;
+  --waitlist-bg-dark: rgba(52,171,219,0.1);
+  --waitlist-bg-light: rgba(255,255,255,0.8);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -28,10 +34,11 @@ body {
   transform: translate(-50%, -50%) scale(0.9);
   width: 90vw;
   max-width: 380px;
-  background: var(--form-bg);
+  background: var(--waitlist-bg-dark);
   color: var(--form-text);
   padding: 1.5rem;
   border-radius: 0.75rem;
+  border-left: 4px solid var(--primary);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(8px);
   z-index: 2000;
@@ -44,6 +51,12 @@ body {
   opacity: 1;
   visibility: visible;
   transform: translate(-50%, -50%) scale(1);
+}
+
+body.light-mode .contact-form {
+  background: var(--waitlist-bg-light);
+  border-left-color: var(--tertiary);
+  color: var(--form-text);
 }
 
 .form-container {
