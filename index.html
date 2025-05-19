@@ -295,10 +295,10 @@
       alert('Error al enviar, intenta nuevamente.');
     } else {
       const messagePlaceholder = document.getElementById('form-message-placeholder');
-      messagePlaceholder.innerHTML = '<div class="alert alert-success mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.</div>';
+      messagePlaceholder.innerHTML = '<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button></div>';
       waitListForm.reset();
       document.getElementById('identify-other-container').style.display = 'none';
-      document.getElementById('contact-form').classList.remove('open');
+      // El formulario permanecerá abierto hasta que el usuario decida cerrarlo
     }
   });
 </script>
