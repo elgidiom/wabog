@@ -268,5 +268,37 @@
     });
   }
 </script>
+<!-- Supabase Client -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script>
+  // Variables para configurar (rellena manualmente)
+  const supabaseUrl = 'TU_SUPABASE_URL';
+  const supabaseAnonKey = 'TU_SUPABASE_ANON_KEY';
+  const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
+
+  const waitListForm = document.querySelector('#contact-form form');
+  waitListForm.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const nombre = document.getElementById('name').value;
+    const numero = document.getElementById('phone').value;
+    const correo = document.getElementById('email').value;
+    const perfil = document.getElementById('identify').value;
+    const perfil_otros = document.getElementById('identify-other').value || null;
+
+    const { data, error } = await supabaseClient
+      .from('wait_list')
+      .insert([{ nombre, numero, correo, perfil, perfil_otros }]);
+
+    if (error) {
+      console.error('Error al enviar datos:', error);
+      alert('Error al enviar, intenta nuevamente.');
+    } else {
+      alert('¡Gracias! Tu registro ha sido enviado.');
+      waitListForm.reset();
+      document.getElementById('identify-other-container').style.display = 'none';
+      document.getElementById('contact-form').classList.remove('open');
+    }
+  });
+</script>
 </body>
 </html>
