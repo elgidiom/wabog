@@ -219,6 +219,9 @@ body.light-mode .hero p.lead {
 }
 .contact-form .btn-gradient:hover {
   background: transparent !important;
+  color: #fff !important;
+}
+body.light-mode .contact-form .btn-gradient:hover {
   color: var(--form-text) !important;
 }
 
