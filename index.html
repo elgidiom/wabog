@@ -207,19 +207,19 @@
     <form>
       <div class="mb-3">
         <label for="name" class="form-label">Nombre</label>
-        <input type="text" class="form-control" id="name">
+        <input type="text" class="form-control" id="name" required>
       </div>
       <div class="mb-3">
         <label for="phone" class="form-label">Número de Teléfono</label>
-        <input type="tel" class="form-control" id="phone">
+        <input type="tel" class="form-control" id="phone" required pattern="^\+?\d{7,15}$" title="Ingresa un número de teléfono válido">
       </div>
       <div class="mb-3">
         <label for="email" class="form-label">Correo</label>
-        <input type="email" class="form-control" id="email">
+        <input type="email" class="form-control" id="email" required>
       </div>
       <div class="mb-3">
         <label for="identify" class="form-label">¿Con qué te identificas?</label>
-        <select class="form-select" id="identify" name="identify">
+        <select class="form-select" id="identify" name="identify" required>
           <option disabled selected value="">Selecciona la opción &#9662;</option>
           <option value="Abogado">Abogado</option>
           <option value="Dependiente judicial">Dependiente judicial</option>
@@ -230,7 +230,7 @@
       </div>
       <div class="mb-3" id="identify-other-container" style="display:none;">
         <label for="identify-other" class="form-label">Cuéntanos</label>
-        <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50">
+        <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50" required>
       </div>
       <button type="submit" class="btn btn-lg btn-gradient">Unirme a la lista de espera</button>
     </form>
@@ -280,6 +280,17 @@
   const waitListForm = document.querySelector('#contact-form form');
   waitListForm.addEventListener('submit', async (event) => {
     event.preventDefault();
+    const messagePlaceholder = document.getElementById('form-message-placeholder');
+    // Validaciones previas
+    const phonePattern = /^\+?\d{7,15}$/;
+    if (!phonePattern.test(document.getElementById('phone').value)) {
+      messagePlaceholder.innerHTML = '<div class="alert alert-danger mt-3" role="alert">Por favor ingresa un número de teléfono válido.</div>';
+      return;
+    }
+    if (document.getElementById('identify').value === 'otro' && !document.getElementById('identify-other').value) {
+      messagePlaceholder.innerHTML = '<div class="alert alert-danger mt-3" role="alert">Por favor cuéntanos si seleccionaste Otros.</div>';
+      return;
+    }
     const nombre = document.getElementById('name').value;
     const numero = document.getElementById('phone').value;
     const correo = document.getElementById('email').value;
@@ -295,7 +306,7 @@
       alert('Error al enviar, intenta nuevamente.');
     } else {
       const messagePlaceholder = document.getElementById('form-message-placeholder');
-      messagePlaceholder.innerHTML = '<div class="alert alert-success alert-dismissible fade show mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button></div>';
+      messagePlaceholder.innerHTML = '<div class="alert alert-success mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.</div>';
       waitListForm.reset();
       document.getElementById('identify-other-container').style.display = 'none';
       // El formulario permanecerá abierto hasta que el usuario decida cerrarlo
