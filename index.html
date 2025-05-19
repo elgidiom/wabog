@@ -230,7 +230,7 @@
       </div>
       <div class="mb-3" id="identify-other-container" style="display:none;">
         <label for="identify-other" class="form-label">Cuéntanos</label>
-        <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50" required>
+        <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50">
       </div>
       <button type="submit" class="btn btn-lg btn-gradient">Unirme a la lista de espera</button>
     </form>
@@ -259,12 +259,16 @@
   if (identifySelect && otherContainer) {
     otherContainer.style.display = 'none';
     identifySelect.addEventListener('change', function() {
+      const otherInput = document.getElementById('identify-other');
       if (this.value === 'otro') {
         otherContainer.style.display = 'block';
+        if (otherInput) otherInput.required = true;
       } else {
         otherContainer.style.display = 'none';
-        const otherInput = document.getElementById('identify-other');
-        if (otherInput) otherInput.value = '';
+        if (otherInput) {
+          otherInput.value = '';
+          otherInput.required = false;
+        }
       }
     });
   }
