@@ -216,6 +216,20 @@
         <label for="email" class="form-label">Correo</label>
         <input type="email" class="form-control" id="email">
       </div>
+      <div class="mb-3">
+        <label for="identify" class="form-label">¿Con qué te identificas?</label>
+        <select class="form-select" id="identify" name="identify">
+          <option value="Abogado">Abogado</option>
+          <option value="Dependiente judicial">Dependiente judicial</option>
+          <option value="Estudiante">Estudiante</option>
+          <option value="Empresa">Empresa</option>
+          <option value="otro">Otro</option>
+        </select>
+      </div>
+      <div class="mb-3" id="identify-other-container" style="display:none;">
+        <label for="identify-other" class="form-label">Especifica</label>
+        <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50">
+      </div>
       <button type="submit" class="btn btn-lg btn-gradient">Unirme a la lista de espera</button>
     </form>
   </div>
@@ -236,6 +250,22 @@
   closeFormButton.addEventListener('click', () => {
     contactForm.classList.remove('open');
   });
+
+  // Mostrar campo "Otro" según selección de identificación
+  const identifySelect = document.getElementById('identify');
+  const otherContainer = document.getElementById('identify-other-container');
+  if (identifySelect && otherContainer) {
+    otherContainer.style.display = 'none';
+    identifySelect.addEventListener('change', function() {
+      if (this.value === 'otro') {
+        otherContainer.style.display = 'block';
+      } else {
+        otherContainer.style.display = 'none';
+        const otherInput = document.getElementById('identify-other');
+        if (otherInput) otherInput.value = '';
+      }
+    });
+  }
 </script>
 </body>
 </html>
