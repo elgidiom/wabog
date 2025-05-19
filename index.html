@@ -203,6 +203,7 @@
   <button type="button" class="close-btn" id="close-form">&times;</button>
   <div class="form-container">
     <h3>¡Queremos conocerte!</h3>
+    <div id="form-message-placeholder"></div>
     <form>
       <div class="mb-3">
         <label for="name" class="form-label">Nombre</label>
@@ -293,7 +294,8 @@
       console.error('Error al enviar datos:', error);
       alert('Error al enviar, intenta nuevamente.');
     } else {
-      alert('¡Gracias! Tu registro ha sido enviado.');
+      const messagePlaceholder = document.getElementById('form-message-placeholder');
+      messagePlaceholder.innerHTML = '<div class="alert alert-success mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.</div>';
       waitListForm.reset();
       document.getElementById('identify-other-container').style.display = 'none';
       document.getElementById('contact-form').classList.remove('open');
