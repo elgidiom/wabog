@@ -217,6 +217,10 @@ body.light-mode .hero p.lead {
   margin: 2rem auto 0 auto;
   width: auto;
 }
+.contact-form .btn-gradient:hover {
+  background: transparent !important;
+  color: var(--form-text) !important;
+}
 
 body.light-mode .btn-gradient {
     color: #000;
@@ -391,7 +395,8 @@ form .form-control:focus {
   box-shadow: 0 0 5px var(--button-bg);
 }
 
-.contact-form form .form-control {
+.contact-form form .form-control,
+.contact-form form .form-select {
   background: rgba(0,0,0,0.4);
   border: 1px solid rgba(255,255,255,0.2);
   color: #fff;
@@ -409,7 +414,8 @@ body:not(.light-mode) .form-label {
   background-color: transparent;
 }
 
-body.light-mode .contact-form form .form-control {
+body.light-mode .contact-form form .form-control,
+body.light-mode .contact-form form .form-select {
   background: var(--input-bg);
   border: 1px solid var(--input-border);
   color: var(--form-text);
