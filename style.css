@@ -753,6 +753,9 @@ body.light-mode .site-footer {
   background: transparent;
   color: var(--form-text);
 }
+body.light-mode .site-footer h5 {
+  color: #000;
+}
 .site-footer .footer-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
