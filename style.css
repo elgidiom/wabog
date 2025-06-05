@@ -748,7 +748,6 @@ body.light-mode #services .bi-check2-circle {
 .site-footer {
   background: transparent;
   padding: 3rem 1rem;
-  border-top: 1px solid var(--input-border);
 }
 body.light-mode .site-footer {
   background: transparent;

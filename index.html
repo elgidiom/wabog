@@ -158,7 +158,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
+          <img id="footer-logo" src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
         </div>
         <div class="social-column">
           <h5 class="fw-bold">Redes Sociales</h5>
@@ -203,12 +203,15 @@
    const updateLogo = () => {
        const navbarLogo = document.getElementById('navbar-logo');
        const heroLogo = document.getElementById('hero-logo');
+       const footerLogo = document.getElementById('footer-logo');
        if (body.classList.contains('light-mode')){
            navbarLogo.src = 'assets/wabog_name_logo_light.webp';
            if (heroLogo) heroLogo.src = 'assets/wabog_name_logo_light.webp';
+           if (footerLogo) footerLogo.src = 'assets/wabog_name_logo_light.webp';
        } else {
            navbarLogo.src = 'assets/wabog_name_logo.webp';
            if (heroLogo) heroLogo.src = 'assets/wabog_name_logo.webp';
+           if (footerLogo) footerLogo.src = 'assets/wabog_name_logo.webp';
        }
    };
 
