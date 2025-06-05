@@ -92,7 +92,7 @@ Ofrecemos soporte a través de [soporte@wabog.com](mailto:soporte@wabog.com) con
 
 ## **12\. Modificaciones a los Términos y Condiciones**
 
-Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las versiones actualizadas se publicarán en \[https://wabog.com/legal\]. El uso continuado de la plataforma tras la publicación de cambios implica tu aceptación de los mismos.
+Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las versiones actualizadas se publicarán en https://wabog.com/legal. El uso continuado de la plataforma tras la publicación de cambios implica tu aceptación de los mismos.
 
 ## **13\. Contacto**
 
