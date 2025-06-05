@@ -797,3 +797,24 @@ body.light-mode .site-footer h5 {
   margin: 0;
   font-size: 0.9rem;
 }
+
+/* Espaciado y ajuste tipográfico para páginas legales */
+.modern-services {
+  margin-bottom: 2rem;
+}
+.markdown-body h1 {
+  font-size: 2rem;
+  margin: 1.5rem 0 1rem;
+}
+.markdown-body h2 {
+  font-size: 1.75rem;
+  margin: 1.25rem 0 0.75rem;
+}
+.markdown-body h3 {
+  font-size: 1.5rem;
+  margin: 1rem 0 0.5rem;
+}
+.markdown-body p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
