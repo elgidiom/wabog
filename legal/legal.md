@@ -51,7 +51,7 @@ En cumplimiento de la **Ley 1581 de 2012** y el **Decreto 1377 de 2013** de Colo
 * Mejora de la plataforma y sus algoritmos de IA (en forma anonimizada).  
 * Atención de solicitudes y comunicaciones con el usuario.
 
-**Consentimiento**: Al registrarte, otorgas tu consentimiento expreso para el tratamiento de tus datos personales conforme a estos términos y nuestra **Política de Privacidad** disponible en \[https://wabog.com/politica-privacidad\].
+**Consentimiento**: Al registrarte, otorgas tu consentimiento expreso para el tratamiento de tus datos personales conforme a estos términos y nuestra **Política de Privacidad** disponible en https://wabog.com/privacy.html.
 
 **Derechos ARCO**: Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando una solicitud a [soporte@wabog.com](mailto:soporte@wabog.com)
 
@@ -92,7 +92,7 @@ Ofrecemos soporte a través de [soporte@wabog.com](mailto:soporte@wabog.com) con
 
 ## **12\. Modificaciones a los Términos y Condiciones**
 
-Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las versiones actualizadas se publicarán en \[https://wabog.com/terminos\]. El uso continuado de la plataforma tras la publicación de cambios implica tu aceptación de los mismos.
+Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las versiones actualizadas se publicarán en \[https://wabog.com/legal.html\]. El uso continuado de la plataforma tras la publicación de cambios implica tu aceptación de los mismos.
 
 ## **13\. Contacto**
 
