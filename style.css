@@ -761,6 +761,7 @@ body.light-mode .site-footer {
 }
 .site-footer .footer-brand .footer-logo {
   max-width: 150px;
+  margin-top: 15px;
 }
 .site-footer h5 {
   font-size: 1.25rem;
