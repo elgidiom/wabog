@@ -765,6 +765,7 @@ body.light-mode .site-footer {
 .site-footer h5 {
   font-size: 1.25rem;
   margin-bottom: 1rem;
+  color: #fff;
 }
 .site-footer a {
   color: inherit;
