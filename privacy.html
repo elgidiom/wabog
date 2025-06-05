@@ -11,6 +11,12 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- Marked.js para renderizar Markdown -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    /* Ajuste visual si el contenido es corto */
+    #legal-content {
+      min-height: 60vh;
+    }
+  </style>
 </head>
 <body>
   <!-- Navbar -->
@@ -63,47 +69,44 @@
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Renderizamos el Markdown
-    marked.setOptions({headerIds: false});
-    fetch('legal/privacy.md')
-      .then(r => r.text())
-      .then(mdRaw => {
-        const marker = '# **POLÍTICA DE PRIVACIDAD';
-        const md = mdRaw.includes(marker) ? mdRaw.slice(mdRaw.indexOf(marker)) : mdRaw;
-        document.getElementById('legal-content').innerHTML = marked.parse(md);
-      });
+   // Renderizamos el Markdown completo sin recortar
+   marked.setOptions({headerIds: false});
+   fetch('legal/privacy.md')
+     .then(r => r.text())
+     .then(md => {
+       document.getElementById('legal-content').innerHTML = marked.parse(md);
+     });
 
-    // Toggle tema y logos
-    const body = document.body;
-    const themeToggle = document.getElementById('theme-toggle');
-    const themeIcon   = document.getElementById('theme-icon');
-    const navbarLogo  = document.getElementById('navbar-logo');
-    const footerLogo  = document.getElementById('footer-logo');
-    const updateThemeIcon = () => {
-      const sun = 'bi-sun', moon = 'bi-moon';
-      if (body.classList.contains('light-mode')) {
-        themeIcon.classList.replace(sun, moon);
-        themeIcon.style.color = '#000';
-      } else {
-        themeIcon.classList.replace(moon, sun);
-        themeIcon.style.color = '#fff';
-      }
-    };
-    const updateLogos = () => {
-      const light = 'assets/wabog_name_logo_light.webp';
-      const dark  = 'assets/wabog_name_logo.webp';
-      const src = body.classList.contains('light-mode') ? light : dark;
-      navbarLogo.src = src;
-      footerLogo.src = src;
-    };
-    themeToggle.addEventListener('click', () => {
-      body.classList.toggle('light-mode');
-      updateThemeIcon();
-      updateLogos();
-    });
-    // Inicializamos estado
-    updateThemeIcon();
-    updateLogos();
+   // Toggle tema y logos
+   const body = document.body;
+   const themeToggle = document.getElementById('theme-toggle');
+   const themeIcon   = document.getElementById('theme-icon');
+   const navbarLogo  = document.getElementById('navbar-logo');
+   const footerLogo  = document.getElementById('footer-logo');
+   const updateThemeIcon = () => {
+     const sun = 'bi-sun', moon = 'bi-moon';
+     if (body.classList.contains('light-mode')) {
+       themeIcon.classList.replace(sun, moon);
+       themeIcon.style.color = '#000';
+     } else {
+       themeIcon.classList.replace(moon, sun);
+       themeIcon.style.color = '#fff';
+     }
+   };
+   const updateLogos = () => {
+     const light = 'assets/wabog_name_logo_light.webp';
+     const dark  = 'assets/wabog_name_logo.webp';
+     const src = body.classList.contains('light-mode') ? light : dark;
+     navbarLogo.src = src;
+     footerLogo.src = src;
+   };
+   themeToggle.addEventListener('click', () => {
+     body.classList.toggle('light-mode');
+     updateThemeIcon();
+     updateLogos();
+   });
+   updateThemeIcon();
+   updateLogos();
   </script>
 </body>
 </html>
