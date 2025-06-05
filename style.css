@@ -749,6 +749,12 @@ body.light-mode #services .bi-check2-circle {
   background: transparent;
   padding: 3rem 1rem;
 }
+
+/* Logo navbar consistente en todas las páginas */
+.navbar-brand .logo {
+  max-width: 145px;
+  height: auto;
+}
 body.light-mode .site-footer {
   background: transparent;
   color: var(--form-text);
