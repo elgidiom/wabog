@@ -746,12 +746,12 @@ body.light-mode #services .bi-check2-circle {
    SITE FOOTER
 ------------------------------------- */
 .site-footer {
-  background: var(--secondary);
-  color: #fff;
+  background: transparent;
   padding: 3rem 1rem;
+  border-top: 1px solid var(--input-border);
 }
 body.light-mode .site-footer {
-  background: var(--waitlist-bg-light);
+  background: transparent;
   color: var(--form-text);
 }
 .site-footer .footer-grid {
