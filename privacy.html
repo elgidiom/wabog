@@ -66,7 +66,9 @@
     marked.setOptions({headerIds: false});
     fetch('legal/privacy.md')
       .then(r => r.text())
-      .then(md => {
+      .then(mdRaw => {
+        const marker = '# **POLÍTICA DE PRIVACIDAD';
+        const md = mdRaw.includes(marker) ? mdRaw.slice(mdRaw.indexOf(marker)) : mdRaw;
         document.getElementById('legal-content').innerHTML = marked.parse(md);
       });
 
