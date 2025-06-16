@@ -678,6 +678,13 @@ body.light-mode #services .bi-check2-circle {
     padding-right: 20px; /* Aumenta el margen lateral del contenido del hero */
   }
 
+  .lead {
+    text-align: center;
+  }
+
+  .col-lg-6 {
+    text-align: center;
+  }
   .hero-home {
     text-align: center;
   }
