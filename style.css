@@ -133,7 +133,7 @@ body.light-mode {
 }
 
 .nav-link {
-  font-size: 1.4rem; /* Aumentado tamaño de fuente de los enlaces de la navbar */
+  font-size: 1.1rem; /* Ligeramente más pequeño que la base (1.15rem) */
   color: #94a3b8 !important; /* grisáceo en navbar */
 }
 
@@ -222,7 +222,7 @@ body.light-mode .hero p.lead {
   width: auto;
   margin: 0;              /* sin separación vertical extra */
   padding: 0.5rem 1rem;   /* más compacto para navbar */
-  font-size: 1rem;
+  font-size: 0.95rem; /* Ligeramente más pequeño que la base */
 }
 
 /* CTA sólido en navbar */
@@ -232,7 +232,7 @@ body.light-mode .hero p.lead {
   border:none;
   border-radius:10px;         /* menos redondeado */
   padding:0.6rem 1rem;
-  font-size:1rem;
+  font-size:0.95rem; /* Ligeramente más pequeño que la base */
   font-weight:600;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
@@ -797,6 +797,7 @@ body.light-mode #services .bi-check2-circle {
 .site-footer {
   background: transparent;
   padding: 3rem 1rem;
+  font-size: 1.05rem; /* Ligeramente más pequeño que la base (1.15rem) */
 }
 
 /* Logo navbar consistente en todas las páginas */
@@ -822,7 +823,7 @@ body.light-mode .site-footer h5 {
   margin-top: 15px;
 }
 .site-footer h5 {
-  font-size: 1.25rem;
+  font-size: 1.1rem; /* También ligeramente menor para mantener la jerarquía baja en el footer */
   margin-bottom: 1rem;
   color: #fff;
 }
