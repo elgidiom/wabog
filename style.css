@@ -134,8 +134,12 @@ body.light-mode {
 
 .nav-link {
   font-size: 1.4rem; /* Aumentado tamaño de fuente de los enlaces de la navbar */
-  color: #ffffff !important;
+  color: #94a3b8 !important; /* grisáceo en navbar */
 }
+
+/* Blog destacado en blanco */
+.navbar .nav-link.blog-link{ color:#ffffff !important; }
+body.light-mode .navbar .nav-link.blog-link{ color:#000000 !important; }
 
 body.light-mode .navbar {
   background-color: transparent;
@@ -144,7 +148,7 @@ body.light-mode .navbar {
 
 body.light-mode .navbar-brand,
 body.light-mode .nav-link {
-  color: #212529 !important;
+  color: #6c757d !important; /* gris en modo claro */
 }
 
 /* -------------------------------------
@@ -211,6 +215,34 @@ body.light-mode .hero p.lead {
     margin-top: 3rem; /* Ajustado margin-top a rem */
     margin-left: 0;
     font-size: 1.15rem; /* Aumentado tamaño de fuente del botón */
+}
+
+/* Ajustes del botón gradiente cuando está en la navbar */
+.navbar .btn-gradient{
+  width: auto;
+  margin: 0;              /* sin separación vertical extra */
+  padding: 0.5rem 1rem;   /* más compacto para navbar */
+  font-size: 1rem;
+}
+
+/* CTA sólido en navbar */
+.navbar .btn-navbar-cta{
+  background-color:#1454fa;   /* azul del logo */
+  color:#fff !important;
+  border:none;
+  border-radius:10px;         /* menos redondeado */
+  padding:0.6rem 1rem;
+  font-size:1rem;
+  font-weight:600;
+  box-shadow: 0 2px 8px rgba(0,0,0,.15);
+}
+.navbar .btn-navbar-cta:hover{
+  background-color:#1043c7;   /* azul un poco más oscuro */
+  color:#fff !important;
+}
+body.light-mode .navbar .btn-navbar-cta{
+  background-color:#1454fa;
+  color:#fff !important;
 }
 .contact-form .btn-gradient {
   display: block;
@@ -580,10 +612,20 @@ body.light-mode .circle-icon::before{
 --------------------------------------------------------- */
 .pricing-card{
   position:relative;
+  display: flex;                 /* Para distribuir contenido en columna */
+  flex-direction: column;        /* Permite empujar CTA al fondo */
   background:rgba(255,255,255,0.05);      /* modo oscuro */
   border-radius:20px;
   overflow:hidden;
   max-width:520px;
+}
+
+/* Empuja el CTA al fondo y evita márgenes superiores variables */
+.pricing-card .btn-gradient{
+  display: block;                /* Necesario para centrar con auto */
+  margin-top: auto;              /* Coloca el botón en la parte inferior */
+  margin-left: auto;             /* Centra horizontalmente */
+  margin-right: auto;            /* Centra horizontalmente */
 }
 
 /* borde degradado usando mask */
