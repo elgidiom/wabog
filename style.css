@@ -15,9 +15,10 @@
   --quaternary: #6D47B7;
   --waitlist-bg-dark: rgba(6, 13, 24, 0.466);
   --waitlist-bg-light: rgba(255,255,255,0.8);
+  --navbar-height: 80px;
 }
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #000;
   background-size: 400% 400%;
   animation: gradientBG 20s ease infinite;
@@ -122,9 +123,15 @@ body.light-mode {
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: #000000;
   backdrop-filter: blur(10px);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: none;
   z-index: 1000;
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.navbar .container{
+  position: relative;
 }
 
 .navbar-brand {
@@ -142,7 +149,7 @@ body.light-mode {
 body.light-mode .navbar .nav-link.blog-link{ color:#000000 !important; }
 
 body.light-mode .navbar {
-  background-color: transparent;
+  background-color: #ffffff;
   box-shadow: none;
 }
 
@@ -151,18 +158,39 @@ body.light-mode .nav-link {
   color: #6c757d !important; /* gris en modo claro */
 }
 
+@media (max-width: 991px){
+  .navbar{
+    background-color: #000000;
+  }
+
+  .navbar.scrolled{
+    background-color: rgba(9, 17, 34, 0.7);
+    box-shadow: none;
+  }
+
+  body.light-mode .navbar{
+    background-color: #ffffff;
+    box-shadow: none;
+  }
+
+  body.light-mode .navbar.scrolled{
+    background-color: rgba(255,255,255,0.82);
+    box-shadow: none;
+  }
+}
+
 /* -------------------------------------
    SECCIÓN HERO
 ------------------------------------- */
 .hero {
-  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
-  padding-top: 90px; /* Ajustado espacio para la navbar fija más grande */
-  padding-bottom: 40px; /* Mantenemos un padding inferior */
+  min-height: 72vh;
+  padding-top: 104px;
+  padding-bottom: 72px;
   padding-left: 0;
   padding-right: 0;
   background: transparent;
   /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto;
+  margin: 0 auto 96px auto;
   display: flex; /* Para centrar el contenido */
   align-items: center; /* Centrado vertical */
   justify-content: center; /* Centrado horizontal */
@@ -182,13 +210,29 @@ body.light-mode .nav-link {
 }
 
 .hero-home>h1{
-  font-weight: bold;
-  font-size: 2.8rem;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.8vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 1.4rem;
+}
+
+.section-heading{
+  font-weight: 500;
+  font-size: clamp(2rem, 4.8vw, 2.8rem);
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+body.light-mode .text-gradient-heading {
+  color: #000000;
 }
 
 .hero p.lead {
   color: #94a3b8; /* Gris consistente con otras secciones */
-  font-size: 1.45rem; /* Tamaño de fuente para versión PC */
+  font-size: clamp(0.95rem, 1.8vw, 1.2rem); /* Tamaño más generoso en desktop */
+  line-height: 1.55;
+  margin-bottom: 1rem;
 }
 
 body.light-mode .hero p.lead {
@@ -205,44 +249,41 @@ body.light-mode .hero p.lead {
 .btn-gradient{
     position: relative;               /* para posicionar ::before   */
     z-index: 0;                       /* que quede detrás del texto */
-    padding: 0.9rem 1.8rem; /* Aumentado padding */
+    padding: 0.65rem 1.3rem;
     color: #fff;
-    background: transparent;
-    /* border: 2px solid #ffffff;        /\* ← 2º borde (liso)          *\/ */
-    border-radius: 20px;
+    background: linear-gradient(90deg, #1454fa 0%, #34abdb 100%);
+    border: none;
+    border-radius: 10px;
     overflow: hidden;                 /* el degradado no desborda   */
     width: 85%;
-    margin-top: 3rem; /* Ajustado margin-top a rem */
+    margin-top: 1.5rem;
     margin-left: 0;
-    font-size: 1.15rem; /* Aumentado tamaño de fuente del botón */
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
 }
 
 /* Ajustes del botón gradiente cuando está en la navbar */
 .navbar .btn-gradient{
   width: auto;
   margin: 0;              /* sin separación vertical extra */
-  padding: 0.5rem 1rem;   /* más compacto para navbar */
-  font-size: 0.95rem; /* Ligeramente más pequeño que la base */
+  padding: 0.4rem 0.95rem;   /* más compacto para navbar */
+  font-size: 0.95rem;        /* Ligeramente más pequeño que la base */
 }
 
 /* CTA sólido en navbar */
 .navbar .btn-navbar-cta{
-  background-color:#1454fa;   /* azul del logo */
-  color:#fff !important;
   border:none;
   border-radius:10px;         /* menos redondeado */
-  padding:0.6rem 1rem;
+  padding:0.45rem 0.95rem;
   font-size:0.95rem; /* Ligeramente más pequeño que la base */
-  font-weight:600;
+  font-weight:400;
   box-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 .navbar .btn-navbar-cta:hover{
-  background-color:#1043c7;   /* azul un poco más oscuro */
-  color:#fff !important;
-}
-body.light-mode .navbar .btn-navbar-cta{
-  background-color:#1454fa;
-  color:#fff !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,.18);
 }
 .contact-form .btn-gradient {
   display: block;
@@ -258,27 +299,93 @@ body.light-mode .contact-form .btn-gradient:hover {
 }
 
 body.light-mode .btn-gradient {
-    color: #000;
+    color: #fff;
 }
 
 /* 1er borde (degradado) */
 .btn-gradient::before{
-    content:'';
-    position:absolute;
-    inset:0;                        /* cubre todo el botón        */
-    padding:2px;                    /* grosor del borde degradado */
-    border-radius:inherit;          /* mismas esquinas            */
-    background:linear-gradient(45deg,
-               #1454fa, #34abdb);
-    /* “Recortamos” el centro para que
-       sólo se vea el borde degradado  */
-    -webkit-mask:
-       linear-gradient(#000 0 0) content-box,
-       linear-gradient(#000 0 0);
-    -webkit-mask-composite:xor;     /* Safari                     */
-            mask-composite:exclude;
-    pointer-events:none;            /* clics sólo al botón        */
-    z-index:-1;
+    content: none;
+}
+
+.btn-gradient i{
+    font-size: 1.05rem;
+}
+
+.btn-menu{
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-menu{
+  position: fixed;
+  top: var(--navbar-height);
+  left: 0;
+  right: 0;
+  background: #000000;
+  color: #ffffff;
+  border-radius: 0 0 14px 14px;
+  padding: 1.25rem 1.5rem 1.75rem;
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 1rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  z-index: 950;
+  transition: background-color var(--transition), box-shadow var(--transition);
+}
+
+.mobile-menu.open{
+  display: flex;
+}
+
+.mobile-menu a{
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.mobile-menu a:hover{
+  color: #34abdb;
+}
+
+body.light-mode .mobile-menu{
+  background: #ffffff;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+  color: #000000;
+}
+
+body.light-mode .mobile-menu a{
+  color: #000000;
+}
+
+body.light-mode .mobile-menu a:hover{
+  color: #1454fa;
+}
+
+.mobile-menu.scrolled{
+  background: rgba(9, 17, 34, 0.7);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.18);
+}
+
+body.light-mode .mobile-menu.scrolled{
+  background: rgba(255,255,255,0.82);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+@media (min-width: 992px){
+  .mobile-menu{
+    display: none !important;
+  }
 }
 
 /* -------------------------------------
@@ -286,13 +393,22 @@ body.light-mode .btn-gradient {
 ------------------------------------- */
 .services,
 .modern-services {
-  padding: 50px 0; /* Mantenemos padding vertical para el contenido interno */
+  padding: 80px 0; /* Espaciado consistente entre secciones */
   /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto;
+  margin: 0 auto 96px auto;
   /* background: rgba(255, 255, 255, 0.1); */
   border-radius: 20px;
   backdrop-filter: blur(10px);
   color: #e0e0e0;
+}
+
+#services.modern-services p{
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  line-height: 1.6;
+}
+
+body.light-mode #services.modern-services p{
+  color: #374151;
 }
 
 body.light-mode .services,
@@ -340,22 +456,25 @@ body.light-mode .card-text {
 }
 
 /* Títulos y textos dentro de la sección */
-.modern-services h2,
-.pricing-section h2 {
-  font-weight: bold;
-  font-size: 2.8rem; /* Aumentado tamaño de fuente */
-  color: #ffffff;
-}
-
-body.light-mode .modern-services h2,
-body.light-mode .pricing-section h2 {
-  color: #1e293b;
-}
-
 .modern-services p.lead,
 .pricing-section p.lead {
   color: #94a3b8;
-  font-size: 1.45rem; /* Tamaño de fuente para versión PC */
+  font-size: clamp(0.95rem, 2vw, 1rem);
+  line-height: 1.6;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.pricing-card p {
+  font-size: clamp(0.95rem, 2vw, 1rem);
+}
+
+.section-label {
+  display: inline-block;
+  letter-spacing: 0.18rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 0.75rem;
 }
 
 body.light-mode .modern-services p.lead,
@@ -368,7 +487,7 @@ body.light-mode .modern-services ul li {
 }
 
 .modern-services ul li {
-  font-size: 1.2rem; /* Aumentado tamaño de fuente para items de lista */
+  font-size: clamp(0.95rem, 2vw, 1rem);
 }
 
 /* -------------------------------------
@@ -408,6 +527,9 @@ body.light-mode .circle-icon {
 
 .contact h2 {
   color: #00ffcc;
+  font-weight: 500;
+  font-size: clamp(2rem, 4.8vw, 2.8rem);
+  line-height: 1.15;
 }
 
 body.light-mode .contact h2 {
@@ -592,13 +714,13 @@ body.light-mode .circle-icon::before{
 --------------------------------------------------------- */
 .pricing-section {
   /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto;
-  min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+  margin: 0 auto 56px auto;
+  min-height: auto;
   display: flex;
   flex-direction: column;
   justify-content: center; /* Centra el contenido verticalmente */
-  padding-top: 80px; /* Espacio por si se navega directamente y hay navbar */
-  padding-bottom: 40px;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .pricing-section .text-gradient {
@@ -617,7 +739,10 @@ body.light-mode .circle-icon::before{
   background:rgba(255,255,255,0.05);      /* modo oscuro */
   border-radius:20px;
   overflow:hidden;
-  max-width:520px;
+  width:100%;
+  max-width:366px;
+  flex:1 1 320px;
+  height:100%;
 }
 
 /* Empuja el CTA al fondo y evita márgenes superiores variables */
@@ -667,12 +792,6 @@ body.light-mode .pricing-card::before{
 /* ---------------------------------------------------------
    QUE #services OCUPE UNA PANTALLA COMPLETA
 --------------------------------------------------------- */
-#services.modern-services{
-  min-height:100vh;                 /* Ocupa toda la altura de la pantalla */
-  display: flex; /* Para centrar el contenido */
-  align-items: center; /* Centrado vertical */
-}
-
 /* Estilos para los iconos de check en la sección de servicios */
 #services .bi-check2-circle {
   color: #00ffff; /* Color por defecto para modo oscuro */
@@ -705,6 +824,14 @@ body.light-mode #services .bi-check2-circle {
   text-align: left;
 }
 
+@media (min-width: 768px){
+  .pricing-section .lead{
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
 
 
 
@@ -716,6 +843,9 @@ body.light-mode #services .bi-check2-circle {
 
 @media (max-width: 767px) {
   .hero {
+    min-height: auto;
+    padding-top: 120px;
+    padding-bottom: 56px;
     padding-left: 20px; /* Aumenta el margen lateral del contenido del hero */
     padding-right: 20px; /* Aumenta el margen lateral del contenido del hero */
   }
@@ -732,7 +862,7 @@ body.light-mode #services .bi-check2-circle {
   }
 
   .hero-home>h1{
-    font-size: 2rem;
+    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
   }
 
 
@@ -745,15 +875,16 @@ body.light-mode #services .bi-check2-circle {
   .modern-services h2,
   .pricing-section h2, /* Asumiendo que los títulos de pricing son h2 */
   .contact h2 { /* Incluimos contact por consistencia */
-    font-size: 2rem; /* Ajusta este valor según sea necesario */
+    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
+    line-height: 1.2;
   }
 
   /* Añadir márgenes laterales a secciones en móvil */
   .services,
   .modern-services,
   .pricing-section {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   /* Reducir tamaño del subtítulo en la sección de precios para móvil */
@@ -764,10 +895,19 @@ body.light-mode #services .bi-check2-circle {
   /* El estilo para .pricing-section h1 en móvil fue eliminado, ahora es h2 y se maneja por la regla:
      .modern-services h2, .pricing-section h2, .contact h2 { font-size: 2rem; } */
 
-  /* Reducir tamaño del logo en la navbar para móvil */
-  .navbar-brand img {
-    max-width: 125px; /* Reducido para asegurar que sea más pequeño */
+  /* Ajustes responsivos del logo en pantallas pequeñas */
+  .navbar-brand .logo {
+    width: clamp(70px, 28vw, 100px);
     height: auto;
+  }
+
+  .site-footer .footer-brand .footer-logo {
+    width: clamp(90px, 40vw, 130px);
+    height: auto;
+  }
+
+  .navbar .btn-navbar-cta {
+    display: none;
   }
 
   #wapp-preview-img { /* Estilos para la imagen de previsualización de WhatsApp en móvil */
@@ -781,7 +921,8 @@ body.light-mode #services .bi-check2-circle {
 
   /* Reducir tamaño del párrafo del hero en móvil para que quede más pequeño que el título */
   .hero p.lead {
-    font-size: 1.1rem;
+    font-size: 0.86rem;
+    line-height: 1.4;
     text-align: center;
   }
 
@@ -796,13 +937,14 @@ body.light-mode #services .bi-check2-circle {
 ------------------------------------- */
 .site-footer {
   background: transparent;
-  padding: 3rem 1rem;
+  padding: 2rem 1rem 2.5rem 1rem;
   font-size: 1.05rem; /* Ligeramente más pequeño que la base (1.15rem) */
 }
 
 /* Logo navbar consistente en todas las páginas */
 .navbar-brand .logo {
-  max-width: 145px;
+  width: clamp(90px, 12vw, 120px);
+  max-width: 100%;
   height: auto;
 }
 body.light-mode .site-footer {
@@ -819,7 +961,9 @@ body.light-mode .site-footer h5 {
   align-items: start;
 }
 .site-footer .footer-brand .footer-logo {
-  max-width: 150px;
+  width: clamp(110px, 20vw, 150px);
+  max-width: 100%;
+  height: auto;
   margin-top: 15px;
 }
 .site-footer h5 {
@@ -867,4 +1011,23 @@ body.light-mode .site-footer h5 {
 .markdown-body p {
   margin-bottom: 1rem;
   line-height: 1.6;
+}
+@media (max-width: 576px){
+  .pricing-card{
+    max-width: 100%;
+    flex-basis: 100%;
+    min-height: 620px;
+  }
+}
+
+@media (min-width: 992px){
+  .pricing-card{
+    flex: 0 0 366px;
+    max-width: 366px;
+    min-height: 620px;
+  }
+
+  .pricing-card ul.list-unstyled{
+    min-height: 230px;
+  }
 }

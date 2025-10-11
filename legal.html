@@ -7,6 +7,7 @@
   <title>Términos y Condiciones – WABOG</title>
   <!-- Bootstrap y estilos -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <!-- Marked.js para renderizar Markdown -->
@@ -19,9 +20,24 @@
       <a class="navbar-brand fw-bold" href="index.html">
         <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2" id="navbar-logo">
       </a>
+      <div class="navbar-nav d-none d-lg-flex ms-3 me-auto">
+        <a class="nav-link" href="index.html#services">Funcionalidades</a>
+        <a class="nav-link" href="index.html#pricing">Precios</a>
+        <a class="nav-link blog-link" href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+      </div>
+      <div class="d-flex align-items-center ms-auto gap-3">
+        <button class="btn btn-menu d-lg-none" id="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
+          <span class="bi bi-list"></span>
+        </button>
       <button id="theme-toggle" class="btn" style="background:none;border:none;">
         <span id="theme-icon" class="bi bi-sun"></span>
       </button>
+      </div>
+      <div class="mobile-menu d-lg-none" id="mobile-menu">
+        <a href="index.html#services">Funcionalidades</a>
+        <a href="index.html#pricing">Precios</a>
+        <a href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+      </div>
     </div>
   </nav>
 
@@ -40,14 +56,14 @@
           <img id="footer-logo" src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
         </div>
         <div class="social-column">
-          <h5 class="fw-bold">Redes Sociales</h5>
+          <h5>Redes Sociales</h5>
           <div class="social-icons">
             <a href="https://www.instagram.com/wabog.ia/" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
             <a href="https://www.linkedin.com/company/wabog" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
         <div class="legal-column">
-          <h5 class="fw-bold">Legal</h5>
+          <h5>Legal</h5>
           <div class="legal-links">
             <a href="legal.html">Términos y Condiciones</a>
             <a href="privacy.html">Política de Privacidad</a>
@@ -101,6 +117,40 @@
     });
     updateThemeIcon();
     updateLogos();
+
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuToggle && mobileMenu) {
+      const mobileMenuIcon = mobileMenuToggle.querySelector('span');
+      const setMenuIcon = (isOpen) => {
+        if (!mobileMenuIcon) return;
+        mobileMenuIcon.classList.remove(isOpen ? 'bi-list' : 'bi-x');
+        mobileMenuIcon.classList.add(isOpen ? 'bi-x' : 'bi-list');
+      };
+
+      const closeMenu = () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+        setMenuIcon(false);
+      };
+
+      mobileMenuToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const isOpen = mobileMenu.classList.toggle('open');
+        mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+        setMenuIcon(isOpen);
+      });
+
+      mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMenu);
+      });
+
+      document.addEventListener('click', (event) => {
+        if (!mobileMenu.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+          closeMenu();
+        }
+      });
+    }
   </script>
 </body>
 </html>
