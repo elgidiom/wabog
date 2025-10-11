@@ -895,12 +895,6 @@ body.light-mode #services .bi-check2-circle {
   /* El estilo para .pricing-section h1 en móvil fue eliminado, ahora es h2 y se maneja por la regla:
      .modern-services h2, .pricing-section h2, .contact h2 { font-size: 2rem; } */
 
-  /* Ajustes responsivos del logo en pantallas pequeñas */
-  .navbar-brand .logo {
-    width: clamp(70px, 28vw, 100px);
-    height: auto;
-  }
-
   .site-footer .footer-brand .footer-logo {
     width: clamp(90px, 40vw, 130px);
     height: auto;
@@ -946,6 +940,12 @@ body.light-mode #services .bi-check2-circle {
   width: clamp(90px, 12vw, 120px);
   max-width: 100%;
   height: auto;
+}
+
+@media (max-width: 767px) {
+  .navbar-brand .logo {
+    width: clamp(82px, 30vw, 120px); /* Ajuste leve para ampliar el logo en mobile */
+  }
 }
 body.light-mode .site-footer {
   background: transparent;
