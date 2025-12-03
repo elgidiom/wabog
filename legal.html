@@ -5,96 +5,183 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/waboglogo.webp" type="image/webp" sizes="any">
-  <title>Términos y Condiciones – WABOG</title>
-  <!-- Bootstrap y estilos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- Marked.js para renderizar Markdown -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Marked.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <title>Términos y Condiciones – WABOG</title>
 </head>
 
 <body>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2" id="navbar-logo">
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
       </a>
-      <div class="navbar-nav d-none d-lg-flex ms-3 me-auto">
-        <a class="nav-link" href="index.html#services">Funcionalidades</a>
-        <a class="nav-link" href="index.html#pricing">Precios</a>
-        <a class="nav-link blog-link" href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+
+      <div class="navbar-center">
+        <div class="nav-links-pill">
+          <a href="index.html#features">Funcionalidades</a>
+          <a href="index.html#pricing">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank">Blog</a>
+        </div>
       </div>
-      <div class="d-flex align-items-center ms-auto gap-3">
-        <a href="https://wa.me/573018112185?text=Hola%2C%20quiero%20probar%20WABOG." target="_blank" rel="noopener"
-          class="btn btn-gradient btn-navbar-cta">Prueba Wabog</a>
-        <button class="btn btn-menu d-lg-none" id="mobile-menu-toggle" type="button" aria-expanded="false"
-          aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
-          <span class="bi bi-list"></span>
-        </button>
-        <button id="theme-toggle" class="btn" style="background:none;border:none;">
-          <span id="theme-icon" class="bi bi-sun"></span>
-        </button>
-      </div>
-      <div class="mobile-menu d-lg-none" id="mobile-menu">
-        <a href="index.html#services">Funcionalidades</a>
-        <a href="index.html#pricing">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+
+      <div class="navbar-right">
+        <a href="https://app.wabog.com" class="btn-login">Login</a>
       </div>
     </div>
   </nav>
 
-  <!-- Contenido de Términos y Condiciones -->
-  <section class="modern-services py-4" style="margin-top: 90px; margin-bottom: 3rem;">
-    <div class="container markdown-body mx-auto" id="legal-content" style="max-width:800px;">
-      Cargando contenido…
+  <!-- Content Section -->
+  <section class="legal-content-section" style="padding: 60px 0; min-height: 60vh;">
+    <div class="container">
+      <div id="legal-content" class="markdown-body" style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+        Cargando contenido...
+      </div>
     </div>
   </section>
 
-  <!-- Footer compartido -->
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img id="footer-logo" src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
+      <div class="footer-content">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+        <div class="social-links">
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank"><i class="bi bi-instagram"></i></a>
+          <a href="https://www.linkedin.com/company/wabog" target="_blank"><i class="bi bi-linkedin"></i></a>
         </div>
-        <div class="social-column">
-          <h5>Redes Sociales</h5>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/wabog.ia/" target="_blank" aria-label="Instagram"><i
-                class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/wabog" target="_blank" aria-label="LinkedIn"><i
-                class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="legal-column">
-          <h5>Legal</h5>
-          <div class="legal-links">
-            <a href="legal.html">Términos y Condiciones</a>
-            <a href="privacy.html">Política de Privacidad</a>
-          </div>
+        <div class="legal-links">
+          <a href="legal.html">Términos</a>
+          <a href="privacy.html">Privacidad</a>
         </div>
       </div>
-      <div class="footer-copy text-center mt-4">
-        <p>&copy; 2025 WABOG. Todos los derechos reservados.</p>
-      </div>
+      <p class="copyright">&copy; 2025 WABOG. Todos los derechos reservados.</p>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
   <script>
-    // Renderizamos el Markdown
+    // Render Markdown
     marked.setOptions({ headerIds: false });
-    fetch('legal/legal.md')
-      .then(r => r.text())
-      .then(md => {
-        document.getElementById('legal-content').innerHTML = marked.parse(md);
-      });
+    const legalMarkdown = `
+# **TÉRMINOS Y CONDICIONES DE USO – WABOG**
+
+**Vigente desde: 17 de mayo de 2025**
+
+Bienvenido a **WABOG**, una plataforma diseñada para automatizar el seguimiento de procesos judiciales en Colombia y generar documentos legales con apoyo de inteligencia artificial (IA). Al registrarte, acceder o utilizar nuestros servicios, aceptas cumplir con los presentes Términos y Condiciones en su totalidad. Si no estás de acuerdo, por favor, abstente de usar la plataforma.
+
+## **1. Descripción del servicio**
+
+WABOG es una herramienta tecnológica que ofrece las siguientes funcionalidades:
+
+* Recepción de notificaciones automáticas sobre procesos judiciales registrados en plataformas públicas, como la Rama Judicial de Colombia.  
+* Extracción y organización de información disponible en dichas plataformas.  
+* Generación de documentos legales preliminares mediante inteligencia artificial, como herramienta de apoyo para abogados.
+
+**Limitaciones del servicio**:
+
+* WABOG no proporciona asesoría jurídica ni reemplaza el juicio profesional de un abogado.  
+* La exactitud de las notificaciones depende de la información disponible en las plataformas públicas de la Rama Judicial.  
+* Los documentos generados por IA son borradores que requieren revisión y validación por parte de un profesional del derecho antes de su uso.
+
+## **2. Requisitos para el uso de la plataforma**
+
+Para utilizar WABOG, debes:
+
+* Ser mayor de edad y tener capacidad legal para contratar servicios.  
+* Proporcionar información veraz y completa al registrarte, incluyendo tu nombre completo, número de celular, correo electrónico y, cuando aplique, el enlace o información del expediente judicial a monitorear.  
+* Mantener la confidencialidad de tus credenciales de acceso (usuario y contraseña). Eres responsable de cualquier actividad realizada con tu cuenta.
+
+## **3. Fuente de la información**
+
+Las notificaciones y datos proporcionados por WABOG provienen exclusivamente de fuentes públicas, principalmente la plataforma de la Rama Judicial de Colombia. Es responsabilidad del usuario proporcionar el enlace correcto del expediente judicial para su monitoreo.
+
+**Limitación de responsabilidad**:  
+WABOG no será responsable por errores, omisiones, retrasos o interrupciones en el servicio causados por fallos en las plataformas de la Rama Judicial u otras fuentes externas. Recomendamos verificar la información directamente en las plataformas oficiales antes de tomar decisiones legales.
+
+## **4. Generación de documentos con inteligencia artificial**
+
+Los documentos generados por WABOG mediante IA son herramientas de apoyo técnico y no constituyen asesoría legal ni tienen efectos jurídicos vinculantes. **Es responsabilidad exclusiva del usuario revisar, validar y, de ser necesario, ajustar estos documentos con un abogado calificado antes de su uso en cualquier procedimiento legal.**
+
+WABOG no se responsabiliza por:
+
+* Errores o inexactitudes en los documentos generados.  
+* Consecuencias legales derivadas del uso de documentos sin revisión profesional.  
+* Pérdidas, daños o perjuicios ocasionados por el uso indebido de los documentos generados.
+
+## **5. Protección de datos personales**
+
+En cumplimiento de la **Ley 1581 de 2012** y el **Decreto 1377 de 2013** de Colombia, WABOG recopila, almacena y procesa datos personales (como nombre, correo electrónico, número de celular y datos de expedientes judiciales) con las siguientes finalidades:
+
+* Prestación del servicio de monitoreo y generación de documentos.  
+* Mejora de la plataforma y sus algoritmos de IA (en forma anonimizada).  
+* Atención de solicitudes y comunicaciones con el usuario.
+
+**Consentimiento**: Al registrarte, otorgas tu consentimiento expreso para el tratamiento de tus datos personales conforme a estos términos y nuestra **Política de Privacidad** disponible en https://wabog.com/privacy.
+
+**Derechos ARCO**: Puedes ejercer tus derechos de acceso, rectificación, cancelación y oposición enviando una solicitud a [soporte@wabog.com](mailto:soporte@wabog.com)
+
+**Seguridad**: Implementamos medidas técnicas y organizativas para proteger tus datos personales contra accesos no autorizados, pérdida o alteración. Sin embargo, ningún sistema es completamente infalible, y no podemos garantizar la seguridad absoluta de la información.
+
+## **6. Uso de datos para entrenamiento de IA**
+
+WABOG podrá utilizar los documentos procesados y datos generados en la plataforma (excluyendo datos personales identificables) para entrenar y mejorar nuestros modelos de inteligencia artificial. Estos datos serán anonimizados para garantizar que no puedan vincularse directamente contigo o con terceros. 
+
+**7. Propiedad intelectual**
+
+WABOG, incluyendo su software, diseño, algoritmos y contenido (excepto la información de fuentes públicas), es propiedad intelectual de WABOG. Al usar la plataforma, se te otorga una licencia limitada, no exclusiva y no transferible para utilizar el servicio conforme a estos términos. Queda prohibido:
+
+* Copiar, modificar, distribuir o reproducir el software o contenido de WABOG sin autorización expresa.  
+* Usar la plataforma para fines distintos a los establecidos en estos términos.
+
+Los documentos generados por IA son herramientas de apoyo y no transfieren derechos de propiedad intelectual al usuario, salvo para su uso personal y profesional tras revisión.
+
+## **8. Precios, pagos y cancelaciones**
+
+WABOG opera bajo un modelo de suscripción. Los detalles de los planes, precios y condiciones están disponibles en [https://wabog.com](https://wabog.com).
+
+* **Pagos**: Los pagos son anticipados y deben realizarse a través de los medios habilitados en la plataforma.  
+* **Cancelaciones**: Puedes cancelar tu suscripción en cualquier momento enviando un correo a [soporte@wabog.com](mailto:soporte@wabog.com).  La cancelación será efectiva al final del ciclo de facturación vigente, y no se realizarán reembolsos por periodos ya pagados, salvo lo dispuesto por la legislación colombiana (por ejemplo, derecho de retracto en compras electrónicas conforme al **Estatuto del Consumidor**).  
+* **Cambios de plan**: Puedes modificar tu plan siguiendo el procedimiento indicado en https://wabog.com. Los cambios entrarán en vigor en el siguiente ciclo de facturación.
+
+## **9. Servicios de terceros**
+
+WABOG utiliza servicios de terceros para operar, incluyendo plataformas de almacenamiento en la nube y modelos de inteligencia artificial de proveedores externos. Nos reservamos el derecho de cambiar estos proveedores sin previo aviso, siempre que no afecten materialmente la calidad del servicio.
+
+## **10. Delegación de acceso a información pública:**
+
+Al facilitar el enlace o los datos del expediente judicial a monitorear, el usuario autoriza expresamente a WABOG a actuar en su nombre para consultar, recopilar y organizar la información disponible en plataformas públicas de la Rama Judicial, con el fin exclusivo de prestarle el servicio de monitoreo automatizado y generación de documentos. Esta autorización se entiende como una delegación válida del acceso que el propio usuario podría realizar, y no implica recolección de información más allá de la disponible públicamente ni en contravención de restricciones técnicas o legales establecidas por dichas plataformas.
+
+## **11. Atención al usuario**
+
+Ofrecemos soporte a través de [soporte@wabog.com](mailto:soporte@wabog.com) con un tiempo de respuesta estimado de 24 horas hábiles. Trabajamos continuamente para mejorar nuestros canales de atención.
+
+## **12. Modificaciones a los Términos y Condiciones**
+
+Nos reservamos el derecho de modificar estos Términos y Condiciones en cualquier momento. Las versiones actualizadas se publicarán en https://wabog.com/legal. El uso continuado de la plataforma tras la publicación de cambios implica tu aceptación de los mismos.
+
+## **13. Contacto**
+
+Para cualquier duda, queja o solicitud, contáctanos en [soporte@wabog.com](mailto:soporte@wabog.com)
+`;
+    document.getElementById('legal-content').innerHTML = marked.parse(legalMarkdown);
   </script>
+
 </body>
 
 </html>
