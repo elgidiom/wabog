@@ -342,7 +342,7 @@ p {
 
 /* Pricing Section */
 .pricing-section {
-  padding: 80px 0 120px;
+  padding: 80px 0 195px;
 }
 
 .pricing-header {
@@ -516,6 +516,8 @@ p {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 40px;
+  align-items: center;
+  /* Vertically center content */
 }
 
 .footer-logo {
