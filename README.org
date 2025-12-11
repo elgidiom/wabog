@@ -1,4 +1,0 @@
-* Paleta de colores
-#1454fa
-#34abdb
-cambio
