@@ -43,7 +43,7 @@
       </div>
 
       <div class="navbar-right">
-        <a href="https://app.wabog.com" class="btn-login">Login</a>
+        <a href="https://app.wabog.com" class="btn-login-nav">Login</a>
       </div>
     </div>
   </nav>
@@ -52,23 +52,34 @@
   <section class="hero">
     <div class="container hero-content">
 
+      <!-- Badge -->
       <div class="hero-badge">
-        <i class="bi bi-stars"></i>
-        <span>Gestión legal inteligente</span>
+        <div class="badge-icon">
+          <i class="bi bi-stars"></i>
+        </div>
+        <span class="badge-text">Gestión legal inteligente</span>
       </div>
 
+      <!-- Title -->
       <h1 class="hero-title">
         No vuelvas a perder un <br> término judicial
       </h1>
 
+      <!-- Subtitle -->
       <p class="hero-subtitle">
         La IA de Wabog automatiza la vigilancia de procesos, redacta escritos legales y busca jurisprudencias
         relevantes. Todo desde el mismo lugar.
       </p>
 
-      <a href="https://wa.me/573018112185" target="_blank" class="btn-primary-cta">
-        Prueba Wabog gratis
-      </a>
+      <!-- Buttons -->
+      <div class="hero-buttons">
+        <a href="https://app.wabog.com/signup" class="btn-primary-rect">
+          PRUEBA GRATIS
+        </a>
+        <a href="https://calendly.com/wabog" target="_blank" class="btn-secondary-rect">
+          AGENDA DEMO
+        </a>
+      </div>
 
     </div>
   </section>
@@ -106,38 +117,117 @@
     </div>
   </section>
 
-  <!-- Video/Demo Section -->
-  <section class="demo-section">
+  <!-- Video/Demo Section (App Preview) -->
+  <section class="app-preview-section">
     <div class="container">
-      <div class="video-mockup">
-        <!-- Placeholder for the video/image content -->
-        <div class="video-content">
-          <img src="assets/wabogapp.png" alt="Interface Preview" class="img-fluid"
-            style="opacity: 0.8; width: 100%; height: auto; display: block;">
-          <div class="play-button-overlay">
-            <div class="play-icon-bg"></div>
-            <div class="play-triangle"></div>
-          </div>
+      <div class="preview-container">
+        <!-- This represents the 'Screen' from the design -->
+        <img src="assets/wabog_home_mockup.png" onerror="this.src='assets/wabogapp.png'" alt="Wabog App Interface"
+          class="app-preview-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact / Stats Section -->
+  <section class="impact-section">
+    <div class="container">
+      <h2 class="section-title">Esto es lo que <span class="text-blue">Wabog</span> puede hacer en <br> tu despacho</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <h3>Ahorrar un <span class="highlight-blue">90%</span> de tiempo <br> en la consulta de procesos</h3>
+        </div>
+        <div class="impact-card">
+          <h3>Te ahorramos hasta un <br> <span class="highlight-blue">50%</span> de gastos</h3>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer (Simplified to match style) -->
-  <footer class="site-footer">
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
     <div class="container">
-      <div class="footer-content">
-        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
-        <div class="social-links">
-          <a href="https://www.instagram.com/wabog.ia/" target="_blank"><i class="bi bi-instagram"></i></a>
-          <a href="https://www.linkedin.com/company/wabog" target="_blank"><i class="bi bi-linkedin"></i></a>
+      <div class="pricing-header">
+        <h2 class="section-title">Selecciona el <span class="text-blue">plan</span> perfecto para ti</h2>
+        <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas
+          legales en segundos.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan PRO -->
+        <div class="pricing-card card-blue">
+          <div class="popular-badge">POPULAR</div>
+          <h3 class="plan-name">Plan PRO</h3>
+          <div class="plan-price">$55.000 <span class="text-sm">/ Mes</span></div>
+
+          <ul class="plan-features">
+            <li><i class="bi bi-check-circle-fill"></i> Hasta 50 procesos sincronizados</li>
+            <li><i class="bi bi-check-circle-fill"></i> Generación de documentos</li>
+            <li><i class="bi bi-check-circle-fill"></i> Consultas de jurisprudencias</li>
+            <li><i class="bi bi-check-circle-fill"></i> Notificaciones por Whatsapp</li>
+            <li><i class="bi bi-check-circle-fill"></i> 1 consulta diaria a la rama</li>
+            <li><i class="bi bi-check-circle-fill"></i> Soporte personalizado 24/7</li>
+          </ul>
+
+          <a href="https://app.wabog.com/signup" class="btn-white-rect">PRUEBA GRATIS</a>
         </div>
-        <div class="legal-links">
-          <a href="legal.html">Términos</a>
-          <a href="privacy.html">Privacidad</a>
+
+        <!-- Plan ENTERPRISE -->
+        <div class="pricing-card card-gray">
+          <h3 class="plan-name text-dark">Plan ENTERPRISE</h3>
+          <div class="plan-price text-dark">Custom <span class="text-sm font-light">/ Hablar con ventas</span></div>
+
+          <ul class="plan-features text-dark-features">
+            <li><i class="bi bi-check-circle"></i> Procesos sincronizados a demanda</li>
+            <li><i class="bi bi-check-circle"></i> Generación de documentos</li>
+            <li><i class="bi bi-check-circle"></i> Consultas de jurisprudencias</li>
+            <li><i class="bi bi-check-circle"></i> Notificaciones por Whatsapp</li>
+            <li><i class="bi bi-check-circle"></i> Soporte personalizado 24/7</li>
+            <li><i class="bi bi-check-circle"></i> Elige el numero de consultas a la rama</li>
+          </ul>
+
+          <a href="https://wa.me/573018112185" class="btn-dark-rect">HABLA CON VENTAS</a>
         </div>
       </div>
-      <p class="copyright">&copy; 2025 WABOG. Todos los derechos reservados.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+      </div>
+
+      <!-- Socials -->
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <div class="footer-links-list">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Tiktok</a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <div class="footer-links-list">
+          <a href="#pricing">Precios</a>
+          <a href="https://app.wabog.com">Login</a>
+          <a href="https://blog.wabog.com">Blog</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-list">
+          <a href="legal.html">Términos y condiciones</a>
+          <a href="privacy.html">Politica de privacidad</a>
+        </div>
+      </div>
     </div>
   </footer>
 

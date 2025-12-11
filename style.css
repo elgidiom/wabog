@@ -1,11 +1,11 @@
 /* Reset & Base */
 :root {
   --primary-blue: #1454FA;
-  --primary-light: #EEF2FF;
+  --secondary-blue: #6E80FF;
+  --bg-gray: #F5F5F5;
   --text-dark: #313D44;
-  --text-gray: #6D6D6D;
-  --bg-light: #F5F5F5;
   --white: #FFFFFF;
+
   --font-main: 'Inter', sans-serif;
   --font-caption: 'Inria Sans', sans-serif;
 }
@@ -17,29 +17,57 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: opacity 0.2s;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }
 
 /* Utilities */
 .container {
-  max-width: 1200px;
+  max-width: 1240px;
+  /* Slightly wider to accommodate grids */
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.text-blue {
+  color: var(--primary-blue);
+}
+
+.text-dark {
+  color: var(--text-dark) !important;
+}
+
+.highlight-blue {
+  color: var(--primary-blue);
+  font-weight: 700;
 }
 
 /* Navbar */
 .navbar {
   padding: 20px 0;
   background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .navbar-container {
@@ -49,7 +77,8 @@ ul {
 }
 
 .logo {
-  height: 30px;
+  height: 40px;
+  /* Matches roughly 150x50 in design */
   width: auto;
 }
 
@@ -62,36 +91,40 @@ ul {
 .nav-links-pill {
   background: var(--primary-blue);
   border-radius: 20px;
-  padding: 8px 24px;
+  padding: 10px 30px;
   display: flex;
   gap: 30px;
+  align-items: center;
 }
 
 .nav-links-pill a {
   color: var(--white);
+  font-family: var(--font-main);
   font-weight: 400;
-  font-size: 16px;
-  transition: opacity 0.2s;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 .nav-links-pill a:hover {
   opacity: 0.8;
 }
 
-.btn-login {
-  color: #6E80FF;
-  font-weight: 500;
+.btn-login-nav {
+  /* Matches Component styled roughly like 'Login' text or button */
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  font-family: var(--font-main);
   font-size: 16px;
-  padding: 8px 20px;
-  background: #F5F5F5;
-  /* Matches the "Login" button style in image roughly, or just text */
+  padding: 10px 24px;
   border-radius: 20px;
+  font-weight: 500;
 }
 
 /* Hero Section */
 .hero {
   text-align: center;
-  padding: 60px 0 40px;
+  padding: 80px 0 60px;
+  position: relative;
 }
 
 .hero-content {
@@ -103,221 +136,424 @@ ul {
 .hero-badge {
   background: rgba(204, 204, 204, 0.1);
   border-radius: 20px;
-  padding: 8px 20px;
+  padding: 8px 16px;
   display: flex;
   align-items: center;
   gap: 8px;
   margin-bottom: 24px;
+  border: 1px solid rgba(204, 204, 204, 0.2);
 }
 
-.hero-badge i {
-  color: #6E80FF;
+.badge-icon i {
+  color: var(--secondary-blue);
 }
 
 .hero-badge span {
   font-family: var(--font-caption);
   font-weight: 300;
-  font-size: 14px;
-  color: #6E80FF;
+  font-size: 16px;
+  color: var(--secondary-blue);
 }
 
 .hero-title {
+  font-family: var(--font-main);
   font-weight: 700;
-  font-size: 48px;
+  font-size: 56px;
+  /* 48px in design but looks bigger on desktop often */
   line-height: 1.2;
   color: var(--text-dark);
   margin-bottom: 24px;
 }
 
 .hero-subtitle {
+  font-family: var(--font-main);
   font-weight: 400;
   font-size: 18px;
-  line-height: 1.5;
+  line-height: 22px;
   color: var(--text-dark);
   max-width: 800px;
   margin-bottom: 40px;
 }
 
-.btn-primary-cta {
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary-rect {
   background: var(--primary-blue);
-  color: var(--white);
-  padding: 12px 32px;
+  color: var(--bg-gray);
+  /* Text #F5F5F5 */
+  width: 217px;
+  height: 42px;
   border-radius: 20px;
-  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-weight: 700;
   font-size: 18px;
-  transition: transform 0.2s;
-  display: inline-block;
 }
 
-.btn-primary-cta:hover {
-  transform: translateY(-2px);
-  color: var(--white);
+.btn-secondary-rect {
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  width: 217px;
+  height: 42px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-weight: 400;
+  /* As per design spec lighter */
+  font-size: 18px;
 }
 
-/* Features Section */
+/* Features Section Cards */
 .features {
-  padding: 60px 0;
+  padding: 40px 0;
+  margin-top: -60px;
+  /* Pull up if desired, but sticking to flow */
 }
 
+/* We want the features to overlap or sit nicely. Design puts them at top:762px which is below hero. */
 .features-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 30px;
   justify-content: center;
 }
 
 .feature-card {
-  background: var(--bg-light);
+  width: 339px;
+  height: 200px;
+  /* Fixed height from design */
+  background: var(--bg-gray);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
   border-radius: 15px;
-  padding: 40px 30px;
-  text-align: center;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
-  transition: transform 0.2s;
-}
-
-.feature-card:hover {
-  transform: translateY(-5px);
+  align-items: flex-start;
+  /* Left align content inside? Design text is center */
+  justify-content: center;
+  text-align: center;
+  position: relative;
 }
 
 .feature-icon {
-  width: 50px;
-  height: 50px;
+  width: 34px;
+  height: 34px;
   background: var(--primary-blue);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  /* Centered top */
 }
 
 .feature-icon i {
-  color: var(--white);
-  font-size: 24px;
+  color: #EEF2FF;
+  /* primary-300 roughly */
+  font-size: 18px;
 }
 
 .feature-card p {
+  font-family: var(--font-main);
+  font-weight: 400;
   font-size: 18px;
-  line-height: 1.4;
+  line-height: 22px;
   color: var(--text-dark);
-  margin: 0;
 }
 
-/* Demo Section */
-.demo-section {
-  padding: 40px 0 80px;
+/* App Preview */
+.app-preview-section {
+  padding: 80px 0;
   text-align: center;
 }
 
-.video-mockup {
-  position: relative;
-  max-width: 1000px;
+.preview-container {
+  max-width: 1152px;
   margin: 0 auto;
+  position: relative;
+}
+
+.app-preview-img {
+  width: 100%;
+  height: auto;
   border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-  background: #000;
-  /* Fallback */
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  /* Shadow from design */
 }
 
-.play-button-overlay {
+/* Impact / Stats Section */
+.impact-section {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--text-dark);
+  margin-bottom: 60px;
+}
+
+.impact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.impact-card h3 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: var(--text-dark);
+}
+
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 0 120px;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.pricing-header .section-subtitle {
+  font-size: 18px;
+  color: var(--text-dark);
+  margin-top: 16px;
+}
+
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.pricing-card {
+  width: 466px;
+  min-height: 657px;
+  /* As per design */
+  border-radius: 15px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Blue Card */
+.card-blue {
+  background: var(--primary-blue);
+  color: var(--bg-gray);
+  box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.popular-badge {
   position: absolute;
-  top: 50%;
+  top: -17px;
+  /* Pull up */
   left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-}
-
-.play-icon-bg {
-  width: 80px;
-  height: 50px;
-  background: #FF0000;
-  border-radius: 12px;
+  transform: translateX(-50%);
+  width: 191px;
+  height: 34px;
+  background: var(--bg-gray);
+  border-radius: 20px;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-family: var(--font-caption);
+  color: var(--primary-blue);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
-.play-triangle {
-  width: 0;
-  height: 0;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid transparent;
-  border-left: 16px solid white;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.card-blue .plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--bg-gray);
 }
 
-/* Footer */
-.site-footer {
-  padding: 40px 0;
-  background: var(--bg-light);
-  margin-top: 60px;
+.card-blue .plan-price {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: var(--bg-gray);
 }
 
-.footer-content {
+.card-blue .plan-features {
+  margin-bottom: auto;
+  /* Push button down */
+}
+
+.card-blue .plan-features li {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 12px;
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: var(--bg-gray);
 }
 
-.footer-logo {
-  height: 24px;
-  opacity: 0.8;
-}
-
-.social-links {
+.btn-white-rect {
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 40px;
 }
 
-.social-links a {
-  font-size: 20px;
+/* Gray Card */
+.card-gray {
+  background: var(--bg-gray);
+  color: var(--text-dark);
+  box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+.card-gray .plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.card-gray .plan-price {
+  font-size: 32px;
+  font-weight: 400;
+  /* "Custom" is lighter/regular in spec */
+  margin-bottom: 40px;
+}
+
+.card-gray .plan-price span {
+  font-size: 24px;
+}
+
+.card-gray .plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  margin-bottom: 24px;
   color: var(--text-dark);
 }
 
-.legal-links {
+.btn-dark-rect {
+  background: var(--text-dark);
+  color: var(--bg-gray);
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
   display: flex;
-  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 40px;
 }
 
-.legal-links a {
-  font-size: 14px;
-  color: var(--text-gray);
+.text-dark-features li i {
+  color: var(--text-dark);
+  /* Icons in gray card */
 }
 
-.copyright {
+/* Footer Grid */
+.site-footer {
+  background: var(--bg-gray);
+  padding: 60px 0;
+  position: relative;
+}
+
+.footer-container-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+.footer-logo {
+  height: 61px;
+  width: auto;
+}
+
+.footer-col h4 {
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--text-dark);
   text-align: center;
-  font-size: 12px;
-  color: var(--text-gray);
-  margin-top: 20px;
 }
 
-/* Responsive */
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-links-list a {
+  font-family: 'Inria Sans';
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+  .pricing-card {
+    width: 100%;
+    min-height: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     flex-direction: column;
-    gap: 15px;
   }
 
   .nav-links-pill {
-    width: 100%;
-    justify-content: center;
-    padding: 8px 16px;
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .footer-container-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col h4,
+  .footer-links-list {
+    align-items: center;
+  }
+
+  .pricing-grid {
+    gap: 30px;
   }
 
   .hero-title {
     font-size: 32px;
-  }
-
-  .navbar-right {
-    display: none;
-    /* Hide login on mobile or move it */
   }
 }
