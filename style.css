@@ -71,6 +71,8 @@ p {
 }
 
 .navbar-container {
+  /* Relative for absolute centering of center child */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -83,7 +85,10 @@ p {
 }
 
 .navbar-center {
-  flex: 1;
+  /* Absolute Center */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
 }
@@ -445,6 +450,10 @@ p {
 
 .card-gray .plan-price span {
   font-size: 24px;
+}
+
+.card-gray .plan-features {
+  margin-bottom: auto;
 }
 
 .card-gray .plan-features li {
