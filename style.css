@@ -167,7 +167,7 @@ p {
   /* 48px in design but looks bigger on desktop often */
   line-height: 1.2;
   color: var(--text-dark);
-  margin-bottom: 24px;
+  margin-bottom: 50px;
 }
 
 .hero-subtitle {
@@ -176,8 +176,8 @@ p {
   font-size: 18px;
   line-height: 22px;
   color: var(--text-dark);
-  max-width: 800px;
-  margin-bottom: 40px;
+  max-width: 968px;
+  margin-bottom: 86px;
 }
 
 .hero-buttons {
@@ -217,8 +217,8 @@ p {
 
 /* Features Section Cards */
 .features {
-  padding: 40px 0;
-  margin-top: -60px;
+  padding: 130px 0 0;
+  margin-top: 0;
   /* Pull up if desired, but sticking to flow */
 }
 
@@ -226,7 +226,7 @@ p {
 .features-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 69px;
   justify-content: center;
 }
 
@@ -275,7 +275,7 @@ p {
 
 /* App Preview */
 .app-preview-section {
-  padding: 80px 0;
+  padding: 231px 0 80px;
   text-align: center;
 }
 
@@ -305,6 +305,11 @@ p {
   font-size: 48px;
   line-height: 58px;
   color: var(--text-dark);
+  margin-bottom: 0;
+  /* Changed from global 120px to 0 to control locally */
+}
+
+.impact-section .section-title {
   margin-bottom: 120px;
 }
 
@@ -342,13 +347,17 @@ p {
 
 .pricing-header {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 118px;
+}
+
+.pricing-header .section-title {
+  margin-bottom: 0;
 }
 
 .pricing-header .section-subtitle {
   font-size: 18px;
   color: var(--text-dark);
-  margin-top: 16px;
+  margin-top: 15px;
 }
 
 .pricing-grid {
