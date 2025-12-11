@@ -305,7 +305,7 @@ p {
   font-size: 48px;
   line-height: 58px;
   color: var(--text-dark);
-  margin-bottom: 60px;
+  margin-bottom: 120px;
 }
 
 .impact-grid {
@@ -313,6 +313,18 @@ p {
   justify-content: center;
   gap: 60px;
   flex-wrap: wrap;
+}
+
+.impact-card {
+  width: 501px;
+  height: 200px;
+  background: var(--bg-gray);
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  /* 5% opacity from design analysis */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .impact-card h3 {
