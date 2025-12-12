@@ -5,96 +5,107 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/waboglogo.webp" type="image/webp" sizes="any">
-  <title>Términos y Condiciones – WABOG</title>
-  <!-- Bootstrap y estilos -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-  <!-- Marked.js para renderizar Markdown -->
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Marked.js -->
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <title>Términos y Condiciones – WABOG</title>
 </head>
 
 <body>
+
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="index.html">
-        <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2" id="navbar-logo">
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="navbar-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
       </a>
-      <div class="navbar-nav d-none d-lg-flex ms-3 me-auto">
-        <a class="nav-link" href="index.html#services">Funcionalidades</a>
-        <a class="nav-link" href="index.html#pricing">Precios</a>
-        <a class="nav-link blog-link" href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+
+      <div class="navbar-center">
+        <div class="nav-links-pill">
+          <a href="index.html#features">Funcionalidades</a>
+          <a href="index.html#pricing">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank">Blog</a>
+        </div>
       </div>
-      <div class="d-flex align-items-center ms-auto gap-3">
-        <a href="https://wa.me/573018112185?text=Hola%2C%20quiero%20probar%20WABOG." target="_blank" rel="noopener"
-          class="btn btn-gradient btn-navbar-cta">Prueba Wabog</a>
-        <button class="btn btn-menu d-lg-none" id="mobile-menu-toggle" type="button" aria-expanded="false"
-          aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
-          <span class="bi bi-list"></span>
-        </button>
-        <button id="theme-toggle" class="btn" style="background:none;border:none;">
-          <span id="theme-icon" class="bi bi-sun"></span>
-        </button>
-      </div>
-      <div class="mobile-menu d-lg-none" id="mobile-menu">
-        <a href="index.html#services">Funcionalidades</a>
-        <a href="index.html#pricing">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+
+      <div class="navbar-right">
+        <a href="https://app.wabog.com" class="btn-login-nav">Login</a>
       </div>
     </div>
   </nav>
 
-  <!-- Contenido de Términos y Condiciones -->
-  <section class="modern-services py-4" style="margin-top: 90px; margin-bottom: 3rem;">
-    <div class="container markdown-body mx-auto" id="legal-content" style="max-width:800px;">
-      Cargando contenido…
+  <!-- Content Section -->
+  <section class="legal-content-section" style="padding: 60px 0; min-height: 60vh;">
+    <div class="container">
+      <div id="legal-content" class="markdown-body" style="max-width: 800px; margin: 0 auto; line-height: 1.6;">
+        Cargando contenido...
+      </div>
     </div>
   </section>
 
-  <!-- Footer compartido -->
+  <!-- Footer -->
   <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img id="footer-logo" src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
-        </div>
-        <div class="social-column">
-          <h5>Redes Sociales</h5>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/wabog.ia/" target="_blank" aria-label="Instagram"><i
-                class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/wabog" target="_blank" aria-label="LinkedIn"><i
-                class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="legal-column">
-          <h5>Legal</h5>
-          <div class="legal-links">
-            <a href="legal.html">Términos y Condiciones</a>
-            <a href="privacy.html">Política de Privacidad</a>
-          </div>
+    <div class="container footer-container-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+      </div>
+
+      <!-- Socials -->
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <div class="footer-links-list">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Tiktok</a>
         </div>
       </div>
-      <div class="footer-copy text-center mt-4">
-        <p>&copy; 2025 WABOG. Todos los derechos reservados.</p>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <div class="footer-links-list">
+          <a href="index.html#pricing">Precios</a>
+          <a href="https://app.wabog.com">Login</a>
+          <a href="https://blog.wabog.com">Blog</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-list">
+          <a href="legal.html">Términos y condiciones</a>
+          <a href="privacy.html">Politica de privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="main.js"></script>
   <script>
-    // Renderizamos el Markdown
+    // Render Markdown
     marked.setOptions({ headerIds: false });
     fetch('legal/legal.md')
-      .then(r => r.text())
-      .then(md => {
-        document.getElementById('legal-content').innerHTML = marked.parse(md);
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('legal-content').innerHTML = marked.parse(text);
       });
   </script>
+
 </body>
 
 </html>

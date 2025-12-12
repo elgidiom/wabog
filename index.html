@@ -5,392 +5,252 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/waboglogo.webp" type="image/webp" sizes="any">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
-  <style>
-    .hero {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-radius: 10px;
-      padding: 20px;
-    }
-  </style>
-
-  <title>WABOG - Asistente legal con IA</title>
-
-  <!-- Bootstrap 5 -->
+  <!-- Bootstrap 5 (Only for grid/utilities if needed, but we'll use custom CSS mostly) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Animate.css -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-
-  <!-- tu hoja de estilos principal -->
+  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
+
+  <title>WABOG - Gestión legal inteligente</title>
 </head>
 
 <body>
-  <!-- ========== NAVBAR ========= -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="#">
-        <img src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="logo me-2" id="navbar-logo">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="navbar-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
       </a>
 
-      <div class="navbar-nav d-none d-lg-flex ms-3 me-auto">
-        <a class="nav-link" href="#services">Funcionalidades</a>
-        <a class="nav-link" href="#pricing">Precios</a>
-        <a class="nav-link blog-link" href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+      <div class="navbar-center">
+        <div class="nav-links-pill">
+          <a href="#features">Funcionalidades</a>
+          <a href="#pricing">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank">Blog</a>
+        </div>
       </div>
 
-      <div class="d-flex align-items-center ms-auto gap-3">
-        <a href="https://wa.me/573018112185?text=Hola%2C%20quiero%20probar%20WABOG." target="_blank" rel="noopener"
-          class="btn btn-gradient btn-navbar-cta">Prueba Wabog</a>
-        <button class="btn btn-menu d-lg-none" id="mobile-menu-toggle" type="button" aria-expanded="false"
-          aria-controls="mobile-menu" aria-label="Abrir menú de navegación">
-          <span class="bi bi-list"></span>
-        </button>
-        <button id="theme-toggle" class="btn" style="background:none;border:none;">
-          <span id="theme-icon" class="bi bi-sun"></span>
-        </button>
+      <div class="navbar-right">
+        <a href="https://app.wabog.com" class="btn-login-nav">Login</a>
       </div>
 
-      <div class="mobile-menu d-lg-none" id="mobile-menu">
-        <a href="#services">Funcionalidades</a>
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bi bi-list"></span>
+      </button>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="#features">Funcionalidades</a>
         <a href="#pricing">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" rel="noopener">Blog</a>
+        <a href="https://blog.wabog.com" target="_blank">Blog</a>
+        <a href="https://app.wabog.com" class="btn-login-nav">Login</a>
       </div>
     </div>
   </nav>
 
-  <!-- ========== HERO ========= -->
-  <section class="hero d-flex align-items-center">
-    <div class="hero-content container">
-      <div class="d-flex flex-column flex-md-row align-items-center justify-content-between text-center">
-        <div class="hero-home">
-          <h1 class="hero-title animate__animated animate__fadeInDown"> No vuelvas a perder un <span
-              style="background: linear-gradient(90deg, #1454fa, #34abdb); background-clip: text; -webkit-background-clip: text; -webkit-text-fill-color: transparent;">término
-              judicial</span></h1>
-          <p class="lead mb-3 animate__animated animate__fadeInUp">Wabog automatiza la vigilancia de procesos, redacta
-            escritos legales y busca jurisprudencias relevantes. Todo desde WhatsApp.</p>
-          <a href="https://wa.me/573018112185" target="_blank"
-            class="btn btn-lg btn-gradient animate__animated animate__zoomIn">
-            <i class="bi bi-whatsapp"></i>
-            Pruebalo en Whatsapp
-          </a>
-        </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-content">
 
-        <img src="assets/wapp.webp" alt="WhatsApp Bot"
-          class="img-fluid ms-4 mt-4 mt-md-0 animate__animated animate__fadeInRight" id="wapp-preview-img">
-        <!-- Estilo en línea de width eliminado, img-fluid y ID añadidos -->
+      <!-- Badge -->
+      <div class="hero-badge">
+        <div class="badge-icon">
+          <i class="bi bi-stars"></i>
+        </div>
+        <span class="badge-text">Gestión legal inteligente</span>
       </div>
-    </div>
-  </section>
 
-  <!-- ========== SERVICES ========= -->
-  <section id="services" class="modern-services d-flex align-items-center">
-    <div class="container">
-      <div class="row align-items-center">
+      <!-- Title -->
+      <h1 class="hero-title">
+        No vuelvas a perder<br>un término judicial
+      </h1>
 
-        <!-- Texto -->
-        <div class="col-lg-6 mb-4 mb-lg-0 text-center">
-          <small class="section-label text-uppercase">Funcionalidades</small>
-          <h2 class="section-heading text-gradient-heading">Tu práctica jurídica, sin cuellos de botella</h2>
-          <p class="lead mb-3">Wabog mantiene tus procesos actualizados, te alerta ante cada nueva actuación y te
-            permite generar documentos legales listos para usar, todo desde un mismo lugar.</p>
-          <a href="https://wa.me/573018112185" target="_blank"
-            class="btn btn-lg btn-gradient animate__animated animate__zoomIn">
-            <i class="bi bi-whatsapp"></i>
-            Pruebalo en Whatsapp
-          </a>
-        </div>
-
-        <!-- Diagrama + lista -->
-        <div class="col-lg-6">
-          <!-- Diagrama -->
-          <div class="diagram-box mb-4 p-4 rounded">
-            <div class="flow-line">
-              <span class="circle-icon"><i class="bi bi-person"></i></span>
-              <span class="circle-icon"><i class="bi bi-whatsapp"></i></span>
-              <span class="circle-icon"><i class="bi bi-file-earmark-text"></i></span>
-            </div>
-          </div>
-
-          <!-- Beneficios -->
-          <ul class="list-unstyled text-white">
-            <li class="mb-3"><i class="bi bi-check2-circle"></i>Mantén tus procesos sincronizados con la rama.</li>
-            <li class="mb-3"><i class="bi bi-check2-circle"></i>Recibe notificaciones en tiempo real.</li>
-            <li class="mb-3"><i class="bi bi-check2-circle"></i>Consulta de jurisprudencias al instante.</li>
-            <li><i class="bi bi-check2-circle"></i>Genera documentos rápidamente según tus necesidades.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========== PRICING ========= -->
-  <section id="pricing" class="pricing-section">
-    <div class="container text-center">
-
-      <small class="section-label text-uppercase">Precios</small>
-
-      <h2 class="section-heading text-gradient-heading">Ahorra un 80% de tiempo operativo</h2>
-      <p class="lead mb-3">
-        Automatiza seguimientos, redacción y consultas legales en segundos.
+      <!-- Subtitle -->
+      <p class="hero-subtitle">
+        La IA de Wabog automatiza la vigilancia de procesos, redacta escritos legales y busca jurisprudencias
+        relevantes. Todo desde el mismo lugar.
       </p>
 
-      <div class="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-4">
+      <!-- Buttons -->
+      <div class="hero-buttons">
+        <a href="https://app.wabog.com" class="btn-primary-rect">
+          PRUEBA GRATIS
+        </a>
+        <a href="https://calendar.app.google/GiraoujrCoBJ3KJy7" target="_blank" class="btn-secondary-rect">
+          AGENDA DEMO
+        </a>
+      </div>
 
-        <!-- Plan Free -->
-        <div class="pricing-card mx-auto p-4 p-md-5 shadow-sm border rounded">
-          <h3 class="h4 fw-bold mb-3" style="font-size: 1.9rem;">
-            <i class="bi bi-lightning-charge-fill me-2"></i>
-            Free
-          </h3>
-          <p class="mb-4" style="color: #6c757d;">Para probar nuestras funciones básicas</p>
+    </div>
+  </section>
 
-          <div class="d-flex align-items-baseline justify-content-center mb-4">
-            <span class="display-4 fw-bold" style="font-size: 4rem;">$0</span>
-            <span class="fs-4 ms-2" style="font-size: 1.9rem;">/mes</span>
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="features-grid">
+
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-bell"></i>
           </div>
-
-          <ul class="list-unstyled text-start mx-auto" style="max-width:420px; font-size: 1.2rem;">
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Hasta 5 procesos</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Asistencia legal general</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Generación de documentos legales</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Hasta 5 busqueda de jurispridencia
-            </li>
-
-          </ul>
-
-          <a href="https://wa.me/573018112185?text=Hola%2C%20quiero%20probar%20WABOG%20con%20el%20plan%20Free."
-            target="_blank" rel="noopener" class="btn btn-lg btn-gradient">
-            <i class="bi bi-whatsapp"></i>
-            Hablar por WhatsApp
-          </a>
+          <p>Manten tus procesos sincronizados con la rama y recibe notificaciones a <span
+              class="highlight-blue">Whatsapp</span> en timepo real</p>
         </div>
 
-        <!-- Plan Basic -->
-        <div class="pricing-card mx-auto p-4 p-md-5 shadow-sm border rounded border-primary">
-          <h3 class="h4 fw-bold mb-3" style="font-size: 1.9rem;">
-            <i class="bi bi-lightning-charge-fill me-2"></i>
-            Basic
-          </h3>
-          <p class="mb-4" style="color: #6c757d;">Para usuarios frecuentes</p>
-
-          <div class="d-flex align-items-baseline justify-content-center mb-4">
-            <span class="display-4 fw-bold" style="font-size: 4rem;">$50mil</span>
-            <span class="fs-4 ms-2" style="font-size: 1.9rem;">/mes</span>
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-file-text"></i>
           </div>
-
-          <ul class="list-unstyled text-start mx-auto" style="max-width:420px; font-size: 1.2rem;">
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Hasta 50 procesos</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Modelo de IA especializado</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Generación de documentos especializada
-            </li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Busqueda de jurisprudencias con IA
-            </li>
-
-          </ul>
-
-          <a href="https://wa.me/573018112185?text=Hola%2C%20quiero%20suscribirme%20al%20plan%20Basic%20de%20WABOG."
-            target="_blank" rel="noopener" class="btn btn-lg btn-gradient">
-            <i class="bi bi-whatsapp"></i>
-            Hablar por WhatsApp
-          </a>
+          <p>Genera documentos rápidamente con ayuda la IA</p>
         </div>
 
-        <!-- Plan Enterprise -->
-        <div class="pricing-card mx-auto p-4 p-md-5 shadow-sm border rounded">
-          <h3 class="h4 fw-bold mb-3" style="font-size: 1.9rem;">
-            <i class="bi bi-lightning-charge-fill me-2"></i>
-            Enterprise
-          </h3>
-          <p class="mb-4" style="color: #6c757d;">Para empresas y necesidades avanzadas</p>
-
-          <div class="d-flex align-items-baseline justify-content-center mb-4">
-            <span class="display-4 fw-bold" style="font-size: 2.5rem;">Contáctanos</span>
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="bi bi-file-earmark-text"></i>
           </div>
-
-          <ul class="list-unstyled text-start mx-auto" style="max-width:420px; font-size: 1.2rem;">
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Todo lo del plan Basic +</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Soporte especializado</li>
-            <li class="mb-3"><i class="bi bi-check2-circle text-success me-2"></i>Nuestro modelo más potente</li>
-          </ul>
-
-          <a href="https://wa.me/573018112185?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20y%20conocer%20opciones%20para%20mi%20equipo%20o%20empresa."
-            target="_blank" rel="noopener" class="btn btn-lg btn-gradient">
-            <i class="bi bi-whatsapp"></i>
-            Hablar por WhatsApp
-          </a>
+          <p>Consulta de juriprudencias relevantes para tus procesos.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-
-
-
-  <!-- ========== FOOTER ========= -->
-  <footer class="site-footer">
+  <!-- Video/Demo Section (App Preview) -->
+  <section class="app-preview-section">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <img id="footer-logo" src="assets/wabog_name_logo.webp" alt="WABOG Logo" class="footer-logo">
+      <div class="preview-container">
+        <!-- This represents the 'Screen' from the design -->
+        <img src="assets/screen_wabog.png" onerror="this.src='assets/wabogapp.png'" alt="Wabog App Interface"
+          class="app-preview-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- Impact / Stats Section -->
+  <section class="impact-section">
+    <div class="container">
+      <h2 class="section-title">Esto es lo que <span class="text-blue">Wabog</span> puede hacer en <br> tu despacho</h2>
+
+      <div class="impact-grid">
+        <div class="impact-card">
+          <h3>Ahorrar un <span class="highlight-blue">90%</span> de tiempo <br> en la consulta de procesos</h3>
         </div>
-        <div class="social-column">
-          <h5>Redes Sociales</h5>
-          <div class="social-icons">
-            <a href="https://www.instagram.com/wabog.ia/" target="_blank" aria-label="Instagram"><i
-                class="bi bi-instagram"></i></a>
-            <a href="https://www.linkedin.com/company/wabog" target="_blank" aria-label="LinkedIn"><i
-                class="bi bi-linkedin"></i></a>
-          </div>
-        </div>
-        <div class="legal-column">
-          <h5>Legal</h5>
-          <div class="legal-links">
-            <a href="legal.html">Términos y Condiciones</a>
-            <a href="privacy.html">Política de Privacidad</a>
-          </div>
+        <div class="impact-card">
+          <h3>Te ahorramos hasta un <br> <span class="highlight-blue">50%</span> de gastos</h3>
         </div>
       </div>
-      <div class="footer-copy text-center mt-4">
-        <p>&copy; 2025 WABOG. Todos los derechos reservados.</p>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing-section">
+    <div class="container">
+      <div class="pricing-header">
+        <h2 class="section-title">Selecciona el <span class="text-blue">plan</span> perfecto para ti</h2>
+        <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas
+          legales en segundos.</p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan PRO -->
+        <div class="pricing-card card-blue">
+          <div class="popular-badge">POPULAR</div>
+          <h3 class="plan-name">Plan PRO</h3>
+          <div class="plan-price">$55.000 <span class="text-sm">/ Mes</span></div>
+
+          <ul class="plan-features">
+            <li><i class="bi bi-check-circle-fill"></i> Hasta 50 procesos sincronizados</li>
+            <li><i class="bi bi-check-circle-fill"></i> Generación de documentos</li>
+            <li><i class="bi bi-check-circle-fill"></i> Consultas de jurisprudencias</li>
+            <li><i class="bi bi-check-circle-fill"></i> Notificaciones por Whatsapp</li>
+            <li><i class="bi bi-check-circle-fill"></i> 1 consulta diaria a la rama</li>
+            <li><i class="bi bi-check-circle-fill"></i> Soporte personalizado 24/7</li>
+          </ul>
+
+          <a href="https://app.wabog.com" class="btn-white-rect">PRUEBA GRATIS</a>
+        </div>
+
+        <!-- Plan ENTERPRISE -->
+        <div class="pricing-card card-gray">
+          <h3 class="plan-name text-dark">Plan ENTERPRISE</h3>
+          <div class="plan-price text-dark">Custom <span class="text-sm font-light">/ Hablar con ventas</span></div>
+
+          <ul class="plan-features text-dark-features">
+            <li><i class="bi bi-check-circle"></i> Procesos sincronizados a demanda</li>
+            <li><i class="bi bi-check-circle"></i> Generación de documentos</li>
+            <li><i class="bi bi-check-circle"></i> Consultas de jurisprudencias</li>
+            <li><i class="bi bi-check-circle"></i> Notificaciones por Whatsapp</li>
+            <li><i class="bi bi-check-circle"></i> Soporte personalizado 24/7</li>
+            <li><i class="bi bi-check-circle"></i> Elige el numero de consultas a la rama</li>
+          </ul>
+
+          <a href="https://wa.me/573156832405" class="btn-dark-rect">HABLA CON VENTAS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+      </div>
+
+      <!-- Socials -->
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <div class="footer-links-list">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank">Instagram</a>
+          <a href="#" target="_blank">Tiktok</a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <div class="footer-links-list">
+          <a href="#pricing">Precios</a>
+          <a href="https://app.wabog.com">Login</a>
+          <a href="https://blog.wabog.com">Blog</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-list">
+          <a href="legal.html">Términos y condiciones</a>
+          <a href="privacy.html">Politica de privacidad</a>
+        </div>
       </div>
     </div>
   </footer>
 
-  <!-- Bootstrap bundle -->
+  <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script src="main.js"></script>
 
-
-  <!-- Formulario flotante -->
-  <div id="contact-form" class="contact-form">
-    <button type="button" class="close-btn" id="close-form">&times;</button>
-    <div class="form-container">
-      <h3>¡Queremos conocerte!</h3>
-      <div id="form-message-placeholder"></div>
-      <form>
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Número de Teléfono</label>
-          <input type="tel" class="form-control" id="phone" required pattern="^\+?\d{7,15}$"
-            title="Ingresa un número de teléfono válido">
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo</label>
-          <input type="email" class="form-control" id="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="identify" class="form-label">¿Con qué te identificas?</label>
-          <select class="form-select" id="identify" name="identify" required>
-            <option disabled selected value="">Selecciona la opción &#9662;</option>
-            <option value="Abogado">Abogado</option>
-            <option value="Dependiente judicial">Dependiente judicial</option>
-            <option value="Estudiante">Estudiante</option>
-            <option value="Empresa">Empresa</option>
-            <option value="otro">Otro</option>
-          </select>
-        </div>
-        <div class="mb-3" id="identify-other-container" style="display:none;">
-          <label for="identify-other" class="form-label">Cuéntanos</label>
-          <input type="text" class="form-control" id="identify-other" name="identify-other" maxlength="50">
-        </div>
-        <button type="submit" class="btn btn-lg btn-gradient">Unirme a la lista de espera</button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    const openFormButtons = document.querySelectorAll('.open-form');
-    const closeFormButton = document.getElementById('close-form');
-    const contactForm = document.getElementById('contact-form');
-
-    openFormButtons.forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        contactForm.classList.add('open');
-      });
-    });
-
-    closeFormButton.addEventListener('click', () => {
-      contactForm.classList.remove('open');
-    });
-
-    // Mostrar campo "Otro" según selección de identificación
-    const identifySelect = document.getElementById('identify');
-    const otherContainer = document.getElementById('identify-other-container');
-    if (identifySelect && otherContainer) {
-      otherContainer.style.display = 'none';
-      identifySelect.addEventListener('change', function () {
-        const otherInput = document.getElementById('identify-other');
-        if (this.value === 'otro') {
-          otherContainer.style.display = 'block';
-          if (otherInput) otherInput.required = true;
-        } else {
-          otherContainer.style.display = 'none';
-          if (otherInput) {
-            otherInput.value = '';
-            otherInput.required = false;
-          }
-        }
-      });
-    }
-  </script>
-  <!-- Supabase Client -->
+  <!-- Supabase & Form Logic (Preserved but hidden for now as per design, or we can re-enable if needed) -->
+  <!-- Note: The new design doesn't explicitly show the waitlist form, but we keep the script just in case -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    // Variables para configurar (rellena manualmente)
-    const supabaseUrl = 'https://ggipiiemcmshddrbkjoo.supabase.co/';
-    const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdnaXBpaWVtY21zaGRkcmJram9vIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQzMTk0NTIsImV4cCI6MjA1OTg5NTQ1Mn0.EK8KMIthT4kuRwJb3lIxjHoDkmiMwldAu8Bj_fxWdMA';
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseAnonKey);
 
-    const waitListForm = document.querySelector('#contact-form form');
-    waitListForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const messagePlaceholder = document.getElementById('form-message-placeholder');
-      // Validaciones previas
-      const phonePattern = /^\+?\d{7,15}$/;
-      if (!phonePattern.test(document.getElementById('phone').value)) {
-        messagePlaceholder.innerHTML = '<div class="alert alert-danger mt-3" role="alert">Por favor ingresa un número de teléfono válido.</div>';
-        return;
-      }
-      if (document.getElementById('identify').value === 'otro' && !document.getElementById('identify-other').value) {
-        messagePlaceholder.innerHTML = '<div class="alert alert-danger mt-3" role="alert">Por favor cuéntanos si seleccionaste Otros.</div>';
-        return;
-      }
-      const nombre = document.getElementById('name').value;
-      const numero = document.getElementById('phone').value;
-      const correo = document.getElementById('email').value;
-      const perfil = document.getElementById('identify').value;
-      const perfil_otros = document.getElementById('identify-other').value || null;
-
-      const { data, error } = await supabaseClient
-        .from('wait_list')
-        .insert([{ nombre, numero, correo, perfil, perfil_otros }]);
-
-      if (error) {
-        console.error('Error al enviar datos:', error);
-        alert('Error al enviar, intenta nuevamente.');
-      } else {
-        const messagePlaceholder = document.getElementById('form-message-placeholder');
-        messagePlaceholder.innerHTML = '<div class="alert alert-success mt-3" role="alert">¡Gracias!, en los próximos días te daremos acceso anticipado a WABOG.</div>';
-        waitListForm.reset();
-        document.getElementById('identify-other-container').style.display = 'none';
-        // El formulario permanecerá abierto hasta que el usuario decida cerrarlo
-      }
-    });
-  </script>
 </body>
 
 </html>

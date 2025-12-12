@@ -1,1214 +1,653 @@
-/* -------------------------------------
-   FUENTE Y FONDO GENERAL
-------------------------------------- */
+/* Reset & Base */
 :root {
-  /* --- Colors --- */
-  --bg-main: #000000;
-  --bg-light: #f8f9fa;
-  --bg-card-dark: rgba(255, 255, 255, 0.1);
-  --bg-card-light: #ffffff;
-  --bg-overlay-dark: rgba(6, 13, 24, 0.466);
-  --bg-overlay-light: rgba(255, 255, 255, 0.8);
+  --primary-blue: #1454FA;
+  --secondary-blue: #6E80FF;
+  --bg-gray: #F5F5F5;
+  --text-dark: #313D44;
+  --white: #FFFFFF;
 
-  --text-main-dark: #e0e0e0;
-  --text-main-light: #000000;
-  --text-muted-dark: #94a3b8;
-  --text-muted-light: #6c757d;
-  --text-inverse: #ffffff;
-
-  --brand-primary: #1454fa;
-  --brand-secondary: #34abdb;
-  --brand-tertiary: #4280C7;
-  --brand-quaternary: #6D47B7;
-  --brand-accent: #00ffcc;
-
-  --input-bg-dark: rgba(0, 0, 0, 0.4);
-  --input-bg-light: #f8f9fa;
-  --input-border-dark: rgba(255, 255, 255, 0.2);
-  --input-border-light: #ddd;
-
-  /* --- Gradients --- */
-  --gradient-primary: linear-gradient(90deg, var(--brand-primary) 0%, var(--brand-secondary) 100%);
-  --gradient-text: linear-gradient(90deg, #ff00cc 0%, #00ffcc 100%);
-  --gradient-border: linear-gradient(135deg, var(--brand-secondary), var(--brand-primary), #00ffff);
-
-  /* --- Spacing & Layout --- */
-  --navbar-height: 80px;
-  --container-padding: 20px;
-  --section-spacing: 80px;
-  --border-radius-lg: 20px;
-  --border-radius-md: 10px;
-  --border-radius-sm: 0.5rem;
-
-  /* --- Transitions --- */
-  --transition: 0.3s ease;
-
-  /* --- Shadows --- */
-  --shadow-sm: 0 2px 5px rgba(0, 0, 0, 0.1);
-  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.15);
-  --shadow-glow: 0 0 20px rgba(0, 255, 204, 0.1);
+  --font-main: 'Inter', sans-serif;
+  --font-caption: 'Inria Sans', sans-serif;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg-main);
-  background-size: 400% 400%;
-  animation: gradientBG 20s ease infinite;
-  color: var(--text-main-dark);
+  font-family: var(--font-main);
+  color: var(--text-dark);
+  background-color: var(--white);
   margin: 0;
   padding: 0;
-  font-size: 1.15rem;
-  /* Aumentado tamaño de fuente base para contenido más grande */
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Estilos para el formulario flotante */
-.contact-form {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.9);
-  width: 90vw;
-  max-width: 380px;
-  background: var(--bg-overlay-dark);
-  color: var(--text-main-light);
-  padding: 1.5rem;
-  border-radius: var(--border-radius-md);
-  box-shadow: var(--shadow-md);
-  backdrop-filter: blur(8px);
-  z-index: 2000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity var(--transition), transform var(--transition), visibility var(--transition);
-}
-
-.contact-form.open {
-  opacity: 1;
-  visibility: visible;
-  transform: translate(-50%, -50%) scale(1);
-}
-
-.contact-form {
-  position: fixed;
-  /* ... */
-  /* dejamos position fixed, pero vemos que ya existe */
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: var(--text-inverse);
-  cursor: pointer;
-}
-
-body.light-mode .close-btn {
-  color: var(--text-main-light);
-}
-
-body.light-mode .contact-form {
-  background: var(--bg-overlay-light);
-  border-left-color: var(--brand-tertiary);
-  color: var(--text-main-light);
-}
-
-.form-container {
-  max-width: 400px;
-  margin: auto;
-}
-
-.contact-form h3 {
-  margin-bottom: 20px;
-  color: var(--text-inverse);
-  text-align: center;
-}
-
-body.light-mode .contact-form h3 {
-  color: var(--text-main-light);
-  text-align: center;
-}
-
-.contact-form .form-control {
-  margin-bottom: 15px;
-}
-
-.contact-form .btn {
-  margin-right: 10px;
-}
-
-body.light-mode {
-  background: var(--bg-light);
-  color: var(--text-main-light);
-}
-
-/* -------------------------------------
-   ANIMACIÓN DE FONDO
-------------------------------------- */
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* -------------------------------------
-   NAVBAR
-------------------------------------- */
-.navbar {
-  /* La altura de la navbar es relevante para el padding-top de la primera sección.
-     Asumiremos unos 80px basados en el scroll-margin-top existente. */
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: var(--bg-main);
-  backdrop-filter: blur(10px);
-  box-shadow: none;
-  z-index: 1000;
-  transition: background-color var(--transition), box-shadow var(--transition);
-}
-
-.navbar .container {
-  position: relative;
-}
-
-.navbar-brand {
-  display: flex;
-  align-items: center;
-}
-
-.nav-link {
-  font-size: 1.1rem;
-  /* Ligeramente más pequeño que la base (1.15rem) */
-  color: var(--text-muted-dark) !important;
-  /* grisáceo en navbar */
-}
-
-/* Blog destacado en blanco */
-.navbar .nav-link.blog-link {
-  color: var(--text-inverse) !important;
-}
-
-body.light-mode .navbar .nav-link.blog-link {
-  color: var(--text-main-light) !important;
-}
-
-body.light-mode .navbar {
-  background-color: var(--bg-card-light);
-  box-shadow: none;
-}
-
-body.light-mode .navbar-brand,
-body.light-mode .nav-link {
-  color: var(--text-muted-light) !important;
-  /* gris en modo claro */
-}
-
-@media (max-width: 991px) {
-  .navbar {
-    background-color: #000000;
-  }
-
-  .navbar.scrolled {
-    background-color: rgba(9, 17, 34, 0.7);
-    box-shadow: none;
-  }
-
-  body.light-mode .navbar {
-    background-color: #ffffff;
-    box-shadow: none;
-  }
-
-  body.light-mode .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.82);
-    box-shadow: none;
-  }
-}
-
-/* -------------------------------------
-   SECCIÓN HERO
-------------------------------------- */
-.hero {
-  min-height: 72vh;
-  padding-top: 104px;
-  padding-bottom: 72px;
-  padding-left: 0;
-  padding-right: 0;
-  background: transparent;
-  /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto 96px auto;
-  display: flex;
-  /* Para centrar el contenido */
-  align-items: center;
-  /* Centrado vertical */
-  justify-content: center;
-  /* Centrado horizontal */
-}
-
-.hero-content {
-  text-align: center;
-  /* display: flex; Ya no es necesario aquí si .hero es flex */
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* justify-content: center; */
-  width: 100%;
-  /* Para que ocupe el ancho disponible en .hero */
-}
-
-.hero-home {
-  text-align: left;
-}
-
-.hero-home>h1 {
-  font-weight: 500;
-  font-size: clamp(2rem, 4.8vw, 2.8rem);
-  line-height: 1.15;
-  margin-bottom: 1.4rem;
-}
-
-.section-heading {
-  font-weight: 500;
-  font-size: clamp(2rem, 4.8vw, 2.8rem);
-  line-height: 1.15;
-  margin-bottom: 1rem;
-  color: var(--text-inverse);
-}
-
-body.light-mode .text-gradient-heading {
-  color: var(--text-main-light);
-}
-
-.hero p.lead {
-  color: var(--text-muted-dark);
-  /* Gris consistente con otras secciones */
-  font-size: clamp(0.95rem, 1.8vw, 1.2rem);
-  /* Tamaño más generoso en desktop */
-  line-height: 1.55;
-  margin-bottom: 1rem;
-}
-
-body.light-mode .hero p.lead {
-  color: #333333;
-}
-
-#wapp-preview-img {
-  /* Estilos para la imagen de previsualización de WhatsApp en escritorio */
-  /* width: 400px; /* Se comenta para permitir que img-fluid controle el ancho responsive */
-  max-width: 400px;
-  /* Asegura que no exceda los 400px de ancho */
-  height: auto;
-  /* img-fluid también establece height: auto, se mantiene por claridad */
-}
-
-/* ============ BOTÓN CON DOBLE BORDE ============ */
-.btn-gradient {
-  position: relative;
-  /* para posicionar ::before   */
-  z-index: 0;
-  /* que quede detrás del texto */
-  padding: 0.65rem 1.3rem;
-  color: var(--text-inverse);
-  background: var(--gradient-primary);
-  border: none;
-  border-radius: 10px;
-  overflow: hidden;
-  /* el degradado no desborda   */
-  width: 85%;
-  margin-top: 1.5rem;
-  margin-left: 0;
-  font-size: 0.95rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.45rem;
-}
-
-/* Ajustes del botón gradiente cuando está en la navbar */
-.navbar .btn-gradient {
-  width: auto;
-  margin: 0;
-  /* sin separación vertical extra */
-  padding: 0.4rem 0.95rem;
-  /* más compacto para navbar */
-  font-size: 0.95rem;
-  /* Ligeramente más pequeño que la base */
-}
-
-/* CTA sólido en navbar */
-.navbar .btn-navbar-cta {
-  border: none;
-  border-radius: 10px;
-  /* menos redondeado */
-  padding: 0.45rem 0.95rem;
-  font-size: 0.95rem;
-  /* Ligeramente más pequeño que la base */
-  font-weight: 400;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, .15);
-}
-
-.navbar .btn-navbar-cta:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
-}
-
-.contact-form .btn-gradient {
-  display: block;
-  margin: 2rem auto 0 auto;
-  width: auto;
-}
-
-.contact-form .btn-gradient:hover {
-  background: transparent !important;
-  color: var(--text-inverse) !important;
-}
-
-body.light-mode .contact-form .btn-gradient:hover {
-  color: var(--text-main-light) !important;
-}
-
-body.light-mode .btn-gradient {
-  color: var(--text-inverse);
-}
-
-/* 1er borde (degradado) */
-.btn-gradient::before {
-  content: none;
-}
-
-.btn-gradient i {
-  font-size: 1.05rem;
-}
-
-.btn-menu {
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: 1.8rem;
-  line-height: 1;
-  padding: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.mobile-menu {
-  position: fixed;
-  top: var(--navbar-height);
-  left: 0;
-  right: 0;
-  background: var(--bg-main);
-  color: var(--text-inverse);
-  border-radius: 0 0 14px 14px;
-  padding: 1.25rem 1.5rem 1.75rem;
-  display: none;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 1rem;
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-  backdrop-filter: blur(12px);
-  z-index: 950;
-  transition: background-color var(--transition), box-shadow var(--transition);
-}
-
-.mobile-menu.open {
-  display: flex;
-}
-
-.mobile-menu a {
-  color: var(--text-inverse);
-  font-size: 0.95rem;
-  font-weight: 500;
+a {
   text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s;
 }
 
-.mobile-menu a:hover {
-  color: #34abdb;
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-body.light-mode .mobile-menu {
-  background: var(--bg-card-light);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.1);
-  color: var(--text-main-light);
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
 }
 
-body.light-mode .mobile-menu a {
-  color: var(--text-main-light);
+/* Utilities */
+.container {
+  max-width: 1240px;
+  /* Slightly wider to accommodate grids */
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
-body.light-mode .mobile-menu a:hover {
-  color: #1454fa;
+.text-blue {
+  color: var(--primary-blue);
 }
 
-.mobile-menu.scrolled {
-  background: rgba(9, 17, 34, 0.7);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+.text-dark {
+  color: var(--text-dark) !important;
 }
 
-body.light-mode .mobile-menu.scrolled {
-  background: rgba(255, 255, 255, 0.82);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+.highlight-blue {
+  color: var(--primary-blue);
+  font-weight: 700;
 }
 
-@media (min-width: 992px) {
-  .mobile-menu {
-    display: none !important;
-  }
-}
-
-/* -------------------------------------
-   SECCIÓN SERVICIOS
-------------------------------------- */
-.services,
-.modern-services {
-  padding: 80px 0;
-  /* Espaciado consistente entre secciones */
-  /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto 96px auto;
-  /* background: rgba(255, 255, 255, 0.1); */
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  color: #e0e0e0;
-}
-
-#services.modern-services p {
-  font-size: clamp(0.95rem, 2vw, 1rem);
-  line-height: 1.6;
-}
-
-body.light-mode #services.modern-services p {
-  color: #374151;
-}
-
-body.light-mode .services,
-body.light-mode .modern-services {
-  background: transparent;
-  color: #1f2937;
-}
-
-.card {
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 0 20px rgba(0, 255, 204, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  margin: 0 20px;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 30px rgba(0, 255, 204, 0.2);
-}
-
-.card-title {
-  color: #00ffcc;
-  margin-bottom: 20px;
-}
-
-.card-text {
-  color: #d1d5db;
-}
-
-body.light-mode .card {
-  background: #f8f9fa;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  border: none;
-}
-
-body.light-mode .card-title {
-  color: #343a40;
-}
-
-body.light-mode .card-text {
-  color: #495057;
-}
-
-/* Títulos y textos dentro de la sección */
-.modern-services p.lead,
-.pricing-section p.lead {
-  color: #94a3b8;
-  font-size: clamp(0.95rem, 2vw, 1rem);
-  line-height: 1.6;
-  margin-top: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-
-.pricing-card p {
-  font-size: clamp(0.95rem, 2vw, 1rem);
-}
-
-.section-label {
-  display: inline-block;
-  letter-spacing: 0.18rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  margin-bottom: 0.75rem;
-}
-
-body.light-mode .modern-services p.lead,
-body.light-mode .pricing-section p.lead {
-  color: #374151;
-}
-
-body.light-mode .modern-services ul li {
-  color: #1f2937;
-}
-
-.modern-services ul li {
-  font-size: clamp(0.95rem, 2vw, 1rem);
-}
-
-/* -------------------------------------
-   ICONOS EN DIAGRAMA
-------------------------------------- */
-/* Color por defecto (modo oscuro) */
-.circle-icon {
-  /* background-color: #1e293b; */
-  border-radius: 50%;
-  color: #ffffff;
-  /* Blanco en modo oscuro */
-  font-size: 30px;
-  /* Aumentado tamaño de icono */
-  width: 75px;
-  /* Aumentado tamaño de contenedor */
-  height: 75px;
-  /* Aumentado tamaño de contenedor */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.1);
-}
-
-/* Color en modo claro */
-body.light-mode .circle-icon {
-  color: #4b5563;
-  /* Gris oscuro para modo claro */
-}
-
-.diagram-box {
-  padding: 30px;
-  background: transparent;
-  border-radius: 15px;
-}
-
-/* -------------------------------------
-   FORMULARIO DE CONTACTO
-------------------------------------- */
-.contact {
-  padding: 50px 0;
-  /* Reducido el padding vertical */
-}
-
-.contact h2 {
-  color: #00ffcc;
-  font-weight: 500;
-  font-size: clamp(2rem, 4.8vw, 2.8rem);
-  line-height: 1.15;
-}
-
-body.light-mode .contact h2 {
-  color: #000000;
-}
-
-/* -------------------------------------
-   FORMULARIO DE CONTACTO
-------------------------------------- */
-form .form-control {
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  color: var(--form-text);
-  border-radius: 0.5rem;
-  transition: border-color var(--transition), box-shadow var(--transition);
-}
-
-form .form-control:focus {
-  border-color: var(--button-bg);
-  box-shadow: 0 0 5px var(--button-bg);
-}
-
-.contact-form form .form-control,
-.contact-form form .form-select {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-}
-
-.contact-form form .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-body:not(.light-mode) .form-label {
-  color: #ffffff;
-}
-
-.form-floating>.form-control:focus~label,
-.form-floating>.form-control:not(:placeholder-shown)~label {
-  background-color: transparent;
-}
-
-body.light-mode .contact-form form .form-control,
-body.light-mode .contact-form form .form-select {
-  background: var(--input-bg);
-  border: 1px solid var(--input-border);
-  color: var(--form-text);
-}
-
-/* -------------------------------------
-   BOTÓN PRIMARY
-------------------------------------- */
-.btn-primary {
-  background-color: #1454fa;
-  border: none;
-  color: #fff;
-  border-radius: 30px;
-  font-weight: bold;
-  padding: 10px 30px;
-  box-shadow: 0 0 10px #1454fa, 0 0 20px #34abdb;
-}
-
-.btn-primary:hover {
-  background-color: #34abdb;
-  box-shadow: 0 0 20px #1454fa, 0 0 40px #34abdb;
-}
-
-/* -------------------------------------
-   FOOTER
-------------------------------------- */
-footer {
+/* Navbar */
+.navbar {
   padding: 20px 0;
-  text-align: center;
-  color: #94a3b8;
-  background-color: rgba(0, 0, 0, 0.3);
+  background: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-body.light-mode footer {
-  color: #333333;
-  background-color: rgba(255, 255, 255, 0.3);
-}
-
-/* -------------------------------------
-   ICONOS / CONTENEDORES
-------------------------------------- */
-.icon-container {
-  text-align: center;
-}
-
-.feature-icon {
-  width: 80px;
-  height: auto;
-}
-
-/* =========================================================
-   LÍNEA DE FLUJO CON DESTELLO ANIMADO
-===========================================================*/
-.flow-line {
+.navbar-container {
+  /* Relative for absolute centering of center child */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
-  padding: 40px 0;
-
-  /* Margen lateral usado también
-     por los pseudo‑elementos       */
-  --gap: 40px;
-  /* Aumentado para acomodar iconos más grandes */
 }
 
-/* ---------- Línea base estática ---------- */
-.flow-line::before {
-  content: '';
+.logo {
+  height: 40px;
+  /* Matches roughly 150x50 in design */
+  width: auto;
+}
+
+.navbar-center {
+  /* Absolute Center */
   position: absolute;
-  top: 50%;
-  left: var(--gap);
-  right: var(--gap);
-  height: 2px;
-  background: #1e293b;
-  transform: translateY(-50%);
-  z-index: 0;
-  /* debajo de todo lo demás */
-}
-
-body.light-mode .flow-line::before {
-  background: #cbd5e1;
-}
-
-/* ---------- Destello que recorre la línea ---------- */
-.flow-line::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: var(--gap);
-  /* punto de partida           */
-  width: 120px;
-  /* ancho del pulso            */
-  height: 2px;
-  background: linear-gradient(90deg,
-      transparent,
-      #34abdb 40%,
-      #1454fa 50%,
-      #00ffff 60%,
-      transparent);
-  transform: translateY(-50%);
-  animation: energyPulse 2s linear infinite;
-  z-index: 1;
-  /* sobre la línea, bajo iconos */
-}
-
-/* Recorre TODA la línea: de 30 px a
-   (100 % − 30 px − 120 px)          */
-@keyframes energyPulse {
-  0% {
-    left: var(--gap);
-    opacity: 0;
-  }
-
-  5% {
-    /* empieza a verse */
-    opacity: 1;
-  }
-
-  30% {
-    left: calc(100% - var(--gap) - 120px);
-    opacity: 1;
-  }
-
-  35% {
-    opacity: 0;
-  }
-
-  100% {
-    left: calc(100% - var(--gap) - 120px);
-    opacity: 0;
-  }
-}
-
-/* =========================================================
-   ICONOS CIRCULARES (con “tapa” para cortar la línea)
-===========================================================*/
-.circle-icon {
-  position: relative;
-  /* referencia para su pseudo‑elem. */
-  z-index: 2;
-  /* sobre el destello               */
-}
-
-/* Pseudo‑elemento que “cubre” la línea
-   dentro del círculo, del mismo color
-   que el fondo                               */
-.circle-icon::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background: #000;
-  /* fondo modo oscuro          */
-  box-shadow: inset 0 0 8px rgba(255, 255, 255, .06);
-  z-index: -1;
-  /* debajo del icono           */
-}
-
-body.light-mode .circle-icon::before {
-  background: #f8f9fa;
-  /* fondo modo claro           */
-}
-
-
-/* ---------------------------------------------------------
-   PRICING – contenedor principal
---------------------------------------------------------- */
-.pricing-section {
-  /* max-width: 1200px; quitado para usar el ancho del .container interno */
-  margin: 0 auto 56px auto;
-  min-height: auto;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  /* Centra el contenido verticalmente */
-  padding-top: 80px;
-  padding-bottom: 80px;
 }
 
-.pricing-section .text-gradient {
-  background: var(--gradient-text);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-/* ---------------------------------------------------------
-   PRICING CARD – sombreado y borde degradado
---------------------------------------------------------- */
-.pricing-card {
-  position: relative;
-  display: flex;
-  /* Para distribuir contenido en columna */
-  flex-direction: column;
-  /* Permite empujar CTA al fondo */
-  background: rgba(255, 255, 255, 0.05);
-  /* modo oscuro */
+.nav-links-pill {
+  background: var(--primary-blue);
   border-radius: 20px;
-  overflow: hidden;
-  width: 100%;
-  max-width: 366px;
-  flex: 1 1 320px;
+  padding: 10px 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
 }
 
-/* Empuja el CTA al fondo y evita márgenes superiores variables */
-.pricing-card .btn-gradient {
-  display: block;
-  /* Necesario para centrar con auto */
-  margin-top: auto;
-  /* Coloca el botón en la parte inferior */
-  margin-left: auto;
-  /* Centra horizontalmente */
-  margin-right: auto;
-  /* Centra horizontalmente */
+.nav-links-pill a {
+  color: var(--white);
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
 }
 
-/* borde degradado usando mask */
-.pricing-card::before {
-  content: '';
+.nav-links-pill a:hover {
+  opacity: 0.8;
+}
+
+.btn-login-nav {
+  /* Matches Component styled roughly like 'Login' text or button */
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  font-family: var(--font-main);
+  font-size: 16px;
+  padding: 10px 24px;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 80px 0 60px;
+  position: relative;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-badge {
+  background: rgba(204, 204, 204, 0.1);
+  border-radius: 20px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(204, 204, 204, 0.2);
+}
+
+.badge-icon i {
+  color: var(--secondary-blue);
+}
+
+.hero-badge span {
+  font-family: var(--font-caption);
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--secondary-blue);
+}
+
+.hero-title {
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 56px;
+  /* 48px in design but looks bigger on desktop often */
+  line-height: 1.2;
+  color: var(--text-dark);
+  margin-bottom: 50px;
+}
+
+.hero-subtitle {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--text-dark);
+  max-width: 968px;
+  margin-bottom: 86px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary-rect {
+  background: var(--primary-blue);
+  color: var(--bg-gray);
+  /* Text #F5F5F5 */
+  width: 217px;
+  height: 42px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.btn-secondary-rect {
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  width: 217px;
+  height: 42px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-main);
+  font-weight: 400;
+  /* As per design spec lighter */
+  font-size: 18px;
+}
+
+/* Features Section Cards */
+.features {
+  padding: 130px 0 0;
+  margin-top: 0;
+  /* Pull up if desired, but sticking to flow */
+}
+
+/* We want the features to overlap or sit nicely. Design puts them at top:762px which is below hero. */
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 69px;
+  justify-content: center;
+}
+
+.feature-card {
+  width: 339px;
+  min-height: 200px;
+  /* Fixed height from design */
+  background: var(--bg-gray);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.06);
+  border-radius: 15px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.feature-icon {
+  width: 34px;
+  height: 34px;
+  background: var(--primary-blue);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
-  inset: 0;
-  padding: 1px;
-  /* grosor del borde */
-  border-radius: inherit;
-  background: var(--gradient-border);
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  /* Safari */
-  mask-composite: exclude;
-  z-index: -1;
+  top: 12px;
+  left: 12px;
+  margin: 0;
 }
 
-/* íconos de check – violeta en oscuro, verde en claro */
-.pricing-card .bi-check2-circle {
-  color: var(--brand-accent);
+.feature-icon i {
+  color: #EEF2FF;
+  /* primary-300 roughly */
+  font-size: 18px;
 }
 
-body.light-mode .pricing-card .bi-check2-circle {
-  color: var(--brand-primary);
-  /* Azul oscuro para mejor contraste en modo claro */
+.feature-card p {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: var(--text-dark);
 }
 
-/* ---------------------------------------------------------
-   MODO CLARO – fondo de la tarjeta y borde alternativo
---------------------------------------------------------- */
-
-
-body.light-mode .pricing-card::before {
-  background: linear-gradient(135deg, #00897b 0%, #6200ea 100%);
+/* App Preview */
+.app-preview-section {
+  padding: 231px 0 80px;
+  text-align: center;
 }
 
-
-/* ---------------------------------------------------------
-   QUE #services OCUPE UNA PANTALLA COMPLETA
---------------------------------------------------------- */
-/* Estilos para los iconos de check en la sección de servicios */
-#services .bi-check2-circle {
-  color: var(--brand-accent);
-  /* Color por defecto para modo oscuro */
-  margin-right: 8px;
+.preview-container {
+  max-width: 1152px;
+  margin: 0 auto;
+  position: relative;
 }
 
-body.light-mode #services .bi-check2-circle {
-  color: var(--brand-primary);
-  /* Azul oscuro para mejor contraste en modo claro */
-}
-
-/* Para que el ancla #services no quede oculta tras la navbar
-   al hacer clic desde el menú */
-#services {
-  scroll-margin-top: 90px;
-}
-
-/* Ajustado para navbar más grande */
-#pricing {
-  scroll-margin-top: 90px;
-}
-
-/* Ajustado para navbar más grande */
-
-/* En pantallas pequeñas dejamos que crezca según contenido
-   (por si 100vh resulta poco alto para móviles muy bajos)   */
-@media (max-height:600px) {
-  #services.modern-services {
-    min-height: auto;
-  }
-}
-
-
-@media (min-width: 1400px) {
-
-  .container,
-  .container-lg,
-  .container-md,
-  .container-sm,
-  .container-xl,
-  .container-xxl {
-    max-width: 1320px;
-    /* Aumentado para que el contenido ocupe más espacio */
-  }
-}
-
-.lead {
-  text-align: left;
-}
-
-@media (min-width: 768px) {
-  .pricing-section .lead {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
-
-
-
-
-#hero-logo {
-  /* Selector específico para la imagen del logo en la sección hero */
-  max-width: 400px;
-  /* Aumentado el tamaño máximo de la imagen del logo */
+.app-preview-img {
+  width: 100%;
   height: auto;
-  /* Mantiene la proporción de la imagen */
+  border-radius: 20px;
+  box-shadow: 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  /* Shadow from design */
 }
 
-
-@media (max-width: 767px) {
-  .hero {
-    min-height: auto;
-    padding-top: 120px;
-    padding-bottom: 56px;
-    padding-left: 20px;
-    /* Aumenta el margen lateral del contenido del hero */
-    padding-right: 20px;
-    /* Aumenta el margen lateral del contenido del hero */
-  }
-
-  .lead {
-    text-align: center;
-  }
-
-  .col-lg-6 {
-    text-align: center;
-  }
-
-  .hero-home {
-    text-align: center;
-  }
-
-  .hero-home>h1 {
-    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
-  }
-
-
-  #hero-logo {
-    /* Selector específico para la imagen del logo en la sección hero */
-    max-width: 400px;
-    /* Logo más grande en mobile */
-    height: auto;
-    /* Mantiene la proporción de la imagen */
-  }
-
-  /* Reducir tamaño de títulos de sección en móvil */
-  .modern-services h2,
-  .pricing-section h2,
-  /* Asumiendo que los títulos de pricing son h2 */
-  .contact h2 {
-    /* Incluimos contact por consistencia */
-    font-size: clamp(1.3rem, 5.8vw, 1.7rem);
-    line-height: 1.2;
-  }
-
-  /* Añadir márgenes laterales a secciones en móvil */
-  .services,
-  .modern-services,
-  .pricing-section {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  /* Reducir tamaño del subtítulo en la sección de precios para móvil */
-  .pricing-section p.lead {
-    /* Asumiendo que el subtítulo tiene la clase 'lead' */
-    font-size: 1.1rem;
-    /* Ajusta este valor según sea necesario */
-  }
-
-  /* El estilo para .pricing-section h1 en móvil fue eliminado, ahora es h2 y se maneja por la regla:
-     .modern-services h2, .pricing-section h2, .contact h2 { font-size: 2rem; } */
-
-  .site-footer .footer-brand .footer-logo {
-    width: clamp(90px, 40vw, 130px);
-    height: auto;
-  }
-
-  .navbar .btn-navbar-cta {
-    display: none;
-  }
-
-  #wapp-preview-img {
-    /* Estilos para la imagen de previsualización de WhatsApp en móvil */
-    width: 80%;
-    /* Hacerla más ancha, relativa al contenedor */
-    max-width: 320px;
-    /* Límite para que no sea excesivamente grande pero más grande que antes */
-    height: auto;
-    margin-top: 25px;
-    /* Espacio superior respecto al texto/botón */
-    margin-left: auto;
-    /* Centrar la imagen */
-    margin-right: auto;
-    /* Centrar la imagen */
-  }
-
-  /* Reducir tamaño del párrafo del hero en móvil para que quede más pequeño que el título */
-  .hero p.lead {
-    font-size: 0.86rem;
-    line-height: 1.4;
-    text-align: center;
-  }
-
-  /* Reducir tamaño del párrafo de servicios en móvil para que coincida con otros */
-  .modern-services p.lead {
-    font-size: 1.1rem;
-  }
+/* Impact / Stats Section */
+.impact-section {
+  padding: 60px 0;
+  text-align: center;
 }
 
-/* -------------------------------------
-   SITE FOOTER
-------------------------------------- */
-.site-footer {
-  background: transparent;
-  padding: 2rem 1rem 2.5rem 1rem;
-  font-size: 1.05rem;
-  /* Ligeramente más pequeño que la base (1.15rem) */
+.section-title {
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 58px;
+  color: var(--text-dark);
+  margin-bottom: 0;
+  /* Changed from global 120px to 0 to control locally */
 }
 
-/* Logo navbar consistente en todas las páginas */
-.navbar-brand .logo {
-  width: clamp(90px, 12vw, 120px);
-  max-width: 100%;
-  height: auto;
+.impact-section .section-title {
+  margin-bottom: 120px;
 }
 
-@media (max-width: 767px) {
-  .navbar-brand .logo {
-    width: clamp(82px, 30vw, 120px);
-    /* Ajuste leve para ampliar el logo en mobile */
-  }
+.impact-grid {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
-body.light-mode .site-footer {
-  background: transparent;
-  color: var(--form-text);
+.impact-card {
+  width: 501px;
+  height: 200px;
+  background: var(--bg-gray);
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  /* 5% opacity from design analysis */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-body.light-mode .site-footer h5 {
-  color: #000;
+.impact-card h3 {
+  font-family: 'Inter';
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 39px;
+  color: var(--text-dark);
 }
 
-.site-footer .footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  align-items: start;
+/* Pricing Section */
+.pricing-section {
+  padding: 80px 0 195px;
 }
 
-.site-footer .footer-brand .footer-logo {
-  width: clamp(110px, 20vw, 150px);
-  max-width: 100%;
-  height: auto;
+.pricing-header {
+  text-align: center;
+  margin-bottom: 118px;
+}
+
+.pricing-header .section-title {
+  margin-bottom: 0;
+}
+
+.pricing-header .section-subtitle {
+  font-size: 18px;
+  color: var(--text-dark);
   margin-top: 15px;
 }
 
-.site-footer h5 {
-  font-size: 1.1rem;
-  /* También ligeramente menor para mantener la jerarquía baja en el footer */
-  margin-bottom: 1rem;
-  color: var(--text-inverse);
+.pricing-grid {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
 }
 
-.site-footer a {
-  color: inherit;
-  text-decoration: none;
-  transition: color var(--transition);
+.pricing-card {
+  width: 466px;
+  min-height: 657px;
+  /* As per design */
+  border-radius: 15px;
+  padding: 40px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 
-.site-footer a:hover {
-  color: var(--button-hover);
+/* Blue Card */
+.card-blue {
+  background: var(--primary-blue);
+  color: var(--bg-gray);
+  box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
-.site-footer .social-icons a {
-  margin-right: 1rem;
-  font-size: 1.5rem;
+.popular-badge {
+  position: absolute;
+  top: -17px;
+  /* Pull up */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 191px;
+  height: 34px;
+  background: var(--bg-gray);
+  border-radius: 20px;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-family: var(--font-caption);
+  color: var(--primary-blue);
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
-.site-footer .legal-links a {
-  display: block;
-  margin-bottom: 0.5rem;
+.card-blue .plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--bg-gray);
 }
 
-.footer-copy p {
-  margin: 0;
-  font-size: 0.9rem;
+.card-blue .plan-price {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  color: var(--bg-gray);
 }
 
-/* Espaciado y ajuste tipográfico para páginas legales */
-.modern-services {
-  margin-bottom: 2rem;
+.card-blue .plan-features {
+  margin-bottom: auto;
+  /* Push button down */
 }
 
-.markdown-body h1 {
-  font-size: 2rem;
-  margin: 1.5rem 0 1rem;
+.card-blue .plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: var(--bg-gray);
 }
 
-.markdown-body h2 {
-  font-size: 1.75rem;
-  margin: 2.25rem 0 0.75rem;
+.btn-white-rect {
+  background: var(--bg-gray);
+  color: var(--secondary-blue);
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 40px;
 }
 
-.markdown-body h3 {
-  font-size: 1.5rem;
-  margin: 1rem 0 0.5rem;
+/* Gray Card */
+.card-gray {
+  background: var(--bg-gray);
+  color: var(--text-dark);
+  box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.15);
 }
 
-.markdown-body p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+.card-gray .plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-@media (max-width: 576px) {
+.card-gray .plan-price {
+  font-size: 32px;
+  font-weight: 400;
+  /* "Custom" is lighter/regular in spec */
+  margin-bottom: 40px;
+}
+
+.card-gray .plan-price span {
+  font-size: 24px;
+}
+
+.card-gray .plan-features {
+  margin-bottom: auto;
+}
+
+.card-gray .plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 18px;
+  margin-bottom: 24px;
+  color: var(--text-dark);
+}
+
+.btn-dark-rect {
+  background: var(--text-dark);
+  color: var(--bg-gray);
+  width: 100%;
+  height: 50px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 18px;
+  margin-top: 40px;
+}
+
+.text-dark-features li i {
+  color: var(--text-dark);
+  /* Icons in gray card */
+}
+
+/* Footer Grid */
+.site-footer {
+  background: var(--bg-gray);
+  padding: 60px 0;
+  position: relative;
+}
+
+.footer-container-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  /* Vertically center content */
+}
+
+.footer-logo {
+  height: 61px;
+  width: auto;
+}
+
+.footer-col h4 {
+  font-family: 'Inter';
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.footer-links-list a {
+  font-family: 'Inria Sans';
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--text-dark);
+}
+
+/* Mobile Menu Styles */
+.mobile-menu-toggle {
+  display: none;
+  /* Hidden by default */
+  background: none;
+  border: none;
+  font-size: 28px;
+  color: var(--primary-blue);
+  cursor: pointer;
+  z-index: 1100;
+}
+
+.mobile-menu {
+  display: none;
+  /* Hidden by default */
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  /* Aligns content to the top */
+  padding-top: 80px;
+  /* Add some padding from the top */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--white);
+  z-index: 1050;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  transform: translateX(0);
+}
+
+.mobile-menu a {
+  font-size: 24px;
+  margin: 20px 0;
+  color: var(--text-dark);
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
   .pricing-card {
-    max-width: 100%;
-    flex-basis: 100%;
-    min-height: 620px;
+    width: 100%;
+    min-height: auto;
   }
 }
 
-@media (min-width: 992px) {
-  .pricing-card {
-    flex: 0 0 366px;
-    max-width: 366px;
-    min-height: 620px;
+@media (max-width: 768px) {
+
+  .navbar-center,
+  .navbar-right {
+    display: none;
+    /* Hide desktop nav links and login */
   }
 
-  .pricing-card ul.list-unstyled {
-    min-height: 230px;
+  .mobile-menu-toggle {
+    display: block;
+    /* Show hamburger icon */
+  }
+
+  .mobile-menu {
+    display: flex;
+  }
+
+  .navbar-container {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .nav-links-pill {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .footer-container-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-col h4,
+  .footer-links-list {
+    align-items: center;
+  }
+
+  .pricing-grid {
+    gap: 30px;
+  }
+
+  .hero-title {
+    font-size: 32px;
   }
 }
