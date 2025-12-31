@@ -1,0 +1,170 @@
+#+title:Tasks
+* PROJ [0%] Mobile
+Las siguientes son las tareas que aún faltan del modo mobile para que se ajuste a la estructura. Debes asegurarte de que cada tarea se resuelva y una vez resuelta debes ponerla como DONE
+
+Las distancias entre elemntos es desde la parte inferior de un elemento hasta la parte superior del siguiente.
+
+** Header
+En el header en mobile tenemos la imagen del Logo y el menu burguer
+*** Imagen de logo
+- La imagen del logo es de debe qudaer de 104x30
+- La distancia del logo con los margenes de la pagina son (18,40,308)-->(left,up, right)
+*** Burguer menu
+- tamaño 24x24
+- (379,43,27)-->(left,up, right)
+** Main
+En el main hay varios elementos, los listare de primero a ultimo en orden vertical descendente
+*** Gestión de legal inteligente (1)
+- Este elemento debe distanciarse del navbar en 94
+- Ademas debe distanciarse del siguiente elemento en 32 verticalmente
+*** No vuelvas a perder... (texto 2) (2)
+width: 296;
+height: 62;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 700;
+font-style: Bold;
+font-size: 26px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+- La distancia con el siguiente elemento es de 24
+*** Texto 3 (La ia de Wabog automatiza ...) (3)
+width: 327;
+height: 76;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 16px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+
+- Se distancia del siguiente elemento en 54
+
+*** Boton Prueba Gratis (4)
+width: 217;
+height: 42;
+angle: 0 deg;
+opacity: 1;
+
+- Se diatancia del siguiente elemento en 22
+*** Boton Agenda una demo (5)
+width: 217;
+height: 42;
+angle: 0 deg;
+opacity: 1;
+
+- Se distancia del siguiente elemento en 142
+*** Cards de funcionalidades (6)
+width: 326;
+height: 192;
+angle: 0 deg;
+opacity: 1;
+border-radius: 15px;
+
+background: #F5F5F5;
+
+box-shadow: 0px 4px 4px 0px #0000000F;
+
+- La distancia entre cada card es de 22
+- La distancia con el siguiente elemento es de 142
+*** Imagen del producto (screenshoot) (7)
+width: 364;
+height: 205;
+angle: 0 deg;
+opacity: 1;
+border-radius: 10px;
+
+box-shadow: 0px 4px 4px -1px #0C0C0D0D;
+
+box-shadow: 0px 4px 4px -1px #0C0C0D1A;
+
+- La distancia con el siguiente elemento es de 128
+*** Texto "Esto es lo que Wabog puede hacer ..." (8)
+width: 430;
+height: 102;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 400;
+font-style: Regular;
+font-size: 26px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+
+- la distancia con el siguiente elemento es de 52
+
+*** Cards de beneficios (9)
+width: 364;
+height: 148;
+angle: 0 deg;
+opacity: 1;
+border-radius: 15px;
+
+background: #F5F5F5;
+
+box-shadow: 0px 4px 4px 0px #0000000F;
+
+- La distancia con el siguiente elemento es de 142
+
+*** Texto Selecciona un nuevo plan (10)
+
+width: 231;
+height: 62;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inter;
+font-weight: 600;
+font-style: Semi Bold;
+font-size: 26px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+vertical-align: middle;
+
+- distancia con el siguiente elemento 17
+
+*** Subtexto "automatiza el seguimiento..."
+width: 351;
+height: 34;
+angle: 0 deg;
+opacity: 1;
+
+font-family: Inria Sans;
+font-weight: 300;
+font-style: Light;
+font-size: 14px;
+leading-trim: NONE;
+line-height: 100%;
+letter-spacing: 0%;
+text-align: center;
+
+- la distancia con el siguiente elemento es de 116
+
+
+**** Cards de planes (11)
+width: 364;
+height: 512;
+angle: 0 deg;
+opacity: 1;
+border-radius: 15px;
+
+box-shadow: 0px 4px 4px 0px #00000033;
+
+- la distancia entre las cards de planes es de 22
