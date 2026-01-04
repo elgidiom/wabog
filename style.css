@@ -247,10 +247,9 @@ p {
 }
 
 .feature-icon {
+  /* Removed fixed dimensions and background to fit new image assets */
   width: 34px;
   height: 34px;
-  background: var(--primary-blue);
-  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -260,11 +259,14 @@ p {
   margin: 0;
 }
 
-.feature-icon i {
-  color: #EEF2FF;
-  /* primary-300 roughly */
-  font-size: 18px;
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
+
+/* .feature-icon i styles removed as we use img now */
 
 .feature-card p {
   font-family: var(--font-main);
