@@ -128,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Theme Toggle ---
   const updateThemeIcon = () => {
+    if (!themeIcon) return;
     if (body.classList.contains('light-mode')) {
       themeIcon.classList.replace('bi-sun', 'bi-moon');
       themeIcon.style.color = '#000';
@@ -210,6 +211,194 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // --- Sync Process + Lead Modal ---
+  const syncProcessForm = document.getElementById('sync-process-form');
+  const radicadoInput = document.getElementById('radicado-input');
+  const syncProcessSubmit = document.getElementById('sync-process-submit');
+  const syncProcessError = document.getElementById('sync-process-error');
+
+  const leadModal = document.getElementById('lead-modal');
+  const leadModalBackdrop = document.getElementById('lead-modal-backdrop');
+  const leadModalClose = document.getElementById('lead-modal-close');
+  const leadForm = document.getElementById('lead-form');
+  const leadPhoneInput = document.getElementById('lead-phone-input');
+  const leadSubmit = document.getElementById('lead-submit');
+  const leadFormError = document.getElementById('lead-form-error');
+  const leadFormSuccess = document.getElementById('lead-form-success');
+  const leadWebhookUrl = 'https://microsaas-n8n.zhmeru.easypanel.host/webhook/4e3308ce-e721-4b19-80ff-2dbcebad56f4';
+  let selectedRadicado = '';
+
+  const onlyDigits = (value) => (value || '').replace(/\D/g, '');
+  const wait = (milliseconds) => new Promise((resolve) => {
+    window.setTimeout(resolve, milliseconds);
+  });
+
+  const showTextMessage = (element, message) => {
+    if (!element) return;
+    if (!message) {
+      element.textContent = '';
+      element.hidden = true;
+      return;
+    }
+    element.textContent = message;
+    element.hidden = false;
+  };
+
+  const openLeadModal = () => {
+    if (!leadModal || !leadModalBackdrop) return;
+    leadModal.hidden = false;
+    leadModalBackdrop.hidden = false;
+    body.classList.add('modal-open');
+    if (leadPhoneInput) leadPhoneInput.focus();
+  };
+
+  const closeLeadModal = () => {
+    if (!leadModal || !leadModalBackdrop) return;
+    leadModal.hidden = true;
+    leadModalBackdrop.hidden = true;
+    body.classList.remove('modal-open');
+  };
+
+  const resetLeadFormState = () => {
+    if (leadForm) leadForm.reset();
+    showTextMessage(leadFormError, '');
+    showTextMessage(leadFormSuccess, '');
+    if (leadSubmit) {
+      leadSubmit.disabled = false;
+      leadSubmit.textContent = 'Probar gratis por Whatsapp';
+    }
+  };
+
+  const sendLeadToWebhook = async ({ radicado, number }) => {
+    const response = await fetch(leadWebhookUrl, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ radicado, number })
+    });
+
+    if (!response.ok) {
+      throw new Error(`Webhook responded with status ${response.status}`);
+    }
+  };
+
+  const validateRadicado = (value) => {
+    if (!value) return 'Ingresa un número de radicado.';
+    if (value.length !== 23) return 'El radicado debe tener exactamente 23 dígitos.';
+    return '';
+  };
+
+  const validatePhone = (value) => {
+    if (!value) return 'Ingresa tu número de celular.';
+    if (value.length !== 10) return 'El número debe tener 10 dígitos.';
+    return '';
+  };
+
+  if (radicadoInput) {
+    radicadoInput.addEventListener('input', () => {
+      radicadoInput.value = onlyDigits(radicadoInput.value).slice(0, 23);
+      selectedRadicado = '';
+      showTextMessage(syncProcessError, '');
+    });
+  }
+
+  if (leadPhoneInput) {
+    leadPhoneInput.addEventListener('input', () => {
+      leadPhoneInput.value = onlyDigits(leadPhoneInput.value).slice(0, 10);
+      showTextMessage(leadFormError, '');
+      showTextMessage(leadFormSuccess, '');
+    });
+  }
+
+  if (syncProcessForm && syncProcessSubmit && radicadoInput) {
+    syncProcessForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const radicado = onlyDigits(radicadoInput.value);
+      const validationMessage = validateRadicado(radicado);
+      if (validationMessage) {
+        showTextMessage(syncProcessError, validationMessage);
+        return;
+      }
+
+      syncProcessSubmit.disabled = true;
+      syncProcessSubmit.textContent = 'Buscando...';
+      showTextMessage(syncProcessError, '');
+
+      await wait(600);
+
+      selectedRadicado = radicado;
+      syncProcessSubmit.disabled = false;
+      syncProcessSubmit.textContent = 'Sincronizar';
+      openLeadModal();
+      trackEvent('process_lookup_success', {
+        radicado_length: String(radicado.length)
+      });
+    });
+  }
+
+  if (leadForm && leadPhoneInput && leadSubmit) {
+    leadForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const phone = onlyDigits(leadPhoneInput.value);
+      if (!selectedRadicado) {
+        showTextMessage(leadFormError, 'Primero sincroniza un radicado válido.');
+        return;
+      }
+
+      const validationMessage = validatePhone(phone);
+      if (validationMessage) {
+        showTextMessage(leadFormError, validationMessage);
+        return;
+      }
+
+      leadSubmit.disabled = true;
+      leadSubmit.textContent = 'Activando...';
+      showTextMessage(leadFormError, '');
+      showTextMessage(leadFormSuccess, '');
+
+      try {
+        await sendLeadToWebhook({
+          radicado: selectedRadicado,
+          number: `57${phone}`
+        });
+
+        showTextMessage(leadFormSuccess, 'Listo. Te notificaremos en WhatsApp cuando haya novedades del proceso.');
+        trackEvent('whatsapp_lead_captured', {
+          phone_length: String(phone.length)
+        });
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = 'Probar gratis por Whatsapp';
+      } catch (error) {
+        // Keep the modal open so the user can retry immediately.
+        console.error('Webhook request failed', error);
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = 'Probar gratis por Whatsapp';
+        showTextMessage(leadFormError, 'No pudimos registrar tu número. Inténtalo de nuevo.');
+      }
+    });
+  }
+
+  if (leadModalClose) {
+    leadModalClose.addEventListener('click', () => {
+      closeLeadModal();
+      resetLeadFormState();
+    });
+  }
+
+  if (leadModalBackdrop) {
+    leadModalBackdrop.addEventListener('click', () => {
+      closeLeadModal();
+      resetLeadFormState();
+    });
+  }
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !leadModal || leadModal.hidden) return;
+    closeLeadModal();
+    resetLeadFormState();
+  });
 
   // --- Initialization ---
   updateThemeIcon();

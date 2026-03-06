@@ -73,24 +73,47 @@
 
       <!-- Title -->
       <h1 class="hero-title">
-        No vuelvas a perder<br>un término judicial
+        No vuelvas a perder<br>un <span class="text-blue">término judicial</span>
       </h1>
 
       <!-- Subtitle -->
       <p class="hero-subtitle">
-        La IA de Wabog automatiza la vigilancia de procesos, redacta escritos legales y busca jurisprudencias
-        relevantes. </br>Todo desde el mismo lugar.
+        Automatiza la vigilancia de tus procesos en tiempo real con la IA de Wabog.
+        Sincroniza tu primer radicado ahora.
       </p>
+
+      <!-- Sync Process Card -->
+      <div class="sync-process-card">
+        <div class="sync-process-header">
+          <div class="sync-process-icon">
+            <i class="bi bi-arrow-repeat"></i>
+          </div>
+          <h2>Sincroniza tu proceso</h2>
+        </div>
+
+        <form id="sync-process-form" class="sync-process-form" novalidate>
+          <div class="sync-process-input-row">
+            <div class="sync-process-input-shell">
+              <i class="bi bi-search sync-process-input-icon" aria-hidden="true"></i>
+              <input id="radicado-input" class="sync-process-input" type="text" inputmode="numeric" maxlength="23"
+                autocomplete="off" placeholder="Ingresa el número de radicado (23 dígitos)..." aria-label="Número de radicado">
+            </div>
+            <button id="sync-process-submit" class="sync-process-submit" type="submit">Sincronizar</button>
+          </div>
+          <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
+          <p id="sync-process-error" class="sync-process-error" hidden></p>
+        </form>
+      </div>
 
       <!-- Buttons -->
       <div class="hero-buttons">
         <a href="https://app.wabog.com" class="btn-primary-rect" data-analytics="hero_prueba_gratis"
           data-analytics-location="hero">
-          PRUEBA GRATIS
+          Prueba gratis
         </a>
         <a href="https://calendar.app.google/GiraoujrCoBJ3KJy7" target="_blank" class="btn-secondary-rect"
           data-analytics="hero_agenda_demo" data-analytics-location="hero">
-          AGENDA DEMO
+          Agenda Demo
         </a>
       </div>
 
@@ -250,6 +273,50 @@
   </footer>
 
   <!-- Scripts -->
+  <div id="lead-modal-backdrop" class="lead-modal-backdrop" hidden></div>
+  <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>
+    <button id="lead-modal-close" class="lead-modal-close" type="button" aria-label="Cerrar formulario">
+      <i class="bi bi-x-lg"></i>
+    </button>
+
+    <div class="lead-modal-success-icon">
+      <i class="bi bi-check2-circle"></i>
+    </div>
+    <h3 id="lead-modal-title" class="lead-modal-title">¡Hemos encontrado<br>tu proceso!</h3>
+
+    <form id="lead-form" class="lead-form" novalidate>
+      <div class="lead-form-shell">
+        <div class="lead-form-head">
+          <div class="lead-form-whatsapp-icon">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <div>
+            <h4>Activar notificaciones</h4>
+            <p>Recibe actualizaciones por WhatsApp.</p>
+          </div>
+        </div>
+
+        <label for="lead-phone-input" class="lead-label">NÚMERO DE CELULAR</label>
+        <div class="lead-phone-row">
+          <span class="lead-country-code">🇨🇴 +57</span>
+          <input id="lead-phone-input" class="lead-phone-input" type="text" inputmode="numeric" maxlength="10"
+            autocomplete="tel-national" placeholder="300 123 4567" aria-label="Número de celular para notificaciones">
+        </div>
+
+        <button id="lead-submit" class="lead-submit" type="submit">Probar gratis en Whatsapp</button>
+
+        <p class="lead-note">
+          <i class="bi bi-lock-fill"></i>
+          Tus datos están protegidos. Solo recibirás actualizaciones relevantes de tu proceso.
+          Puedes cancelar en cualquier momento.
+        </p>
+      </div>
+
+      <p id="lead-form-error" class="lead-form-error" hidden></p>
+      <p id="lead-form-success" class="lead-form-success" hidden></p>
+    </form>
+  </div>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
