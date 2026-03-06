@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     showTextMessage(leadFormSuccess, '');
     if (leadSubmit) {
       leadSubmit.disabled = false;
-      leadSubmit.textContent = 'Probar gratis por Whatsapp';
+      leadSubmit.textContent = 'Probar gratis en Whatsapp';
     }
   };
 
@@ -369,12 +369,12 @@ document.addEventListener('DOMContentLoaded', () => {
           phone_length: String(phone.length)
         });
         leadSubmit.disabled = false;
-        leadSubmit.textContent = 'Probar gratis por Whatsapp';
+        leadSubmit.textContent = 'Probar gratis en Whatsapp';
       } catch (error) {
         // Keep the modal open so the user can retry immediately.
         console.error('Webhook request failed', error);
         leadSubmit.disabled = false;
-        leadSubmit.textContent = 'Probar gratis por Whatsapp';
+        leadSubmit.textContent = 'Probar gratis en Whatsapp';
         showTextMessage(leadFormError, 'No pudimos registrar tu número. Inténtalo de nuevo.');
       }
     });
