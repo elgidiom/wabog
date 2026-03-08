@@ -398,7 +398,7 @@ p {
 
 /* Impact / Stats Section */
 .impact-section {
-  padding: 60px 0;
+  padding: 120px 0 120px;
   text-align: center;
 }
 
@@ -413,7 +413,7 @@ p {
 }
 
 .impact-section .section-title {
-  margin-bottom: 120px;
+  margin-bottom: 80px;
 }
 
 .impact-grid {
@@ -445,7 +445,7 @@ p {
 
 /* Pricing Section */
 .pricing-section {
-  padding: 80px 0 195px;
+  padding: 160px 0 200px;
 }
 
 .pricing-header {
