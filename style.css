@@ -92,7 +92,7 @@ p {
 }
 
 .nav-links-pill {
-  background: var(--primary-blue);
+  background: var(--bg-gray);
   border-radius: 20px;
   padding: 10px 30px;
   display: flex;
@@ -101,15 +101,15 @@ p {
 }
 
 .nav-links-pill a {
-  color: var(--white);
+  color: var(--primary-blue);
   font-family: var(--font-main);
-  font-weight: 400;
-  font-size: 18px;
+  font-weight: 500;
+  font-size: 16px;
   line-height: 22px;
 }
 
 .nav-links-pill a:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .btn-login-nav {
