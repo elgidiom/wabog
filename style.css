@@ -188,12 +188,14 @@ p {
 
 .hero-title {
   font-family: var(--font-main);
-  font-weight: 700;
+  font-weight: 900;
   font-size: 56px;
   /* 48px in design but looks bigger on desktop often */
-  line-height: 1.2;
+  line-height: 1.1;
   color: var(--text-dark);
   margin-bottom: 24px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
 }
 
 .hero-subtitle {
@@ -1020,6 +1022,8 @@ body.modal-open {
     font-size: 30px;
     line-height: 1.15;
     margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
   }
 
   .hero-subtitle {
@@ -1223,6 +1227,8 @@ body.modal-open {
     font-size: 24px;
     line-height: 1.15;
     margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
   }
 
   .hero-subtitle {
