@@ -208,12 +208,12 @@ p {
 }
 
 .sync-process-card {
-  width: min(100%, 672px);
-  background: #f8f9fb;
-  border-radius: 26px;
-  border: 1px solid #e2e7f0;
-  box-shadow: 0 22px 38px -18px rgba(15, 29, 56, 0.4);
-  padding: 30px 30px 24px;
+  width: min(100%, 897px);
+  background: #FFFFFF;
+  border-radius: 24px;
+  border: 1px solid #F1F5F9;
+  box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  padding: 33px;
   margin-bottom: 44px;
 }
 
@@ -221,29 +221,30 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .sync-process-header h2 {
-  font-size: clamp(26px, 2.6vw, 34px);
+  font-size: 24px;
   font-weight: 700;
-  color: #11192f;
-  line-height: 1.08;
+  color: #313D44;
+  line-height: 29px;
 }
 
 .sync-process-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #edf3fb;
-  color: #2f6cff;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  background: #EEF2FF;
+  color: #1454FA;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
 .sync-process-icon i {
-  font-size: 22px;
+  font-size: 16px;
 }
 
 .sync-process-form {
@@ -263,16 +264,17 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 58px;
-  border: 1px solid #ccd5e6;
-  border-radius: 18px;
-  background: #f3f5f9;
-  padding: 0 16px;
+  height: 56px;
+  box-shadow: 0px 0px 0px 1px #E2E8F0;
+  border: none;
+  border-radius: 16px;
+  background: #F8FAFC;
+  padding: 0 16px 0 16px;
 }
 
 .sync-process-input-icon {
-  font-size: 24px;
-  color: #8fa0b6;
+  font-size: 18px;
+  color: #94A3B8;
 }
 
 .sync-process-input {
@@ -283,37 +285,38 @@ p {
   background: transparent;
   padding: 0;
   font-size: 16px;
-  font-weight: 500;
-  color: #5b6881;
+  font-weight: 400;
+  color: #313D44;
   outline: none;
 }
 
 .sync-process-input::placeholder {
-  color: #7c889c;
+  color: #6B7280;
 }
 
 .sync-process-input-shell:focus-within {
-  border-color: #9cb5f0;
-  box-shadow: 0 0 0 4px rgba(20, 84, 250, 0.08);
+  box-shadow: 0px 0px 0px 2px #2563EB;
 }
 
 .sync-process-submit {
   border: none;
   cursor: pointer;
-  height: 58px;
+  height: 56px;
   min-width: 154px;
-  padding: 0 24px;
-  border-radius: 18px;
-  font-size: 18px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-size: 16px;
   font-weight: 700;
-  color: #f5f7ff;
-  background: linear-gradient(180deg, #2f6cff 0%, #1454fa 100%);
-  box-shadow: 0 10px 20px rgba(20, 84, 250, 0.25);
+  color: #FFFFFF;
+  background: #2563EB;
+  box-shadow: 0px 10px 15px -3px rgba(59, 130, 246, 0.25), 0px 4px 6px -4px rgba(59, 130, 246, 0.25);
   transition: filter 0.2s, transform 0.15s;
+  white-space: nowrap;
 }
 
 .sync-process-submit:hover {
-  filter: brightness(1.03);
+  filter: brightness(1.06);
+  transform: translateY(-1px);
 }
 
 .sync-process-submit:active {
@@ -327,8 +330,9 @@ p {
 
 .sync-process-hint {
   text-align: left;
-  font-size: 13px;
-  color: #8fa1bb;
+  font-size: 12px;
+  line-height: 16px;
+  color: #94A3B8;
 }
 
 .sync-process-error {
