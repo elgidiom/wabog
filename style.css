@@ -264,11 +264,14 @@ p {
   align-items: center;
   gap: 12px;
   height: 56px;
-  box-shadow: 0px 0px 0px 1px #E2E8F0;
-  border: none;
+  min-height: 56px;
+  box-sizing: border-box;
+  /* Force exact 56px height */
+  border: 1px solid #E2E8F0;
+  /* Prevents visual height expansion */
   border-radius: 16px;
   background: #F8FAFC;
-  padding: 0 16px 0 16px;
+  padding: 0 16px;
 }
 
 .sync-process-input-icon {
@@ -283,6 +286,11 @@ p {
   border-radius: 0;
   background: transparent;
   padding: 0;
+  margin: 0;
+  /* Reset browser margin */
+  -webkit-appearance: none;
+  appearance: none;
+  /* Strip native iOS styling that breaks input heights */
   font-size: 16px;
   font-weight: 400;
   color: #313D44;
@@ -296,15 +304,25 @@ p {
 }
 
 .sync-process-input-shell:focus-within {
-  box-shadow: 0px 0px 0px 2px #2563EB;
+  border-color: #2563EB;
 }
 
 .sync-process-submit {
+  box-sizing: border-box;
+  /* Force exact 56px height */
+  -webkit-appearance: none;
+  appearance: none;
   border: none;
   cursor: pointer;
   height: 56px;
+  min-height: 56px;
   min-width: 154px;
-  padding: 16px 32px;
+  padding: 0 32px;
+  /* Replaced top/bottom padding with Flex center to avoid bloating */
+  display: flex;
+  align-items: center;
+
+  justify-content: center;
   border-radius: 16px;
   font-size: 16px;
   font-weight: 700;
@@ -995,7 +1013,7 @@ body.modal-open {
   /* ── Hero ── */
   .hero {
     text-align: center;
-    padding: 48px 0 48px;
+    padding: 48px 0 80px;
   }
 
   .hero-title {
@@ -1014,7 +1032,7 @@ body.modal-open {
   .sync-process-card {
     border-radius: 18px;
     padding: 20px 16px 16px;
-    margin-bottom: 32px;
+    margin-bottom: 48px;
   }
 
   .sync-process-header {
@@ -1034,6 +1052,7 @@ body.modal-open {
 
   .sync-process-input-shell {
     height: 60px;
+    min-height: 60px;
     /* Increased from 56px to reduce "apachurrado" look */
     border-radius: 16px;
     padding: 0 16px;
@@ -1041,13 +1060,13 @@ body.modal-open {
   }
 
   .sync-process-input-icon {
-    font-size: 18px;
-    /* Increased to match taller input */
+    font-size: 20px;
+    /* Scaled up with text */
   }
 
   .sync-process-input {
-    font-size: 16px;
-    /* Increased readability, prevents iOS zoom */
+    font-size: 18px;
+    /* Matched exact size of the Sincronizar CTA */
   }
 
   .sync-process-input::placeholder {
@@ -1060,6 +1079,7 @@ body.modal-open {
     width: 100%;
     min-width: auto;
     height: 60px;
+    min-height: 60px;
     /* Matched with input shell */
     border-radius: 16px;
     font-size: 18px;
@@ -1073,7 +1093,8 @@ body.modal-open {
 
   /* ── App Preview ── */
   .app-preview-section {
-    padding: 40px 0 48px;
+    padding: 64px 0 48px;
+    /* Increased breathing room to the hero above */
   }
 
   /* ── Section titles ── */
@@ -1085,11 +1106,13 @@ body.modal-open {
 
   /* ── Impact Section ── */
   .impact-section {
-    padding: 64px 0 64px;
+    padding: 80px 0 80px;
+    /* Generous breathing room, establishing it as a new block */
   }
 
   .impact-section .section-title {
-    margin-bottom: 48px;
+    margin-bottom: 40px;
+    /* Proximity principle: links title closer to its cards */
   }
 
   .impact-grid {
@@ -1111,11 +1134,12 @@ body.modal-open {
 
   /* ── Pricing Section ── */
   .pricing-section {
-    padding: 80px 0 100px;
+    padding: 88px 0 104px;
+    /* Largest top padding to create a deliberate pause before pricing */
   }
 
   .pricing-header {
-    margin-bottom: 56px;
+    margin-bottom: 48px;
   }
 
   .pricing-grid {
@@ -1197,7 +1221,7 @@ body.modal-open {
 
   /* ── Hero ── */
   .hero {
-    padding: 32px 0 40px;
+    padding: 32px 0 72px;
   }
 
   .hero-badge {
@@ -1222,7 +1246,7 @@ body.modal-open {
     width: 100%;
     border-radius: 16px;
     padding: 16px 14px;
-    margin-bottom: 24px;
+    margin-bottom: 40px;
   }
 
   .sync-process-header {
@@ -1254,22 +1278,24 @@ body.modal-open {
 
   .sync-process-input-shell {
     height: 54px;
+    min-height: 54px;
     border-radius: 14px;
     gap: 10px;
     padding: 0 14px;
   }
 
   .sync-process-input-icon {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .sync-process-input {
-    font-size: 15px;
-    /* Increased from 13px */
+    font-size: 16px;
+    /* Matched exact size of the CTA */
   }
 
   .sync-process-submit {
     height: 54px;
+    min-height: 54px;
     min-width: auto;
     border-radius: 14px;
     padding: 0 16px;
