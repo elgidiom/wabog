@@ -114,7 +114,6 @@ p {
 }
 
 .btn-login-nav {
-  /* Matches Component styled roughly like 'Login' text or button */
   background: var(--bg-gray);
   color: var(--secondary-blue);
   font-family: var(--font-main);
@@ -122,6 +121,35 @@ p {
   padding: 10px 24px;
   border-radius: 20px;
   font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.btn-login-nav:hover {
+  opacity: 0.85;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-prueba-nav {
+  background: linear-gradient(180deg, #2f6cff 0%, #1454fa 100%);
+  color: #f5f7ff;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 24px;
+  border-radius: 20px;
+  box-shadow: 0 6px 16px rgba(20, 84, 250, 0.28);
+  transition: filter 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.btn-prueba-nav:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
 }
 
 /* Hero Section */
@@ -920,9 +948,6 @@ body.modal-open {
     padding: 15px;
   }
 
-  .hero-buttons {
-    flex-direction: column;
-  }
 
   .sync-process-card {
     border-radius: 22px;
@@ -1187,15 +1212,4 @@ body.modal-open {
     font-size: 10px;
   }
 
-  .hero-buttons {
-    gap: 10px;
-  }
-
-  .btn-primary-rect,
-  .btn-secondary-rect {
-    width: 104px;
-    height: 30px;
-    border-radius: 9px;
-    font-size: 10px;
-  }
 }
