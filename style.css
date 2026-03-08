@@ -1036,12 +1036,7 @@ body.modal-open {
   }
 
   .sync-process-header {
-    margin-bottom: 16px;
-  }
-
-  .sync-process-header h2 {
-    font-size: 18px;
-    line-height: 1.2;
+    display: none;
   }
 
   .sync-process-input-row {
@@ -1069,11 +1064,7 @@ body.modal-open {
     /* Matched exact size of the Sincronizar CTA */
   }
 
-  .sync-process-input::placeholder {
-    color: #CBD5E1;
-    opacity: 0.5;
-    /* Makes placeholder significantly less intrusive */
-  }
+
 
   .sync-process-submit {
     width: 100%;
@@ -1249,24 +1240,7 @@ body.modal-open {
     margin-bottom: 40px;
   }
 
-  .sync-process-header {
-    gap: 8px;
-    margin-bottom: 12px;
-  }
 
-  .sync-process-icon {
-    width: 28px;
-    height: 28px;
-  }
-
-  .sync-process-icon i {
-    font-size: 13px;
-  }
-
-  .sync-process-header h2 {
-    font-size: 14px;
-    line-height: 1.2;
-  }
 
   .sync-process-form {
     gap: 8px;
