@@ -290,7 +290,9 @@ p {
 }
 
 .sync-process-input::placeholder {
-  color: #6B7280;
+  color: #94A3B8;
+  /* Made lighter to reduce visual load */
+  font-weight: 400;
 }
 
 .sync-process-input-shell:focus-within {
@@ -952,7 +954,8 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Responsive Overrides */
+/* ─── Responsive Overrides ─────────────────────────────────────── */
+
 @media (max-width: 1024px) {
   .pricing-card {
     width: 100%;
@@ -962,15 +965,14 @@ body.modal-open {
 
 @media (max-width: 768px) {
 
+  /* ── Navbar ── */
   .navbar-center,
   .navbar-right {
     display: none;
-    /* Hide desktop nav links and login */
   }
 
   .mobile-menu-toggle {
     display: block;
-    /* Show hamburger icon */
   }
 
   .mobile-menu {
@@ -990,15 +992,38 @@ body.modal-open {
     padding: 15px;
   }
 
+  /* ── Hero ── */
+  .hero {
+    text-align: center;
+    padding: 48px 0 48px;
+  }
 
+  .hero-title {
+    font-size: 30px;
+    line-height: 1.15;
+    margin-bottom: 16px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+    line-height: 1.55;
+    margin-bottom: 48px;
+  }
+
+  /* ── Sync Process Card ── */
   .sync-process-card {
-    border-radius: 22px;
+    border-radius: 18px;
     padding: 20px 16px 16px;
-    margin-bottom: 28px;
+    margin-bottom: 32px;
+  }
+
+  .sync-process-header {
+    margin-bottom: 16px;
   }
 
   .sync-process-header h2 {
-    font-size: 24px;
+    font-size: 18px;
+    line-height: 1.2;
   }
 
   .sync-process-input-row {
@@ -1008,31 +1033,96 @@ body.modal-open {
   }
 
   .sync-process-input-shell {
-    height: 52px;
+    height: 60px;
+    /* Increased from 56px to reduce "apachurrado" look */
     border-radius: 16px;
-    padding: 0 14px;
-    gap: 10px;
+    padding: 0 16px;
+    gap: 12px;
   }
 
   .sync-process-input-icon {
     font-size: 18px;
+    /* Increased to match taller input */
   }
 
   .sync-process-input {
-    font-size: 15px;
+    font-size: 16px;
+    /* Increased readability, prevents iOS zoom */
+  }
+
+  .sync-process-input::placeholder {
+    color: #CBD5E1;
+    opacity: 0.5;
+    /* Makes placeholder significantly less intrusive */
   }
 
   .sync-process-submit {
     width: 100%;
     min-width: auto;
-    height: 52px;
+    height: 60px;
+    /* Matched with input shell */
+    border-radius: 16px;
     font-size: 18px;
+    /* Increased for better CTA legibility */
+    font-weight: 600;
   }
 
   .sync-process-hint {
-    font-size: 13px;
+    font-size: 12px;
   }
 
+  /* ── App Preview ── */
+  .app-preview-section {
+    padding: 40px 0 48px;
+  }
+
+  /* ── Section titles ── */
+  .section-title {
+    font-size: 28px;
+    line-height: 1.2;
+    margin-bottom: 0;
+  }
+
+  /* ── Impact Section ── */
+  .impact-section {
+    padding: 64px 0 64px;
+  }
+
+  .impact-section .section-title {
+    margin-bottom: 48px;
+  }
+
+  .impact-grid {
+    gap: 16px;
+  }
+
+  .impact-card {
+    width: 100%;
+    max-width: 360px;
+    height: auto;
+    min-height: 120px;
+    padding: 20px;
+  }
+
+  .impact-card h3 {
+    font-size: 20px;
+    line-height: 1.25;
+  }
+
+  /* ── Pricing Section ── */
+  .pricing-section {
+    padding: 80px 0 100px;
+  }
+
+  .pricing-header {
+    margin-bottom: 56px;
+  }
+
+  .pricing-grid {
+    gap: 24px;
+  }
+
+  /* ── Footer ── */
   .footer-container-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -1043,132 +1133,71 @@ body.modal-open {
     align-items: center;
   }
 
-  .pricing-grid {
-    gap: 30px;
-  }
-
-  .features {
-    padding: 0 0 0 0;
-    margin-top: 142px;
-    /* Pull up if desired, but sticking to flow */
-  }
-
-  .feature-card>p {
-    font-size: 22px;
-    line-height: 1.2;
-  }
-
-  .hero-title {
-    font-size: 32px;
-    margin-bottom: 24px;
-  }
-
-  .hero-subtitle {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 28px;
-  }
-
-  .hero {
-    text-align: center;
-    padding: 40px 0 60px 0;
-    position: relative;
-  }
-
-
-  .app-preview-section {
-    padding: 0 0 60px;
-    text-align: center;
-  }
-
-  .section-title {
-    font-family: var(--font-main);
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 1.2;
-    color: var(--text-dark);
-    margin-bottom: 0;
-    /* Changed from global 120px to 0 to control locally */
-  }
-
-  .impact-grid {
-    gap: 22px;
-  }
-
-  .impact-card {
-    width: 339px;
-    max-height: 148px;
-  }
-
-  .impact-card h3 {
-    font-family: 'Inter';
-    font-weight: 400;
-    font-size: 22px;
-    line-height: 1.2;
-    color: var(--text-dark);
-  }
-
+  /* ── Lead Modal ── */
   .lead-modal {
-    width: min(94vw, 528px);
-    border-radius: 36px;
-    padding: 26px 20px 24px;
-    max-height: calc(100vh - 14px);
+    width: min(94vw, 480px);
+    border-radius: 32px;
+    padding: 28px 24px;
+    gap: 24px;
+    max-height: calc(100vh - 16px);
   }
 
   .lead-modal-success-icon {
-    width: 76px;
-    height: 76px;
-    margin: 6px auto 20px;
+    width: 80px;
+    height: 80px;
   }
 
   .lead-modal-success-icon i {
-    width: 38px;
-    height: 38px;
+    width: 36px;
+    height: 36px;
     font-size: 16px;
   }
 
   .lead-modal-title {
-    font-size: clamp(30px, 7vw, 36px);
-    margin-bottom: 20px;
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.5px;
   }
 
   .lead-form-shell {
-    border-radius: 26px;
-    padding: 20px 16px;
+    border-radius: 24px;
+    padding: 24px 20px 20px;
+    gap: 20px;
   }
 
   .lead-form-head h4 {
-    font-size: 22px;
+    font-size: 16px;
   }
 
   .lead-form-head p {
-    font-size: 14px;
+    font-size: 13px;
   }
 
-  .lead-country-code {
-    height: 54px;
-    min-width: 96px;
-    font-size: 16px;
+  .lead-phone-row {
+    height: 56px;
+    border-radius: 20px;
   }
 
   .lead-phone-input {
-    height: 54px;
-    font-size: 17px;
-  }
-
-  .lead-submit {
-    height: 58px;
     font-size: 16px;
   }
 
+  .lead-submit {
+    height: 60px;
+    font-size: 16px;
+    border-radius: 20px;
+  }
+
   .lead-note {
-    font-size: 12px;
+    font-size: 11px;
   }
 }
 
 @media (max-width: 380px) {
+
+  /* ── Hero ── */
   .hero {
-    padding: 28px 0 0;
+    padding: 32px 0 40px;
   }
 
   .hero-badge {
@@ -1178,44 +1207,45 @@ body.modal-open {
   .hero-title {
     font-size: 24px;
     line-height: 1.15;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .hero-subtitle {
-    font-size: 11px;
-    line-height: 1.3;
-    max-width: 255px;
-    margin-bottom: 14px;
+    font-size: 13px;
+    line-height: 1.45;
+    max-width: 280px;
+    margin-bottom: 32px;
   }
 
+  /* ── Sync Card ── */
   .sync-process-card {
-    width: min(100%, 286px);
-    border-radius: 12px;
-    padding: 10px 10px 8px;
-    margin-bottom: 18px;
+    width: 100%;
+    border-radius: 16px;
+    padding: 16px 14px;
+    margin-bottom: 24px;
   }
 
   .sync-process-header {
-    gap: 6px;
-    margin-bottom: 8px;
+    gap: 8px;
+    margin-bottom: 12px;
   }
 
   .sync-process-icon {
-    width: 16px;
-    height: 16px;
+    width: 28px;
+    height: 28px;
   }
 
   .sync-process-icon i {
-    font-size: 10px;
+    font-size: 13px;
   }
 
   .sync-process-header h2 {
-    font-size: 11px;
-    line-height: 1.15;
+    font-size: 14px;
+    line-height: 1.2;
   }
 
   .sync-process-form {
-    gap: 6px;
+    gap: 8px;
   }
 
   .sync-process-input-row {
@@ -1223,35 +1253,37 @@ body.modal-open {
   }
 
   .sync-process-input-shell {
-    height: 28px;
-    border-radius: 8px;
-    gap: 6px;
-    padding: 0 8px;
+    height: 54px;
+    border-radius: 14px;
+    gap: 10px;
+    padding: 0 14px;
   }
 
   .sync-process-input-icon {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .sync-process-input {
-    font-size: 8px;
+    font-size: 15px;
+    /* Increased from 13px */
   }
 
   .sync-process-submit {
-    height: 30px;
-    min-width: 96px;
-    border-radius: 9px;
-    padding: 0 12px;
-    font-size: 10px;
+    height: 54px;
+    min-width: auto;
+    border-radius: 14px;
+    padding: 0 16px;
+    font-size: 16px;
+    /* Increased from 13px to fix tiny CTA text */
+    font-weight: 600;
   }
 
   .sync-process-hint {
-    font-size: 6px;
-    line-height: 1.25;
+    font-size: 10px;
+    line-height: 1.4;
   }
 
   .sync-process-error {
-    font-size: 10px;
+    font-size: 11px;
   }
-
 }
