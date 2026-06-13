@@ -90,28 +90,10 @@
         Sincroniza tu primer radicado ahora.
       </p>
 
-      <!-- Sync Process Card -->
-      <div id="sync-process" class="sync-process-card">
-        <div class="sync-process-header">
-          <div class="sync-process-icon">
-            <i class="bi bi-arrow-repeat"></i>
-          </div>
-          <h2>Sincroniza tu proceso</h2>
-        </div>
-
-        <form id="sync-process-form" class="sync-process-form" novalidate>
-          <div class="sync-process-input-row">
-            <div class="sync-process-input-shell">
-              <i class="bi bi-search sync-process-input-icon" aria-hidden="true"></i>
-              <input id="radicado-input" class="sync-process-input" type="text" inputmode="numeric" maxlength="23"
-                autocomplete="off" placeholder="Ingresa el número de radicado (23 dígitos)..."
-                aria-label="Número de radicado">
-            </div>
-            <button id="sync-process-submit" class="sync-process-submit" type="submit">Sincronizar</button>
-          </div>
-          <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
-          <p id="sync-process-error" class="sync-process-error" hidden></p>
-        </form>
+      <!-- Hero CTA Buttons -->
+      <div class="hero-buttons">
+        <a href="#sync-process" class="btn-primary-rect" data-analytics="hero_comenzar_click">Comenzar Gratis</a>
+        <a href="#how-works" class="btn-secondary-rect" data-analytics="hero_ver_como_funciona_click">Ver cómo funciona</a>
       </div>
 
     </div>
@@ -227,9 +209,34 @@
   </section>
 
   <!-- How It Works Flow Section -->
-  <section class="how-works-flow">
+  <section id="how-works" class="how-works-flow">
     <div class="container">
       <h2 class="section-title">¿Cómo funciona <span class="text-blue">Wabog</span>?</h2>
+
+      <!-- Sync Process Card -->
+      <div id="sync-process" class="sync-process-card">
+        <div class="sync-process-header">
+          <div class="sync-process-icon">
+            <i class="bi bi-arrow-repeat"></i>
+          </div>
+          <h2>Sincroniza tu proceso</h2>
+        </div>
+
+        <form id="sync-process-form" class="sync-process-form" novalidate>
+          <div class="sync-process-input-row">
+            <div class="sync-process-input-shell">
+              <i class="bi bi-search sync-process-input-icon" aria-hidden="true"></i>
+              <input id="radicado-input" class="sync-process-input" type="text" inputmode="numeric" maxlength="23"
+                autocomplete="off" placeholder="Ingresa el número de radicado (23 dígitos)..."
+                aria-label="Número de radicado">
+            </div>
+            <button id="sync-process-submit" class="sync-process-submit" type="submit">Sincronizar</button>
+          </div>
+          <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
+          <p id="sync-process-error" class="sync-process-error" hidden></p>
+        </form>
+      </div>
+
       <div class="how-works-grid">
         <!-- Step 1 -->
         <div class="how-works-step">
