@@ -434,6 +434,7 @@ p {
 .app-preview-section {
   padding: 80px 0 80px;
   text-align: center;
+  background: linear-gradient(180deg, var(--bg-100) 0%, #edf2f9 100%);
 }
 
 .preview-container {
@@ -1144,7 +1145,7 @@ p {
 /* Comparison Section ("El dilema del abogado") */
 .comparison-section {
   padding: 100px 0;
-  background-color: var(--bg-100);
+  background: linear-gradient(180deg, #edf2f9 0%, var(--bg-100) 100%);
 }
 
 .comparison-section .section-title {
