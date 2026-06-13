@@ -234,6 +234,20 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setTimeout(resolve, milliseconds);
   });
 
+  const howWorksCircles = document.querySelectorAll('.how-works-circle');
+  const activateStep = (stepIndex) => {
+    howWorksCircles.forEach((circle, index) => {
+      if (index === stepIndex) {
+        circle.classList.add('circle-active');
+      } else {
+        circle.classList.remove('circle-active');
+      }
+    });
+  };
+  const deactivateAllSteps = () => {
+    howWorksCircles.forEach(circle => circle.classList.remove('circle-active'));
+  };
+
   const showTextMessage = (element, message) => {
     if (!element) return;
     if (!message) {
@@ -268,6 +282,11 @@ document.addEventListener('DOMContentLoaded', () => {
       leadSubmit.disabled = false;
       leadSubmit.textContent = 'Probar gratis en Whatsapp';
     }
+    if (radicadoInput && radicadoInput.value.length > 0) {
+      activateStep(0);
+    } else {
+      deactivateAllSteps();
+    }
   };
 
   const sendLeadToWebhook = async ({ radicado, number }) => {
@@ -301,6 +320,11 @@ document.addEventListener('DOMContentLoaded', () => {
       radicadoInput.value = onlyDigits(radicadoInput.value).slice(0, 23);
       selectedRadicado = '';
       showTextMessage(syncProcessError, '');
+      if (radicadoInput.value.length > 0) {
+        activateStep(0);
+      } else {
+        deactivateAllSteps();
+      }
     });
   }
 
@@ -322,12 +346,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      activateStep(1);
       syncProcessSubmit.disabled = true;
       syncProcessSubmit.textContent = 'Buscando...';
       showTextMessage(syncProcessError, '');
 
       await wait(600);
 
+      activateStep(2);
       selectedRadicado = radicado;
       syncProcessSubmit.disabled = false;
       syncProcessSubmit.textContent = 'Sincronizar';
