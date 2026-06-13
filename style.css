@@ -113,8 +113,8 @@ p {
 }
 
 .btn-login-nav {
-  background: var(--bg-gray);
-  color: var(--secondary-blue);
+  background: #EEF2FF;
+  color: #1454FA;
   font-family: var(--font-main);
   font-size: 16px;
   padding: 10px 24px;
@@ -176,14 +176,14 @@ p {
 }
 
 .badge-icon i {
-  color: var(--secondary-blue);
+  color: #1454FA;
 }
 
 .hero-badge span {
   font-family: var(--font-caption);
   font-weight: 300;
   font-size: 16px;
-  color: var(--secondary-blue);
+  color: #1454FA;
 }
 
 .hero-title {
@@ -359,7 +359,7 @@ p {
 .sync-process-error {
   text-align: left;
   font-size: 13px;
-  color: #cb1f3f;
+  color: #313d44;
   margin-top: -2px;
 }
 
@@ -386,8 +386,8 @@ p {
 }
 
 .btn-secondary-rect {
-  background: var(--bg-gray);
-  color: var(--secondary-blue);
+  background: #EEF2FF;
+  color: #1454FA;
   width: 217px;
   height: 42px;
   border-radius: 20px;
@@ -526,8 +526,8 @@ p {
 }
 
 .btn-white-rect {
-  background: var(--bg-gray);
-  color: var(--secondary-blue);
+  background: #EEF2FF;
+  color: #1454FA;
   width: 100%;
   height: 50px;
   border-radius: 20px;
@@ -928,7 +928,7 @@ p {
 }
 
 .lead-form-error {
-  color: #cb1f3f;
+  color: #313d44;
 }
 
 .lead-form-success {
@@ -1141,7 +1141,7 @@ p {
 }
 
 .card-manual {
-  border-top: 5px solid #EF4444;
+  border-top: 5px solid #313d44;
 }
 
 .card-intelligent {
@@ -1161,7 +1161,7 @@ p {
 }
 
 .card-manual .comparison-header i {
-  color: #EF4444;
+  color: #313d44;
 }
 
 .card-intelligent .comparison-header i {
@@ -1193,7 +1193,7 @@ p {
 }
 
 .card-manual .comparison-item i {
-  color: #EF4444;
+  color: #313d44;
 }
 
 .card-intelligent .comparison-item i {
@@ -1883,5 +1883,77 @@ body.modal-open {
 
   .overview-card {
     padding: 32px 24px;
+  }
+}
+
+/* Impact Section */
+.impact-section {
+  padding: 100px 0;
+  background-color: var(--white);
+  text-align: center;
+}
+
+.impact-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border: 1px solid #E2E8F0;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #64748b;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.impact-title {
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: 80px;
+  letter-spacing: -1px;
+}
+
+.impact-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.impact-metric {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.impact-number {
+  font-size: 80px;
+  font-weight: 400;
+  color: var(--text-dark);
+  line-height: 1;
+  margin-bottom: 16px;
+  letter-spacing: -3px;
+}
+
+.impact-description {
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+  max-width: 250px;
+}
+
+@media (max-width: 768px) {
+  .impact-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  .impact-metrics-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+  .impact-number {
+    font-size: 64px;
   }
 }
