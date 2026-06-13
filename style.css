@@ -440,7 +440,7 @@ p {
   max-width: 1080px;
   margin: 0 auto;
   position: relative;
-  background: var(--bg-200);
+  background: rgba(49, 61, 68, 0.08); /* #313D44 con 8% de opacidad */
   border-radius: 24px;
   padding: 16px;
 }
