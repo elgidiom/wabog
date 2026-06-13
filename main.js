@@ -400,6 +400,39 @@ document.addEventListener('DOMContentLoaded', () => {
     resetLeadFormState();
   });
 
+  // --- FAQ Accordion ---
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    
+    if (question && answer) {
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('active');
+        
+        // Close all other FAQ items
+        faqItems.forEach(otherItem => {
+          if (otherItem !== item) {
+            otherItem.classList.remove('active');
+            const otherBtn = otherItem.querySelector('.faq-question');
+            if (otherBtn) otherBtn.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current FAQ item
+        if (isOpen) {
+          item.classList.remove('active');
+          question.setAttribute('aria-expanded', 'false');
+          trackEvent('faq_close', { question: question.textContent.trim() });
+        } else {
+          item.classList.add('active');
+          question.setAttribute('aria-expanded', 'true');
+          trackEvent('faq_open', { question: question.textContent.trim() });
+        }
+      });
+    }
+  });
+
   // --- Initialization ---
   updateThemeIcon();
   updateLogo();

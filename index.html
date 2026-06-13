@@ -30,15 +30,15 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="container navbar-container">
-      <a href="#" class="navbar-brand">
+      <a href="index.html" class="navbar-brand">
         <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
       </a>
 
       <div class="navbar-center">
         <div class="nav-links-pill">
-          <a href="#sync-process" data-analytics="nav_funcionalidades"
+          <a href="index.html#features" data-analytics="nav_funcionalidades"
             data-analytics-location="navbar">Funcionalidades</a>
-          <a href="#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <a href="index.html#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
           <a href="https://blog.wabog.com" target="_blank" data-analytics="nav_blog"
             data-analytics-location="navbar">Blog</a>
         </div>
@@ -56,9 +56,9 @@
       </button>
 
       <div class="mobile-menu" id="mobile-menu">
-        <a href="#sync-process" data-analytics="mobile_nav_funcionalidades"
+        <a href="index.html#features" data-analytics="mobile_nav_funcionalidades"
           data-analytics-location="mobile_menu">Funcionalidades</a>
-        <a href="#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+        <a href="index.html#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
         <a href="https://blog.wabog.com" target="_blank" data-analytics="mobile_nav_blog"
           data-analytics-location="mobile_menu">Blog</a>
         <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
@@ -114,8 +114,6 @@
         </form>
       </div>
 
-
-
     </div>
   </section>
 
@@ -125,23 +123,133 @@
     <div class="container">
       <div class="preview-container">
         <!-- This represents the 'Screen' from the design -->
-        <img src="assets/Wabog%20dashboard.png" onerror="this.src='assets/wabogapp.png'" alt="Wabog App Interface"
-          class="app-preview-img">
+        <img src="assets/wabog-dashboard.webp" alt="Wabog App Interface" class="app-preview-img">
       </div>
     </div>
   </section>
 
-  <!-- Impact / Stats Section -->
-  <section class="impact-section">
+  <!-- Comparison Section (El dilema del abogado) -->
+  <section id="features" class="comparison-section">
     <div class="container">
-      <h2 class="section-title">Esto es lo que <span class="text-blue">Wabog</span> puede hacer en <br> tu despacho</h2>
-
-      <div class="impact-grid">
-        <div class="impact-card">
-          <h3>Ahorrar un <span class="text-blue"> <b> 90% </b> </span> de tiempo <br> en la consulta de procesos</h3>
+      <h2 class="section-title">El dilema del abogado:<br>¿Manual o <span class="text-blue">Inteligente</span>?</h2>
+      <div class="comparison-grid">
+        <!-- Manual Search Card -->
+        <div class="comparison-card card-manual">
+          <div class="comparison-header">
+            <i class="bi bi-x-circle-fill"></i>
+            <h3>Búsqueda Manual</h3>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <i class="bi bi-dash-circle"></i>
+              <span>Ingresar expediente por expediente en la web de la Rama Judicial cada día.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-dash-circle"></i>
+              <span>Riesgo constante de perder un término judicial por retrasos o descuidos.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-dash-circle"></i>
+              <span>Horas desperdiciadas en tareas operativas de bajo valor.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-dash-circle"></i>
+              <span>Notificaciones dispersas e imposibles de automatizar por correo.</span>
+            </li>
+          </ul>
         </div>
-        <div class="impact-card">
-          <h3>Te ahorramos hasta un <br> <span class="text-blue"> <b> 50% </b></span> de gastos</h3>
+
+        <!-- Intelligent Search Card -->
+        <div class="comparison-card card-intelligent">
+          <div class="comparison-header">
+            <i class="bi bi-check-circle-fill"></i>
+            <h3>Vigilancia con Wabog</h3>
+          </div>
+          <ul class="comparison-list">
+            <li class="comparison-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Sincronización automática de radicados en segundos.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Alertas instantáneas en WhatsApp con el contenido del auto.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Centralización de expedientes en un panel limpio y ordenado.</span>
+            </li>
+            <li class="comparison-item">
+              <i class="bi bi-check-circle-fill"></i>
+              <span>Borradores automáticos y resúmenes de providencias con IA.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Key Features Overview Section -->
+  <section class="overview-section">
+    <div class="container">
+      <h2 class="section-title">Todo lo que necesitas para <span class="text-blue">despreocuparte</span> de tus términos</h2>
+      <div class="overview-grid">
+        <!-- Card 1 -->
+        <div class="overview-card">
+          <div class="overview-icon">
+            <i class="bi bi-arrow-repeat"></i>
+          </div>
+          <h3>Monitoreo en Tiempo Real</h3>
+          <p>Nuestra plataforma consulta periódicamente los estrados judiciales para traerte las actualizaciones al instante.</p>
+          <a href="#sync-process" class="overview-link" data-analytics="overview_monitoreo_click">Probar ahora <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="overview-card">
+          <div class="overview-icon">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <h3>Alertas en WhatsApp</h3>
+          <p>Recibe los archivos adjuntos y resúmenes de actuaciones directamente en tu celular, sin abrir correos molestos.</p>
+          <a href="#sync-process" class="overview-link" data-analytics="overview_whatsapp_click">Activar alertas <i class="bi bi-arrow-right"></i></a>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="overview-card">
+          <div class="overview-icon">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h3>Redacción y Análisis IA</h3>
+          <p>Genera automáticamente borradores de contestación, recursos y resúmenes estructurados de cada providencia.</p>
+          <a href="#pricing" class="overview-link" data-analytics="overview_ia_click">Saber más <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Flow Section -->
+  <section class="how-works-flow">
+    <div class="container">
+      <h2 class="section-title">¿Cómo funciona <span class="text-blue">Wabog</span>?</h2>
+      <div class="how-works-grid">
+        <!-- Step 1 -->
+        <div class="how-works-step">
+          <div class="how-works-circle">1</div>
+          <h3>Ingresa el Radicado</h3>
+          <p>Digita el código de 23 números del expediente que deseas vigilar en nuestro buscador.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="how-works-step">
+          <div class="how-works-circle">2</div>
+          <h3>Sincronización</h3>
+          <p>La IA de Wabog se conecta a la base de datos judicial y extrae el expediente histórico.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="how-works-step">
+          <div class="how-works-circle">3</div>
+          <h3>Recibe Alertas</h3>
+          <p>Activa notificaciones automáticas y recibe cada auto o actuación en tu WhatsApp.</p>
         </div>
       </div>
     </div>
@@ -152,8 +260,7 @@
     <div class="container">
       <div class="pricing-header">
         <h2 class="section-title">Selecciona el <span class="text-blue">plan</span> perfecto para ti</h2>
-        <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas
-          legales en segundos.</p>
+        <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas legales en segundos.</p>
       </div>
 
       <div class="pricing-grid">
@@ -197,6 +304,92 @@
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <section id="faq" class="faq-section">
+    <div class="container">
+      <h2 class="section-title">Preguntas <span class="text-blue">Frecuentes</span></h2>
+      <p class="faq-subtitle">Resolvemos tus dudas sobre cómo automatizar la vigilancia judicial con Wabog.</p>
+      
+      <div class="faq-container">
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_1">
+            ¿Cómo funciona la sincronización con la Rama Judicial?
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Wabog se conecta directamente con los sistemas públicos de la Rama Judicial de Colombia. Al ingresar tu número de radicado de 23 dígitos, nuestro sistema consulta las bases de datos oficiales en tiempo real, indexa el expediente completo y establece un canal de vigilancia que realiza revisiones continuas.
+            </div>
+          </div>
+        </div>
+        
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_2">
+            ¿Qué tipo de procesos judiciales puedo registrar?
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Puedes registrar cualquier tipo de proceso que tenga asignado un número de radicado de 23 dígitos válido en Colombia, incluyendo procesos de juzgados civiles, laborales, de familia, administrativos y tribunales.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_3">
+            ¿Cómo se configuran las notificaciones por WhatsApp?
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cada vez que el juzgado registre una nueva actuación, recibirás un mensaje automático con el resumen y enlace.
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_4">
+            ¿Es segura la información de mis radicados y datos?
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Absolutamente. Solo consultamos información pública disponible en la Rama Judicial. Los datos de tus clientes y de contacto (como tu celular) se cifran y se almacenan bajo altos estándares de seguridad y de acuerdo con la Ley de Protección de Datos Personales (Habeas Data).
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_5">
+            ¿Puedo probar el servicio de forma gratuita?
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-content">
+              Sí. Puedes sincronizar tu primer radicado de forma gratuita directamente desde el buscador en la parte superior. Esto te dará acceso a las notificaciones y al expediente sin costo, permitiéndote comprobar la inmediatez y exactitud de Wabog.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="final-cta-section">
+    <div class="container">
+      <div class="final-cta-card">
+        <h2>¿Listo para optimizar tu despacho?</h2>
+        <p>Sincroniza tu primer proceso judicial gratis en segundos y siente la tranquilidad de no volver a perder ningún término legal.</p>
+        <a href="#sync-process" class="btn-cta-final" data-analytics="final_cta_sincronizar" data-analytics-location="final_cta">Sincronizar Radicado Gratis</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="site-footer">
     <div class="container footer-container-grid">
@@ -221,7 +414,7 @@
       <div class="footer-col">
         <h4>Producto</h4>
         <div class="footer-links-list">
-          <a href="#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
+          <a href="index.html#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
           <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Login</a>
           <a href="https://blog.wabog.com" data-analytics="footer_blog" data-analytics-location="footer">Blog</a>
         </div>
@@ -231,10 +424,8 @@
       <div class="footer-col">
         <h4>Legal</h4>
         <div class="footer-links-list">
-          <a href="legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y
-            condiciones</a>
-          <a href="privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de
-            privacidad</a>
+          <a href="legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y condiciones</a>
+          <a href="privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de privacidad</a>
         </div>
       </div>
     </div>

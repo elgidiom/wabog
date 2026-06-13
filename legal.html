@@ -36,14 +36,33 @@
 
       <div class="navbar-center">
         <div class="nav-links-pill">
-          <a href="index.html#features">Funcionalidades</a>
-          <a href="index.html#pricing">Precios</a>
-          <a href="https://blog.wabog.com" target="_blank">Blog</a>
+          <a href="index.html#features" data-analytics="nav_funcionalidades"
+            data-analytics-location="navbar">Funcionalidades</a>
+          <a href="index.html#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank" data-analytics="nav_blog"
+            data-analytics-location="navbar">Blog</a>
         </div>
       </div>
 
       <div class="navbar-right">
-        <a href="https://app.wabog.com" class="btn-login-nav">Login</a>
+        <a href="https://app.wabog.com" class="btn-prueba-nav" data-analytics="nav_prueba_gratis"
+          data-analytics-location="navbar">Prueba gratis</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="nav_login"
+          data-analytics-location="navbar">Login</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bi bi-list"></span>
+      </button>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#features" data-analytics="mobile_nav_funcionalidades"
+          data-analytics-location="mobile_menu">Funcionalidades</a>
+        <a href="index.html#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+        <a href="https://blog.wabog.com" target="_blank" data-analytics="mobile_nav_blog"
+          data-analytics-location="mobile_menu">Blog</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
+          data-analytics-location="mobile_menu">Login</a>
       </div>
     </div>
   </nav>
@@ -69,9 +88,11 @@
       <div class="footer-col">
         <h4>Redes sociales</h4>
         <div class="footer-links-list">
-          <a href="https://www.linkedin.com/company/wabog" target="_blank">Linkedin</a>
-          <a href="https://www.instagram.com/wabog.ia/" target="_blank">Instagram</a>
-          <a href="#" target="_blank">Tiktok</a>
+          <a href="https://www.linkedin.com/company/wabog" target="_blank" data-analytics="footer_linkedin"
+            data-analytics-location="footer">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank" data-analytics="footer_instagram"
+            data-analytics-location="footer">Instagram</a>
+          <a href="#" target="_blank" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
         </div>
       </div>
 
@@ -79,9 +100,9 @@
       <div class="footer-col">
         <h4>Producto</h4>
         <div class="footer-links-list">
-          <a href="index.html#pricing">Precios</a>
-          <a href="https://app.wabog.com">Login</a>
-          <a href="https://blog.wabog.com">Blog</a>
+          <a href="index.html#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
+          <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Login</a>
+          <a href="https://blog.wabog.com" data-analytics="footer_blog" data-analytics-location="footer">Blog</a>
         </div>
       </div>
 
@@ -89,8 +110,8 @@
       <div class="footer-col">
         <h4>Legal</h4>
         <div class="footer-links-list">
-          <a href="legal.html">Términos y condiciones</a>
-          <a href="privacy.html">Politica de privacidad</a>
+          <a href="legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y condiciones</a>
+          <a href="privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de privacidad</a>
         </div>
       </div>
     </div>
@@ -216,6 +237,12 @@ Para cualquier duda, queja o solicitud, contáctanos en [soporte@wabog.com](mail
         render(fallbackMd);
       });
   </script>
+
+  <script>
+    // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
+    window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
+  </script>
+  <script src="main.js"></script>
 
 </body>
 
