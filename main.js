@@ -459,6 +459,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  // --- Pricing Toggle ---
+  const pricingToggle = document.getElementById('pricing-toggle');
+  const btnMonthly = document.getElementById('btn-monthly');
+  const btnAnnual = document.getElementById('btn-annual');
+  const proPrice = document.getElementById('pro-price');
+
+  if (pricingToggle && btnMonthly && btnAnnual && proPrice) {
+    const monthlyPrice = proPrice.dataset.monthly;
+    const annualPrice = proPrice.dataset.annual;
+
+    const setPricing = (period) => {
+      if (period === 'annual') {
+        pricingToggle.classList.add('annual-active');
+        btnAnnual.classList.add('active');
+        btnMonthly.classList.remove('active');
+        proPrice.innerHTML = `$${annualPrice} <span class="text-sm">/ Mes</span>`;
+        trackEvent('billing_toggle_change', { period: 'annual' });
+      } else {
+        pricingToggle.classList.remove('annual-active');
+        btnMonthly.classList.add('active');
+        btnAnnual.classList.remove('active');
+        proPrice.innerHTML = `$${monthlyPrice} <span class="text-sm">/ Mes</span>`;
+        trackEvent('billing_toggle_change', { period: 'monthly' });
+      }
+    };
+
+    btnMonthly.addEventListener('click', () => setPricing('monthly'));
+    btnAnnual.addEventListener('click', () => setPricing('annual'));
+  }
+
   // --- Initialization ---
   updateThemeIcon();
   updateLogo();

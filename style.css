@@ -495,6 +495,77 @@ p {
   margin-top: 15px;
 }
 
+/* Pricing Toggle */
+.pricing-toggle-wrapper {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.pricing-toggle {
+  background-color: var(--bg-100);
+  border: 1px solid var(--bg-300);
+  border-radius: 9999px;
+  display: flex;
+  padding: 6px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.toggle-slider {
+  position: absolute;
+  top: 6px;
+  bottom: 6px;
+  left: 6px;
+  width: 140px;
+  background-color: var(--text-200); /* Color elegante sólido */
+  border-radius: 9999px;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.pricing-toggle.annual-active .toggle-slider {
+  transform: translateX(140px);
+}
+
+.toggle-btn {
+  background: transparent;
+  border: none;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-200);
+  width: 140px;
+  padding: 10px 0;
+  cursor: pointer;
+  z-index: 2;
+  position: relative;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-btn.active {
+  color: var(--bg-100);
+}
+
+.discount-badge {
+  position: absolute;
+  top: -12px;
+  right: -10px;
+  background-color: #d1fae5;
+  color: #065f46;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 12px;
+  text-transform: uppercase;
+  border: 1px solid rgba(6, 95, 70, 0.1);
+  z-index: 3;
+}
+
 .pricing-grid {
   display: flex;
   justify-content: center;

@@ -290,6 +290,17 @@
       <div class="pricing-header">
         <h2 class="section-title">Selecciona el <span class="text-blue">plan</span> perfecto para ti</h2>
         <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas legales en segundos.</p>
+        
+        <!-- Toggle Mensual / Anual -->
+        <div class="pricing-toggle-wrapper">
+          <div class="pricing-toggle" id="pricing-toggle" data-analytics="pricing_billing_toggle">
+            <div class="toggle-slider"></div>
+            <button class="toggle-btn active" id="btn-monthly" data-period="monthly">Mensual</button>
+            <button class="toggle-btn" id="btn-annual" data-period="annual">
+              Anual <span class="discount-badge">Ahorra 20%</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <div class="pricing-grid">
@@ -297,7 +308,7 @@
         <div class="pricing-card card-blue">
           <div class="popular-badge">POPULAR</div>
           <h3 class="plan-name">Plan PRO</h3>
-          <div class="plan-price">$55.000 <span class="text-sm">/ Mes</span></div>
+          <div class="plan-price" id="pro-price" data-monthly="55.000" data-annual="44.000">$55.000 <span class="text-sm">/ Mes</span></div>
 
           <ul class="plan-features">
             <li><i class="bi bi-check-circle-fill"></i> Hasta 50 procesos sincronizados</li>
