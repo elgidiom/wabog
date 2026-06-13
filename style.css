@@ -1410,7 +1410,7 @@ p {
 }
 
 .final-cta-card {
-  background: var(--accent-200);
+  background: var(--primary-100);
   border-radius: 32px;
   padding: 80px 48px;
   color: var(--bg-100);
@@ -1439,7 +1439,7 @@ p {
 
 .btn-cta-final {
   background: var(--bg-100);
-  color: var(--accent-200);
+  color: var(--primary-100);
   font-weight: 700;
   font-size: 18px;
   padding: 16px 40px;
