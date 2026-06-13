@@ -990,7 +990,7 @@ p {
 
 /* How It Works Section */
 .how-it-works {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
   text-align: center;
 }
@@ -1051,7 +1051,7 @@ p {
 
 /* Bento Grid Features Section */
 .features-bento-section {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
 }
 
@@ -1156,7 +1156,7 @@ p {
 
 /* Comparison Section ("El dilema del abogado") */
 .comparison-section {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background: linear-gradient(180deg, #edf2f9 0%, var(--bg-100) 100%);
 }
 
@@ -1259,7 +1259,7 @@ p {
 
 /* How It Works Flow Section */
 .how-works-flow {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
   text-align: center;
 }
@@ -1324,7 +1324,7 @@ p {
 
 /* FAQ Accordion Section */
 .faq-section {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
 }
 
@@ -1404,7 +1404,7 @@ p {
 
 /* Final CTA Section */
 .final-cta-section {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
   text-align: center;
 }
@@ -1457,7 +1457,7 @@ p {
 
 /* Key Features Overview Section */
 .overview-section {
-  padding: 100px 0;
+  padding: 160px 0 120px;
   background-color: var(--bg-100);
   text-align: center;
 }
