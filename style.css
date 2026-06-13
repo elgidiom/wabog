@@ -121,20 +121,20 @@ p {
 }
 
 .btn-login-nav {
-  background: transparent;
+  background: var(--bg-200);
   color: var(--text-100);
   font-family: var(--font-main);
   font-size: 16px;
   padding: 9px 24px;
   border-radius: 20px;
-  border: 1.5px solid var(--bg-300);
+  border: none;
   font-weight: 500;
-  transition: border-color 0.2s, color 0.2s;
+  transition: background 0.2s, color 0.2s;
 }
 
 .btn-login-nav:hover {
-  border-color: var(--primary-100);
-  color: var(--primary-100);
+  background: var(--bg-300);
+  color: var(--text-100);
 }
 
 .navbar-right {
@@ -166,6 +166,7 @@ p {
   text-align: center;
   padding: 100px 0 80px;
   position: relative;
+  background: var(--bg-200);
 }
 
 .hero-content {
