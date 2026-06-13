@@ -109,7 +109,7 @@ p {
 }
 
 .nav-links-pill a {
-  color: var(--primary-100);
+  color: #313D44;
   font-family: var(--font-main);
   font-weight: 500;
   font-size: 16px;
@@ -193,7 +193,7 @@ p {
   font-family: var(--font-main);
   font-weight: 300;
   font-size: 16px;
-  color: var(--primary-100);
+  color: #313D44;
 }
 
 .hero-title {
@@ -202,7 +202,7 @@ p {
   font-size: 56px;
   /* 48px in design but looks bigger on desktop often */
   line-height: 1.1;
-  color: var(--text-100);
+  color: #313D44;
   margin-bottom: 24px;
   text-transform: uppercase;
   letter-spacing: 0.02em;
