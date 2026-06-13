@@ -383,32 +383,36 @@ p {
 .btn-primary-rect {
   background: var(--primary-100);
   color: var(--bg-100);
-  width: 217px;
-  height: 42px;
+  padding: 14px 36px;
+  min-width: 217px;
+  height: auto;
   border-radius: 20px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-main);
   font-weight: 700;
   font-size: 18px;
-  box-shadow: 0 4px 14px rgba(20, 84, 250, 0.3);
-  transition: background 0.2s, transform 0.15s;
+  letter-spacing: -0.2px;
+  box-shadow: 0 6px 20px rgba(20, 84, 250, 0.45);
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
 }
 
 .btn-primary-rect:hover {
   background: var(--primary-200);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(20, 84, 250, 0.5);
 }
 
 .btn-secondary-rect {
   background: transparent;
   color: var(--text-100);
-  width: 217px;
-  height: 42px;
+  padding: 14px 36px;
+  min-width: 217px;
+  height: auto;
   border-radius: 20px;
   border: 1.5px solid var(--bg-300);
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-main);
