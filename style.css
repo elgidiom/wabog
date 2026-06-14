@@ -1676,6 +1676,11 @@ body.modal-open {
     align-items: stretch;
   }
 
+  /* ── App Preview ── */
+  .preview-container::after {
+    height: 80px; /* Reduce gradient height on mobile to make image more visible */
+  }
+
   /* ── Sync Process Card ── */
   .sync-process-card {
     border-radius: 18px;
