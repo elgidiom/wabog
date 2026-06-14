@@ -3,6 +3,8 @@
 
 <head>
   <meta charset="utf-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="assets/waboglogo.webp" type="image/webp" sizes="any">
 
@@ -14,10 +16,10 @@
     rel="stylesheet">
 
   <!-- Icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
 
   <!-- Bootstrap 5 (Only for grid/utilities if needed, but we'll use custom CSS mostly) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css">
@@ -39,7 +41,7 @@
           <a href="#features" data-analytics="nav_funcionalidades"
             data-analytics-location="navbar">Funcionalidades</a>
           <a href="#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
-          <a href="https://blog.wabog.com" target="_blank" data-analytics="nav_blog"
+          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog"
             data-analytics-location="navbar">Blog</a>
         </div>
       </div>
@@ -59,7 +61,7 @@
         <a href="#features" data-analytics="mobile_nav_funcionalidades"
           data-analytics-location="mobile_menu">Funcionalidades</a>
         <a href="#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" data-analytics="mobile_nav_blog"
+        <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog"
           data-analytics-location="mobile_menu">Blog</a>
         <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
           data-analytics-location="mobile_menu">Login</a>
@@ -452,11 +454,11 @@
       <div class="footer-col">
         <h4>Redes sociales</h4>
         <div class="footer-links-list">
-          <a href="https://www.linkedin.com/company/wabog" target="_blank" data-analytics="footer_linkedin"
+          <a href="https://www.linkedin.com/company/wabog" target="_blank" rel="noopener noreferrer" data-analytics="footer_linkedin"
             data-analytics-location="footer">Linkedin</a>
-          <a href="https://www.instagram.com/wabog.ia/" target="_blank" data-analytics="footer_instagram"
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank" rel="noopener noreferrer" data-analytics="footer_instagram"
             data-analytics-location="footer">Instagram</a>
-          <a href="#" target="_blank" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
         </div>
       </div>
 

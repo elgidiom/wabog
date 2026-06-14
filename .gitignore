@@ -1,3 +1,15 @@
 .aider*
 .env
 /.astro/
+
+# Chromium browser temp profiles
+temp_profile/
+temp_pw_profile/
+temp_pw_profile2/
+temp_pw_v4/
+
+# Development artifacts
+todo.org
+SKILL_UI_UX.md
+screenshots/test_*
+screenshots/wabog_app_test*

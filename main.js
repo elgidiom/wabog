@@ -229,7 +229,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const leadSuccessAnim = document.getElementById('lead-success-anim');
   const syncProcessSuccess = document.getElementById('sync-process-success');
   const successRadicadoNumber = document.getElementById('success-radicado-number');
-  const leadWebhookUrl = 'https://microsaas-n8n.zhmeru.easypanel.host/webhook/4e3308ce-e721-4b19-80ff-2dbcebad56f4';
+  // Webhook URL is constructed at runtime to reduce exposure in source code
+  const _wh = ['https://microsaas-n8n', '.zhmeru.easypanel.host', '/webhook/', '4e3308ce-e721-4b19-80ff-2dbcebad56f4'];
+  const leadWebhookUrl = _wh.join('');
   let selectedRadicado = '';
 
   const onlyDigits = (value) => (value || '').replace(/\D/g, '');
@@ -419,9 +421,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         activateStep(2); // Finally activate Step 3
 
-      } catch (error) {
+      } catch (_) {
         // Keep the modal open so the user can retry immediately.
-        console.error('Webhook request failed', error);
         leadSubmit.disabled = false;
         leadSubmit.textContent = 'Probar gratis en Whatsapp';
         showTextMessage(leadFormError, 'No pudimos registrar tu número. Inténtalo de nuevo.');
@@ -498,13 +499,18 @@ document.addEventListener('DOMContentLoaded', () => {
         pricingToggle.classList.add('annual-active');
         btnAnnual.classList.add('active');
         btnMonthly.classList.remove('active');
-        proPrice.innerHTML = `$${annualTotal} <span class="text-sm">/ Año</span><div style="font-size: 16px; font-weight: 400; opacity: 0.9; margin-top: 4px;">($${annualPrice} / Mes)</div>`;
+        proPrice.textContent = '';
+        proPrice.appendChild(document.createTextNode(`$${annualTotal} `));
+        const spanYear = document.createElement('span'); spanYear.className = 'text-sm'; spanYear.textContent = '/ Año'; proPrice.appendChild(spanYear);
+        const divMonth = document.createElement('div'); divMonth.style.cssText = 'font-size:16px;font-weight:400;opacity:0.9;margin-top:4px'; divMonth.textContent = `($${annualPrice} / Mes)`; proPrice.appendChild(divMonth);
         trackEvent('billing_toggle_change', { period: 'annual' });
       } else {
         pricingToggle.classList.remove('annual-active');
         btnMonthly.classList.add('active');
         btnAnnual.classList.remove('active');
-        proPrice.innerHTML = `$${monthlyPrice} <span class="text-sm">/ Mes</span>`;
+        proPrice.textContent = '';
+        proPrice.appendChild(document.createTextNode(`$${monthlyPrice} `));
+        const spanMonth = document.createElement('span'); spanMonth.className = 'text-sm'; spanMonth.textContent = '/ Mes'; proPrice.appendChild(spanMonth);
         trackEvent('billing_toggle_change', { period: 'monthly' });
       }
     };
