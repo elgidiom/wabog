@@ -235,6 +235,16 @@
           <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
           <p id="sync-process-error" class="sync-process-error" hidden></p>
         </form>
+
+        <!-- Estado de Éxito (Oculto por defecto) -->
+        <div id="sync-process-success" class="sync-process-success" hidden>
+          <div class="sync-success-icon-wrapper">
+            <i class="bi bi-check-circle-fill"></i>
+          </div>
+          <h3 class="sync-success-title">Proceso Sincronizado Exitosamente</h3>
+          <p class="sync-success-radicado">Radicado: <strong id="success-radicado-number"></strong></p>
+          <p class="sync-success-message">¡Listo! Te notificaremos en WhatsApp cuando haya novedades.</p>
+        </div>
       </div>
 
       <div class="how-works-grid">
@@ -509,11 +519,23 @@
           Tus datos están protegidos. Solo recibirás actualizaciones relevantes de tu proceso.
           Puedes cancelar en cualquier momento.
         </p>
+        <p id="lead-form-error" class="lead-form-error" hidden></p>
+        <p id="lead-form-success" class="lead-form-success" hidden></p>
       </div>
-
-      <p id="lead-form-error" class="lead-form-error" hidden></p>
-      <p id="lead-form-success" class="lead-form-success" hidden></p>
     </form>
+
+    <!-- Modal Success Animation View (Hidden by default) -->
+    <div id="lead-success-anim" class="lead-success-anim" hidden>
+      <div class="success-checkmark">
+        <div class="check-icon">
+          <span class="icon-line line-tip"></span>
+          <span class="icon-line line-long"></span>
+          <div class="icon-circle"></div>
+          <div class="icon-fix"></div>
+        </div>
+      </div>
+      <h4>¡Alertas Activadas!</h4>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>

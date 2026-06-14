@@ -226,6 +226,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const leadSubmit = document.getElementById('lead-submit');
   const leadFormError = document.getElementById('lead-form-error');
   const leadFormSuccess = document.getElementById('lead-form-success');
+  const leadSuccessAnim = document.getElementById('lead-success-anim');
+  const syncProcessSuccess = document.getElementById('sync-process-success');
+  const successRadicadoNumber = document.getElementById('success-radicado-number');
   const leadWebhookUrl = 'https://microsaas-n8n.zhmeru.easypanel.host/webhook/4e3308ce-e721-4b19-80ff-2dbcebad56f4';
   let selectedRadicado = '';
 
@@ -282,6 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
       leadSubmit.disabled = false;
       leadSubmit.textContent = 'Probar gratis en Whatsapp';
     }
+    if (leadSuccessAnim) leadSuccessAnim.hidden = true;
+    if (leadForm) leadForm.hidden = false;
     if (radicadoInput && radicadoInput.value.length > 0) {
       activateStep(0);
     } else {
@@ -353,7 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       await wait(600);
 
-      activateStep(2);
+      // We don't activate step 2 (Step 3) yet, we wait for the webhook success
       selectedRadicado = radicado;
       syncProcessSubmit.disabled = false;
       syncProcessSubmit.textContent = 'Sincronizar';
@@ -390,12 +395,30 @@ document.addEventListener('DOMContentLoaded', () => {
           number: `57${phone}`
         });
 
-        showTextMessage(leadFormSuccess, 'Listo. Te notificaremos en WhatsApp cuando haya novedades del proceso.');
         trackEvent('whatsapp_lead_captured', {
           phone_length: String(phone.length)
         });
-        leadSubmit.disabled = false;
-        leadSubmit.textContent = 'Probar gratis en Whatsapp';
+        
+        // Hide form, show success animation
+        leadForm.hidden = true;
+        if (leadSuccessAnim) leadSuccessAnim.hidden = false;
+        
+        // Wait for the animation to play
+        await wait(1800);
+        
+        closeLeadModal();
+        resetLeadFormState(); // resets form, but we want the sync box to stay in success state
+        
+        // Show success state in the original card
+        if (syncProcessForm) syncProcessForm.hidden = true;
+        if (successRadicadoNumber) successRadicadoNumber.textContent = selectedRadicado;
+        if (syncProcessSuccess) {
+          syncProcessSuccess.hidden = false;
+          syncProcessSuccess.classList.add('fade-in');
+        }
+        
+        activateStep(2); // Finally activate Step 3
+
       } catch (error) {
         // Keep the modal open so the user can retry immediately.
         console.error('Webhook request failed', error);
