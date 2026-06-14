@@ -1670,6 +1670,12 @@ body.modal-open {
     margin-bottom: 48px;
   }
 
+  .hero-buttons {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
   /* ── Sync Process Card ── */
   .sync-process-card {
     border-radius: 18px;
