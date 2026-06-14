@@ -1833,6 +1833,17 @@ body.modal-open {
   .lead-note {
     font-size: 11px;
   }
+
+  /* ── Reduce Padding para Secciones en Móvil ── */
+  .how-works-flow,
+  .overview-section,
+  .comparison-section,
+  .impact-section,
+  .pricing-section,
+  .faq-section,
+  .final-cta-section {
+    padding: 80px 0 60px;
+  }
 }
 
 @media (max-width: 380px) {
