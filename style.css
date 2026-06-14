@@ -2018,12 +2018,25 @@ body.modal-open {
   }
 
   .overview-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
     margin-top: 40px;
+    padding-bottom: 24px;
+    /* Ocultar barra de scroll para un look más limpio */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .overview-grid::-webkit-scrollbar {
+    display: none;
   }
 
   .overview-card {
+    scroll-snap-align: center;
+    flex: 0 0 85%;
     padding: 32px 24px;
   }
 }
