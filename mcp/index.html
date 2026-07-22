@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Conecta Wabog con tu asistente de IA favorito: ChatGPT, Claude, Claude Code, Codex, Antigravity, OpenCode y cualquier cliente compatible con MCP.">
+  <link rel="icon" href="/assets/waboglogo.webp" type="image/webp" sizes="any">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <title>Wabog MCP – Conecta tu IA con Wabog</title>
+
+  <style>
+    .mcp-page {
+      padding: 60px 0 80px;
+    }
+
+    .mcp-page .container {
+      max-width: 860px;
+    }
+
+    .mcp-hero {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .mcp-hero h1 {
+      font-family: var(--font-main);
+      font-weight: 400;
+      font-size: 44px;
+      line-height: 1.2;
+      color: var(--text-100);
+      margin-bottom: 16px;
+    }
+
+    .mcp-hero p {
+      font-family: 'Inria Sans';
+      font-weight: 300;
+      font-size: 19px;
+      color: var(--text-200);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .mcp-url-box {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 24px;
+      background: var(--bg-200);
+      border: 1px solid var(--bg-300);
+      border-radius: 12px;
+      padding: 12px 18px;
+      font-family: monospace;
+      font-size: 16px;
+      color: var(--text-100);
+    }
+
+    .mcp-section {
+      margin-top: 48px;
+    }
+
+    .mcp-section h2 {
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 28px;
+      color: var(--text-100);
+      margin-bottom: 12px;
+    }
+
+    .mcp-section p,
+    .mcp-section li {
+      font-family: 'Inria Sans';
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-200);
+    }
+
+    .mcp-section ul,
+    .mcp-section ol {
+      padding-left: 22px;
+      margin: 12px 0;
+    }
+
+    .mcp-section ul {
+      list-style: disc;
+    }
+
+    .mcp-section a,
+    .mcp-card a {
+      color: var(--primary-100);
+      text-decoration: underline;
+    }
+
+    .mcp-section li {
+      margin-bottom: 8px;
+    }
+
+    .mcp-card {
+      background: var(--bg-100);
+      border: 1px solid var(--bg-300);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin-top: 20px;
+    }
+
+    .mcp-card h3 {
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 20px;
+      color: var(--text-100);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .mcp-card h3 i {
+      color: var(--primary-100);
+    }
+
+    .mcp-card pre {
+      background: #14213d0d;
+      border: 1px solid var(--bg-300);
+      border-radius: 10px;
+      padding: 14px 16px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 12px 0 4px;
+    }
+
+    .mcp-card code {
+      font-family: monospace;
+      color: var(--text-100);
+    }
+
+    .mcp-inline-code {
+      background: var(--bg-200);
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-family: monospace;
+      font-size: 15px;
+    }
+
+    .mcp-skill-banner {
+      background: var(--primary-300);
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .mcp-skill-banner p {
+      margin-bottom: 16px;
+    }
+
+    .btn-mcp-download {
+      display: inline-block;
+      background: var(--primary-100);
+      color: #fff;
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 16px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-mcp-download:hover {
+      background: var(--accent-200);
+    }
+
+    @media (max-width: 600px) {
+      .mcp-hero h1 {
+        font-size: 32px;
+      }
+
+      .mcp-card {
+        padding: 18px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="navbar-brand">
+        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
+      </a>
+
+      <div class="navbar-center">
+        <div class="nav-links-pill">
+          <a href="/#features" data-analytics="nav_funcionalidades"
+            data-analytics-location="navbar">Funcionalidades</a>
+          <a href="/#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog"
+            data-analytics-location="navbar">Blog</a>
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <a href="https://app.wabog.com" class="btn-prueba-nav" data-analytics="nav_prueba_gratis"
+          data-analytics-location="navbar">Prueba gratis</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="nav_login"
+          data-analytics-location="navbar">Login</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bi bi-list"></span>
+      </button>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/#features" data-analytics="mobile_nav_funcionalidades"
+          data-analytics-location="mobile_menu">Funcionalidades</a>
+        <a href="/#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+        <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog"
+          data-analytics-location="mobile_menu">Blog</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
+          data-analytics-location="mobile_menu">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="mcp-page">
+    <div class="container">
+
+      <div class="mcp-hero">
+        <h1>Conecta Wabog con tu IA</h1>
+        <p>El conector oficial de Wabog (un servidor MCP) permite que tu asistente de inteligencia artificial consulte
+          tus procesos judiciales, tu calendario y tus tareas, y trabaje con ellos por ti. Sin claves ni configuraciones
+          complicadas: inicias sesión con tu cuenta de Wabog y listo.</p>
+        <div class="mcp-url-box">
+          <i class="bi bi-link-45deg"></i>
+          <span>https://mcp.wabog.com</span>
+        </div>
+      </div>
+
+      <section class="mcp-section">
+        <h2>La forma fácil: deja que tu IA lo configure</h2>
+        <p>Descarga este archivo y compárteselo a tu asistente (arrástralo al chat o guárdalo donde tu herramienta lee
+          skills) con un mensaje como: <em>«Configura el conector de Wabog siguiendo este archivo»</em>. La IA detectará
+          tu entorno y hará la configuración por ti.</p>
+        <div class="mcp-skill-banner">
+          <p><strong>Skill de configuración de Wabog MCP</strong><br>Un archivo de instrucciones que cualquier asistente
+            de IA puede seguir para conectarse a Wabog.</p>
+          <a class="btn-mcp-download" href="/mcp/wabog-mcp-skill.md" download="wabog-mcp-skill.md"
+            data-analytics="mcp_download_skill" data-analytics-location="mcp_page"><i class="bi bi-download"></i>
+            Descargar la skill</a>
+        </div>
+      </section>
+
+      <section class="mcp-section">
+        <h2>Antes de empezar</h2>
+        <ul>
+          <li>Necesitas una cuenta de Wabog con una compañía en <strong>plan pago activo</strong>. Si aún no la tienes,
+            crea tu cuenta en <a href="https://app.wabog.com">app.wabog.com</a>.</li>
+          <li>La conexión usa el inicio de sesión seguro de Wabog (OAuth). <strong>Nunca</strong> tendrás que copiar ni
+            pegar claves o tokens: tu herramienta abrirá el navegador para que inicies sesión y apruebes el acceso.</li>
+          <li>La dirección del conector es siempre la misma: <span class="mcp-inline-code">https://mcp.wabog.com</span>
+            (si tu herramienta pide una ruta con <span class="mcp-inline-code">/mcp</span> al final, también funciona).
+          </li>
+        </ul>
+      </section>
+
+      <section class="mcp-section">
+        <h2>Configuración por herramienta</h2>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-chat-dots"></i> ChatGPT</h3>
+          <ol>
+            <li>Abre <strong>Configuración → Apps y conectores</strong>.</li>
+            <li>Busca <strong>Wabog</strong> en el directorio de apps y pulsa <strong>Conectar</strong>. Si aún no
+              aparece publicada, activa el modo desarrollador y crea un conector con la URL
+              <span class="mcp-inline-code">https://mcp.wabog.com</span>.</li>
+            <li>Inicia sesión con tu cuenta de Wabog y aprueba el acceso.</li>
+            <li>Prueba escribiendo: <em>«Muéstrame mi plan actual de Wabog»</em>.</li>
+          </ol>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-stars"></i> Claude (web y escritorio)</h3>
+          <ol>
+            <li>Ve a <strong>Configuración → Conectores → Añadir conector personalizado</strong>.</li>
+            <li>Nombre: <strong>Wabog</strong>. URL: <span class="mcp-inline-code">https://mcp.wabog.com</span>.</li>
+            <li>Pulsa <strong>Conectar</strong> e inicia sesión con tu cuenta de Wabog.</li>
+          </ol>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-terminal"></i> Claude Code</h3>
+          <p>Ejecuta en tu terminal:</p>
+          <pre><code>claude mcp add --transport http wabog https://mcp.wabog.com</code></pre>
+          <p>Dentro de Claude Code escribe <span class="mcp-inline-code">/mcp</span>, elige <strong>wabog</strong> y
+            completa el inicio de sesión en el navegador.</p>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-braces"></i> Codex (OpenAI)</h3>
+          <p>Ejecuta en tu terminal:</p>
+          <pre><code>codex mcp add wabog --url https://mcp.wabog.com
+codex mcp login wabog</code></pre>
+          <p>Si tu versión no tiene estos comandos, añade esto a
+            <span class="mcp-inline-code">~/.codex/config.toml</span>:</p>
+          <pre><code>[mcp_servers.wabog]
+url = "https://mcp.wabog.com"</code></pre>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-rocket-takeoff"></i> Antigravity (Google)</h3>
+          <p>En el panel del agente abre la configuración de MCP (<strong>Manage MCP Servers → View raw config</strong>)
+            y añade:</p>
+          <pre><code>{
+  "mcpServers": {
+    "wabog": {
+      "serverUrl": "https://mcp.wabog.com"
+    }
+  }
+}</code></pre>
+          <p>Guarda, refresca los servidores y completa el inicio de sesión cuando se abra el navegador.</p>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-code-slash"></i> OpenCode</h3>
+          <p>Añade esto a tu <span class="mcp-inline-code">opencode.json</span> (en el proyecto o en
+            <span class="mcp-inline-code">~/.config/opencode/</span>):</p>
+          <pre><code>{
+  "mcp": {
+    "wabog": {
+      "type": "remote",
+      "url": "https://mcp.wabog.com",
+      "enabled": true
+    }
+  }
+}</code></pre>
+          <p>Al usar una herramienta de Wabog por primera vez, OpenCode abrirá el navegador para autenticarte.</p>
+        </div>
+
+        <div class="mcp-card">
+          <h3><i class="bi bi-plug"></i> Cualquier otra herramienta compatible con MCP</h3>
+          <p>Usa la opción de tu herramienta para añadir un <strong>servidor MCP remoto</strong> con la URL
+            <span class="mcp-inline-code">https://mcp.wabog.com</span> y transporte <em>Streamable HTTP</em>. La
+            autenticación se hace sola mediante OAuth: solo debes iniciar sesión con tu cuenta de Wabog.</p>
+        </div>
+      </section>
+
+      <section class="mcp-section">
+        <h2>¿Qué puede hacer tu IA con Wabog?</h2>
+        <ul>
+          <li>Consultar tus compañías, tu plan y sus capacidades.</li>
+          <li>Buscar procesos judiciales y revisar su ficha completa: despacho, sujetos procesales, actuaciones y
+            audiencias.</li>
+          <li>Crear procesos nuevos a partir del radicado y asignarles un alias.</li>
+          <li>Ver tu calendario unificado de tareas, términos y audiencias.</li>
+          <li>Listar, crear y actualizar tareas.</li>
+          <li>Consultar y ajustar tus preferencias de notificación por correo y WhatsApp.</li>
+        </ul>
+        <p>El conector solo accede a la información que tu cuenta ya puede ver en Wabog, y cada acción respeta los
+          mismos permisos de la aplicación. No administra tu plan ni comparte datos con terceros.</p>
+      </section>
+
+      <section class="mcp-section">
+        <h2>¿Necesitas ayuda?</h2>
+        <p>Si algo no funciona, visita nuestra página de <a href="/support/">soporte</a> o escríbenos a
+          <a href="mailto:soporte@wabog.com">soporte@wabog.com</a>.</p>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+      </div>
+
+      <!-- Socials -->
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <div class="footer-links-list">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank" rel="noopener noreferrer" data-analytics="footer_linkedin"
+            data-analytics-location="footer">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank" rel="noopener noreferrer" data-analytics="footer_instagram"
+            data-analytics-location="footer">Instagram</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <div class="footer-links-list">
+          <a href="/#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
+          <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Login</a>
+          <a href="https://blog.wabog.com" data-analytics="footer_blog" data-analytics-location="footer">Blog</a>
+          <a href="/mcp/" data-analytics="footer_mcp" data-analytics-location="footer">Wabog MCP</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-list">
+          <a href="/legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y condiciones</a>
+          <a href="/privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de privacidad</a>
+          <a href="/support/" data-analytics="footer_soporte" data-analytics-location="footer">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
+    window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
+  </script>
+  <script src="/main.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Soporte de Wabog: escríbenos a soporte@wabog.com y te respondemos en un máximo de 24 horas hábiles.">
+  <link rel="icon" href="/assets/waboglogo.webp" type="image/webp" sizes="any">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/style.css">
+
+  <title>Soporte – WABOG</title>
+
+  <style>
+    .support-page {
+      padding: 60px 0 80px;
+      min-height: 60vh;
+    }
+
+    .support-page .container {
+      max-width: 760px;
+    }
+
+    .support-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .support-hero h1 {
+      font-family: var(--font-main);
+      font-weight: 400;
+      font-size: 44px;
+      color: var(--text-100);
+      margin-bottom: 16px;
+    }
+
+    .support-hero p {
+      font-family: 'Inria Sans';
+      font-weight: 300;
+      font-size: 19px;
+      color: var(--text-200);
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .support-card {
+      background: var(--bg-100);
+      border: 1px solid var(--bg-300);
+      border-radius: 16px;
+      padding: 32px;
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .support-card i {
+      font-size: 36px;
+      color: var(--primary-100);
+    }
+
+    .support-card h2 {
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 24px;
+      color: var(--text-100);
+      margin: 12px 0 8px;
+    }
+
+    .support-card p {
+      font-family: 'Inria Sans';
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.6;
+      color: var(--text-200);
+      margin-bottom: 18px;
+    }
+
+    .btn-support-mail {
+      display: inline-block;
+      background: var(--primary-100);
+      color: #fff;
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 16px;
+      padding: 12px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+
+    .btn-support-mail:hover {
+      background: var(--accent-200);
+    }
+
+    .support-info {
+      margin-top: 40px;
+    }
+
+    .support-info h2 {
+      font-family: var(--font-main);
+      font-weight: 500;
+      font-size: 24px;
+      color: var(--text-100);
+      margin-bottom: 12px;
+    }
+
+    .support-info p,
+    .support-info li {
+      font-family: 'Inria Sans';
+      font-weight: 300;
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--text-200);
+    }
+
+    .support-info ul {
+      padding-left: 22px;
+      margin: 12px 0;
+      list-style: disc;
+    }
+
+    .support-info a {
+      color: var(--primary-100);
+      text-decoration: underline;
+    }
+
+    .support-info li {
+      margin-bottom: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .support-hero h1 {
+        font-size: 32px;
+      }
+
+      .support-card {
+        padding: 22px 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="/" class="navbar-brand">
+        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
+      </a>
+
+      <div class="navbar-center">
+        <div class="nav-links-pill">
+          <a href="/#features" data-analytics="nav_funcionalidades"
+            data-analytics-location="navbar">Funcionalidades</a>
+          <a href="/#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog"
+            data-analytics-location="navbar">Blog</a>
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <a href="https://app.wabog.com" class="btn-prueba-nav" data-analytics="nav_prueba_gratis"
+          data-analytics-location="navbar">Prueba gratis</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="nav_login"
+          data-analytics-location="navbar">Login</a>
+      </div>
+
+      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="bi bi-list"></span>
+      </button>
+
+      <div class="mobile-menu" id="mobile-menu">
+        <a href="/#features" data-analytics="mobile_nav_funcionalidades"
+          data-analytics-location="mobile_menu">Funcionalidades</a>
+        <a href="/#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+        <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog"
+          data-analytics-location="mobile_menu">Blog</a>
+        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
+          data-analytics-location="mobile_menu">Login</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="support-page">
+    <div class="container">
+
+      <div class="support-hero">
+        <h1>Soporte</h1>
+        <p>¿Tienes una duda, un problema con la plataforma o con el conector de IA de Wabog? Estamos para ayudarte.</p>
+      </div>
+
+      <div class="support-card">
+        <i class="bi bi-envelope-paper"></i>
+        <h2>Escríbenos</h2>
+        <p>Envíanos un correo a <strong>soporte@wabog.com</strong> y te responderemos en un máximo de
+          <strong>24 horas hábiles</strong>.</p>
+        <a class="btn-support-mail"
+          href="mailto:soporte@wabog.com?subject=Soporte%20Wabog"
+          data-analytics="support_mailto" data-analytics-location="support_page"><i class="bi bi-send"></i>
+          Contactar soporte</a>
+      </div>
+
+      <div class="support-info">
+        <h2>Para ayudarte más rápido</h2>
+        <p>Incluye en tu mensaje:</p>
+        <ul>
+          <li>El correo con el que estás registrado en Wabog.</li>
+          <li>Una descripción de lo que intentabas hacer y qué ocurrió.</li>
+          <li>Si aplica, la herramienta desde la que usas Wabog (aplicación web, ChatGPT, Claude u otro asistente de
+            IA).</li>
+          <li>Capturas de pantalla o mensajes de error, si los tienes.</li>
+        </ul>
+      </div>
+
+      <div class="support-info">
+        <h2>Otros recursos</h2>
+        <ul>
+          <li><a href="/mcp/">Cómo conectar Wabog con tu asistente de IA</a></li>
+          <li><a href="/legal.html">Términos y condiciones</a></li>
+          <li><a href="/privacy.html">Política de privacidad</a> — incluye cómo ejercer tus derechos sobre tus datos
+            personales (acceso, rectificación y cancelación) escribiendo a
+            <a href="mailto:soporte@wabog.com">soporte@wabog.com</a>.</li>
+        </ul>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-container-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
+      </div>
+
+      <!-- Socials -->
+      <div class="footer-col">
+        <h4>Redes sociales</h4>
+        <div class="footer-links-list">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank" rel="noopener noreferrer" data-analytics="footer_linkedin"
+            data-analytics-location="footer">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank" rel="noopener noreferrer" data-analytics="footer_instagram"
+            data-analytics-location="footer">Instagram</a>
+          <a href="#" target="_blank" rel="noopener noreferrer" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
+        </div>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-col">
+        <h4>Producto</h4>
+        <div class="footer-links-list">
+          <a href="/#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
+          <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Login</a>
+          <a href="https://blog.wabog.com" data-analytics="footer_blog" data-analytics-location="footer">Blog</a>
+          <a href="/mcp/" data-analytics="footer_mcp" data-analytics-location="footer">Wabog MCP</a>
+        </div>
+      </div>
+
+      <!-- Legal -->
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <div class="footer-links-list">
+          <a href="/legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y condiciones</a>
+          <a href="/privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de privacidad</a>
+          <a href="/support/" data-analytics="footer_soporte" data-analytics-location="footer">Soporte</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
+    window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
+  </script>
+  <script src="/main.js"></script>
+
+</body>
+
+</html>
