@@ -102,10 +102,15 @@
       list-style: disc;
     }
 
-    .mcp-section a,
+    .mcp-section a:not(.btn-mcp-download),
     .mcp-card a {
       color: var(--primary-100);
       text-decoration: underline;
+    }
+
+    .mcp-section a.btn-mcp-download {
+      color: #fff;
+      text-decoration: none;
     }
 
     .mcp-section li {
