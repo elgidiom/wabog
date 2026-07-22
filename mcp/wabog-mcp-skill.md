@@ -75,4 +75,4 @@ Consultar compañías y plan, listar y consultar procesos judiciales, crear proc
 - **401 / «unauthorized»:** el token expiró o el login no se completó; repite la autenticación del servidor en el cliente.
 - **«Sin compañías» o herramientas vacías:** la cuenta no tiene una compañía con plan pago activo; el usuario debe revisar su plan en https://app.wabog.com.
 - **El cliente no soporta OAuth:** actualízalo a una versión reciente; el MCP de Wabog no acepta tokens manuales.
-- **Soporte:** https://wabog.com/support — soporte@wabog.com
+- **Soporte:** https://wabog.com/support — hola@wabog.com
