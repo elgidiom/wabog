@@ -2207,6 +2207,12 @@ body.modal-open {
     margin-bottom: 30px;
   }
 
+  /* padding lateral mas ajustado para que el label entre en una sola
+     linea en pantallas de 360px, comunes en Android */
+  .btn-cta-final {
+    padding: 16px 24px;
+  }
+
   .overview-grid {
     display: flex;
     flex-wrap: nowrap;
