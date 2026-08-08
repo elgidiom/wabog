@@ -29,8 +29,23 @@
 
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
+  <!-- Header fijo: banner de ventas + navbar -->
+  <div class="site-header">
+
+    <!-- Top Banner (contacto ventas) -->
+    <div class="top-banner">
+      <div class="container top-banner-container">
+        <span class="top-banner-label">Habla con ventas:</span>
+        <a href="https://wa.me/12058921790" target="_blank" rel="noopener noreferrer" class="top-banner-link"
+          data-analytics="topbar_ventas_whatsapp" data-analytics-location="top_banner">
+          <i class="bi bi-whatsapp"></i>
+          <span>WhatsApp</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
     <div class="container navbar-container">
       <a href="index.html" class="navbar-brand">
         <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
@@ -67,7 +82,8 @@
           data-analytics-location="mobile_menu">Inicia sesión</a>
       </div>
     </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- Hero Section -->
   <section class="hero">
