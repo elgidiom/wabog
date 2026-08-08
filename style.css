@@ -74,13 +74,58 @@ p {
   color: var(--text-100) !important;
 }
 
+/* Header fijo: mantiene banner y navbar pegados arriba al hacer scroll.
+   La adherencia vive en el contenedor para no acoplar la posicion de la
+   navbar a la altura del banner. */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Top Banner (contacto ventas) */
+.top-banner {
+  background: var(--bg-200);
+  padding: 9px 0;
+}
+
+.top-banner-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.top-banner-label {
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-100);
+}
+
+.top-banner-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 700;
+  color: #25d366; /* verde de marca de WhatsApp, icono y palabra */
+}
+
+.top-banner-link:hover {
+  opacity: 0.75;
+}
+
+.top-banner-link i {
+  font-size: 18px;
+  line-height: 1;
+}
+
 /* Navbar */
 .navbar {
   padding: 20px 0;
   background: var(--bg-100);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .navbar-container {
