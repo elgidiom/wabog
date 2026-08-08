@@ -1873,6 +1873,11 @@ body.modal-open {
     display: block;
   }
 
+  /* los 52px de escritorio ocupan aqui casi el 40% del ancho */
+  .logo {
+    height: 40px;
+  }
+
   .mobile-menu {
     display: flex;
   }
