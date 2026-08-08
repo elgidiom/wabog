@@ -178,6 +178,31 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', syncScrollState);
   window.addEventListener('resize', updateNavbarHeight);
 
+  // --- CTA fijo (solo movil) ---
+  // Se muestra cuando los botones del hero salen de pantalla. El CSS lo
+  // mantiene oculto por encima de 768px, asi que el observer solo tiene
+  // efecto visible en movil.
+  const initStickyCta = () => {
+    const stickyCta = document.getElementById('sticky-cta');
+    const heroButtons = document.querySelector('.hero-buttons');
+    if (!stickyCta || !heroButtons) return;
+
+    if (!('IntersectionObserver' in window)) {
+      stickyCta.classList.add('is-visible');
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        stickyCta.classList.toggle('is-visible', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+
+    observer.observe(heroButtons);
+  };
+
+  initStickyCta();
+
   // --- Mobile Menu ---
   if (mobileMenuToggle && mobileMenu) {
     const mobileMenuIcon = mobileMenuToggle.querySelector('span');
