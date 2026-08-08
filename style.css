@@ -16,6 +16,8 @@
   --bg-300: #cccbc8;
   /* Typography */
   --font-main: 'Inter', sans-serif;
+  /* Layout */
+  --hero-btn-width: 268px; /* ancho comun de los 2 CTA del hero: debe cubrir el label mas largo */
 }
 
 html {
@@ -388,9 +390,12 @@ p {
   background: var(--primary-100);
   color: var(--bg-100);
   padding: 14px 36px;
-  min-width: 217px;
+  min-width: var(--hero-btn-width);
   height: auto;
   border-radius: 9999px;
+  /* borde transparente: iguala la caja con .btn-secondary-rect para que
+     ambos CTA midan lo mismo tambien apilados en movil */
+  border: 1.5px solid transparent;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -412,7 +417,7 @@ p {
   background: transparent;
   color: var(--text-100);
   padding: 14px 36px;
-  min-width: 217px;
+  min-width: var(--hero-btn-width);
   height: auto;
   border-radius: 9999px;
   border: 1.5px solid var(--bg-300);
