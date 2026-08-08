@@ -736,6 +736,12 @@ p {
   /* Align to top to keep titles at same height */
 }
 
+/* el grid alinea al tope para emparejar los titulos de las columnas;
+   la marca es la excepcion y va centrada verticalmente en la fila */
+.footer-brand {
+  align-self: center;
+}
+
 .footer-logo {
   height: 61px;
   width: auto;
