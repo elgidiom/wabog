@@ -513,29 +513,36 @@ document.addEventListener('DOMContentLoaded', () => {
   const btnMonthly = document.getElementById('btn-monthly');
   const btnAnnual = document.getElementById('btn-annual');
   const proPrice = document.getElementById('pro-price');
+  const teamPrice = document.getElementById('team-price');
 
   if (pricingToggle && btnMonthly && btnAnnual && proPrice) {
-    const monthlyPrice = proPrice.dataset.monthly;
-    const annualPrice = proPrice.dataset.annual;
-    const annualTotal = proPrice.dataset.annualTotal;
+    const setPrice = (priceEl, period) => {
+      if (period === 'annual') {
+        priceEl.textContent = '';
+        priceEl.appendChild(document.createTextNode(`$${priceEl.dataset.annualTotal} `));
+        const spanYear = document.createElement('span'); spanYear.className = 'text-sm'; spanYear.textContent = '/ Año'; priceEl.appendChild(spanYear);
+        const divMonth = document.createElement('div'); divMonth.style.cssText = 'font-size:16px;font-weight:400;opacity:0.9;margin-top:4px'; divMonth.textContent = `($${priceEl.dataset.annual} / Mes)`; priceEl.appendChild(divMonth);
+      } else {
+        priceEl.textContent = '';
+        priceEl.appendChild(document.createTextNode(`$${priceEl.dataset.monthly} `));
+        const spanMonth = document.createElement('span'); spanMonth.className = 'text-sm'; spanMonth.textContent = '/ Mes'; priceEl.appendChild(spanMonth);
+      }
+    };
 
     const setPricing = (period) => {
       if (period === 'annual') {
         pricingToggle.classList.add('annual-active');
         btnAnnual.classList.add('active');
         btnMonthly.classList.remove('active');
-        proPrice.textContent = '';
-        proPrice.appendChild(document.createTextNode(`$${annualTotal} `));
-        const spanYear = document.createElement('span'); spanYear.className = 'text-sm'; spanYear.textContent = '/ Año'; proPrice.appendChild(spanYear);
-        const divMonth = document.createElement('div'); divMonth.style.cssText = 'font-size:16px;font-weight:400;opacity:0.9;margin-top:4px'; divMonth.textContent = `($${annualPrice} / Mes)`; proPrice.appendChild(divMonth);
+        setPrice(proPrice, 'annual');
+        if (teamPrice) setPrice(teamPrice, 'annual');
         trackEvent('billing_toggle_change', { period: 'annual' });
       } else {
         pricingToggle.classList.remove('annual-active');
         btnMonthly.classList.add('active');
         btnAnnual.classList.remove('active');
-        proPrice.textContent = '';
-        proPrice.appendChild(document.createTextNode(`$${monthlyPrice} `));
-        const spanMonth = document.createElement('span'); spanMonth.className = 'text-sm'; spanMonth.textContent = '/ Mes'; proPrice.appendChild(spanMonth);
+        setPrice(proPrice, 'monthly');
+        if (teamPrice) setPrice(teamPrice, 'monthly');
         trackEvent('billing_toggle_change', { period: 'monthly' });
       }
     };
