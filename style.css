@@ -626,16 +626,19 @@ p {
 .pricing-grid {
   display: flex;
   justify-content: center;
+  align-items: stretch;
   gap: 40px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .pricing-card {
-  width: 466px;
-  min-height: 657px;
+  flex: 1 1 0;
+  width: auto;
+  max-width: 466px;
+  min-height: 440px;
   /* As per design */
   border-radius: 15px;
-  padding: 40px;
+  padding: 36px 32px;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -680,7 +683,7 @@ p {
 .card-blue .plan-price {
   font-size: 32px;
   font-weight: 600;
-  margin-bottom: 40px;
+  margin-bottom: 28px;
   color: var(--bg-200);
 }
 
@@ -693,9 +696,44 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 18px;
-  margin-bottom: 24px;
+  font-size: 16px;
+  margin-bottom: 16px;
   color: var(--bg-200);
+}
+
+/* Team Card */
+.card-team {
+  background: var(--accent-200);
+  color: var(--bg-100);
+  box-shadow: -3px 4px 4px rgba(0, 0, 0, 0.2);
+}
+
+.card-team .plan-name {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: var(--bg-100);
+}
+
+.card-team .plan-price {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 28px;
+  color: var(--bg-100);
+}
+
+.card-team .plan-features {
+  margin-bottom: auto;
+  /* Push button down */
+}
+
+.card-team .plan-features li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  margin-bottom: 16px;
+  color: var(--bg-100);
 }
 
 .btn-white-rect {
@@ -709,7 +747,7 @@ p {
   justify-content: center;
   font-weight: 700;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 28px;
   transition: opacity 0.2s;
 }
 
@@ -734,7 +772,7 @@ p {
   font-size: 32px;
   font-weight: 400;
   /* "Custom" is lighter/regular in spec */
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
 .card-gray .plan-price span {
@@ -749,8 +787,8 @@ p {
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 18px;
-  margin-bottom: 24px;
+  font-size: 16px;
+  margin-bottom: 16px;
   color: var(--text-100);
 }
 
@@ -765,7 +803,7 @@ p {
   justify-content: center;
   font-weight: 700;
   font-size: 18px;
-  margin-top: 40px;
+  margin-top: 28px;
 }
 
 .text-dark-features li i {
@@ -1856,7 +1894,6 @@ body.modal-open {
 
 @media (max-width: 1024px) {
   .pricing-card {
-    width: 100%;
     min-height: auto;
   }
 }
@@ -2041,6 +2078,13 @@ body.modal-open {
 
   .pricing-grid {
     gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .pricing-card {
+    flex: 1 1 100%;
+    max-width: 466px;
+    min-height: auto;
   }
 
   /* ── Footer ── */
