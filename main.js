@@ -110,8 +110,116 @@ document.addEventListener('DOMContentLoaded', () => {
     observedSections.forEach((section) => observer.observe(section));
   };
 
+  // --- Attribution (UTM y click IDs) ---
+  const ATTRIBUTION_KEY = 'wabog_attribution';
+  const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  const CLICK_ID_KEYS = ['gclid', 'fbclid', 'ttclid', 'msclkid'];
+  const APP_URL_PREFIX = 'https://app.wabog.com';
+
+  // Los UTM se comparan entre sí en los reportes, así que se normalizan.
+  // Los click IDs son opacos y sensibles a mayúsculas: solo se recortan.
+  const normalizeUtm = (value) => normalizeText(value).toLowerCase().slice(0, 200);
+  const normalizeClickId = (value) => normalizeText(value).slice(0, 500);
+
+  const readAttribution = () => {
+    try {
+      const raw = window.localStorage.getItem(ATTRIBUTION_KEY);
+      const parsed = raw ? JSON.parse(raw) : null;
+      return parsed && typeof parsed === 'object' ? parsed : null;
+    } catch (error) {
+      return null;
+    }
+  };
+
+  const saveAttribution = (value) => {
+    try {
+      window.localStorage.setItem(ATTRIBUTION_KEY, JSON.stringify(value));
+    } catch (error) {
+      // Modo privado o almacenamiento lleno: la atribución no persiste y el
+      // registro se contará como directo. Nunca debe romper la navegación.
+    }
+  };
+
+  const readTouchFromUrl = () => {
+    const params = new URLSearchParams(window.location.search);
+    const touch = {};
+
+    UTM_KEYS.forEach((key) => {
+      const value = normalizeUtm(params.get(key));
+      if (value) touch[key] = value;
+    });
+
+    CLICK_ID_KEYS.forEach((key) => {
+      const value = normalizeClickId(params.get(key));
+      if (value) touch[key] = value;
+    });
+
+    return Object.keys(touch).length ? touch : null;
+  };
+
+  const captureAttribution = () => {
+    const stored = readAttribution() || {};
+    const touch = readTouchFromUrl();
+    const now = new Date().toISOString();
+
+    // La primera visita siempre deja rastro, aunque sea tráfico directo:
+    // landing y referrer son datos reales, no atribución inventada.
+    if (!stored.first_seen_at) {
+      stored.first_seen_at = now;
+      stored.landing_url = window.location.pathname;
+      stored.referrer = document.referrer || '';
+    }
+
+    // El first-touch se sella en la primera visita atribuible, no en la
+    // primera visita a secas: una llegada directa no debe gastarlo.
+    if (touch) {
+      const currentTouch = Object.assign({ seen_at: now }, touch);
+      if (!stored.first) stored.first = currentTouch;
+      stored.latest = currentTouch;
+    }
+
+    saveAttribution(stored);
+    return stored;
+  };
+
+  // app.wabog.com es otro origen y no comparte localStorage con la landing.
+  // La querystring del enlace es el unico vehiculo que cruza al registro.
+  const decorateAppLinks = (attribution) => {
+    const first = attribution.first;
+    if (!first) return;
+
+    const latest = attribution.latest || first;
+    const latestDiffers = ['utm_source', 'utm_medium', 'utm_campaign']
+      .some((key) => (latest[key] || '') !== (first[key] || ''));
+
+    document.querySelectorAll(`a[href^="${APP_URL_PREFIX}"]`).forEach((link) => {
+      let url;
+      try {
+        url = new URL(link.getAttribute('href'), window.location.href);
+      } catch (error) {
+        return;
+      }
+
+      UTM_KEYS.concat(CLICK_ID_KEYS).forEach((key) => {
+        if (first[key]) url.searchParams.set(key, first[key]);
+      });
+
+      url.searchParams.set('wbg_first_seen', first.seen_at || attribution.first_seen_at);
+      if (attribution.landing_url) url.searchParams.set('wbg_landing', attribution.landing_url);
+
+      if (latestDiffers) {
+        ['utm_source', 'utm_medium', 'utm_campaign'].forEach((key) => {
+          if (latest[key]) url.searchParams.set(`wbg_latest_${key.replace('utm_', '')}`, latest[key]);
+        });
+      }
+
+      link.setAttribute('href', url.toString());
+    });
+  };
+
   loadGoogleAnalytics(hasValidGaId ? analyticsMeasurementId : '');
   initClickAnalytics();
+  decorateAppLinks(captureAttribution());
   initScrollAnalytics();
   initSectionViewAnalytics();
 
