@@ -106,7 +106,7 @@
       <!-- Subtitle -->
       <p class="hero-subtitle">
         Automatiza la vigilancia de tus procesos en tiempo real con la IA de Wabog.
-        Sincroniza tu primer radicado ahora.
+        Consulta un radicado y recibe el resultado por WhatsApp.
       </p>
 
       <!-- Hero CTA Buttons -->
@@ -238,7 +238,7 @@
           <div class="sync-process-icon">
             <i class="bi bi-arrow-repeat"></i>
           </div>
-          <h2>Sincroniza tu proceso</h2>
+          <h2>Consulta tu proceso</h2>
         </div>
 
         <form id="sync-process-form" class="sync-process-form" novalidate>
@@ -249,9 +249,18 @@
                 autocomplete="off" placeholder="Ingresa el número de radicado (23 dígitos)..."
                 aria-label="Número de radicado">
             </div>
-            <button id="sync-process-submit" class="sync-process-submit" type="submit">Sincronizar</button>
           </div>
-          <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
+          <div class="sync-process-input-row">
+            <div class="sync-process-input-shell">
+              <i class="bi bi-whatsapp sync-process-input-icon" aria-hidden="true"></i>
+              <span class="sync-country-code">+57</span>
+              <input id="lead-phone-input" class="sync-process-input" type="text" inputmode="numeric" maxlength="10"
+                autocomplete="tel-national" placeholder="Tu celular (10 dígitos)" aria-label="Celular para recibir el resultado">
+            </div>
+            <button id="sync-process-submit" class="sync-process-submit" type="submit">Enviar resultado a WhatsApp</button>
+          </div>
+          <input id="sync-process-website" class="sync-process-honeypot" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <p class="sync-process-hint">Consultaremos la Rama Judicial y te enviaremos el resultado por WhatsApp. Al solicitarlo, aceptas recibir este mensaje en el número indicado.</p>
           <p id="sync-process-error" class="sync-process-error" hidden></p>
         </form>
 
@@ -260,9 +269,9 @@
           <div class="sync-success-icon-wrapper">
             <i class="bi bi-check-circle-fill"></i>
           </div>
-          <h3 class="sync-success-title">Proceso Sincronizado Exitosamente</h3>
+          <h3 class="sync-success-title">Consulta recibida</h3>
           <p class="sync-success-radicado">Radicado: <strong id="success-radicado-number"></strong></p>
-          <p class="sync-success-message">¡Listo! Te notificaremos en WhatsApp cuando haya novedades.</p>
+          <p class="sync-success-message">Te enviaremos el resultado por WhatsApp cuando termine la consulta.</p>
         </div>
       </div>
 
@@ -277,15 +286,15 @@
         <!-- Step 2 -->
         <div class="how-works-step">
           <div class="how-works-circle">2</div>
-          <h3>Sincronización</h3>
-          <p>La IA de Wabog se conecta a la base de datos judicial y extrae el expediente histórico.</p>
+          <h3>Consulta</h3>
+          <p>Consultamos el proceso en la Rama Judicial.</p>
         </div>
 
         <!-- Step 3 -->
         <div class="how-works-step">
           <div class="how-works-circle">3</div>
-          <h3>Recibe Alertas</h3>
-          <p>Activa notificaciones automáticas y recibe cada auto o actuación en tu WhatsApp.</p>
+          <h3>Recibe el resultado</h3>
+          <p>Te enviamos por WhatsApp el resultado de esta consulta.</p>
         </div>
       </div>
     </div>
@@ -407,7 +416,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Wabog se conecta directamente con los sistemas públicos de la Rama Judicial de Colombia. Al ingresar tu número de radicado de 23 dígitos, nuestro sistema consulta las bases de datos oficiales en tiempo real, indexa el expediente completo y establece un canal de vigilancia que realiza revisiones continuas.
+              En la prueba rápida, Wabog consulta el radicado en la Rama Judicial y te envía el resultado por WhatsApp. Para registrar el proceso y activar la vigilancia continua, crea una cuenta en la app.
             </div>
           </div>
         </div>
@@ -420,7 +429,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Puedes registrar cualquier tipo de proceso que tenga asignado un número de radicado de 23 dígitos válido en Colombia, incluyendo procesos de juzgados civiles, laborales, de familia, administrativos y tribunales.
+              La prueba rápida consulta radicados disponibles en la Rama unificada. Los procesos administrativos que se consultan por SAMAI aún no están disponibles en esta prueba; la app puede incorporarlos por su flujo propio.
             </div>
           </div>
         </div>
@@ -433,7 +442,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cada vez que el juzgado registre una nueva actuación, recibirás un mensaje automático con el resumen y enlace.
+              La prueba rápida envía una sola respuesta por WhatsApp. Para recibir avisos de nuevas actuaciones, registra el proceso y configura las notificaciones en la app.
             </div>
           </div>
         </div>
@@ -446,7 +455,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Absolutamente. Solo consultamos información pública disponible en la Rama Judicial. Los datos de tus clientes y de contacto (como tu celular) se cifran y se almacenan bajo altos estándares de seguridad y de acuerdo con la Ley de Protección de Datos Personales (Habeas Data).
+              La prueba rápida consulta información pública de la Rama Judicial. Usamos el celular que ingresas para enviarte el resultado por WhatsApp y conservamos la solicitud durante un plazo limitado para gestionar la entrega.
             </div>
           </div>
         </div>
@@ -459,7 +468,7 @@
           </button>
           <div class="faq-answer">
             <div class="faq-answer-content">
-              Sí. Puedes sincronizar tus procesos gratis durante 15 días, directamente desde el buscador en la parte superior. Esto te dará acceso a las notificaciones y al expediente sin costo, permitiéndote comprobar la inmediatez y exactitud de Wabog.
+              Sí. La prueba rápida de arriba te envía el resultado de una consulta. Si quieres registrar procesos, ver el expediente y activar notificaciones continuas, empieza la prueba de 15 días en la app.
             </div>
           </div>
         </div>
@@ -526,66 +535,11 @@
     data-analytics-location="sticky_cta">Empieza 15 días gratis</a>
 
   <!-- Scripts -->
-  <div id="lead-modal-backdrop" class="lead-modal-backdrop" hidden></div>
-  <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>
-    <button id="lead-modal-close" class="lead-modal-close" type="button" aria-label="Cerrar formulario">
-      <i class="bi bi-x-lg"></i>
-    </button>
-
-    <div class="lead-modal-success-icon">
-      <i class="bi bi-check2-circle"></i>
-    </div>
-    <h3 id="lead-modal-title" class="lead-modal-title">¡Hemos encontrado<br>tu proceso!</h3>
-
-    <form id="lead-form" class="lead-form" novalidate>
-      <div class="lead-form-shell">
-        <div class="lead-form-head">
-          <div class="lead-form-whatsapp-icon">
-            <i class="bi bi-whatsapp"></i>
-          </div>
-          <div>
-            <h4>Activar notificaciones</h4>
-            <p>Recibe actualizaciones por WhatsApp.</p>
-          </div>
-        </div>
-
-        <label for="lead-phone-input" class="lead-label">NÚMERO DE CELULAR</label>
-        <div class="lead-phone-row">
-          <span class="lead-country-code"><span class="flag">🇨🇴</span><span class="code">+57</span></span>
-          <input id="lead-phone-input" class="lead-phone-input" type="text" inputmode="numeric" maxlength="10"
-            autocomplete="tel-national" placeholder="300 123 4567" aria-label="Número de celular para notificaciones">
-        </div>
-
-        <button id="lead-submit" class="lead-submit" type="submit">Probar gratis en Whatsapp</button>
-
-        <p class="lead-note">
-          <i class="bi bi-lock-fill"></i>
-          Tus datos están protegidos. Solo recibirás actualizaciones relevantes de tu proceso.
-          Puedes cancelar en cualquier momento.
-        </p>
-        <p id="lead-form-error" class="lead-form-error" hidden></p>
-        <p id="lead-form-success" class="lead-form-success" hidden></p>
-      </div>
-    </form>
-
-    <!-- Modal Success Animation View (Hidden by default) -->
-    <div id="lead-success-anim" class="lead-success-anim" hidden>
-      <div class="success-checkmark">
-        <div class="check-icon">
-          <span class="icon-line line-tip"></span>
-          <span class="icon-line line-long"></span>
-          <div class="icon-circle"></div>
-          <div class="icon-fix"></div>
-        </div>
-      </div>
-      <h4>¡Alertas Activadas!</h4>
-    </div>
-  </div>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
     window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
+    window.WABOG_RADICADO_DEMO_URL = 'https://microsaas-radicado-demo.zhmeru.easypanel.host/v1/checks';
   </script>
   <script src="main.js"></script>
 

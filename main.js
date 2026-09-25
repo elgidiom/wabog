@@ -345,243 +345,102 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Sync Process + Lead Modal ---
+  // --- Consulta de radicado por WhatsApp ---
   const syncProcessForm = document.getElementById('sync-process-form');
   const radicadoInput = document.getElementById('radicado-input');
+  const leadPhoneInput = document.getElementById('lead-phone-input');
   const syncProcessSubmit = document.getElementById('sync-process-submit');
   const syncProcessError = document.getElementById('sync-process-error');
-
-  const leadModal = document.getElementById('lead-modal');
-  const leadModalBackdrop = document.getElementById('lead-modal-backdrop');
-  const leadModalClose = document.getElementById('lead-modal-close');
-  const leadForm = document.getElementById('lead-form');
-  const leadPhoneInput = document.getElementById('lead-phone-input');
-  const leadSubmit = document.getElementById('lead-submit');
-  const leadFormError = document.getElementById('lead-form-error');
-  const leadFormSuccess = document.getElementById('lead-form-success');
-  const leadSuccessAnim = document.getElementById('lead-success-anim');
   const syncProcessSuccess = document.getElementById('sync-process-success');
   const successRadicadoNumber = document.getElementById('success-radicado-number');
-  // Webhook URL is constructed at runtime to reduce exposure in source code
-  const _wh = ['https://microsaas-n8n', '.zhmeru.easypanel.host', '/webhook/', '4e3308ce-e721-4b19-80ff-2dbcebad56f4'];
-  const leadWebhookUrl = _wh.join('');
-  let selectedRadicado = '';
-
+  const syncProcessWebsite = document.getElementById('sync-process-website');
+  const checksUrl = window.WABOG_RADICADO_DEMO_URL || '';
   const onlyDigits = (value) => (value || '').replace(/\D/g, '');
-  const wait = (milliseconds) => new Promise((resolve) => {
-    window.setTimeout(resolve, milliseconds);
-  });
-
   const howWorksCircles = document.querySelectorAll('.how-works-circle');
+
   const activateStep = (stepIndex) => {
     howWorksCircles.forEach((circle, index) => {
-      if (index === stepIndex) {
-        circle.classList.add('circle-active');
-      } else {
-        circle.classList.remove('circle-active');
-      }
+      circle.classList.toggle('circle-active', index === stepIndex);
     });
   };
-  const deactivateAllSteps = () => {
-    howWorksCircles.forEach(circle => circle.classList.remove('circle-active'));
-  };
 
-  const showTextMessage = (element, message) => {
-    if (!element) return;
-    if (!message) {
-      element.textContent = '';
-      element.hidden = true;
-      return;
-    }
-    element.textContent = message;
-    element.hidden = false;
-  };
-
-  const openLeadModal = () => {
-    if (!leadModal || !leadModalBackdrop) return;
-    leadModal.hidden = false;
-    leadModalBackdrop.hidden = false;
-    body.classList.add('modal-open');
-    if (leadPhoneInput) leadPhoneInput.focus();
-  };
-
-  const closeLeadModal = () => {
-    if (!leadModal || !leadModalBackdrop) return;
-    leadModal.hidden = true;
-    leadModalBackdrop.hidden = true;
-    body.classList.remove('modal-open');
-  };
-
-  const resetLeadFormState = () => {
-    if (leadForm) leadForm.reset();
-    showTextMessage(leadFormError, '');
-    showTextMessage(leadFormSuccess, '');
-    if (leadSubmit) {
-      leadSubmit.disabled = false;
-      leadSubmit.textContent = 'Probar gratis en Whatsapp';
-    }
-    if (leadSuccessAnim) leadSuccessAnim.hidden = true;
-    if (leadForm) leadForm.hidden = false;
-    if (radicadoInput && radicadoInput.value.length > 0) {
-      activateStep(0);
-    } else {
-      deactivateAllSteps();
-    }
-  };
-
-  const sendLeadToWebhook = async ({ radicado, number }) => {
-    const response = await fetch(leadWebhookUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ radicado, number })
-    });
-
-    if (!response.ok) {
-      throw new Error(`Webhook responded with status ${response.status}`);
-    }
-  };
-
-  const validateRadicado = (value) => {
-    if (!value) return 'Ingresa un número de radicado.';
-    if (value.length !== 23) return 'El radicado debe tener exactamente 23 dígitos.';
-    return '';
-  };
-
-  const validatePhone = (value) => {
-    if (!value) return 'Ingresa tu número de celular.';
-    if (value.length !== 10) return 'El número debe tener 10 dígitos.';
-    return '';
+  const showProcessError = (message) => {
+    if (!syncProcessError) return;
+    syncProcessError.textContent = message;
+    syncProcessError.hidden = !message;
   };
 
   if (radicadoInput) {
     radicadoInput.addEventListener('input', () => {
       radicadoInput.value = onlyDigits(radicadoInput.value).slice(0, 23);
-      selectedRadicado = '';
-      showTextMessage(syncProcessError, '');
-      if (radicadoInput.value.length > 0) {
-        activateStep(0);
-      } else {
-        deactivateAllSteps();
-      }
+      showProcessError('');
+      activateStep(radicadoInput.value ? 0 : -1);
     });
   }
 
   if (leadPhoneInput) {
     leadPhoneInput.addEventListener('input', () => {
       leadPhoneInput.value = onlyDigits(leadPhoneInput.value).slice(0, 10);
-      showTextMessage(leadFormError, '');
-      showTextMessage(leadFormSuccess, '');
+      showProcessError('');
     });
   }
 
-  if (syncProcessForm && syncProcessSubmit && radicadoInput) {
+  if (syncProcessForm && radicadoInput && leadPhoneInput && syncProcessSubmit) {
     syncProcessForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const radicado = onlyDigits(radicadoInput.value);
-      const validationMessage = validateRadicado(radicado);
-      if (validationMessage) {
-        showTextMessage(syncProcessError, validationMessage);
-        return;
-      }
-
-      activateStep(1);
-      syncProcessSubmit.disabled = true;
-      syncProcessSubmit.textContent = 'Buscando...';
-      showTextMessage(syncProcessError, '');
-
-      await wait(600);
-
-      // We don't activate step 2 (Step 3) yet, we wait for the webhook success
-      selectedRadicado = radicado;
-      syncProcessSubmit.disabled = false;
-      syncProcessSubmit.textContent = 'Sincronizar';
-      openLeadModal();
-      trackEvent('process_lookup_success', {
-        radicado_length: String(radicado.length)
-      });
-    });
-  }
-
-  if (leadForm && leadPhoneInput && leadSubmit) {
-    leadForm.addEventListener('submit', async (event) => {
-      event.preventDefault();
       const phone = onlyDigits(leadPhoneInput.value);
-      if (!selectedRadicado) {
-        showTextMessage(leadFormError, 'Primero sincroniza un radicado válido.');
+      if (radicado.length !== 23) {
+        showProcessError('El radicado debe tener 23 dígitos.');
         return;
       }
-
-      const validationMessage = validatePhone(phone);
-      if (validationMessage) {
-        showTextMessage(leadFormError, validationMessage);
+      if (!/^3\d{9}$/.test(phone)) {
+        showProcessError('Ingresa un celular colombiano de 10 dígitos.');
         return;
       }
-
-      leadSubmit.disabled = true;
-      leadSubmit.textContent = 'Activando...';
-      showTextMessage(leadFormError, '');
-      showTextMessage(leadFormSuccess, '');
-
+      if (!checksUrl) {
+        showProcessError('La consulta no está disponible en este momento. Inténtalo más tarde.');
+        return;
+      }
+      syncProcessSubmit.disabled = true;
+      syncProcessSubmit.textContent = 'Enviando solicitud...';
+      showProcessError('');
       try {
-        await sendLeadToWebhook({
-          radicado: selectedRadicado,
-          number: `57${phone}`
+        const response = await fetch(checksUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            radicado,
+            phone,
+            attribution: readAttribution() || {},
+            website: syncProcessWebsite ? syncProcessWebsite.value : ''
+          })
         });
-
-        trackEvent('whatsapp_lead_captured', {
-          phone_length: String(phone.length)
-        });
-        
-        // Hide form, show success animation
-        leadForm.hidden = true;
-        if (leadSuccessAnim) leadSuccessAnim.hidden = false;
-        
-        // Wait for the animation to play
-        await wait(1800);
-        
-        closeLeadModal();
-        resetLeadFormState(); // resets form, but we want the sync box to stay in success state
-        
-        // Show success state in the original card
-        if (syncProcessForm) syncProcessForm.hidden = true;
-        if (successRadicadoNumber) successRadicadoNumber.textContent = selectedRadicado;
-        if (syncProcessSuccess) {
-          syncProcessSuccess.hidden = false;
-          syncProcessSuccess.classList.add('fade-in');
+        if (!response.ok) {
+          if (response.status === 429) throw new Error('Has alcanzado el límite de consultas. Inténtalo más tarde.');
+          if (response.status === 422) {
+            const error = await response.json();
+            if (error.detail === 'source_not_supported') {
+              throw new Error('Este radicado administrativo aún no está disponible en la prueba rápida.');
+            }
+          }
+          throw new Error('No pudimos recibir la consulta. Inténtalo de nuevo.');
         }
-        
-        activateStep(2); // Finally activate Step 3
-
-      } catch (_) {
-        // Keep the modal open so the user can retry immediately.
-        leadSubmit.disabled = false;
-        leadSubmit.textContent = 'Probar gratis en Whatsapp';
-        showTextMessage(leadFormError, 'No pudimos registrar tu número. Inténtalo de nuevo.');
+        const result = await response.json();
+        if (result.accepted !== true) throw new Error('No pudimos recibir la consulta. Inténtalo de nuevo.');
+        trackEvent('radicado_check_requested', { radicado_length: String(radicado.length) });
+        syncProcessForm.hidden = true;
+        if (successRadicadoNumber) successRadicadoNumber.textContent = radicado;
+        if (syncProcessSuccess) syncProcessSuccess.hidden = false;
+        activateStep(1);
+      } catch (error) {
+        showProcessError(error.message || 'No pudimos recibir la consulta. Inténtalo de nuevo.');
+      } finally {
+        syncProcessSubmit.disabled = false;
+        syncProcessSubmit.textContent = 'Enviar resultado a WhatsApp';
       }
     });
   }
-
-  if (leadModalClose) {
-    leadModalClose.addEventListener('click', () => {
-      closeLeadModal();
-      resetLeadFormState();
-    });
-  }
-
-  if (leadModalBackdrop) {
-    leadModalBackdrop.addEventListener('click', () => {
-      closeLeadModal();
-      resetLeadFormState();
-    });
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key !== 'Escape' || !leadModal || leadModal.hidden) return;
-    closeLeadModal();
-    resetLeadFormState();
-  });
 
   // --- FAQ Accordion ---
   const faqItems = document.querySelectorAll('.faq-item');

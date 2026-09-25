@@ -1853,6 +1853,18 @@ p {
   padding: 10px 0;
 }
 
+.sync-country-code {
+  color: var(--text-200);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.sync-process-honeypot {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+}
+
 .sync-success-icon-wrapper {
   font-size: 56px;
   color: #4CAF50;
