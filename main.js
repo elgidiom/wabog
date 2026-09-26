@@ -345,23 +345,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Consulta de radicado por WhatsApp ---
+  // --- Sync Process + Lead Modal ---
   const syncProcessForm = document.getElementById('sync-process-form');
   const radicadoInput = document.getElementById('radicado-input');
-  const leadPhoneInput = document.getElementById('lead-phone-input');
   const syncProcessSubmit = document.getElementById('sync-process-submit');
   const syncProcessError = document.getElementById('sync-process-error');
+  const leadModal = document.getElementById('lead-modal');
+  const leadModalBackdrop = document.getElementById('lead-modal-backdrop');
+  const leadModalClose = document.getElementById('lead-modal-close');
+  const leadForm = document.getElementById('lead-form');
+  const leadPhoneInput = document.getElementById('lead-phone-input');
+  const leadWebsite = document.getElementById('lead-website');
+  const leadSubmit = document.getElementById('lead-submit');
+  const leadFormError = document.getElementById('lead-form-error');
+  const leadSuccessAnim = document.getElementById('lead-success-anim');
   const syncProcessSuccess = document.getElementById('sync-process-success');
   const successRadicadoNumber = document.getElementById('success-radicado-number');
-  const syncProcessWebsite = document.getElementById('sync-process-website');
   const checksUrl = window.WABOG_RADICADO_DEMO_URL || '';
   const onlyDigits = (value) => (value || '').replace(/\D/g, '');
   const howWorksCircles = document.querySelectorAll('.how-works-circle');
+  let selectedRadicado = '';
 
   const activateStep = (stepIndex) => {
     howWorksCircles.forEach((circle, index) => {
       circle.classList.toggle('circle-active', index === stepIndex);
     });
+  };
+
+  const showTextMessage = (element, message) => {
+    if (!element) return;
+    element.textContent = message || '';
+    element.hidden = !message;
+  };
+
+  const openLeadModal = () => {
+    if (!leadModal || !leadModalBackdrop) return;
+    leadModal.hidden = false;
+    leadModalBackdrop.hidden = false;
+    body.classList.add('modal-open');
+    if (leadPhoneInput) leadPhoneInput.focus();
+  };
+
+  const closeLeadModal = () => {
+    if (!leadModal || !leadModalBackdrop) return;
+    leadModal.hidden = true;
+    leadModalBackdrop.hidden = true;
+    body.classList.remove('modal-open');
   };
 
   const showProcessError = (message) => {
@@ -375,69 +404,77 @@ document.addEventListener('DOMContentLoaded', () => {
       radicadoInput.value = onlyDigits(radicadoInput.value).slice(0, 23);
       showProcessError('');
       activateStep(radicadoInput.value ? 0 : -1);
+      selectedRadicado = '';
     });
   }
 
   if (leadPhoneInput) {
     leadPhoneInput.addEventListener('input', () => {
       leadPhoneInput.value = onlyDigits(leadPhoneInput.value).slice(0, 10);
-      showProcessError('');
+      showTextMessage(leadFormError, '');
     });
   }
 
-  if (syncProcessForm && radicadoInput && leadPhoneInput && syncProcessSubmit) {
+  if (leadModalClose) leadModalClose.addEventListener('click', closeLeadModal);
+  if (leadModalBackdrop) leadModalBackdrop.addEventListener('click', closeLeadModal);
+
+  if (syncProcessForm && radicadoInput && syncProcessSubmit) {
     syncProcessForm.addEventListener('submit', async (event) => {
       event.preventDefault();
       const radicado = onlyDigits(radicadoInput.value);
-      const phone = onlyDigits(leadPhoneInput.value);
       if (radicado.length !== 23) {
         showProcessError('El radicado debe tener 23 dígitos.');
         return;
       }
-      if (!/^3\d{9}$/.test(phone)) {
-        showProcessError('Ingresa un celular colombiano de 10 dígitos.');
-        return;
-      }
-      if (!checksUrl) {
-        showProcessError('La consulta no está disponible en este momento. Inténtalo más tarde.');
-        return;
-      }
-      syncProcessSubmit.disabled = true;
-      syncProcessSubmit.textContent = 'Enviando solicitud...';
-      showProcessError('');
+      selectedRadicado = radicado;
+      activateStep(1);
+      openLeadModal();
+      trackEvent('process_lookup_success', { radicado_length: String(radicado.length) });
+    });
+  }
+
+  if (leadForm && leadPhoneInput && leadSubmit) {
+    leadForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const phone = onlyDigits(leadPhoneInput.value);
+      if (!selectedRadicado) return showTextMessage(leadFormError, 'Primero sincroniza un radicado válido.');
+      if (!/^3\d{9}$/.test(phone)) return showTextMessage(leadFormError, 'Ingresa un celular colombiano de 10 dígitos.');
+      if (!checksUrl) return showTextMessage(leadFormError, 'La consulta no está disponible en este momento. Inténtalo más tarde.');
+      leadSubmit.disabled = true;
+      leadSubmit.textContent = 'Enviando solicitud...';
+      showTextMessage(leadFormError, '');
       try {
         const response = await fetch(checksUrl, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            radicado,
+            radicado: selectedRadicado,
             phone,
             attribution: readAttribution() || {},
-            website: syncProcessWebsite ? syncProcessWebsite.value : ''
+            website: leadWebsite ? leadWebsite.value : ''
           })
         });
         if (!response.ok) {
           if (response.status === 429) throw new Error('Has alcanzado el límite de consultas. Inténtalo más tarde.');
           if (response.status === 422) {
             const error = await response.json();
-            if (error.detail === 'source_not_supported') {
-              throw new Error('Este radicado administrativo aún no está disponible en la prueba rápida.');
-            }
+            if (error.detail === 'source_not_supported') throw new Error('Este radicado administrativo aún no está disponible en la prueba rápida.');
           }
           throw new Error('No pudimos recibir la consulta. Inténtalo de nuevo.');
         }
         const result = await response.json();
         if (result.accepted !== true) throw new Error('No pudimos recibir la consulta. Inténtalo de nuevo.');
-        trackEvent('radicado_check_requested', { radicado_length: String(radicado.length) });
+        trackEvent('radicado_check_requested', { radicado_length: String(selectedRadicado.length) });
+        closeLeadModal();
         syncProcessForm.hidden = true;
-        if (successRadicadoNumber) successRadicadoNumber.textContent = radicado;
+        if (successRadicadoNumber) successRadicadoNumber.textContent = selectedRadicado;
         if (syncProcessSuccess) syncProcessSuccess.hidden = false;
-        activateStep(1);
+        activateStep(2);
       } catch (error) {
-        showProcessError(error.message || 'No pudimos recibir la consulta. Inténtalo de nuevo.');
+        showTextMessage(leadFormError, error.message || 'No pudimos recibir la consulta. Inténtalo de nuevo.');
       } finally {
-        syncProcessSubmit.disabled = false;
-        syncProcessSubmit.textContent = 'Enviar resultado a WhatsApp';
+        leadSubmit.disabled = false;
+        leadSubmit.textContent = 'Probar gratis en Whatsapp';
       }
     });
   }
