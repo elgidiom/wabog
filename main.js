@@ -114,7 +114,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const ATTRIBUTION_KEY = 'wabog_attribution';
   const UTM_KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
   const CLICK_ID_KEYS = ['gclid', 'fbclid', 'ttclid', 'msclkid'];
-  const APP_URL_PREFIX = 'https://app.wabog.com';
+  // El centro de ayuda reenvía la campaña a app.wabog.com en sus propios
+  // botones de registro, así que también debe recibirla desde aquí.
+  const DECORATED_PREFIXES = ['https://app.wabog.com', 'https://ayuda.wabog.com'];
 
   // Los UTM se comparan entre sí en los reportes, así que se normalizan.
   // Los click IDs son opacos y sensibles a mayúsculas: solo se recortan.
@@ -182,8 +184,9 @@ document.addEventListener('DOMContentLoaded', () => {
     return stored;
   };
 
-  // app.wabog.com es otro origen y no comparte localStorage con la landing.
-  // La querystring del enlace es el unico vehiculo que cruza al registro.
+  // app.wabog.com y ayuda.wabog.com son otros orígenes y no comparten
+  // localStorage con la landing. La querystring del enlace es el unico
+  // vehiculo que cruza al registro.
   const decorateAppLinks = (attribution) => {
     const first = attribution.first;
     if (!first) return;
@@ -192,7 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const latestDiffers = ['utm_source', 'utm_medium', 'utm_campaign']
       .some((key) => (latest[key] || '') !== (first[key] || ''));
 
-    document.querySelectorAll(`a[href^="${APP_URL_PREFIX}"]`).forEach((link) => {
+    const selector = DECORATED_PREFIXES.map((prefix) => `a[href^="${prefix}"]`).join(', ');
+    document.querySelectorAll(selector).forEach((link) => {
       let url;
       try {
         url = new URL(link.getAttribute('href'), window.location.href);
