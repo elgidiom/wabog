@@ -39,9 +39,11 @@ El monitoreo depende en parte de sistemas de terceros y de procesos automatizado
 
 WABOG toma medidas razonables para detectar y corregir estos eventos, pero no garantiza un servicio ininterrumpido, un monitoreo en tiempo real, ni que todas las actuaciones sean detectadas o notificadas de forma inmediata. La recepción de una alerta también depende de terceros, como el correo, WhatsApp, el operador móvil o la configuración del dispositivo del Usuario.
 
+Te recomendamos conservar tus propias copias de los documentos y la información importante que guardes en WABOG.
+
 ## **6. Información que registras**
 
-El Usuario es responsable de que la información que registra sea correcta y esté actualizada: radicados, despachos, datos de contacto, miembros del equipo y datos de sus clientes. Debe verificar especialmente sus procesos después de una carga masiva o importación.
+El Usuario es responsable de que la información que registra sea correcta y esté actualizada: radicados, despachos, datos de contacto, miembros del equipo y datos de sus clientes. El radicado debe registrarse completo, con sus 23 dígitos. Si el despacho modifica el radicado, el Usuario debe actualizarlo en WABOG. Debe verificar especialmente sus procesos después de una carga masiva o importación.
 
 ## **7. Procesos reservados o de acceso limitado**
 
@@ -85,7 +87,7 @@ WABOG se integra con servicios de terceros (mensajería, correo, pagos, infraest
 
 ## **15. Cambios a estos Términos**
 
-WABOG puede actualizar estos Términos por cambios del producto, de la regulación, de la seguridad o de sus proveedores. Los cambios sustanciales se comunicarán de forma razonable, y se publicará la fecha de la última actualización.
+WABOG puede actualizar estos Términos por cambios del producto, de la regulación, de la seguridad o de sus proveedores. Los cambios sustanciales se comunicarán de forma razonable, y se publicará la fecha de la última actualización. Si WABOG elimina o modifica de manera importante una función del plan contratado, lo avisará con antelación razonable y el Usuario podrá cancelar su suscripción, salvo cuando sea necesario actuar de inmediato por seguridad, abuso o exigencia legal.
 
 ## **16. Reclamaciones, controversias y ley aplicable**
 
