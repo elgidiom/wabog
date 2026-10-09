@@ -8,6 +8,7 @@ Estos Términos y Condiciones regulan el acceso y uso de la plataforma **WABOG**
 
 WABOG es operado por:
 
+**Razón social:** WABOG SAS  
 **NIT:** 902030041 - 2  
 **Domicilio:** Cali, Colombia  
 **Correo de soporte:** <wabog.ia@gmail.com>  
