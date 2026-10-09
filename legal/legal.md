@@ -1,6 +1,6 @@
 # **TÉRMINOS Y CONDICIONES DE USO DE WABOG**
 
-**Última actualización: 25 de septiembre de 2026**
+**Última actualización: 9 de octubre de 2026**
 
 Estos Términos y Condiciones regulan el acceso y uso de la plataforma **WABOG**, disponible en wabog.com, app.wabog.com y los demás canales habilitados (aplicaciones, integraciones y mensajería). Al registrarte, contratar una suscripción o usar el servicio, aceptas estos Términos. Se rigen por la legislación de la República de Colombia.
 
