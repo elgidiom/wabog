@@ -19,6 +19,37 @@ document.addEventListener('DOMContentLoaded', () => {
     document.head.appendChild(script);
   };
 
+  const metaPixelId = window.WABOG_META_PIXEL_ID || '';
+  const hasValidMetaPixelId = /^\d{10,20}$/.test(metaPixelId);
+
+  // Meta Pixel (base code oficial). Además del PageView, crea las cookies _fbp/_fbc en
+  // .wabog.com, que la app lee al registrarse para reportar la compra a la Conversions API.
+  const loadMetaPixel = (pixelId) => {
+    if (!pixelId || window.fbq) return;
+
+    const fbq = function () {
+      if (fbq.callMethod) {
+        fbq.callMethod.apply(fbq, arguments);
+      } else {
+        fbq.queue.push(arguments);
+      }
+    };
+    window.fbq = fbq;
+    if (!window._fbq) window._fbq = fbq;
+    fbq.push = fbq;
+    fbq.loaded = true;
+    fbq.version = '2.0';
+    fbq.queue = [];
+
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+    document.head.appendChild(script);
+
+    fbq('init', pixelId);
+    fbq('track', 'PageView');
+  };
+
   const trackEvent = (eventName, params = {}) => {
     if (typeof window.gtag !== 'function') return;
     window.gtag('event', eventName, params);
@@ -222,6 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   loadGoogleAnalytics(hasValidGaId ? analyticsMeasurementId : '');
+  loadMetaPixel(hasValidMetaPixelId ? metaPixelId : '');
   initClickAnalytics();
   decorateAppLinks(captureAttribution());
   initScrollAnalytics();
