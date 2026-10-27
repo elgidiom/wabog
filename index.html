@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
 
   <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');</script>
+  <link rel="stylesheet" href="chrome.css">
   <link rel="stylesheet" href="landing.css">
 
   <title>WABOG - Gestión legal inteligente</title>
@@ -74,7 +75,7 @@
       <h1>Vigila tus procesos sin entrar a los portales uno por uno</h1>
       <p class="lp-hero-sub">IA que revisa la Rama Judicial, resume los autos y te avisa por WhatsApp.</p>
 
-      <div class="hero-buttons">
+      <div class="hero-buttons" id="how-works">
         <form id="sync-process-form" class="sync-process-form" novalidate>
           <input id="radicado-input" class="sync-process-input tnum" type="text" inputmode="numeric" maxlength="23" autocomplete="off" placeholder="Pega aquí tu radicado de 23 dígitos" aria-label="Número de radicado">
           <button id="sync-process-submit" class="lp-btn lp-btn-blue sync-process-submit" type="submit" data-analytics="hero_sincronizar_click" data-analytics-location="hero">Sincronizar gratis</button>
@@ -192,7 +193,7 @@
   <section id="features" class="lp-section">
     <div class="lp-wrap">
       <div style="max-width:860px">
-        <h2 class="lp-h2">Todo lo que necesitas para <span class="lp-hl">despreocuparte</span> de tus términos</h2>
+        <h2 class="lp-h2">Todo lo que necesitas para <span class="lp-hl">organizar</span> tus términos</h2>
       </div>
       <div class="lp-feats">
         <div class="lp-feat">
@@ -208,7 +209,7 @@
         <div class="lp-feat">
           <div class="lp-eyebrow">Calendario y tareas</div>
           <h3>Cada término, en tu agenda</h3>
-          <p>Cuando confirmas un auto, la audiencia o el término queda en el calendario, con su tarea y su fecha límite.</p>
+          <p>Cuando confirmas una acción, la audiencia o el término queda en el calendario, con su tarea y su fecha límite.</p>
           <div class="demo"><div class="cal">
             <div class="cal-head"><b>Noviembre 2026</b><span>Hoy</span></div>
             <div class="cal-grid" id="mini-cal"></div>
@@ -310,7 +311,7 @@
       <div class="lp-faq-list">
 <div class="faq-item active"><button class="faq-question" aria-expanded="true" data-analytics="faq_toggle_1">¿Cómo funciona la sincronización con la Rama Judicial?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Wabog se conecta directamente con los sistemas públicos de la Rama Judicial de Colombia. Al ingresar tu número de radicado de 23 dígitos, nuestro sistema consulta las bases de datos oficiales en tiempo real, indexa el expediente completo y establece un canal de vigilancia que realiza revisiones continuas.</div></div></div>
 <div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_2">¿Qué tipo de procesos judiciales puedo registrar?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Puedes registrar cualquier tipo de proceso que tenga asignado un número de radicado de 23 dígitos válido en Colombia, incluyendo procesos de juzgados civiles, laborales, de familia, administrativos y tribunales.</div></div></div>
-<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_3">¿Cómo se configuran las notificaciones por WhatsApp?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cada vez que el juzgado registre una nueva actuación, recibirás un mensaje automático con el resumen y enlace.</div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_3">¿Cómo se configuran las notificaciones por WhatsApp?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cuando el juzgado registre una nueva actuación, podrás recibir un mensaje automático con el resumen y enlace.</div></div></div>
 <div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_4">¿Es segura la información de mis radicados y datos?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Absolutamente. Solo consultamos información pública disponible en la Rama Judicial. Los datos de tus clientes y de contacto (como tu celular) se cifran y se almacenan bajo altos estándares de seguridad y de acuerdo con la Ley de Protección de Datos Personales (Habeas Data).</div></div></div>
 <div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_5">¿Puedo probar el servicio de forma gratuita?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Sí. Puedes sincronizar tus procesos gratis durante 15 días, directamente desde el buscador en la parte superior. Esto te dará acceso a las notificaciones y al expediente sin costo, permitiéndote comprobar la inmediatez y exactitud de Wabog.</div></div></div>
 
@@ -431,6 +432,7 @@
     window.WABOG_RADICADO_DEMO_URL = 'https://microsaas-radicado-demo.zhmeru.easypanel.host/v1/checks';
   </script>
   <script src="main.js"></script>
+  <script src="chrome.js"></script>
   <script src="landing.js"></script>
   <script type="module" src="shaders-bg.js"></script>
 </body>

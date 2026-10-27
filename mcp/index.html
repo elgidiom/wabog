@@ -22,6 +22,7 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/chrome.css">
 
   <title>Wabog MCP – Conecta tu IA con Wabog</title>
 
@@ -212,51 +213,44 @@
   </style>
 </head>
 
-<body>
+<body class="lp-page light-mode">
 
   <!-- Navbar -->
-  <nav class="navbar">
-    <div class="container navbar-container">
-      <a href="/" class="navbar-brand">
-        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
-      </a>
+    <header class="lp-header">
+    <div class="lp-nav-wrap">
+      <nav class="lp-nav" aria-label="Principal">
+        <a class="lp-brand" href="/" aria-label="Wabog, inicio"><img id="navbar-logo" src="/assets/wabog_name_logo_light.webp" alt="WABOG"></a>
 
-      <div class="navbar-center">
-        <div class="nav-links-pill">
-          <a href="/#features" data-analytics="nav_funcionalidades"
-            data-analytics-location="navbar">Funcionalidades</a>
-          <a href="/#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
-          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog"
-            data-analytics-location="navbar">Blog</a>
-          <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_ayuda"
-            data-analytics-location="navbar">Ayuda</a>
+        <div class="lp-links">
+          <a class="lp-link" href="/#producto" data-analytics="nav_producto" data-analytics-location="navbar">Producto</a>
+          <a class="lp-link" href="/#features" data-analytics="nav_funcionalidades" data-analytics-location="navbar">Funcionalidades</a>
+          <a class="lp-link" href="/#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <div class="lp-dd" id="resources-dd" data-open="false">
+            <button type="button" class="lp-link" id="resources-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Recursos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="lp-dd-menu" id="resources-menu">
+              <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog" data-analytics-location="navbar"><strong>Blog</strong><span>Contenido y novedades</span></a>
+              <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_ayuda" data-analytics-location="navbar"><strong>Ayuda</strong><span>Centro de ayuda</span></a>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <div class="navbar-right">
-        <a href="https://app.wabog.com" class="btn-prueba-nav" data-analytics="nav_prueba_gratis"
-          data-analytics-location="navbar">Prueba gratis</a>
-        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="nav_login"
-          data-analytics-location="navbar">Login</a>
-      </div>
+        <div class="lp-nav-right">
+          <a class="lp-link" href="https://app.wabog.com" data-analytics="nav_login" data-analytics-location="navbar">Inicia sesión</a>
+          <a class="lp-btn lp-btn-blue" href="https://app.wabog.com" data-analytics="nav_sincronizar_gratis" data-analytics-location="navbar">Empieza gratis</a>
+          <button class="lp-burger" id="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span class="bi bi-list"></span></button>
+        </div>
 
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bi bi-list"></span>
-      </button>
-
-      <div class="mobile-menu" id="mobile-menu">
-        <a href="/#features" data-analytics="mobile_nav_funcionalidades"
-          data-analytics-location="mobile_menu">Funcionalidades</a>
-        <a href="/#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog"
-          data-analytics-location="mobile_menu">Blog</a>
-        <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_ayuda"
-          data-analytics-location="mobile_menu">Ayuda</a>
-        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
-          data-analytics-location="mobile_menu">Login</a>
-      </div>
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="/#producto" data-analytics="mobile_nav_producto" data-analytics-location="mobile_menu">Producto</a>
+          <a href="/#features" data-analytics="mobile_nav_funcionalidades" data-analytics-location="mobile_menu">Funcionalidades</a>
+          <a href="/#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog" data-analytics-location="mobile_menu">Blog</a>
+          <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_ayuda" data-analytics-location="mobile_menu">Ayuda</a>
+          <a href="https://app.wabog.com" data-analytics="mobile_nav_login" data-analytics-location="mobile_menu">Inicia sesión</a>
+        </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main class="mcp-page">
     <div class="container">
@@ -405,41 +399,30 @@ url = "https://mcp.wabog.com"</code></pre>
   </main>
 
   <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-container-grid">
-      <!-- Brand -->
-      <div class="footer-brand">
-        <img src="/assets/wabog_name_logo_light.webp" alt="WABOG" class="footer-logo">
-      </div>
-
-      <!-- Socials -->
-      <div class="footer-col">
+    <footer class="lp-footer">
+    <div class="lp-wrap lp-footer-grid" style="max-width:1160px;margin:0 auto">
+      <div><img id="footer-logo" src="/assets/wabog_name_logo_light.webp" alt="WABOG"></div>
+      <div>
         <h4>Redes sociales</h4>
-        <div class="footer-links-list">
-          <a href="https://www.linkedin.com/company/wabog" target="_blank" rel="noopener noreferrer" data-analytics="footer_linkedin"
-            data-analytics-location="footer">Linkedin</a>
-          <a href="https://www.instagram.com/wabog.ia/" target="_blank" rel="noopener noreferrer" data-analytics="footer_instagram"
-            data-analytics-location="footer">Instagram</a>
+        <div class="lp-footer-links">
+          <a href="https://www.linkedin.com/company/wabog" target="_blank" rel="noopener noreferrer" data-analytics="footer_linkedin" data-analytics-location="footer">Linkedin</a>
+          <a href="https://www.instagram.com/wabog.ia/" target="_blank" rel="noopener noreferrer" data-analytics="footer_instagram" data-analytics-location="footer">Instagram</a>
           <a href="#" target="_blank" rel="noopener noreferrer" data-analytics="footer_tiktok" data-analytics-location="footer">Tiktok</a>
         </div>
       </div>
-
-      <!-- Links -->
-      <div class="footer-col">
+      <div>
         <h4>Producto</h4>
-        <div class="footer-links-list">
+        <div class="lp-footer-links">
+          <a href="/mcp/" data-analytics="footer_mcp" data-analytics-location="footer">Wabog MCP</a>
           <a href="/#pricing" data-analytics="footer_precios" data-analytics-location="footer">Precios</a>
-          <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Login</a>
+          <a href="https://app.wabog.com" data-analytics="footer_login" data-analytics-location="footer">Inicia sesión</a>
           <a href="https://blog.wabog.com" data-analytics="footer_blog" data-analytics-location="footer">Blog</a>
           <a href="https://ayuda.wabog.com" data-analytics="footer_ayuda" data-analytics-location="footer">Ayuda</a>
-          <a href="/mcp/" data-analytics="footer_mcp" data-analytics-location="footer">Wabog MCP</a>
         </div>
       </div>
-
-      <!-- Legal -->
-      <div class="footer-col">
+      <div>
         <h4>Legal</h4>
-        <div class="footer-links-list">
+        <div class="lp-footer-links">
           <a href="/legal.html" data-analytics="footer_terminos" data-analytics-location="footer">Términos y condiciones</a>
           <a href="/privacy.html" data-analytics="footer_privacidad" data-analytics-location="footer">Politica de privacidad</a>
           <a href="/support/" data-analytics="footer_soporte" data-analytics-location="footer">Soporte</a>
@@ -453,6 +436,7 @@ url = "https://mcp.wabog.com"</code></pre>
     window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
     window.WABOG_META_PIXEL_ID = '1470363888063264';
   </script>
+  <script src="/chrome.js"></script>
   <script src="/main.js"></script>
 
 </body>

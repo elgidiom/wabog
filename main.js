@@ -283,8 +283,8 @@ document.addEventListener('DOMContentLoaded', () => {
   };
 
   const updateLogo = () => {
-    const light = 'assets/wabog_name_logo_light.webp';
-    const dark = 'assets/wabog_name_logo.webp';
+    const light = '/assets/wabog_name_logo_light.webp';
+    const dark = '/assets/wabog_name_logo.webp';
     const src = body.classList.contains('light-mode') ? light : dark;
 
     if (navbarLogo) navbarLogo.src = src;
