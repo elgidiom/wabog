@@ -8,7 +8,7 @@
   font-family: var(--font-main); -webkit-font-smoothing: antialiased;
 }
 .lp-header, .lp-header *, .site-footer, .site-footer * { box-sizing: border-box; }
-.lp-header a, .site-footer a { color: inherit; text-decoration: none; }
+:where(.lp-header, .site-footer) a { color: inherit; text-decoration: none; } /* :where no sube la especificidad: los botones conservan su color */
 .lp-header img, .site-footer img { max-width: 100%; }
 .lp-header button { font-family: inherit; }
 .lp-header a:focus-visible, .lp-header button:focus-visible, .site-footer a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
@@ -70,7 +70,7 @@ body.lp-page { padding-top: 98px; }
 
 /* ---------- Pie (el mismo de producción) ---------- */
 .site-footer { background: var(--bg-200); padding: 60px 0; position: relative; }
-.site-footer .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+.site-footer .container { max-width: 1160px; margin: 0 auto; padding: 0 24px; } /* mismos márgenes que el resto de la landing (.lp-wrap) */
 .footer-container-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
 .footer-brand { align-self: center; }
 .footer-logo { height: 61px; width: auto; }
