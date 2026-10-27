@@ -75,5 +75,7 @@ body.lp-page { padding-top: 98px; }
   .lp-nav { display: flex; justify-content: space-between; padding-left: 16px; }
   .lp-nav.is-scrolled { max-width: none; }
   .lp-burger { display: inline-flex; align-items: center; justify-content: center; }
-  .lp-footer-grid { grid-template-columns: 1fr 1fr; }
+  .lp-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; padding: 40px 24px 112px; } /* abajo queda libre para el botón fijo */
+  .lp-footer-grid > div:first-child { grid-column: 1 / -1; }
+  .lp-footer h4 { margin-bottom: 12px; }
 }
