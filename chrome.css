@@ -1,19 +1,17 @@
 /* Header y pie compartidos (landing, términos, privacidad, soporte y MCP).
    Las variables y los reinicios están acotados para no tocar style.css. */
-.lp-header, .lp-footer, .mobile-menu {
+.lp-header, .site-footer, .mobile-menu {
   --primary-100: #1454fa; --primary-200: #6e80ff; --primary-300: #e5e2ff;
   --text-100: #1d1c1c; --text-200: #313d44;
   --bg-100: #fffefb; --bg-200: #f5f4f1; --bg-300: #cccbc8;
   --ring: #0a3671; --font-main: 'Inter', system-ui, sans-serif;
   font-family: var(--font-main); -webkit-font-smoothing: antialiased;
 }
-.lp-header, .lp-header *, .lp-footer, .lp-footer * { box-sizing: border-box; }
-.lp-header a, .lp-footer a { color: inherit; text-decoration: none; }
-.lp-header img, .lp-footer img { max-width: 100%; }
+.lp-header, .lp-header *, .site-footer, .site-footer * { box-sizing: border-box; }
+.lp-header a, .site-footer a { color: inherit; text-decoration: none; }
+.lp-header img, .site-footer img { max-width: 100%; }
 .lp-header button { font-family: inherit; }
-.lp-header a:focus-visible, .lp-header button:focus-visible, .lp-footer a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
-.lp-footer h4 { margin: 0 0 14px; }
-.lp-footer-links { margin: 0; padding: 0; }
+.lp-header a:focus-visible, .lp-header button:focus-visible, .site-footer a:focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; }
 .lp-wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
 /* Páginas interiores: el header es fijo y deja de ocupar espacio en el flujo. */
 body.lp-page { padding-top: 98px; }
@@ -62,20 +60,26 @@ body.lp-page { padding-top: 98px; }
 .mobile-menu a { padding: 12px 14px; border-radius: 12px; font-weight: 600; }
 .mobile-menu a:hover { background: var(--bg-200); }
 
-/* ---------- Pie ---------- */
-.lp-footer { background: var(--bg-200); } /* mismo fondo del pie de producción */
-.lp-footer-grid { display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 32px; padding: 56px 24px 40px; }
-.lp-footer img { height: 38px; width: auto; }
-.lp-footer h4 { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--text-100); margin-bottom: 14px; }
-.lp-footer-links { display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: var(--text-100); }
-.lp-copy { padding: 0 24px 40px; font-size: 14px; color: #4b5563; }
 
 @media (max-width: 860px) {
   .lp-links, .lp-nav-right .lp-link { display: none !important; }
   .lp-nav { display: flex; justify-content: space-between; padding-left: 16px; }
   .lp-nav.is-scrolled { max-width: none; }
   .lp-burger { display: inline-flex; align-items: center; justify-content: center; }
-  .lp-footer-grid { grid-template-columns: 1fr 1fr; gap: 32px 20px; padding: 40px 24px 112px; } /* abajo queda libre para el botón fijo */
-  .lp-footer-grid > div:first-child { grid-column: 1 / -1; }
-  .lp-footer h4 { margin-bottom: 12px; }
+}
+
+/* ---------- Pie (el mismo de producción) ---------- */
+.site-footer { background: var(--bg-200); padding: 60px 0; position: relative; }
+.site-footer .container { max-width: 1240px; margin: 0 auto; padding: 0 20px; }
+.footer-container-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; align-items: start; }
+.footer-brand { align-self: center; }
+.footer-logo { height: 61px; width: auto; }
+.footer-col h4 { font-family: var(--font-main); font-size: 20px; font-weight: 400; margin: 0 0 12px; color: var(--text-100); text-align: center; }
+.footer-links-list { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.footer-links-list a { font-family: var(--font-main); font-weight: 300; font-size: 16px; color: var(--text-100); }
+@media (max-width: 768px) {
+  /* aire extra al final: sin esto el CTA fijo tapa el último enlace */
+  .site-footer { padding-bottom: calc(60px + 54px + 32px + env(safe-area-inset-bottom, 0px)); }
+  .footer-container-grid { grid-template-columns: 1fr; text-align: center; }
+  .footer-brand { text-align: center; }
 }
