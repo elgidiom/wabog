@@ -11,478 +11,327 @@
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Inria+Sans:wght@300;400;700&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Icons -->
+  <!-- Iconos (modal de lead y menú móvil) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" integrity="sha384-Ay26V7L8bsJTsX9Sxclnvsn+hkdiwRnrjZJXqKmkIDobPgIIWBOVguEcQQLDuhfN" crossorigin="anonymous">
 
-  <!-- Bootstrap 5 (Only for grid/utilities if needed, but we'll use custom CSS mostly) -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
+  <script>if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');</script>
+  <link rel="stylesheet" href="chrome.css">
+  <link rel="stylesheet" href="landing.css">
 
   <title>WABOG - Gestión legal inteligente</title>
 </head>
 
-<body>
+<body class="light-mode">
 
-  <!-- Header fijo: banner de ventas + navbar -->
-  <div class="site-header">
+  <!-- ================= HEADER (fijo) ================= -->
+  <header class="lp-header">
+    <div class="lp-nav-wrap">
+      <nav class="lp-nav" aria-label="Principal">
+        <a class="lp-brand" href="index.html" aria-label="Wabog, inicio"><img id="navbar-logo" src="assets/wabog_name_logo_light.webp" alt="WABOG"></a>
 
-    <!-- Top Banner (contacto ventas) -->
-    <div class="top-banner">
-      <div class="container top-banner-container">
-        <span class="top-banner-label">Habla con ventas:</span>
-        <a href="https://wa.me/12058921790?text=Hola%2C%20estoy%20viendo%20la%20p%C3%A1gina%20de%20Wabog%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n."
-          target="_blank" rel="noopener noreferrer" class="top-banner-link"
-          data-analytics="topbar_ventas_whatsapp" data-analytics-location="top_banner">
-          <i class="bi bi-whatsapp"></i>
-          <span>WhatsApp</span>
-        </a>
-      </div>
-    </div>
-
-    <!-- Navbar -->
-    <nav class="navbar">
-    <div class="container navbar-container">
-      <a href="index.html" class="navbar-brand">
-        <img src="assets/wabog_name_logo_light.webp" alt="WABOG" class="logo">
-      </a>
-
-      <div class="navbar-center">
-        <div class="nav-links-pill">
-          <a href="#features" data-analytics="nav_funcionalidades"
-            data-analytics-location="navbar">Funcionalidades</a>
-          <a href="#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
-          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog"
-            data-analytics-location="navbar">Blog</a>
-          <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_ayuda"
-            data-analytics-location="navbar">Ayuda</a>
-        </div>
-      </div>
-
-      <div class="navbar-right">
-        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="nav_login"
-          data-analytics-location="navbar">Inicia sesión</a>
-        <a href="https://app.wabog.com" class="btn-prueba-nav" data-analytics="nav_sincronizar_gratis"
-          data-analytics-location="navbar">Empieza gratis</a>
-      </div>
-
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
-        <span class="bi bi-list"></span>
-      </button>
-
-      <div class="mobile-menu" id="mobile-menu">
-        <a href="#features" data-analytics="mobile_nav_funcionalidades"
-          data-analytics-location="mobile_menu">Funcionalidades</a>
-        <a href="#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
-        <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog"
-          data-analytics-location="mobile_menu">Blog</a>
-        <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_ayuda"
-          data-analytics-location="mobile_menu">Ayuda</a>
-        <a href="https://app.wabog.com" class="btn-login-nav" data-analytics="mobile_nav_login"
-          data-analytics-location="mobile_menu">Inicia sesión</a>
-      </div>
-    </div>
-    </nav>
-  </div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="container hero-content">
-
-      <!-- Badge -->
-      <div class="hero-badge">
-        <div class="badge-icon">
-          <i class="bi bi-stars"></i>
-        </div>
-        <span class="badge-text">Gestión legal inteligente</span>
-      </div>
-
-      <!-- Title -->
-      <h1 class="hero-title">
-        No vuelvas a perder<br>un <span class="text-blue">término judicial</span>
-      </h1>
-
-      <!-- Subtitle -->
-      <p class="hero-subtitle">
-        Automatiza la vigilancia de tus procesos en tiempo real con la IA de Wabog.
-        Sincroniza tu primer radicado ahora.
-      </p>
-
-      <!-- Hero CTA Buttons -->
-      <div class="hero-buttons">
-        <a href="https://app.wabog.com" class="btn-primary-rect" data-analytics="hero_sincronizar_click">Empieza 15 días gratis</a>
-        <a href="#how-works" class="btn-secondary-rect" data-analytics="hero_ver_como_funciona_click">Ver cómo funciona</a>
-      </div>
-
-    </div>
-  </section>
-
-
-  <!-- Video/Demo Section (App Preview) -->
-  <section class="app-preview-section">
-    <div class="container">
-      <div class="preview-container">
-        <!-- This represents the 'Screen' from the design -->
-        <img src="assets/wabog-dashboard.webp" alt="Wabog App Interface" class="app-preview-img">
-      </div>
-    </div>
-  </section>
-
-  <!-- Comparison Section (El dilema del abogado) -->
-  <section id="comparison" class="comparison-section">
-    <div class="container">
-      <h2 class="section-title">El dilema del abogado:<br>¿Manual o <span class="text-blue">con IA</span>?</h2>
-      <div class="comparison-grid">
-        <!-- Manual Search Card -->
-        <div class="comparison-card card-manual">
-          <div class="comparison-header">
-            <i class="bi bi-x-circle-fill"></i>
-            <h3>Búsqueda Manual</h3>
+        <div class="lp-links">
+          <a class="lp-link" href="#producto" data-analytics="nav_producto" data-analytics-location="navbar">Producto</a>
+          <a class="lp-link" href="#features" data-analytics="nav_funcionalidades" data-analytics-location="navbar">Funcionalidades</a>
+          <a class="lp-link" href="#pricing" data-analytics="nav_precios" data-analytics-location="navbar">Precios</a>
+          <div class="lp-dd" id="resources-dd" data-open="false">
+            <button type="button" class="lp-link" id="resources-toggle" aria-expanded="false" aria-haspopup="true" aria-controls="resources-menu">Recursos <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="chev"><path d="m6 9 6 6 6-6"/></svg></button>
+            <div class="lp-dd-menu" id="resources-menu">
+              <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_blog" data-analytics-location="navbar"><strong>Blog</strong><span>Contenido y novedades</span></a>
+              <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="nav_ayuda" data-analytics-location="navbar"><strong>Ayuda</strong><span>Centro de ayuda</span></a>
+            </div>
           </div>
-          <ul class="comparison-list">
-            <li class="comparison-item">
-              <i class="bi bi-dash-circle"></i>
-              <span>Ingresar expediente por expediente en la web de la Rama Judicial cada día.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-dash-circle"></i>
-              <span>Riesgo constante de perder un término judicial por retrasos o descuidos.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-dash-circle"></i>
-              <span>Horas desperdiciadas en tareas operativas de bajo valor.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-dash-circle"></i>
-              <span>Notificaciones dispersas e imposibles de automatizar por correo.</span>
-            </li>
-          </ul>
         </div>
 
-        <!-- Intelligent Search Card -->
-        <div class="comparison-card card-intelligent">
-          <div class="comparison-header">
-            <i class="bi bi-check-circle-fill"></i>
-            <h3>Vigilancia con Wabog</h3>
-          </div>
-          <ul class="comparison-list">
-            <li class="comparison-item">
-              <i class="bi bi-check-circle-fill"></i>
-              <span>Sincronización automática de radicados en segundos.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-check-circle-fill"></i>
-              <span>Alertas instantáneas en WhatsApp con el contenido del auto.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-check-circle-fill"></i>
-              <span>Centralización de expedientes en un panel limpio y ordenado.</span>
-            </li>
-            <li class="comparison-item">
-              <i class="bi bi-check-circle-fill"></i>
-              <span>Borradores automáticos y resúmenes de providencias con IA.</span>
-            </li>
-          </ul>
+        <div class="lp-nav-right">
+          <a class="lp-link" href="https://app.wabog.com" data-analytics="nav_login" data-analytics-location="navbar">Inicia sesión</a>
+          <a class="lp-btn lp-btn-blue" href="https://app.wabog.com" data-analytics="nav_sincronizar_gratis" data-analytics-location="navbar">Empieza gratis</a>
+          <button class="lp-burger" id="mobile-menu-toggle" aria-label="Abrir menú" aria-expanded="false"><span class="bi bi-list"></span></button>
         </div>
-      </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+          <a href="#producto" data-analytics="mobile_nav_producto" data-analytics-location="mobile_menu">Producto</a>
+          <a href="#features" data-analytics="mobile_nav_funcionalidades" data-analytics-location="mobile_menu">Funcionalidades</a>
+          <a href="#pricing" data-analytics="mobile_nav_precios" data-analytics-location="mobile_menu">Precios</a>
+          <a href="https://blog.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_blog" data-analytics-location="mobile_menu">Blog</a>
+          <a href="https://ayuda.wabog.com" target="_blank" rel="noopener noreferrer" data-analytics="mobile_nav_ayuda" data-analytics-location="mobile_menu">Ayuda</a>
+          <a href="https://app.wabog.com" data-analytics="mobile_nav_login" data-analytics-location="mobile_menu">Inicia sesión</a>
+        </div>
+      </nav>
     </div>
-  </section>
+  </header>
 
-  <!-- Key Features Overview Section -->
-  <section id="features" class="overview-section">
-    <div class="container">
-      <h2 class="section-title">Todo lo que necesitas para <span class="text-blue">despreocuparte</span> de tus términos</h2>
-      <div class="overview-grid">
-        <!-- Card 1 -->
-        <div class="overview-card">
-          <div class="overview-icon">
-            <i class="bi bi-arrow-repeat"></i>
-          </div>
-          <h3>Monitoreo en Tiempo Real</h3>
-          <p>Nuestra plataforma consulta periódicamente los portales de la rama para traerte las actualizaciones al instante.</p>
-          <a href="#how-works" class="overview-link" data-analytics="overview_monitoreo_click">Probar ahora <i class="bi bi-arrow-right"></i></a>
-        </div>
+  <!-- ================= HERO ================= -->
+  <section id="top" class="lp-hero">
+    <div class="shader-bg" data-shader="hero" aria-hidden="true"></div>
+    <div class="lp-horizon" aria-hidden="true"></div>
+    <div class="lp-hero-fade" aria-hidden="true"></div>
 
-        <!-- Card 2 -->
-        <div class="overview-card">
-          <div class="overview-icon">
-            <i class="bi bi-whatsapp"></i>
-          </div>
-          <h3>Alertas en WhatsApp</h3>
-          <p>Recibe los archivos adjuntos y resúmenes de actuaciones directamente en tu celular, sin abrir correos molestos.</p>
-          <a href="#how-works" class="overview-link" data-analytics="overview_whatsapp_click">Activar alertas <i class="bi bi-arrow-right"></i></a>
-        </div>
 
-        <!-- Card 3 -->
-        <div class="overview-card">
-          <div class="overview-icon">
-            <i class="bi bi-stars"></i>
-          </div>
-          <h3>Redacción y Análisis IA</h3>
-          <p>Genera automáticamente borradores de contestación, recursos y resúmenes estructurados de cada providencia.</p>
-          <a href="#pricing" class="overview-link" data-analytics="overview_ia_click">Saber más <i class="bi bi-arrow-right"></i></a>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- How It Works Flow Section -->
-  <section id="how-works" class="how-works-flow">
-    <div class="container">
-      <h2 class="section-title">¿Cómo funciona <span class="text-blue">Wabog</span>?</h2>
+    <div class="lp-wrap lp-hero-body">
+      <div class="lp-pill"><i></i>Gestión legal inteligente</div>
+      <h1>Vigila tus procesos sin entrar a los portales uno por uno</h1>
+      <p class="lp-hero-sub">IA que revisa la Rama Judicial, resume los autos y te avisa por WhatsApp.</p>
 
-      <!-- Sync Process Card -->
-      <div id="sync-process" class="sync-process-card">
-        <div class="sync-process-header">
-          <div class="sync-process-icon">
-            <i class="bi bi-arrow-repeat"></i>
-          </div>
-          <h2>Sincroniza tu proceso</h2>
-        </div>
-
+      <div class="hero-buttons" id="how-works">
         <form id="sync-process-form" class="sync-process-form" novalidate>
-          <div class="sync-process-input-row">
-            <div class="sync-process-input-shell">
-              <i class="bi bi-search sync-process-input-icon" aria-hidden="true"></i>
-              <input id="radicado-input" class="sync-process-input" type="text" inputmode="numeric" maxlength="23"
-                autocomplete="off" placeholder="Ingresa el número de radicado (23 dígitos)..."
-                aria-label="Número de radicado">
-            </div>
-            <button id="sync-process-submit" class="sync-process-submit" type="submit">Sincronizar</button>
-          </div>
-          <p class="sync-process-hint">Conexión directa con la Rama Judicial. Datos actualizados al instante.</p>
-          <p id="sync-process-error" class="sync-process-error" hidden></p>
+          <input id="radicado-input" class="sync-process-input tnum" type="text" inputmode="numeric" maxlength="23" autocomplete="off" placeholder="Pega aquí tu radicado de 23 dígitos" aria-label="Número de radicado">
+          <button id="sync-process-submit" class="lp-btn lp-btn-blue sync-process-submit" type="submit" data-analytics="hero_sincronizar_click" data-analytics-location="hero">Sincronizar gratis</button>
         </form>
-
-        <!-- Estado de Éxito (Oculto por defecto) -->
+        <p id="sync-process-error" class="sync-process-error" hidden></p>
         <div id="sync-process-success" class="sync-process-success" hidden>
-          <div class="sync-success-icon-wrapper">
-            <i class="bi bi-check-circle-fill"></i>
-          </div>
-          <h3 class="sync-success-title">Proceso Sincronizado Exitosamente</h3>
-          <p class="sync-success-radicado">Radicado: <strong id="success-radicado-number"></strong></p>
-          <p class="sync-success-message">¡Listo! Te notificaremos en WhatsApp cuando haya novedades.</p>
+          <h3>Proceso sincronizado</h3>
+          <p>Radicado: <strong id="success-radicado-number"></strong></p>
+          <p>¡Listo! Te notificaremos en WhatsApp cuando haya novedades.</p>
         </div>
       </div>
+      <p class="lp-hero-note">15 días gratis · Información pública de la Rama Judicial</p>
+    </div>
+  </section>
 
-      <div class="how-works-grid">
-        <!-- Step 1 -->
-        <div class="how-works-step">
-          <div class="how-works-circle">1</div>
-          <h3>Ingresa el Radicado</h3>
-          <p>Digita el código de 23 números del expediente que deseas vigilar en nuestro buscador.</p>
+  <!-- ================= EXCEL VS WABOG ================= -->
+  <section id="producto" class="lp-section">
+    <div class="lp-wrap">
+      <div style="max-width:900px">
+        <h2 class="lp-h2">¿Todavía llevas tus procesos <span class="lp-hl">en Excel</span>?</h2>
+        <p class="lp-sub" style="margin-top:22px;max-width:640px;font-size:19px;line-height:1.55">Así los lleva hoy la mayoría de despachos, y así se ven con Wabog.</p>
+      </div>
+
+      <div class="lp-compare">
+        <div class="lp-compare-col sheet">
+          <div class="lp-label">Hoy</div>
+          <div class="lp-rel">
+            <div class="xl" role="img" aria-label="Hoja de cálculo con procesos judiciales, celdas resaltadas y fechas de revisión atrasadas">
+              <div class="xl-title"><span>Procesos_2026_FINAL_v3.xlsx</span><span>Guardado en tu computador</span></div>
+              <div class="xl-formula"><div>C4</div><div>fx  Jdo 12 Civil Cto</div></div>
+              <div class="xl-row head"><div></div><div>A</div><div>B</div><div>C</div><div>D</div><div>E</div></div>
+<div class="xl-row xl-hdr"><div>1</div><div>Cliente</div><div>Radicado</div><div>Juzgado</div><div>Revisado</div><div>Notas</div></div>
+<div class="xl-row "><div>2</div><div>Ejecutivo · A</div><div>11001310300120…</div><div>Jdo 12 Civil Cto</div><div class="xl-late">02/09</div><div>llamar</div></div>
+<div class="xl-row "><div>3</div><div>Laboral · B</div><div>76001310500420…</div><div>Jdo 4 Laboral</div><div class="xl-r">hace 3 sem</div><div class="xl-y">revisar!!</div></div>
+<div class="xl-row "><div>4</div><div>Divisorio · C</div><div>05001400300520…</div><div>Jdo 5 Civil</div><div class="xl-r"></div><div class="xl-y">¿venció?</div></div>
+<div class="xl-row "><div>5</div><div>Verbal · D</div><div>08001400300320…</div><div>Jdo 3 Civil Mpal</div><div class="xl-late">18/09</div><div>auto nuevo? ver</div></div>
+<div class="xl-row "><div>6</div><div>Familia · E</div><div>11001311000220…</div><div>Jdo 2 Familia</div><div>01/10</div><div></div></div>
+<div class="xl-row "><div>7</div><div>Ejecutivo · F</div><div>50001310300120…</div><div>Jdo 1 Civil Cto</div><div class="xl-r">?</div><div class="xl-y">pedir copia</div></div>
+<div class="xl-row "><div>8</div><div>Pertenencia · G</div><div>68001310300620…</div><div>Jdo 6 Civil Cto</div><div class="xl-late">15/08</div><div></div></div>
+<div class="xl-row "><div>9</div><div>Laboral · H</div><div>17001310500120…</div><div>Jdo 1 Laboral</div><div class="xl-r"></div><div></div></div>
+
+              <div class="xl-tabs"><span>Procesos 2026</span><span>Procesos 2025</span><span>Copia de Procesos</span><span>Términos (viejo)</span></div>
+            </div>
+            <div class="lp-float amber" style="right:-14px;top:-18px">Riesgo constante de perder un término por un descuido.</div>
+            <div class="lp-float amber" style="left:-14px;bottom:-18px">Ingresar expediente por expediente en la Rama Judicial, cada día.</div>
+          </div>
         </div>
 
-        <!-- Step 2 -->
-        <div class="how-works-step">
-          <div class="how-works-circle">2</div>
-          <h3>Sincronización</h3>
-          <p>La IA de Wabog se conecta a la base de datos judicial y extrae el expediente histórico.</p>
-        </div>
+        <div class="lp-compare-col app">
+          <div class="lp-label blue">Con Wabog</div>
+          <div class="lp-rel">
+            <div class="shot-wrap" id="shot-wrap" role="img" aria-label="Dashboard de Wabog con tus procesos, su estado y la última actuación">
+              <div class="shot" id="shot">
+                <div class="app">
+                  <aside class="rail">
+<span class="menu" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg></span>
+<span class="on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg></span>
+<span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+<span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path></svg></span>
+                  </aside>
+                  <div class="main">
+                    <div class="sum">
+                      <div><small>Procesos activos</small><b class="tnum">8</b></div>
+                      <div><small>Tareas pendientes <i></i></small><b class="tnum">3</b></div>
+                      <div><small>Actividad global</small><b class="tnum">12</b></div>
+                    </div>
+                    <div class="tbl">
+                      <div class="tr th"><div>Proceso / Radicado</div><div>Estado</div><div>Último estado</div><div>Descripción</div></div>
+<div class="tr"><div><strong>Ejecutivo · A</strong><code>11001310301220260041800</code></div><div><span class="pill active"><i></i>En trámite</span></div><div>12 oct 2026</div><div>Fijación de fecha para audiencia</div></div>
+<div class="tr"><div><strong>Laboral · B</strong><code>76001310500420230045600</code></div><div><span class="pill decision"><i></i>En decisión</span></div><div>10 oct 2026</div><div>Al despacho para fallo</div></div>
+<div class="tr"><div><strong>Divisorio · C</strong><code>05001400300520220087300</code></div><div><span class="pill active"><i></i>En trámite</span></div><div>9 oct 2026</div><div>Fija fecha de audiencia</div></div>
+<div class="tr"><div><strong>Verbal · D</strong><code>08001400300320240012100</code></div><div><span class="pill active"><i></i>En trámite</span></div><div>7 oct 2026</div><div>Corre traslado de excepciones</div></div>
 
-        <!-- Step 3 -->
-        <div class="how-works-step">
-          <div class="how-works-circle">3</div>
-          <h3>Recibe Alertas</h3>
-          <p>Activa notificaciones automáticas y recibe cada auto o actuación en tu WhatsApp.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="lp-float blue" style="right:-14px;top:-18px">Sincronización automática de radicados en segundos.</div>
+            <div class="lp-float blue" style="left:-14px;bottom:-18px">Alertas en WhatsApp con el contenido del auto.</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Impact / Stats Section -->
-  <section class="impact-section">
-    <div class="container text-center">
-      <h2 class="section-title">Esto es lo que Wabog puede hacer en <br>tu despacho</h2>
+  <!-- ================= AGENTES ================= -->
+  <section id="agente" class="lp-section alt has-shader">
+    <div class="shader-bg" data-shader="soft" aria-hidden="true"></div>
+    <div class="lp-wrap lp-agent">
+      <div class="lp-agent-copy">
+        <div class="lp-eyebrow">Agentes de Wabog</div>
+        <h2 class="lp-h2">Tus agentes leen los autos antes de que <span class="lp-hl">abras el expediente</span></h2>
+        <p class="lp-sub" style="margin-top:22px;font-size:18px;line-height:1.55">Revisan todos tus procesos cada mañana y solo te piden una decisión cuando algo la necesita. Pruébalo: revisa y confirma una acción.</p>
+        <ul class="lp-points">
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><b>Revisan todo, todos los días</b><span>Tú eliges cuándo lo hacen y qué procesos vigilan.</span></div></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M16 13H8M16 17H8"/></svg><div><b>Cada dato trae su fuente</b><span>Ves el fragmento exacto del auto y su página. Nada de resúmenes a ciegas.</span></div></li>
+          <li><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>Tú decides lo importante</b><span>Confirmas y el término o la audiencia queda en tu agenda.</span></div></li>
+        </ul>
+        <a class="lp-btn lp-btn-blue" style="margin-top:36px" href="https://app.wabog.com" data-analytics="agent_cta_click" data-analytics-location="agent">Empieza 15 días gratis</a>
+      </div>
 
-      <div class="impact-metrics-grid">
-        <div class="impact-metric">
-          <div class="impact-number">90%</div>
-          <div class="impact-description">De tiempo ahorrado en la consulta de procesos</div>
+      <div class="lp-card-app" id="agent-demo">
+        <div class="ag-status"><i id="ag-dot"></i><span id="ag-text">Revisando ahora · proceso 0 de 112</span></div>
+        <div class="ag-bar"><div id="ag-bar"></div></div>
+        <div class="ag-head"><h3>Acciones pendientes por revisar</h3><span class="ag-count" id="ag-count" hidden>0</span></div>
+        <div class="ag-empty" id="ag-empty">Aún no hay acciones pendientes. Aparecerán aquí cuando los agentes encuentren algo que requiera tu revisión.</div>
+        <div id="ag-cards"></div>
+        <button type="button" class="ag-replay" id="ag-replay">Repetir la demo</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FUNCIONALIDADES ================= -->
+  <section id="features" class="lp-section">
+    <div class="lp-wrap">
+      <div style="max-width:860px">
+        <h2 class="lp-h2">Todo lo que necesitas para <span class="lp-hl">organizar</span> tus términos</h2>
+      </div>
+      <div class="lp-feats">
+        <div class="lp-feat">
+          <div class="lp-eyebrow">Alertas en WhatsApp</div>
+          <h3>Te llega al celular, no al correo</h3>
+          <p>Recibe los archivos adjuntos y resúmenes de actuaciones directamente en tu celular, sin abrir correos molestos.</p>
+          <div class="demo"><div class="wa">
+            <div class="me">Avísame cuando este proceso tenga un cambio.</div>
+            <div><b>Wabog · Notificaciones</b>Auto nuevo: fija audiencia inicial para el 18 de noviembre, 9:00 a. m.</div>
+            <div class="file"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6"/></svg>Auto.pdf</div>
+          </div></div>
         </div>
-        <div class="impact-metric">
-          <div class="impact-number">50%</div>
-          <div class="impact-description">De ahorro en gastos operativos</div>
+        <div class="lp-feat">
+          <div class="lp-eyebrow">Calendario y tareas</div>
+          <h3>Cada término, en tu agenda</h3>
+          <p>Cuando confirmas una acción, la audiencia o el término queda en el calendario, con su tarea y su fecha límite.</p>
+          <div class="demo"><div class="cal">
+            <div class="cal-head"><b>Noviembre 2026</b><span>Hoy</span></div>
+            <div class="cal-grid" id="mini-cal"></div>
+            <div class="cal-legend"><span><i style="background:#f59e0b"></i>Audiencia inicial · 18 nov</span><span><i style="background:#2563eb"></i>Término · 25 nov</span></div>
+          </div></div>
         </div>
-        <div class="impact-metric">
-          <div class="impact-number">24/7</div>
-          <div class="impact-description">Vigilancia automática e ininterrumpida</div>
+        <div class="lp-feat">
+          <div class="lp-eyebrow">Redacción y análisis IA</div>
+          <h3>Del auto al borrador</h3>
+          <p>Genera automáticamente borradores de contestación, recursos y resúmenes estructurados de cada providencia.</p>
+          <div class="demo"><div class="doc">
+            <div class="doc-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/></svg>Resumen de la providencia</div>
+            <div class="doc-lines"><i style="width:94%"></i><i style="width:80%"></i><i style="width:88%"></i></div>
+            <div class="doc-chips"><span>Borrador de contestación</span><span>Recurso</span><span class="n">Jurisprudencia</span></div>
+          </div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Pricing Section -->
-  <section id="pricing" class="pricing-section">
-    <div class="container">
-      <div class="pricing-header">
-        <h2 class="section-title">Selecciona el <span class="text-blue">plan</span> perfecto para ti</h2>
-        <p class="section-subtitle">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas legales en segundos.</p>
-        
-        <!-- Toggle Mensual / Anual -->
-        <div class="pricing-toggle-wrapper">
-          <div class="pricing-toggle" id="pricing-toggle" data-analytics="pricing_billing_toggle">
-            <div class="toggle-slider"></div>
-            <button class="toggle-btn active" id="btn-monthly" data-period="monthly">Mensual</button>
-            <button class="toggle-btn" id="btn-annual" data-period="annual">
-              Anual <span class="discount-badge">Ahorra 20%</span>
-            </button>
+  <!-- ================= CALCULADORA ================= -->
+  <section id="calculadora" class="lp-section alt">
+    <div class="lp-wrap">
+      <div style="max-width:860px">
+        <h2 class="lp-h2">¿Cuánto tiempo te cuesta revisar procesos <span class="lp-hl">a mano</span>?</h2>
+        <p class="lp-sub" style="margin-top:22px;max-width:640px;font-size:19px;line-height:1.55">Mueve los controles con tus números. Sin registro.</p>
+      </div>
+      <div class="lp-calc">
+        <div class="lp-calc-in">
+          <div>
+            <div class="lp-calc-row"><label for="calc-n">Procesos que llevas</label><output id="calc-n-out" class="tnum">40</output></div>
+            <input id="calc-n" type="range" min="5" max="150" step="5" value="40">
+            <div class="lp-calc-scale"><span>5</span><span>150</span></div>
+          </div>
+          <div>
+            <div class="lp-calc-row"><label for="calc-m">Minutos por proceso en cada revisión</label><output id="calc-m-out" class="tnum">3 min</output></div>
+            <input id="calc-m" type="range" min="1" max="10" step="1" value="3">
+            <div class="lp-calc-scale"><span>1 min</span><span>10 min</span></div>
+          </div>
+          <p class="lp-calc-note">Estimación: una revisión por día hábil, 22 días al mes. Los agentes no reemplazan tu criterio: tú confirmas cada acción.</p>
+        </div>
+        <div class="lp-calc-out">
+          <div class="shader-bg" data-shader="calc" aria-hidden="true"></div>
+          <div class="k">Hoy dedicas a revisar a mano</div>
+          <div class="big tnum"><span id="calc-hours">44</span><small>h al mes</small></div>
+          <div class="eq" id="calc-days">Son 5,5 jornadas completas de 8 horas, cada mes.</div>
+          <div class="rec">
+            <div>Con Wabog esa revisión corre sola cada mañana. Plan recomendado: <strong id="calc-plan">Plan PRO · $55.000 / mes</strong></div>
+            <a class="lp-btn lp-btn-white" href="https://app.wabog.com" data-analytics="calc_cta_click" data-analytics-location="calculadora">Empieza 15 días gratis</a>
           </div>
         </div>
       </div>
+    </div>
+  </section>
 
-      <div class="pricing-grid">
-        <!-- Plan PRO -->
-        <div class="pricing-card card-blue">
-          <div class="popular-badge">POPULAR</div>
-          <h3 class="plan-name">Plan PRO</h3>
+  <!-- ================= PRECIOS ================= -->
+  <section id="pricing" class="lp-section">
+    <div class="lp-wrap">
+      <div class="lp-center">
+        <h2 class="lp-h2" style="max-width:820px">Selecciona el <span class="lp-hl">plan</span> perfecto para ti</h2>
+        <p class="lp-sub" style="margin-top:22px;max-width:620px;font-size:18px;line-height:1.55">Automatiza el seguimiento de tus procesos, redacción de documentos y consultas legales en segundos.</p>
+        <div class="lp-pricing-toggle" id="pricing-toggle" data-analytics="pricing_billing_toggle">
+          <button type="button" class="toggle-btn active" id="btn-monthly" data-period="monthly">Mensual</button>
+          <button type="button" class="toggle-btn" id="btn-annual" data-period="annual">Anual <span class="discount-badge">Ahorra 20%</span></button>
+        </div>
+      </div>
+
+      <div class="lp-plans">
+        <div class="lp-plan pro">
+          <span class="popular">POPULAR</span>
+          <div class="name">Plan PRO</div>
           <div class="plan-price" id="pro-price" data-monthly="55.000" data-annual="44.000" data-annual-total="528.000">$55.000 <span class="text-sm">/ Mes</span></div>
-
-          <ul class="plan-features">
-            <li><i class="bi bi-check-circle-fill"></i> Hasta 50 procesos sincronizados</li>
-            <li><i class="bi bi-check-circle-fill"></i> Generación de documentos</li>
-            <li><i class="bi bi-check-circle-fill"></i> Consultas de jurisprudencias</li>
-            <li><i class="bi bi-check-circle-fill"></i> Notificaciones por Whatsapp</li>
-            <li><i class="bi bi-check-circle-fill"></i> 1 consulta diaria a la rama</li>
-            <li><i class="bi bi-check-circle-fill"></i> Soporte personalizado 24/7</li>
-          </ul>
-
-          <a href="https://app.wabog.com" class="btn-white-rect" data-analytics="pricing_pro_sincronizar_gratis"
-            data-analytics-location="pricing_pro">Empieza 15 días gratis</a>
+          <ul class="feat"><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Hasta 50 procesos sincronizados</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Generación de documentos</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Consultas de jurisprudencias</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Notificaciones por Whatsapp</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>1 consulta diaria a la rama</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Soporte personalizado 24/7</li></ul>
+          <a class="cta" href="https://app.wabog.com" data-analytics="pricing_pro_sincronizar_gratis" data-analytics-location="pricing_pro">Empieza 15 días gratis</a>
         </div>
-
-        <!-- Plan TEAM -->
-        <div class="pricing-card card-team">
-          <h3 class="plan-name">Plan TEAM</h3>
+        <div class="lp-plan team">
+          <div class="name">Plan TEAM</div>
           <div class="plan-price" id="team-price" data-monthly="110.000" data-annual="88.000" data-annual-total="1.056.000">$110.000 <span class="text-sm">/ Mes</span></div>
-
-          <ul class="plan-features">
-            <li><i class="bi bi-check-circle-fill"></i> Hasta 100 procesos sincronizados</li>
-            <li><i class="bi bi-check-circle-fill"></i> Generación de documentos</li>
-            <li><i class="bi bi-check-circle-fill"></i> Consultas de jurisprudencias</li>
-            <li><i class="bi bi-check-circle-fill"></i> Notificaciones por Whatsapp</li>
-            <li><i class="bi bi-check-circle-fill"></i> 2 consultas diarias a la rama</li>
-            <li><i class="bi bi-check-circle-fill"></i> Soporte personalizado 24/7</li>
-          </ul>
-
-          <a href="https://app.wabog.com" class="btn-white-rect" data-analytics="pricing_team_sincronizar_gratis"
-            data-analytics-location="pricing_team">Empieza 15 días gratis</a>
+          <ul class="feat"><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Hasta 100 procesos sincronizados</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Generación de documentos</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Consultas de jurisprudencias</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Notificaciones por Whatsapp</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>2 consultas diarias a la rama</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Soporte personalizado 24/7</li></ul>
+          <a class="cta" href="https://app.wabog.com" data-analytics="pricing_team_sincronizar_gratis" data-analytics-location="pricing_team">Empieza 15 días gratis</a>
         </div>
-
-        <!-- Plan ENTERPRISE -->
-        <div class="pricing-card card-gray">
-          <h3 class="plan-name text-dark">Plan ENTERPRISE</h3>
-          <div class="plan-price text-dark">Custom <span class="text-sm font-light">/ Hablar con ventas</span></div>
-
-          <ul class="plan-features text-dark-features">
-            <li><i class="bi bi-check-circle"></i> Procesos sincronizados a demanda</li>
-            <li><i class="bi bi-check-circle"></i> Generación de documentos</li>
-            <li><i class="bi bi-check-circle"></i> Consultas de jurisprudencias</li>
-            <li><i class="bi bi-check-circle"></i> Notificaciones por Whatsapp</li>
-            <li><i class="bi bi-check-circle"></i> Soporte personalizado 24/7</li>
-            <li><i class="bi bi-check-circle"></i> Elige el numero de consultas a la rama</li>
-          </ul>
-
-          <a href="https://wa.me/12058921790?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Wabog.%20%C2%BFMe%20pueden%20contar%20c%C3%B3mo%20funciona%3F"
-            target="_blank" rel="noopener noreferrer" class="btn-dark-rect" data-analytics="pricing_enterprise_ventas"
-            data-analytics-location="pricing_enterprise">HABLA CON VENTAS</a>
+        <div class="lp-plan ent">
+          <div class="name">Plan ENTERPRISE</div>
+          <div class="plan-price">Custom <span class="text-sm">/ Hablar con ventas</span></div>
+          <ul class="feat"><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Procesos sincronizados a demanda</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Generación de documentos</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Consultas de jurisprudencias</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Notificaciones por Whatsapp</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Soporte personalizado 24/7</li><li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M20 6 9 17l-5-5"/></svg>Eliges el número de consultas a la rama</li></ul>
+          <a class="cta" href="https://wa.me/12058921790?text=Hola%2C%20me%20interesa%20el%20plan%20Enterprise%20de%20Wabog.%20%C2%BFMe%20pueden%20contar%20c%C3%B3mo%20funciona%3F" target="_blank" rel="noopener noreferrer" data-analytics="pricing_enterprise_ventas" data-analytics-location="pricing_enterprise">Habla con ventas</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ Section -->
-  <section id="faq" class="faq-section">
-    <div class="container">
-      <h2 class="section-title">Preguntas <span class="text-blue">Frecuentes</span></h2>
-      <p class="faq-subtitle">Resolvemos tus dudas sobre cómo automatizar la vigilancia judicial con Wabog.</p>
-      
-      <div class="faq-container">
-        <!-- FAQ 1 -->
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_1">
-            ¿Cómo funciona la sincronización con la Rama Judicial?
-            <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              Wabog se conecta directamente con los sistemas públicos de la Rama Judicial de Colombia. Al ingresar tu número de radicado de 23 dígitos, nuestro sistema consulta las bases de datos oficiales en tiempo real, indexa el expediente completo y establece un canal de vigilancia que realiza revisiones continuas.
-            </div>
-          </div>
-        </div>
-        
-        <!-- FAQ 2 -->
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_2">
-            ¿Qué tipo de procesos judiciales puedo registrar?
-            <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              Puedes registrar cualquier tipo de proceso que tenga asignado un número de radicado de 23 dígitos válido en Colombia, incluyendo procesos de juzgados civiles, laborales, de familia, administrativos y tribunales.
-            </div>
-          </div>
-        </div>
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="lp-section alt">
+    <div class="lp-wrap lp-faq">
+      <div class="lp-faq-head">
+        <h2 class="lp-h2">Preguntas <span class="lp-hl">frecuentes</span></h2>
+        <p class="lp-sub">Resolvemos tus dudas sobre cómo automatizar la vigilancia judicial con Wabog.</p>
+      </div>
+      <div class="lp-faq-list">
+<div class="faq-item active"><button class="faq-question" aria-expanded="true" data-analytics="faq_toggle_1">¿Cómo funciona la sincronización con la Rama Judicial?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Wabog se conecta directamente con los sistemas públicos de la Rama Judicial de Colombia. Al ingresar tu número de radicado de 23 dígitos, nuestro sistema consulta las bases de datos oficiales en tiempo real, indexa el expediente completo y establece un canal de vigilancia que realiza revisiones continuas.</div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_2">¿Qué tipo de procesos judiciales puedo registrar?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Puedes registrar cualquier tipo de proceso que tenga asignado un número de radicado de 23 dígitos válido en Colombia, incluyendo procesos de juzgados civiles, laborales, de familia, administrativos y tribunales.</div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_3">¿Cómo se configuran las notificaciones por WhatsApp?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cuando el juzgado registre una nueva actuación, podrás recibir un mensaje automático con el resumen y enlace.</div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_4">¿Es segura la información de mis radicados y datos?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Absolutamente. Solo consultamos información pública disponible en la Rama Judicial. Los datos de tus clientes y de contacto (como tu celular) se cifran y se almacenan bajo altos estándares de seguridad y de acuerdo con la Ley de Protección de Datos Personales (Habeas Data).</div></div></div>
+<div class="faq-item"><button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_5">¿Puedo probar el servicio de forma gratuita?<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1454fa" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="m6 9 6 6 6-6"/></svg></button><div class="faq-answer"><div>Sí. Puedes sincronizar tus procesos gratis durante 15 días, directamente desde el buscador en la parte superior. Esto te dará acceso a las notificaciones y al expediente sin costo, permitiéndote comprobar la inmediatez y exactitud de Wabog.</div></div></div>
 
-        <!-- FAQ 3 -->
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_3">
-            ¿Cómo se configuran las notificaciones por WhatsApp?
-            <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              Cuando ingreses tu número de radicado y verifiques el proceso, el sistema te solicitará tu número de celular. Una vez guardado, nuestro bot te enviará un mensaje de bienvenida. A partir de ese momento, cada vez que el juzgado registre una nueva actuación, recibirás un mensaje automático con el resumen y enlace.
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 4 -->
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_4">
-            ¿Es segura la información de mis radicados y datos?
-            <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              Absolutamente. Solo consultamos información pública disponible en la Rama Judicial. Los datos de tus clientes y de contacto (como tu celular) se cifran y se almacenan bajo altos estándares de seguridad y de acuerdo con la Ley de Protección de Datos Personales (Habeas Data).
-            </div>
-          </div>
-        </div>
-
-        <!-- FAQ 5 -->
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false" data-analytics="faq_toggle_5">
-            ¿Puedo probar el servicio de forma gratuita?
-            <i class="bi bi-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <div class="faq-answer-content">
-              Sí. Puedes sincronizar tus procesos gratis durante 15 días, directamente desde el buscador en la parte superior. Esto te dará acceso a las notificaciones y al expediente sin costo, permitiéndote comprobar la inmediatez y exactitud de Wabog.
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Final CTA Section -->
-  <section class="final-cta-section">
-    <div class="container">
-      <div class="final-cta-card">
+  <!-- ================= CTA FINAL ================= -->
+  <section class="lp-section">
+    <div class="lp-wrap">
+      <div class="lp-cta">
+        <div class="shader-bg" data-shader="cta" aria-hidden="true"></div>
         <h2>¿Listo para optimizar tu despacho?</h2>
-        <p>Sincroniza tus procesos judiciales gratis durante 15 días y siente la tranquilidad de no volver a perder ningún término legal.</p>
-        <a href="https://app.wabog.com" class="btn-cta-final" data-analytics="final_cta_sincronizar" data-analytics-location="final_cta">Empieza 15 días gratis</a>
+        <p>Sincroniza tus procesos judiciales gratis durante 15 días y lleva el seguimiento de tus actuaciones y términos en un solo lugar.</p>
+        <a class="lp-btn lp-btn-white" href="https://app.wabog.com" data-analytics="final_cta_sincronizar" data-analytics-location="final_cta">Empieza 15 días gratis</a>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ================= PIE ================= -->
   <footer class="site-footer">
     <div class="container footer-container-grid">
       <!-- Brand -->
@@ -526,11 +375,10 @@
     </div>
   </footer>
 
-  <!-- CTA fijo (solo movil): aparece cuando el CTA del hero sale de pantalla -->
-  <a href="https://app.wabog.com" id="sticky-cta" class="sticky-cta" data-analytics="sticky_cta_sincronizar"
-    data-analytics-location="sticky_cta">Empieza 15 días gratis</a>
+  <!-- CTA fijo (solo móvil): aparece cuando el formulario del hero sale de pantalla -->
+  <a href="https://app.wabog.com" id="sticky-cta" class="sticky-cta" data-analytics="sticky_cta_sincronizar" data-analytics-location="sticky_cta">Empieza 15 días gratis</a>
 
-  <!-- Scripts -->
+  <!-- Modal de lead (misma lógica de producción) -->
   <div id="lead-modal-backdrop" class="lead-modal-backdrop" hidden></div>
   <div id="lead-modal" class="lead-modal" role="dialog" aria-modal="true" aria-labelledby="lead-modal-title" hidden>
     <button id="lead-modal-close" class="lead-modal-close" type="button" aria-label="Cerrar formulario">
@@ -575,7 +423,6 @@
       </div>
     </form>
 
-    <!-- Modal Success Animation View (Hidden by default) -->
     <div id="lead-success-anim" class="lead-success-anim" hidden>
       <div class="success-checkmark">
         <div class="check-icon">
@@ -589,19 +436,16 @@
     </div>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Scripts -->
   <script>
-    // Reemplaza este valor por tu ID real de Google Analytics 4 (ej: G-ABC123XYZ9)
     window.WABOG_GA_MEASUREMENT_ID = 'G-3MJTDC5BSK';
     window.WABOG_META_PIXEL_ID = '1470363888063264';
     window.WABOG_RADICADO_DEMO_URL = 'https://microsaas-radicado-demo.zhmeru.easypanel.host/v1/checks';
   </script>
   <script src="main.js"></script>
-
-  <!-- Supabase & Form Logic (Preserved but hidden for now as per design, or we can re-enable if needed) -->
-  <!-- Note: The new design doesn't explicitly show the waitlist form, but we keep the script just in case -->
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-
+  <script src="chrome.js"></script>
+  <script src="landing.js"></script>
+  <script type="module" src="shaders-bg.js"></script>
 </body>
 
 </html>
